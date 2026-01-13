@@ -7,8 +7,8 @@ const ServiceDetail = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr2}
-        title="Services Detail"
-        subtitle="Services Detail"
+        title="Detalle de Servicios"
+        subtitle="Detalle de Servicios"
       />
       <section className="content-inner">
         <div className="container">
@@ -17,7 +17,7 @@ const ServiceDetail = () => {
               <aside className="side-bar left sticky-top">
                 <div className="widget search-bx">
                   <div className="widget-title">
-                    <h5 className="title m-b30">Search</h5>
+                    <h5 className="title m-b30">Buscar</h5>
                   </div>
                   <form role="search" method="post">
                     <div className="input-group">
@@ -25,7 +25,7 @@ const ServiceDetail = () => {
                         <input
                           name="text"
                           className="form-control"
-                          placeholder="Search"
+                          placeholder="Buscar"
                           type="text"
                         />
                         <div className="input-group-btn">
@@ -60,7 +60,7 @@ const ServiceDetail = () => {
                 </div>
                 <div className="widget recent-posts-entry">
                   <div className="widget-title">
-                    <h5 className="title m-b30">Recent Post</h5>
+                    <h5 className="title m-b30">Publicacion Reciente</h5>
                   </div>
                   <div className="widget-post-bx style-1">
                     <div className="widget-post clearfix">
@@ -71,7 +71,7 @@ const ServiceDetail = () => {
                         <div className="dz-meta">
                           <ul>
                             <li>
-                              <Link to={"#"}>STANDARD</Link>
+                              <Link to={"#"}>ESTANDAR</Link>
                             </li>
                             <li className="date">
                               <Link to={"#"}>Dec 10, 2023</Link>
@@ -79,7 +79,9 @@ const ServiceDetail = () => {
                           </ul>
                         </div>
                         <h6 className="title">
-                          <Link to="/blog-standard">Come Dine with Us!</Link>
+                          <Link to="/blog-standard">
+                            Ven a Comer con Nosotros!
+                          </Link>
                         </h6>
                       </div>
                     </div>
@@ -93,7 +95,7 @@ const ServiceDetail = () => {
                         <div className="dz-meta">
                           <ul>
                             <li>
-                              <Link to={"#"}>STANDARD</Link>
+                              <Link to={"#"}>ESTANDAR</Link>
                             </li>
                             <li className="date">
                               <Link to={"#"}>May 12, 2023</Link>
@@ -102,7 +104,7 @@ const ServiceDetail = () => {
                         </div>
                         <h6 className="title">
                           <Link to="/blog-standard">
-                            Take Link Bite Out of Life
+                            Da un Mordisco a la Vida
                           </Link>
                         </h6>
                       </div>
@@ -111,23 +113,23 @@ const ServiceDetail = () => {
                 </div>
                 <div className="widget widget_categories">
                   <div className="widget-title">
-                    <h4 className="title">Categories</h4>
+                    <h4 className="title">Categorias</h4>
                   </div>
                   <ul>
                     <li className="cat-item">
-                      <Link to="/blog-standard">All Services</Link>
+                      <Link to="/blog-standard">Todos los Servicios</Link>
                     </li>
                     <li className="cat-item">
-                      <Link to="/blog-standard">Water</Link>
+                      <Link to="/blog-standard">Agua</Link>
                     </li>
                     <li className="cat-item">
-                      <Link to="/blog-standard">Residental Cleaning</Link>
+                      <Link to="/blog-standard">Limpieza Residencial</Link>
                     </li>
                     <li className="cat-item">
-                      <Link to="/blog-standard">Summer Pizza</Link>
+                      <Link to="/blog-standard">Pizza de Verano</Link>
                     </li>
                     <li className="cat-item">
-                      <Link to="/blog-standard">Free Support</Link>
+                      <Link to="/blog-standard">Soporte Gratis</Link>
                     </li>
                   </ul>
                 </div>
@@ -139,41 +141,41 @@ const ServiceDetail = () => {
                   <img src={IMAGES.blog_detail_pic2} alt="/" />
                 </div>
                 <div className="dz-info">
-                  <h2 className="title">Delivery Services in Today's World</h2>
+                  <h2 className="title">Servicios de Entrega en el Mundo de Hoy</h2>
                   <div className="dz-meta">
                     <ul>
                       <li className="dz-user">
                         <Link to={"#"}>
                           <i className="fa-solid fa-user"></i>
-                          By <span>KK Sharma</span>
+                          Por <span>KK Sharma</span>
                         </Link>
                       </li>
                       <li className="dz-comment">
                         <Link to={"#"}>
                           <i className="fa-solid fa-message"></i>
-                          24 Comments
+                          24 Comentarios
                         </Link>
                       </li>
                     </ul>
                   </div>
                   <div className="dz-post-text style-1">
                     <p className="m-b10">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took Link galley of type and scrambled it to make
-                      Link type specimen book.
+                      Lorem Ipsum es texto de relleno de la industria de la
+                      impresion y la tipografia. Lorem Ipsum ha sido el texto
+                      estandar desde la decada de 1500, cuando un impresor
+                      desconocido tomo una galera de tipos y los mezclo para
+                      hacer un libro de muestras.
                     </p>
                     <p>
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s,
+                      Lorem Ipsum es texto de relleno de la industria de la
+                      impresion y la tipografia. Lorem Ipsum ha sido el texto
+                      estandar desde la decada de 1500,
                     </p>
                   </div>
                   <blockquote className="wp-block-quote style-1">
                     <i className="flaticon-right-quote quotes"></i>
                     <p>
-                      Fragment collings mauris sit amet nibh. Donec sodales
+                      Fragmentos collings mauris sit amet nibh. Donec sodales
                       sagittis magna. Sed consequat,
                     </p>
                     <cite>Ronald M. Spino</cite>

@@ -4,7 +4,7 @@ import { OurBlog } from "./BlogDetail";
 const BlogDetailRightSidebar = () => {
   return (
     <div className="page-content bg-white">
-      <CommonBanner2 pages="Blog Detail Right Sidebar" />
+      <CommonBanner2 pages="Detalle del Blog con Sidebar Der." />
       <section className="content-inner">
         <div className="container">
           <div className="row">

@@ -30,7 +30,7 @@ const MenuSlider = () => {
               <div className="dz-media">
                 <img src={img} alt="/" />
               </div>
-              <span className="dz-tag">TOP SELLER</span>
+              <span className="dz-tag">MAS VENDIDO</span>
               <div className="dz-content">
                 <div className="dz-info">
                   <h5 className="dz-title mb-0">

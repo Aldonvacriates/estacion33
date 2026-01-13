@@ -17,8 +17,8 @@ const Home3Box = () => {
               }}
             >
               <div className="adv-content">
-                <span className="special">FRIDAY SPECIAL</span>
-                <h4 className="title">TASTY BURGER</h4>
+                <span className="special">ESPECIAL DE VIERNES</span>
+                <h4 className="title">HAMBURGUESA SABROSA</h4>
               </div>
               <div className="adv-media">
                 <img
@@ -28,7 +28,7 @@ const Home3Box = () => {
                 />
                 <div className="item-media offer-label">
                   <img src={IMAGES.images_adv_label} alt="/" />
-                  <span className="">50% OFF</span>
+                  <span className="">50% DESCUENTO</span>
                 </div>
               </div>
             </div>
@@ -41,12 +41,12 @@ const Home3Box = () => {
                     <img src={IMAGES.images_adv_pic3} alt="/" />
                   </div>
                   <div className="adv-content">
-                    <span className="special text-white">TODAY SPECIAL</span>
-                    <h4 className="title text-white">Nodels</h4>
-                    <span className="price">60% OFF</span>
+                    <span className="special text-white">ESPECIAL DE HOY</span>
+                    <h4 className="title text-white">Fideos</h4>
+                    <span className="price">60% DESCUENTO</span>
                     <Link to="/shop-cart" className="btn btn-white btn-hover-3">
-                      <span className="btn-text" data-text="Add To Cart">
-                        Add To Cart
+                      <span className="btn-text" data-text="Agregar al Carrito">
+                        Agregar al Carrito
                       </span>
                     </Link>
                   </div>
@@ -62,11 +62,11 @@ const Home3Box = () => {
                   }}
                 >
                   <div className="adv-content">
-                    <span className="special text-white">MUSHROOM</span>
-                    <h4 className="title">BURGER</h4>
+                    <span className="special text-white">CHAMPINON</span>
+                    <h4 className="title">HAMBURGUESA</h4>
                     <Link to="/shop-cart" className="btn btn-white btn-hover-3">
-                      <span className="btn-text" data-text="Add To Cart">
-                        Add To Cart
+                      <span className="btn-text" data-text="Agregar al Carrito">
+                        Agregar al Carrito
                       </span>
                     </Link>
                   </div>
@@ -86,13 +86,13 @@ const Home3Box = () => {
                   </div>
                   <div className="adv-content">
                     <span className="special text-white">
-                      FOR LIMITED TIME ONLY
+                      SOLO POR TIEMPO LIMITADO
                     </span>
-                    <h4 className="price">35% Offer</h4>
+                    <h4 className="price">35% Descuento</h4>
                   </div>
                   <Link to="/shop-cart" className="btn btn-white btn-hover-3">
-                    <span className="btn-text" data-text="Add To Cart">
-                      Add To Cart
+                    <span className="btn-text" data-text="Agregar al Carrito">
+                      Agregar al Carrito
                     </span>
                   </Link>
                 </div>

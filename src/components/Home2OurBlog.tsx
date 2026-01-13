@@ -8,7 +8,7 @@ const Home2OurBlog = () => {
         <div className="row">
           <div className="col-xl-7 col-lg-12">
             <div className="section-head">
-              <h2 className="title wow flipInX">Recent News & Updates</h2>
+              <h2 className="title wow flipInX">Noticias y Actualizaciones Recientes</h2>
             </div>
             <div className="dz-card style-2 blog-half wow fadeInUp m-b30">
               <div className="dz-media">
@@ -20,7 +20,7 @@ const Home2OurBlog = () => {
               <div className="dz-info">
                 <h4 className="dz-title">
                   <Link to="/blog-standard">
-                    Chill Out with These Refreshing
+                    Relajate con Estas Refrescantes
                   </Link>
                 </h4>
                 <div className="dz-meta">
@@ -28,13 +28,13 @@ const Home2OurBlog = () => {
                     <li className="dz-user">
                       <Link to="#">
                         <i className="fa-solid fa-user"></i>
-                        By <span>RK Gupta</span>
+                        Por <span>RK Gupta</span>
                       </Link>
                     </li>
                     <li className="dz-comment">
                       <Link to="#">
                         <i className="fa-solid fa-message"></i>
-                        10 Comments
+                        10 Comentarios
                       </Link>
                     </li>
                   </ul>
@@ -44,7 +44,7 @@ const Home2OurBlog = () => {
                     to="/blog-standard"
                     className="btn btn-primary btn-hover-2"
                   >
-                    Read More
+                    Leer Mas
                   </Link>
                 </div>
               </div>
@@ -59,7 +59,7 @@ const Home2OurBlog = () => {
               <div className="dz-info">
                 <h4 className="dz-title">
                   <Link to="/blog-standard">
-                    Taste Excitement: A Sneak Peek into the
+                    Sabor y Emocion: Un Adelanto de
                   </Link>
                 </h4>
                 <div className="dz-meta">
@@ -67,13 +67,13 @@ const Home2OurBlog = () => {
                     <li className="dz-user">
                       <Link to="#">
                         <i className="fa-solid fa-user"></i>
-                        By <span>KK Sharma</span>
+                        Por <span>KK Sharma</span>
                       </Link>
                     </li>
                     <li className="dz-comment">
                       <Link to="#">
                         <i className="fa-solid fa-message"></i>
-                        24 Comments
+                        24 Comentarios
                       </Link>
                     </li>
                   </ul>
@@ -83,7 +83,7 @@ const Home2OurBlog = () => {
                     to="/blog-standard"
                     className="btn btn-primary btn-hover-2"
                   >
-                    Read More
+                    Leer Mas
                   </Link>
                 </div>
               </div>
@@ -100,7 +100,7 @@ const Home2OurBlog = () => {
               <div className="dz-info">
                 <h3 className="dz-title">
                   <Link to="/blog-standard" className="text-white">
-                    Exploring the World of Pizza
+                    Explorando el Mundo de la Pizza
                   </Link>
                 </h3>
                 <div className="dz-meta">
@@ -109,13 +109,13 @@ const Home2OurBlog = () => {
                     <li className="dz-user">
                       <Link to="#">
                         <i className="fa-solid fa-user"></i>
-                        By <span>KK Sharma</span>
+                        Por <span>KK Sharma</span>
                       </Link>
                     </li>
                     <li className="dz-comment">
                       <Link to="#">
                         <i className="fa-solid fa-message"></i>
-                        15 Comments
+                        15 Comentarios
                       </Link>
                     </li>
                   </ul>

@@ -9,8 +9,8 @@ const ShopStyle2 = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr2}
-        title="Shop Style 2"
-        subtitle="Shop Style 2"
+        title="Tienda Estilo 2"
+        subtitle="Tienda Estilo 2"
       />
       <section className="content-inner-1">
         <div className="container">
@@ -22,7 +22,7 @@ const ShopStyle2 = () => {
                     required
                     type="text"
                     className="form-control"
-                    placeholder="Type here"
+                    placeholder="Escribe aqui"
                   />
                   <div className="input-group-addon">
                     <button
@@ -31,7 +31,7 @@ const ShopStyle2 = () => {
                       type="submit"
                       className="btn btn-primary btn-hover-2"
                     >
-                      <span>Search</span>
+                      <span>Buscar</span>
                       <i className="icon-search"></i>
                     </button>
                   </div>
@@ -44,13 +44,13 @@ const ShopStyle2 = () => {
             <div className="col-lg-9">
               <div className="d-flex justify-content-between align-items-center">
                 <h5 className="title mb-md-3 mb-lg-4 m-b20 d-none d-lg-block">
-                  Search Results
+                  Resultados de Busqueda
                 </h5>
                 <strong className="filter-item-show m-b20">
-                  Search: 51,740 items
+                  Busqueda: 51,740 articulos
                 </strong>
                 <Link to={"#"} className="btn btn-primary panel-btn">
-                  Filter
+                  Filtrar
                 </Link>
               </div>
               <ul id="masonry" className="row">
@@ -64,7 +64,7 @@ const ShopStyle2 = () => {
                         <img src={img} alt="/" />
                         <div className="dz-meta">
                           <ul>
-                            <li className="seller">Top Seller</li>
+                            <li className="seller">Mas Vendido</li>
                             <li className="rating">
                               <i className="fa-solid fa-star"></i> 4.5
                             </li>
@@ -76,8 +76,8 @@ const ShopStyle2 = () => {
                           <Link to="/product-detail">{name}</Link>
                         </h5>
                         <p>
-                          It is Link long established fact that Link reader will
-                          be distracted.
+                          Es un hecho conocido que el lector se distrae por lo
+                          legible del texto.
                         </p>
                         <span className="price">$4.56</span>
                       </div>

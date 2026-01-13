@@ -63,13 +63,13 @@ const MainBanner = () => {
                             to="/contact-us"
                             className="btn btn-primary btn-md shadow-primary m-r30 btn-hover-1"
                           >
-                            <span>Book a Table</span>
+                            <span>Reservar Mesa</span>
                           </Link>
                           <Link
                             to="/about-us"
                             className="btn btn-outline-primary btn-md shadow-primary btn-hover-1"
                           >
-                            <span>View More</span>
+                            <span>Ver Mas</span>
                           </Link>
                         </div>
                       </div>
@@ -113,7 +113,7 @@ const MainBanner = () => {
                     <img src={imgThumb} alt="/" />
                   </div>
                   <div className="dz-content">
-                    <h5 className="title">BreakFast</h5>
+                    <h5 className="title">Desayuno</h5>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit
                     </p>

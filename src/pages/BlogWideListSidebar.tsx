@@ -10,8 +10,8 @@ const BlogWideListSidebar = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr5}
-        title="Blog Wide List Sidebar"
-        subtitle="Blog Wide List Sidebar"
+        title="Blog Lista Ancha con Sidebar"
+        subtitle="Blog Lista Ancha con Sidebar"
       />
       <section className="content-inner">
         <div className="container-fluid">
@@ -44,18 +44,18 @@ const BlogWideListSidebar = () => {
                         </div>
                         <h5 className="dz-title">
                           <Link to="/blog-standard">
-                            Paradise Taste of Dishes
+                            Sabor Paraiso de Platos
                           </Link>
                         </h5>
                         <p>
-                          There are many variations of passages of Lorem Ipsum.
+                          Hay muchas variaciones de pasajes de Lorem Ipsum.
                         </p>
                         <div className="read-btn">
                           <Link
                             to="/blog-standard"
                             className="btn btn-primary btn-hover-2"
                           >
-                            Read More
+                            Leer Mas
                           </Link>
                         </div>
                       </div>

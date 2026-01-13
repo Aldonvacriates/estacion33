@@ -9,8 +9,8 @@ const BlogGridRightSidebar = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr3}
-        title="Blog Grid Right Sidebar"
-        subtitle="Blog Grid Right Sidebar"
+        title="Blog Cuadricula con Sidebar Der."
+        subtitle="Blog Cuadricula con Sidebar Der."
       />
       <section className="content-inner">
         <div className="container">

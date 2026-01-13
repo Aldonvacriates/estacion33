@@ -16,18 +16,18 @@ const Sidebar = () => {
           </div>
           <div className="m-b50 contact-text">
             <div className="dz-title">
-              <h4 className="m-b0">About us</h4>
+              <h4 className="m-b0">Nosotros</h4>
             </div>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              Lorem Ipsum es simplemente texto de relleno de la industria de la
+              imprenta y la tipografia.
             </p>
             <Link to="/about-us" className="btn btn-primary btn-hover-2">
-              <span>READ MORE</span>
+              <span>LEER MAS</span>
             </Link>
           </div>
           <div className="dz-title">
-            <h4 className="m-b20">Contact Info</h4>
+            <h4 className="m-b20">Informacion de Contacto</h4>
           </div>
           <div className="icon-bx-wraper left">
             <div className="icon-md m-r20">
@@ -36,7 +36,7 @@ const Sidebar = () => {
               </span>
             </div>
             <div className="icon-content">
-              <h6 className="tilte">Call Now</h6>
+              <h6 className="tilte">Llama Ahora</h6>
               <p className="m-b0">
                 +91 123 456 7890,
                 <br /> +91 987 654 3210
@@ -50,7 +50,7 @@ const Sidebar = () => {
               </span>
             </div>
             <div className="icon-content">
-              <h6 className="tilte">Location</h6>
+              <h6 className="tilte">Ubicacion</h6>
               <p className="m-b0">15/B Miranda House, New York, US</p>
             </div>
           </div>
@@ -61,7 +61,7 @@ const Sidebar = () => {
               </span>
             </div>
             <div className="icon-content">
-              <h6 className="tilte">Email Now</h6>
+              <h6 className="tilte">Correo Ahora</h6>
               <p className="m-b0">info@gmail.com, services@gmail.com</p>
             </div>
           </div>

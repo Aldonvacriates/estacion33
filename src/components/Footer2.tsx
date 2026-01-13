@@ -21,7 +21,7 @@ const Footer2 = () => {
         )
         .then(
           () => {
-            toast.success("Successfully send!");
+            toast.success("Enviado correctamente!");
           },
           (error) => {
             toast.error(error.text);
@@ -46,13 +46,13 @@ const Footer2 = () => {
                         </Link>
                       </div>
                       <p className="text-white mb-0 font-14">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry.
+                        Lorem Ipsum es simplemente texto de relleno de la
+                        industria de la imprenta y la tipografia.
                       </p>
                     </div>
                     <div className="col-xl-6 col-lg-6 wow fadeInUp">
                       <h4 className="text-white title m-b15">
-                        Subscribe To Our Newsletter
+                        Suscribete a Nuestro Boletin
                       </h4>
                       <form
                         className="dzSubscribe"
@@ -70,7 +70,7 @@ const Footer2 = () => {
                               setInput(e.target.value);
                             }}
                             className="form-control"
-                            placeholder="Enter Your Email"
+                            placeholder="Ingresa tu correo"
                           />
                           <div className="input-group-addon">
                             <button
@@ -79,7 +79,7 @@ const Footer2 = () => {
                               type="submit"
                               className="btn btn-primary btn-hover-2"
                             >
-                              <span>Subscribe</span>
+                              <span>Suscribete</span>
                               <i className="fa-solid fa-paper-plane"></i>
                             </button>
                           </div>
@@ -92,7 +92,7 @@ const Footer2 = () => {
               <div className="row">
                 <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 wow fadeInUp">
                   <div className="widget widget_getintuch">
-                    <h5 className="footer-title">Contact</h5>
+                    <h5 className="footer-title">Contacto</h5>
                     <ul>
                       <li>
                         <i className="flaticon-placeholder"></i>
@@ -122,26 +122,26 @@ const Footer2 = () => {
                 </div>
                 <div className="col-xl-3 col-lg-2 col-md-6 col-sm-6">
                   <div className="widget widget_services">
-                    <h5 className="footer-title">Our Links</h5>
+                    <h5 className="footer-title">Nuestros Enlaces</h5>
                     <ul>
                       <li>
                         <Link to="/">
-                          <span>Home</span>
+                          <span>Inicio</span>
                         </Link>
                       </li>
                       <li>
                         <Link to="/about-us">
-                          <span>About Us</span>
+                          <span>Nosotros</span>
                         </Link>
                       </li>
                       <li>
                         <Link to="/services">
-                          <span>Services</span>
+                          <span>Servicios</span>
                         </Link>
                       </li>
                       <li>
                         <Link to="/team">
-                          <span>Team</span>
+                          <span>Equipo</span>
                         </Link>
                       </li>
                       <li>
@@ -154,31 +154,31 @@ const Footer2 = () => {
                 </div>
                 <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                   <div className="widget widget_services">
-                    <h5 className="footer-title">OUR SERVICES</h5>
+                    <h5 className="footer-title">NUESTROS SERVICIOS</h5>
                     <ul>
                       <li>
                         <Link to="/blog-open-gutenberg">
-                          <span>Strategy & Research</span>
+                          <span>Estrategia y Investigacion</span>
                         </Link>
                       </li>
                       <li>
                         <Link to="/services">
-                          <span>Fast Delivery</span>
+                          <span>Entrega Rapida</span>
                         </Link>
                       </li>
                       <li>
                         <Link to="/contact-us">
-                          <span>Seat Reservation</span>
+                          <span>Reserva de Asientos</span>
                         </Link>
                       </li>
                       <li>
                         <Link to="/shop-style-1">
-                          <span>Pickup In Store</span>
+                          <span>Recoger en Tienda</span>
                         </Link>
                       </li>
                       <li>
                         <Link to="/our-menu-1">
-                          <span>Our Menu</span>
+                          <span>Nuestro Menu</span>
                         </Link>
                       </li>
                     </ul>
@@ -186,7 +186,7 @@ const Footer2 = () => {
                 </div>
                 <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6	">
                   <div className="widget widget_services">
-                    <h5 className="footer-title">Help Center</h5>
+                    <h5 className="footer-title">Centro de Ayuda</h5>
                     <ul>
                       <li>
                         <Link to="/faq">
@@ -195,22 +195,22 @@ const Footer2 = () => {
                       </li>
                       <li>
                         <Link to="/shop-style-1">
-                          <span>Shop</span>
+                          <span>Tienda</span>
                         </Link>
                       </li>
                       <li>
                         <Link to="/shop-style-2">
-                          <span>Category Filter</span>
+                          <span>Filtro de Categorias</span>
                         </Link>
                       </li>
                       <li>
                         <Link to="/testimonial">
-                          <span>Testimonials</span>
+                          <span>Testimonios</span>
                         </Link>
                       </li>
                       <li>
                         <Link to="/contact-us">
-                          <span>Contact Us</span>
+                          <span>Contacto</span>
                         </Link>
                       </li>
                     </ul>
@@ -225,7 +225,7 @@ const Footer2 = () => {
             <div className="row">
               <div className="col-xl-6 col-lg-6">
                 <span className="copyright-text">
-                  Crafted With{" "}
+                  Hecho Con{" "}
                   <span
                     className="heart"
                     ref={heartRef}
@@ -233,7 +233,7 @@ const Footer2 = () => {
                       heartRef.current?.classList.toggle("heart-blast");
                     }}
                   ></span>{" "}
-                  by{" "}
+                  por{" "}
                   <Link to="https://dexignzone.com/" target="_blank">
                     DexignZone
                   </Link>
@@ -242,13 +242,13 @@ const Footer2 = () => {
               <div className="col-xl-6 col-lg-6">
                 <ul className="footer-link">
                   <li>
-                    <Link to="/blog-standard">Blog Detail</Link>
+                    <Link to="/blog-standard">Detalle del Blog</Link>
                   </li>
                   <li>
-                    <Link to="/about-us">About</Link>
+                    <Link to="/about-us">Nosotros</Link>
                   </li>
                   <li>
-                    <Link to="/testimonial">Testimonials</Link>
+                    <Link to="/testimonial">Testimonios</Link>
                   </li>
                 </ul>
               </div>

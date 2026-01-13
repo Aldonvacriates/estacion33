@@ -2,7 +2,7 @@ import { IMAGES } from "../constent/theme";
 import  SelectPicker  from "rsuite/SelectPicker";
 
 const data = [
-  "Number Of People",
+  "Numero de Personas",
   "1",
   "2",
   "3",
@@ -27,10 +27,10 @@ const Home3BookTable = () => {
       <div className="row align-items-center">
         <div className="col-lg-8 col-md-12 m-b30">
           <div className="contact-head">
-            <h4 className="title text-white wow fadeInUp">Book a Table</h4>
+            <h4 className="title text-white wow fadeInUp">Reservar Mesa</h4>
             <p className="text-white opacity-75 wow fadeInUp">
-              Lorem Ipsum is that it has a more-or-less normal distribution
-              <br /> of letters, to using making it look like readable English.
+              Lorem Ipsum tiene una distribucion mas o menos normal
+              <br /> de letras, haciendo que parezca texto legible.
             </p>
           </div>
           <form action="#">
@@ -45,7 +45,7 @@ const Home3BookTable = () => {
                     required
                     type="text"
                     className="form-control"
-                    placeholder="Your Name"
+                    placeholder="Tu Nombre"
                   />
                 </div>
               </div>
@@ -59,7 +59,7 @@ const Home3BookTable = () => {
                     required
                     type="text"
                     className="form-control dz-number"
-                    placeholder="Phone Number"
+                    placeholder="Numero de Telefono"
                   />
                 </div>
               </div>
@@ -70,7 +70,7 @@ const Home3BookTable = () => {
                   </div>
                   <SelectPicker
                     className="form-select default-select select-option-rsuite"
-                    defaultValue={"Number Of People"}
+                    defaultValue={"Numero de Personas"}
                     data={data}
                     searchable={false}
                   />
@@ -86,7 +86,7 @@ const Home3BookTable = () => {
                     required
                     type="text"
                     className="form-control"
-                    placeholder="Your Email"
+                    placeholder="Tu Correo"
                   />
                 </div>
               </div>
@@ -100,7 +100,7 @@ const Home3BookTable = () => {
                     type="text"
                     className="form-control"
                     id="timePickerOnly"
-                    placeholder="Time"
+                    placeholder="Hora"
                   />
                 </div>
               </div>
@@ -114,7 +114,7 @@ const Home3BookTable = () => {
                     type="text"
                     className="form-control"
                     id="datePickerOnly"
-                    placeholder="Date"
+                    placeholder="Fecha"
                   />
                 </div>
               </div>
@@ -123,8 +123,8 @@ const Home3BookTable = () => {
                   type="reset"
                   className="btn btn-md btn-primary btn-hover-3 mt-3"
                 >
-                  <span className="btn-text" data-text="Book a Table">
-                    Book a Table
+                  <span className="btn-text" data-text="Reservar Mesa">
+                    Reservar Mesa
                   </span>
                 </button>
               </div>
@@ -134,10 +134,9 @@ const Home3BookTable = () => {
         <div className="col-lg-4 col-md-12">
           <div className="widget widget_working bg-primary wow fadeInUp">
             <div className="head">
-              <h5 className="title text-white">Contact Info</h5>
+              <h5 className="title text-white">Informacion de Contacto</h5>
               <p className="text-white opacity-75">
-                Lorem Ipsum is simply dummy text of the printing typesetting
-                industry.
+                Lorem Ipsum es texto de relleno de la industria de impresion.
               </p>
             </div>
             <ul>

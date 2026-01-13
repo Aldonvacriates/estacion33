@@ -5,7 +5,7 @@ import { OurBlog } from "./BlogDetail";
 const BlogDetailLeftSidebar = () => {
   return (
     <div className="page-content bg-white">
-      <CommonBanner2 pages="Blog Detail Left Sidebar" />
+      <CommonBanner2 pages="Detalle del Blog con Sidebar Izq." />
       <section className="content-inner">
         <div className="container">
           <div className="row">

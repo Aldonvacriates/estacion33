@@ -6,15 +6,15 @@ import Collapse from "react-bootstrap/Collapse";
 import { useState } from "react";
 
 const options = [
-  { value: "Åland Islands", label: "Åland Islands" },
-  { value: "Afghanistan", label: "Afghanistan" },
+  { value: "Åland Islands", label: "Islas Aland" },
+  { value: "Afghanistan", label: "Afganistan" },
   { value: "Albania", label: "Albania" },
-  { value: "Algeria", label: "Algeria" },
+  { value: "Algeria", label: "Argelia" },
   { value: "Andorra", label: "Andorra" },
   { value: "Angola", label: "Angola" },
-  { value: "Anguilla", label: "Anguilla" },
-  { value: "Antarctica", label: "Antarctica" },
-  { value: "Antigua and Barbuda", label: "Antigua and Barbuda" },
+  { value: "Anguilla", label: "Anguila" },
+  { value: "Antarctica", label: "Antartida" },
+  { value: "Antigua and Barbuda", label: "Antigua y Barbuda" },
   { value: "Argentina", label: "Argentina" },
   { value: "Armenia", label: "Armenia" },
   { value: "Aruba", label: "Aruba" },
@@ -47,8 +47,8 @@ const ShopCheckout = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr3}
-        title="Shop Checkout"
-        subtitle="Shop Checkout"
+        title="Finalizar Compra"
+        subtitle="Finalizar Compra"
       />
 
       <section className="content-inner">
@@ -57,7 +57,7 @@ const ShopCheckout = () => {
             <div className="row">
               <div className="col-lg-6">
                 <div className="widget">
-                  <h4 className="widget-title">Billing & Shipping Address</h4>
+                  <h4 className="widget-title">Direccion de Facturacion y Envio</h4>
                   <FormGroup />
 
                   <Button
@@ -67,21 +67,20 @@ const ShopCheckout = () => {
                     aria-expanded={open}
                     className="btn btn-gray btnhover mb-3"
                   >
-                    Create an account <i className="fa fa-angle-down m-l10"></i>
+                    Crear una cuenta <i className="fa fa-angle-down m-l10"></i>
                   </Button>
                   <Collapse in={open}>
                     <div id="example-collapse-text">
                       <p>
-                        Create an account by entering the information below. If
-                        you are a returning customer please login at the top of
-                        the page.
+                        Crea una cuenta ingresando la informacion abajo. Si ya
+                        eres cliente, inicia sesion en la parte superior.
                       </p>
                       <div className="form-group">
                         <input
                           name="Password"
                           type="password"
                           className="form-control"
-                          placeholder="Password"
+                          placeholder="Contrasena"
                         />
                       </div>
                     </div>
@@ -98,22 +97,21 @@ const ShopCheckout = () => {
                     aria-expanded={colleps}
                     className="btn btn-gray btnhover mb-3"
                   >
-                    Ship to a different address{" "}
+                    Enviar a una direccion diferente{" "}
                     <i className="fa fa-angle-down m-l10"></i>
                   </Button>
                   <Collapse in={colleps}>
                     <div id="example-collapse-text">
                       <p>
-                        If you have shopped with us before, please enter your
-                        details in the boxes below. If you are a new customer
-                        please proceed to the Billing & Shipping section.
+                        Si ya compraste con nosotros, ingresa tus datos abajo.
+                        Si eres un cliente nuevo, continua con la seccion de
+                        Facturacion y Envio.
                       </p>
 
                       <FormGroup />
                       <p>
-                        Create an account by entering the information below. If
-                        you are a returning customer please login at the top of
-                        the page.
+                        Crea una cuenta ingresando la informacion abajo. Si ya
+                        eres cliente, inicia sesion en la parte superior.
                       </p>
                     </div>
                   </Collapse>
@@ -122,7 +120,7 @@ const ShopCheckout = () => {
                   <textarea
                     className="form-control"
                     rows={5}
-                    placeholder="Notes about your order, e.g. special notes for delivery"
+                    placeholder="Notas sobre tu pedido, por ejemplo indicaciones para entrega"
                   ></textarea>
                 </div>
               </div>
@@ -157,7 +155,7 @@ export function FormGroup() {
             required
             type="text"
             className="form-control"
-            placeholder="First Name"
+            placeholder="Nombre"
           />
         </div>
         <div className="form-group col-md-6 m-b20">
@@ -166,7 +164,7 @@ export function FormGroup() {
             required
             type="text"
             className="form-control"
-            placeholder="Last Name"
+            placeholder="Apellido"
           />
         </div>
       </div>
@@ -176,7 +174,7 @@ export function FormGroup() {
           required
           type="text"
           className="form-control"
-          placeholder="Company Name"
+          placeholder="Nombre de la Empresa"
         />
       </div>
       <div className="form-group m-b20">
@@ -185,7 +183,7 @@ export function FormGroup() {
           required
           type="text"
           className="form-control"
-          placeholder="Address"
+          placeholder="Direccion"
         />
       </div>
       <div className="row">
@@ -195,7 +193,7 @@ export function FormGroup() {
             required
             type="text"
             className="form-control"
-            placeholder="Apartment, suite, unit etc."
+            placeholder="Apartamento, suite, unidad, etc."
           />
         </div>
         <div className="form-group col-md-6 m-b20">
@@ -204,7 +202,7 @@ export function FormGroup() {
             required
             type="text"
             className="form-control"
-            placeholder="Town / City"
+            placeholder="Ciudad"
           />
         </div>
       </div>
@@ -215,7 +213,7 @@ export function FormGroup() {
             required
             type="text"
             className="form-control"
-            placeholder="State / County"
+            placeholder="Estado / Provincia"
           />
         </div>
         <div className="form-group col-md-6 m-b20">
@@ -224,7 +222,7 @@ export function FormGroup() {
             required
             type="text"
             className="form-control"
-            placeholder="Postcode / Zip"
+            placeholder="Codigo Postal"
           />
         </div>
       </div>
@@ -235,7 +233,7 @@ export function FormGroup() {
             required
             type="email"
             className="form-control"
-            placeholder="Email"
+            placeholder="Correo"
           />
         </div>
         <div className="form-group col-md-6 m-b20">
@@ -244,7 +242,7 @@ export function FormGroup() {
             required
             type="text"
             className="form-control dz-number"
-            placeholder="Phone"
+            placeholder="Telefono"
           />
         </div>
       </div>
@@ -253,10 +251,10 @@ export function FormGroup() {
 }
 
 const opetion2 = [
-  { value: "Credit Card Type", label: "Credit Card Type" },
-  { value: "Another option", label: "Another option" },
-  { value: "A option", label: "A option" },
-  { value: "Potato", label: "Potato" },
+  { value: "Tipo de Tarjeta", label: "Tipo de Tarjeta" },
+  { value: "Otra opcion", label: "Otra opcion" },
+  { value: "Una opcion", label: "Una opcion" },
+  { value: "Papa", label: "Papa" },
 ];
 export function MenuList() {
   return (
@@ -267,12 +265,12 @@ export function MenuList() {
       <div className="row">
         <div className="col-lg-6">
           <div className="widget">
-            <h4 className="widget-title">Your Order</h4>
+            <h4 className="widget-title">Tu Pedido</h4>
             <table className="table-bordered check-tbl">
               <thead className="text-center">
                 <tr>
-                  <th>IMAGE</th>
-                  <th>PRODUCT NAME</th>
+                  <th>IMAGEN</th>
+                  <th>NOMBRE DEL PRODUCTO</th>
                   <th>TOTAL</th>
                 </tr>
               </thead>
@@ -281,28 +279,28 @@ export function MenuList() {
                   <td className="product-item-img">
                     <img src={IMAGES.gallery_small_pic4} alt="/" />
                   </td>
-                  <td className="product-item-name">Prduct Item 4</td>
+                  <td className="product-item-name">Producto 4</td>
                   <td className="product-price">$36.00</td>
                 </tr>
                 <tr>
                   <td className="product-item-img">
                     <img src={IMAGES.gallery_small_pic3} alt="/" />
                   </td>
-                  <td className="product-item-name">Prduct Item 3</td>
+                  <td className="product-item-name">Producto 3</td>
                   <td className="product-price">$25.00</td>
                 </tr>
                 <tr>
                   <td className="product-item-img">
                     <img src={IMAGES.gallery_small_pic2} alt="/" />
                   </td>
-                  <td className="product-item-name">Prduct Item 2</td>
+                  <td className="product-item-name">Producto 2</td>
                   <td className="product-price">$22.00</td>
                 </tr>
                 <tr>
                   <td className="product-item-img">
                     <img src={IMAGES.gallery_small_pic1} alt="/" />
                   </td>
-                  <td className="product-item-name">Prduct Item 1</td>
+                  <td className="product-item-name">Producto 1</td>
                   <td className="product-price">$28.00</td>
                 </tr>
               </tbody>
@@ -311,19 +309,19 @@ export function MenuList() {
         </div>
         <div className="col-lg-6">
           <form className="shop-form widget">
-            <h4 className="widget-title">Order Total</h4>
+            <h4 className="widget-title">Total del Pedido</h4>
             <table className="table-bordered check-tbl mb-4">
               <tbody>
                 <tr>
-                  <td>Order Subtotal</td>
+                  <td>Subtotal</td>
                   <td className="product-price">$125.96</td>
                 </tr>
                 <tr>
-                  <td>Shipping</td>
-                  <td>Free Shipping</td>
+                  <td>Envio</td>
+                  <td>Envio Gratis</td>
                 </tr>
                 <tr>
-                  <td>Coupon</td>
+                  <td>Cupon</td>
                   <td className="product-price">$28.00</td>
                 </tr>
                 <tr>
@@ -332,12 +330,12 @@ export function MenuList() {
                 </tr>
               </tbody>
             </table>
-            <h4 className="widget-title">Payment Method</h4>
+            <h4 className="widget-title">Metodo de Pago</h4>
             <div className="form-group m-b20">
               <input
                 type="text"
                 className="form-control"
-                placeholder="Name on Card"
+                placeholder="Nombre en la Tarjeta"
               />
             </div>
             <div className="form-group m-b20">
@@ -355,7 +353,7 @@ export function MenuList() {
                 name="dzOther[CreditCardNumber]"
                 type="text"
                 className="form-control"
-                placeholder="Credit Card Number"
+                placeholder="Numero de Tarjeta"
               />
             </div>
             <div className="form-group m-b20">
@@ -363,7 +361,7 @@ export function MenuList() {
                 name="dzOther[CardVerificationNumber]"
                 type="text"
                 className="form-control"
-                placeholder="Card Verification Number"
+                placeholder="Codigo de Verificacion"
               />
             </div>
             <div className="form-group">
@@ -373,7 +371,7 @@ export function MenuList() {
                 value="submit"
                 name="submit"
               >
-                Place Order Now{" "}
+                Realizar Pedido Ahora{" "}
               </button>
             </div>
           </form>

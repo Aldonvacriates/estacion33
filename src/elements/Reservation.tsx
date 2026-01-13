@@ -1,12 +1,12 @@
 import SelectPicker from "rsuite/SelectPicker";
 
 const data = [
-  "Number Of People",
-  "Member 1",
-  "Member 2",
-  "Member 3",
-  "Member 4",
-  "Member 5",
+  "Numero de Personas",
+  "Persona 1",
+  "Persona 2",
+  "Persona 3",
+  "Persona 4",
+  "Persona 5",
 ].map((item) => ({ label: item, value: item }));
 
 const Reservation = () => {
@@ -23,7 +23,7 @@ const Reservation = () => {
               required
               type="text"
               className="form-control"
-              placeholder="Your Name"
+              placeholder="Tu Nombre"
             />
           </div>
         </div>
@@ -37,7 +37,7 @@ const Reservation = () => {
               required
               type="text"
               className="form-control dz-number"
-              placeholder="Phone Number"
+              placeholder="Numero de Telefono"
             />
           </div>
         </div>
@@ -51,7 +51,7 @@ const Reservation = () => {
               required
               type="text"
               className="form-control"
-              placeholder="Your Email"
+              placeholder="Tu Correo"
             />
           </div>
         </div>
@@ -62,7 +62,7 @@ const Reservation = () => {
             </div>
             <SelectPicker
               className="form-select default-select select-option-rsuite"
-              defaultValue={"Number Of People"}
+              defaultValue={"Numero de Personas"}
               data={data}
               searchable={false}
             />
@@ -78,7 +78,7 @@ const Reservation = () => {
               type="text"
               className="form-control"
               id="datePickerOnly"
-              placeholder="Date"
+              placeholder="Fecha"
             />
           </div>
         </div>
@@ -92,7 +92,7 @@ const Reservation = () => {
               type="text"
               className="form-control"
               id="timePickerOnly"
-              placeholder="Time"
+              placeholder="Hora"
             />
           </div>
         </div>
@@ -103,7 +103,7 @@ const Reservation = () => {
             value="submit"
             className="btn btn-lg btn-white btn-hover-1"
           >
-            <span>Book a Table</span>
+            <span>Reservar Mesa</span>
           </button>
         </div>
       </div>

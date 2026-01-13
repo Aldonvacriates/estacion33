@@ -18,7 +18,7 @@ const Home3 = () => {
       <section className="content-inner bg-white section-wrapper-2 overflow-hidden">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">Our Featured Food</h2>
+            <h2 className="title wow flipInX">Nuestra Comida Destacada</h2>
           </div>
           <HomeSpacialMenu />
         </div>
@@ -39,7 +39,7 @@ const Home3 = () => {
       >
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">Why Choose Us ?</h2>
+            <h2 className="title wow flipInX">Por Que Elegirnos?</h2>
           </div>
           <div className="row">
             {Home3ServicesArr.map(({ icon, content }, ind) => (
@@ -65,7 +65,7 @@ const Home3 = () => {
       <section className="content-inner section-wrapper-6 p-b40">
         <div className="container inner-section-wrapper">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">From Our Menu</h2>
+            <h2 className="title wow flipInX">De Nuestro Menu</h2>
           </div>
           <Home3OurMenu />
         </div>

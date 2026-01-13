@@ -21,12 +21,12 @@ const HomeImageBox = () => {
               <div className="dz-media">
                 <img src={img} alt="/" />
               </div>
-              <span className="dz-tag">TOP SELLER</span>
+              <span className="dz-tag">MAS VENDIDO</span>
               <div className="dz-content">
                 <h5 className="dz-title">
                   <Link to="/our-menu-1">{name}</Link>
                 </h5>
-                <p>Lorem ipsum dolor sit amet, dipiscing elit, sed</p>
+                <p>Texto de ejemplo para la descripcion</p>
               </div>
               <div className="dz-hover-content">
                 <div className="dz-info">
@@ -47,12 +47,12 @@ const HomeImageBox = () => {
         ))}
         <div className="col-12 text-center m-t10">
           <Link to="/our-menu-2" className="btn btn-md btn-primary btn-hover-1">
-            <span>See All Dishes</span>
+            <span>Ver Todos los Platos</span>
           </Link>
         </div>
       </div>
       <div className="section-head text-center">
-        <h2 className="title wow flipInX">Quality Services</h2>
+        <h2 className="title wow flipInX">Servicios de Calidad</h2>
       </div>
 
       <div className="icon-wrapper1">
@@ -76,7 +76,7 @@ const HomeImageBox = () => {
                   </div>
                   <div className="icon-content">
                     <h5 className="dz-title">{title}</h5>
-                    <p>Lorem ipsum dolor sit amet, dipiscing elit, sed</p>
+                    <p>Texto de ejemplo para la descripcion</p>
                   </div>
                 </div>
               </div>

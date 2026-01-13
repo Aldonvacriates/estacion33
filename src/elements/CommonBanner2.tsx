@@ -11,7 +11,7 @@ const CommonBanner2 = ({ pages }: propType) => {
         <nav aria-label="breadcrumb" className="breadcrumb-row">
           <ul className="breadcrumb">
             <li className="breadcrumb-item">
-              <Link to="/">Home</Link>
+              <Link to="/">Inicio</Link>
             </li>
             <li className="breadcrumb-item">Blog</li>
             <li className="breadcrumb-item active" aria-current="page">

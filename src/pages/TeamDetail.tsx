@@ -8,8 +8,8 @@ const TeamDetail = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr4}
-        title="Team Detail"
-        subtitle="Team Detail"
+        title="Detalle del Equipo"
+        subtitle="Detalle del Equipo"
       />
       <section className="content-inner">
         <div className="container">
@@ -23,25 +23,25 @@ const TeamDetail = () => {
                   <div className="head">
                     <h2 className="title">John Doe</h2>
                     <span className="sub-title text-primary">
-                      Restaurant Chef
+                      Chef del Restaurante
                     </span>
                   </div>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
+                    Lorem Ipsum es texto de relleno de la industria de la
+                    impresion y la tipografia.
                   </p>
                   <ul className="team-info">
                     <li>
-                      <strong>Responsibility:</strong>Senior Chef
+                      <strong>Responsabilidad:</strong>Chef Senior
                     </li>
                     <li>
-                      <strong>Experience:</strong>10 Year
+                      <strong>Experiencia:</strong>10 Anos
                     </li>
                     <li>
-                      <strong>Email:</strong>Example@gmail.com
+                      <strong>Correo:</strong>Example@gmail.com
                     </li>
                     <li>
-                      <strong>Phone:</strong>+22 33 56 7675 8939
+                      <strong>Telefono:</strong>+22 33 56 7675 8939
                     </li>
                   </ul>
                   <div className="dz-social-icon">
@@ -96,18 +96,18 @@ const TeamDetail = () => {
                 </div>
               </div>
               <div className="team-bio">
-                <h4 className="m-b10">Biography</h4>
+                <h4 className="m-b10">Biografia</h4>
                 <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took Link galley of type and scrambled it to make Link
-                  type specimen book. It has survived not only five centuries,
+                  Lorem Ipsum es texto de relleno de la industria de la
+                  impresion y la tipografia. Lorem Ipsum ha sido el texto
+                  estandar desde la decada de 1500, cuando un impresor
+                  desconocido tomo una galera de tipos y los mezclo para hacer
+                  un libro de muestras. Ha sobrevivido no solo cinco siglos,
                 </p>
               </div>
               <div className="row">
                 <div className="col-xl-5 col-lg-6 m-b10">
-                  <h4 className="m-b15">Signature Dish</h4>
+                  <h4 className="m-b15">Plato Firma</h4>
                   <ul className="dish-gallery gallery-grid-2">
                     {TeamDetailArr.map(({ img, title }, ind) => (
                       <li key={ind}>
@@ -123,10 +123,10 @@ const TeamDetail = () => {
                 </div>
                 <div className="col-xl-7 col-lg-6 m-b30">
                   <div className="team-skills">
-                    <h4 className="m-b10">Professional Skills</h4>
+                    <h4 className="m-b10">Habilidades Profesionales</h4>
                     <p className="m-b15">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry.
+                      Lorem Ipsum es texto de relleno de la industria de la
+                      impresion y la tipografia.
                     </p>
                     {TeamDetailArr.map(({ progress, position }, index) => (
                       <div className="progress-bx style-1" key={index}>

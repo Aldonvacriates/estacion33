@@ -21,7 +21,7 @@ const Footer3 = () => {
         )
         .then(
           () => {
-            toast.success("Successfully send!");
+            toast.success("Enviado correctamente!");
           },
           (error) => {
             toast.error(error.text);
@@ -46,13 +46,13 @@ const Footer3 = () => {
                         </Link>
                       </div>
                       <p className="mb-0 font-14">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry.
+                        Lorem Ipsum es simplemente texto de relleno de la
+                        industria de la imprenta y la tipografia.
                       </p>
                     </div>
                     <div className="col-xl-6 col-lg-6 wow fadeInUp">
                       <h5 className="title m-b15">
-                        Subscribe To Our Newsletter
+                        Suscribete a Nuestro Boletin
                       </h5>
                       <form
                         className="dzSubscribe"
@@ -70,7 +70,7 @@ const Footer3 = () => {
                               setInput(e.target.value);
                             }}
                             className="form-control border-0"
-                            placeholder="Enter Your Email"
+                            placeholder="Ingresa tu correo"
                           />
                           <div className="input-group-addon">
                             <button
@@ -79,7 +79,7 @@ const Footer3 = () => {
                               type="submit"
                               className="btn btn-primary btn-hover-2"
                             >
-                              <span>Subscribe</span>
+                              <span>Suscribete</span>
                               <i className="fa-solid fa-paper-plane"></i>
                             </button>
                           </div>
@@ -91,20 +91,22 @@ const Footer3 = () => {
               </div>
               <div className="row">
                 <div className="col-lg-5 col-md-6 col-6 text-md-start">
-                  <h5 className="footer-title wow fadeInUp">OUR LINKS</h5>
+                  <h5 className="footer-title wow fadeInUp">
+                    NUESTROS ENLACES
+                  </h5>
                   <div className="footer-menu wow fadeInUp">
                     <ul>
                       <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/">Inicio</Link>
                       </li>
                       <li>
-                        <Link to="/about-us">About Us</Link>
+                        <Link to="/about-us">Nosotros</Link>
                       </li>
                       <li>
-                        <Link to="/services">Services</Link>
+                        <Link to="/services">Servicios</Link>
                       </li>
                       <li>
-                        <Link to="/team">Team</Link>
+                        <Link to="/team">Equipo</Link>
                       </li>
                       <li>
                         <Link to="/blog-standard">Blog</Link>
@@ -113,23 +115,25 @@ const Footer3 = () => {
                   </div>
                 </div>
                 <div className="col-lg-7 col-md-6 col-6 text-md-end">
-                  <h5 className="footer-title wow fadeInUp">Help Center</h5>
+                  <h5 className="footer-title wow fadeInUp">
+                    Centro de Ayuda
+                  </h5>
                   <div className="footer-menu wow fadeInUp">
                     <ul>
                       <li>
                         <Link to="/faq">FAQ</Link>
                       </li>
                       <li>
-                        <Link to="/shop-style-1">Shop</Link>
+                        <Link to="/shop-style-1">Tienda</Link>
                       </li>
                       <li>
-                        <Link to="/shop-style-2">Category Filter</Link>
+                        <Link to="/shop-style-2">Filtro de Categorias</Link>
                       </li>
                       <li>
-                        <Link to="/testimonial">Testimonials</Link>
+                        <Link to="/testimonial">Testimonios</Link>
                       </li>
                       <li>
-                        <Link to="/contact-us">Contact Us</Link>
+                        <Link to="/contact-us">Contacto</Link>
                       </li>
                     </ul>
                   </div>
@@ -141,11 +145,11 @@ const Footer3 = () => {
             <div className="footer-bottom">
               <div className="row">
                 <div className="col-xl-6 col-md-6 text-md-start">
-                  <p>Copyright 2023 All rights reserved.</p>
+                  <p>Copyright 2023 Todos los derechos reservados.</p>
                 </div>
                 <div className="col-xl-6 col-md-6 text-md-end">
                   <span className="copyright-text">
-                    Crafted With{" "}
+                    Hecho Con{" "}
                     <span
                       className="heart"
                       ref={heartRef}
@@ -153,7 +157,7 @@ const Footer3 = () => {
                         heartRef.current?.classList.toggle("heart-blast");
                       }}
                     ></span>{" "}
-                    by{" "}
+                    por{" "}
                     <Link to="https://dexignzone.com/" target="_blank">
                       DexignZone
                     </Link>

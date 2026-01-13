@@ -8,8 +8,8 @@ const ShopWishlist = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr5}
-        title="Shop Wishlist"
-        subtitle="Shop Wishlist "
+        title="Favoritos"
+        subtitle="Favoritos"
       />
       <div className="content-inner">
         <div className="container">
@@ -19,11 +19,11 @@ const ShopWishlist = () => {
                 <table className="table check-tbl table-responsive-md">
                   <thead>
                     <tr>
-                      <th>Product</th>
-                      <th>Product Name</th>
-                      <th>Unit Price</th>
-                      <th>Add to cart </th>
-                      <th className="text-end">Close</th>
+                      <th>Producto</th>
+                      <th>Nombre del Producto</th>
+                      <th>Precio Unitario</th>
+                      <th>Agregar al Carrito</th>
+                      <th className="text-end">Cerrar</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -39,7 +39,7 @@ const ShopWishlist = () => {
                             to="/shop-cart"
                             className="btn btn-gray btn-hover-2"
                           >
-                            Add To Cart
+                            Agregar al Carrito
                           </Link>
                         </td>
                         <td className="product-item-close">

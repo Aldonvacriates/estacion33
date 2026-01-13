@@ -7,13 +7,13 @@ import OurMenuFilter from "../elements/OurMenuFilter";
 import { Context } from "../context/AppContext";
 
 const Buttons = [
-  { icon: "flaticon-fast-food", title: "ALL" },
-  { icon: "flaticon-cocktail", title: "COLD DRINK" },
+  { icon: "flaticon-fast-food", title: "TODAS" },
+  { icon: "flaticon-cocktail", title: "BEBIDAS FRIAS" },
   { icon: "flaticon-pizza-slice", title: "PIZZA" },
-  { icon: "flaticon-salad", title: "SALAD" },
-  { icon: "flaticon-cupcake", title: "SWEETS" },
-  { icon: "flaticon-chili-pepper", title: "SPICY" },
-  { icon: "flaticon-hamburger-1", title: "BURGER" },
+  { icon: "flaticon-salad", title: "ENSALADA" },
+  { icon: "flaticon-cupcake", title: "DULCES" },
+  { icon: "flaticon-chili-pepper", title: "PICANTE" },
+  { icon: "flaticon-hamburger-1", title: "HAMBURGUESA" },
 ];
 
 interface MenuFile {
@@ -57,8 +57,8 @@ const MenuStyle4 = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr4}
-        title="Our Menu 4"
-        subtitle="Our Menu 4"
+        title="Nuestro Menu 4"
+        subtitle="Nuestro Menu 4"
       />
 
       <section className="content-inner">
@@ -89,7 +89,7 @@ const MenuStyle4 = () => {
             </div>
             <div className="col-xl-2 col-lg-3 col-md-12 text-lg-end mb-lg-0 m-b30 d-flex d-lg-block align-items-center justify-content-between">
               <strong className="filter-item-show d-lg-none">
-                51,740 items
+                51,740 articulos
               </strong>
               <Link
                 to={"#"}
@@ -98,7 +98,7 @@ const MenuStyle4 = () => {
                   setShowCategeryFilter(true);
                 }}
               >
-                Filter{" "}
+                Filtrar{" "}
                 <span>
                   <i className="icon-filter m-l5"></i>
                 </span>
@@ -135,11 +135,11 @@ const MenuStyle4 = () => {
                       <h5 className="title">
                         <Link to="/product-detail">{name}</Link>
                       </h5>
-                      <p>Delicious and Spicy</p>
+                      <p>Delicioso y Picante</p>
                     </div>
                   </div>
                   <div className="menu-footer">
-                    <span>Regular Price</span>
+                    <span>Precio Regular</span>
                     <h5 className="price">{price}</h5>
                   </div>
                   <Link className="detail-btn" to="/product-detail">

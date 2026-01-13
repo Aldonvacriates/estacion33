@@ -61,7 +61,7 @@ const Header2 = () => {
                         required
                         type="text"
                         className="form-control"
-                        placeholder="Search"
+                        placeholder="Buscar"
                       />
                       <div className="input-group-addon">
                         <button

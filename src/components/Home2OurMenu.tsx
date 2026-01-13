@@ -49,11 +49,11 @@ const Home2OurMenu = ({ prev, next }: PropFile) => {
                   <h6 className="title">
                     <Link to="/product-detail">{name}</Link>
                   </h6>
-                  <p>Delicious and Spicy</p>
+                  <p>Delicioso y Picante</p>
                 </div>
               </div>
               <div className="menu-footer">
-                <span>Regular Price</span>
+                <span>Precio Regular</span>
                 <span className="price">{price}</span>
               </div>
               <Link className="detail-btn" to="/product-detail">

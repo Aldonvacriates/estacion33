@@ -13,10 +13,10 @@ const Footer = () => {
               <div className="col-xl-5 col-lg-5 col-md-12">
                 <div className="dz-form-card bg-primary">
                   <div className="section-head">
-                    <h4 className="title m-0">Contact us</h4>
+                    <h4 className="title m-0">Contactanos</h4>
                     <p className="m-t10">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry.
+                      Lorem Ipsum es simplemente texto de relleno de la
+                      industria de la imprenta y la tipografia.
                     </p>
                   </div>
                   <form className="dzForm dezPlaceAni">
@@ -41,7 +41,7 @@ const Footer = () => {
                             required
                             type="text"
                             className="form-control"
-                            placeholder="Your Name"
+                            placeholder="Tu Nombre"
                           />
                         </div>
                       </div>
@@ -52,7 +52,7 @@ const Footer = () => {
                             required
                             type="text"
                             className="form-control"
-                            placeholder="Email Address"
+                            placeholder="Correo Electronico"
                           />
                         </div>
                       </div>
@@ -63,7 +63,7 @@ const Footer = () => {
                             required
                             type="text"
                             className="form-control"
-                            placeholder="Subject"
+                            placeholder="Asunto"
                           />
                         </div>
                       </div>
@@ -73,7 +73,7 @@ const Footer = () => {
                             name="dzMessage"
                             required
                             className="form-control"
-                            placeholder="Message"
+                            placeholder="Mensaje"
                           ></textarea>
                         </div>
                       </div>
@@ -84,7 +84,7 @@ const Footer = () => {
                           value="submit"
                           className="btn btn-md btn-white btn-hover-1"
                         >
-                          <span>Send Message</span>
+                          <span>Enviar Mensaje</span>
                         </button>
                       </div>
                     </div>
@@ -93,7 +93,7 @@ const Footer = () => {
               </div>
               <div className="col-xl-3 col-lg-3 col-md-5 wow fadeInUp">
                 <div className="widget widget_getintuch">
-                  <h5 className="footer-title">Contact</h5>
+                  <h5 className="footer-title">Contacto</h5>
                   <ul>
                     <li>
                       <i className="flaticon-placeholder"></i>
@@ -123,26 +123,26 @@ const Footer = () => {
               </div>
               <div className="col-xl-2 col-lg-2 col-md-3 col-6 wow fadeInUp">
                 <div className="widget widget_services">
-                  <h5 className="footer-title">Our Links</h5>
+                  <h5 className="footer-title">Nuestros Enlaces</h5>
                   <ul>
                     <li>
                       <Link to="/">
-                        <span>Home</span>
+                        <span>Inicio</span>
                       </Link>
                     </li>
                     <li>
                       <Link to="/about-us">
-                        <span>About Us</span>
+                        <span>Nosotros</span>
                       </Link>
                     </li>
                     <li>
                       <Link to="/services">
-                        <span>Services</span>
+                        <span>Servicios</span>
                       </Link>
                     </li>
                     <li>
                       <Link to="/team">
-                        <span>Team</span>
+                        <span>Equipo</span>
                       </Link>
                     </li>
                     <li>
@@ -155,31 +155,31 @@ const Footer = () => {
               </div>
               <div className="col-xl-2 col-lg-2 col-md-3 col-6 wow fadeInUp">
                 <div className="widget widget_services">
-                  <h5 className="footer-title">Help Center</h5>
+                  <h5 className="footer-title">Centro de Ayuda</h5>
                   <ul>
                     <li>
                       <Link to="/faq">
-                        <span>FAQ</span>
+                        <span>Preguntas</span>
                       </Link>
                     </li>
                     <li>
                       <Link to="/shop-style-1">
-                        <span>Shop</span>
+                        <span>Tienda</span>
                       </Link>
                     </li>
                     <li>
                       <Link to="/shop-style-2">
-                        <span>Category Filter</span>
+                        <span>Filtro de Categorias</span>
                       </Link>
                     </li>
                     <li>
                       <Link to="/testimonial">
-                        <span>Testimonials</span>
+                        <span>Testimonios</span>
                       </Link>
                     </li>
                     <li>
                       <Link to="/contact-us">
-                        <span>Contact Us</span>
+                        <span>Contacto</span>
                       </Link>
                     </li>
                   </ul>
@@ -192,11 +192,11 @@ const Footer = () => {
           <div className="footer-bottom">
             <div className="row">
               <div className="col-xl-6 col-md-6 text-md-start">
-                <p>Copyright 2023 All rights reserved.</p>
+                <p>Copyright 2023 Todos los derechos reservados.</p>
               </div>
               <div className="col-xl-6 col-md-6 text-md-end">
                 <span className="copyright-text">
-                  Crafted With{" "}
+                  Hecho Con{" "}
                   <span
                     className="heart"
                     ref={heartRef}
@@ -204,7 +204,7 @@ const Footer = () => {
                       heartRef.current?.classList.toggle("heart-blast");
                     }}
                   ></span>{" "}
-                  by{" "}
+                  por{" "}
                   <Link to="https://dexignzone.com/" target="_blank">
                     DexignZone
                   </Link>

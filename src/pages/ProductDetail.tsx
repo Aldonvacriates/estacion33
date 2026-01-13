@@ -11,8 +11,8 @@ const ProductDetail = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr1}
-        title="Product Detail"
-        subtitle="Product Detail"
+        title="Detalle del Producto"
+        subtitle="Detalle del Producto"
       />
       <section className="content-inner-1 overflow-hidden">
         <div className="container">
@@ -41,30 +41,30 @@ const ProductDetail = () => {
                     />
                     <circle cx="8.5" cy="8.5" r="5.5" fill="#0F8A65" />
                   </svg>
-                  Pure veg
+                  Solo Vegetal
                 </span>
                 <div className="dz-head">
-                  <h2 className="title">Double Patty Veg Burger</h2>
+                  <h2 className="title">Hamburguesa Vegetariana Doble</h2>
                   <div className="rating">
                     <i className="fa-solid fa-star"></i>{" "}
                     <span>
-                      <strong className="text-dark">4.5</strong> - 20 Reviews
+                      <strong className="text-dark">4.5</strong> - 20 Resenas
                     </span>
                   </div>
                 </div>
                 <p className="text">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s, when an unknown
-                  printer took Link galley of type and scrambled it to make Link
-                  type specimen book.
+                  Lorem Ipsum es simplemente texto de relleno de la industria
+                  de la imprenta y la tipografia. Lorem Ipsum ha sido el texto
+                  de relleno estandar de la industria desde los anos 1500,
+                  cuando un impresor desconocido tomo una galera de tipos y la
+                  mezclo para hacer un libro de muestras.
                 </p>
                 <ul className="detail-list">
                   <li>
-                    Price <span className="text-primary m-t5">$20.00</span>
+                    Precio <span className="text-primary m-t5">$20.00</span>
                   </li>
                   <li>
-                    Quantity
+                    Cantidad
                     <div className="btn-quantity style-1 m-t5">
                       <div className="input-group bootstrap-touchspin">
                         <span className="input-group-addon bootstrap-touchspin-prefix"></span>
@@ -103,7 +103,7 @@ const ProductDetail = () => {
                     </div>
                   </li>
                 </ul>
-                <h6 className="title">Add On</h6>
+                <h6 className="title">Extras</h6>
                 <DetailList />
                 <div className="d-lg-flex justify-content-between">
                   <ul className="modal-btn-group">
@@ -113,7 +113,7 @@ const ProductDetail = () => {
                         className="btn btn-primary btn-hover-1"
                       >
                         <span>
-                          Add To Cart{" "}
+                          Agregar al Carrito{" "}
                           <i className="flaticon-shopping-bag-1 m-l10"></i>
                         </span>
                       </Link>
@@ -124,7 +124,7 @@ const ProductDetail = () => {
                         className="btn btn-outline-secondary btn-hover-1"
                       >
                         <span>
-                          Buy Now{" "}
+                          Comprar Ahora{" "}
                           <i className="flaticon-shopping-cart m-l10"></i>
                         </span>
                       </Link>
@@ -141,7 +141,7 @@ const ProductDetail = () => {
       <section className="content-inner-1 pt-0">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title">Special Menu</h2>
+            <h2 className="title">Menu Especial</h2>
           </div>
           <HomeSpacialMenu />
         </div>
@@ -161,7 +161,7 @@ export function DetailList() {
               <img src={IMAGES.modal_mini_pic1} alt="/" />
             </div>
             <div className="dz-content">
-              <p className="title">French Frise</p>
+              <p className="title">Papas Fritas</p>
               <div className="form-check search-content">
                 <input className="form-check-input" type="checkbox" value="" />
               </div>
@@ -174,7 +174,7 @@ export function DetailList() {
               <img src={IMAGES.modal_mini_pic2} alt="/" />
             </div>
             <div className="dz-content">
-              <p className="title">Extra Cheese</p>
+              <p className="title">Queso Extra</p>
               <div className="form-check search-content">
                 <input className="form-check-input" type="checkbox" value="" />
               </div>
@@ -200,7 +200,7 @@ export function DetailList() {
               <img src={IMAGES.modal_mini_pic4} alt="/" />
             </div>
             <div className="dz-content">
-              <p className="title">Choco Lava</p>
+              <p className="title">Lava de Chocolate</p>
               <div className="form-check search-content">
                 <input className="form-check-input" type="checkbox" value="" />
               </div>

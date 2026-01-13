@@ -256,6 +256,13 @@ import slider1_thumb_pic1 from "../assets/images/slider1/thumb/pic1.jpg";
 import slider1_thumb_pic2 from "../assets/images/slider1/thumb/pic2.jpg";
 import slider1_thumb_pic3 from "../assets/images/slider1/thumb/pic3.jpg";
 import switcher_demo from "../assets/other/switcher/demo.png";
+import icon_feather_svg from "../assets/icons/feather/fonts/feather.svg";
+import icon_flaticon_svg from "../assets/icons/flaticon/flaticon_swigo.svg";
+import icon_la_brands_svg from "../assets/icons/line-awesome/fonts/la-brands-400.svg";
+import icon_la_regular_svg from "../assets/icons/line-awesome/fonts/la-regular-400.svg";
+import icon_la_solid_svg from "../assets/icons/line-awesome/fonts/la-solid-900.svg";
+import icon_line_awesome_svg from "../assets/icons/line-awesome/fonts/line-awesome.svg";
+import icon_themify_svg from "../assets/icons/themify/fonts/themify.svg";
 
 export const IMAGES = {
   logo: logo,
@@ -515,4 +522,11 @@ export const IMAGES = {
   slider1_thumb_pic2: slider1_thumb_pic2,
   slider1_thumb_pic3: slider1_thumb_pic3,
   switcher_demo: switcher_demo,
+  icon_feather_svg: icon_feather_svg,
+  icon_flaticon_svg: icon_flaticon_svg,
+  icon_la_brands_svg: icon_la_brands_svg,
+  icon_la_regular_svg: icon_la_regular_svg,
+  icon_la_solid_svg: icon_la_solid_svg,
+  icon_line_awesome_svg: icon_line_awesome_svg,
+  icon_themify_svg: icon_themify_svg,
 };

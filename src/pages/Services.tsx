@@ -8,8 +8,8 @@ const Services = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr1}
-        title="Services"
-        subtitle="Services"
+        title="Servicios"
+        subtitle="Servicios"
       />
       <section className="content-inner">
         <div className="container">
@@ -26,7 +26,7 @@ const Services = () => {
                     <h5 className="title">
                       <Link to="/service-detail">{name}</Link>
                     </h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and </p>
+                    <p>Texto de ejemplo para la descripcion del servicio.</p>
                   </div>
                 </div>
               </div>

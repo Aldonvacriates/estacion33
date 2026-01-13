@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { Home3OurMenuArr } from "../elements/JsonData";
 
 const buttons = [
-  { icon: "flaticon-fast-food", title: "All" },
-  { icon: "flaticon-cocktail", title: "COLD DRINK" },
+  { icon: "flaticon-fast-food", title: "TODAS" },
+  { icon: "flaticon-cocktail", title: "BEBIDAS FRIAS" },
   { icon: "flaticon-pizza-slice", title: "PIZZA" },
-  { icon: "flaticon-salad", title: "SALAD" },
-  { icon: "flaticon-cupcake", title: "SWEETS" },
-  { icon: "flaticon-chili-pepper", title: "SPICY" },
-  { icon: "flaticon-hamburger-1", title: "BURGER" },
+  { icon: "flaticon-salad", title: "ENSALADA" },
+  { icon: "flaticon-cupcake", title: "DULCES" },
+  { icon: "flaticon-chili-pepper", title: "PICANTE" },
+  { icon: "flaticon-hamburger-1", title: "HAMBURGUESA" },
 ];
 
 const Home3OurMenu = () => {
@@ -65,8 +65,8 @@ const Home3OurMenu = () => {
             to="/our-menu-1"
             className="btn btn-outline-primary btn-hover-3"
           >
-            <span className="btn-text" data-text="View All">
-              View All
+            <span className="btn-text" data-text="Ver Todo">
+              Ver Todo
             </span>
           </Link>
         </div>
@@ -83,7 +83,7 @@ const Home3OurMenu = () => {
                   <img src={img} alt="/" />
                   <div className="dz-meta">
                     <ul>
-                      <li className="seller">Top Seller</li>
+                      <li className="seller">Mas Vendido</li>
                       <li className="rating">
                         <i className="fa-solid fa-star"></i> 4.5
                       </li>
@@ -95,8 +95,8 @@ const Home3OurMenu = () => {
                     <Link to="/product-detail">{name}</Link>
                   </h5>
                   <p>
-                    It is a long established fact that a reader will be
-                    distracted by the readable.
+                    Es un hecho conocido que el lector se distrae por lo
+                    legible del texto.
                   </p>
                   <span className="price">{price}</span>
                 </div>

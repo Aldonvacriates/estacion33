@@ -9,8 +9,8 @@ const ContactUs = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr1}
-        title="Contact Us"
-        subtitle="Contact Us"
+        title="Contacto"
+        subtitle="Contacto"
       />
       <section className="section-wrapper-8 content-inner-1">
         <div className="container">
@@ -40,7 +40,7 @@ const ContactUs = () => {
             ))}
           </div>
           <div className="section-head text-center">
-            <h2 className="title">Reservation</h2>
+            <h2 className="title">Reserva</h2>
           </div>
           <form className="dzForm dezPlaceAni" method="POST">
             <div className="dzFormMsg"></div>
@@ -52,7 +52,7 @@ const ContactUs = () => {
             />
             <div className="row">
               <div className="col-lg-6 col-md-6 m-b30 m-sm-b50">
-                <label className="form-label text-primary">Your Name</label>
+                <label className="form-label text-primary">Tu Nombre</label>
                 <div className="input-group input-line input-black">
                   <input
                     name="dzName"
@@ -64,7 +64,7 @@ const ContactUs = () => {
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 m-b30 m-sm-b50">
-                <label className="form-label text-primary">Your Email</label>
+                <label className="form-label text-primary">Tu Correo</label>
                 <div className="input-group input-line input-black">
                   <input
                     name="dzEmail"
@@ -76,7 +76,7 @@ const ContactUs = () => {
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 m-b30 m-sm-b50">
-                <label className="form-label text-primary">Your Number</label>
+                <label className="form-label text-primary">Tu Numero</label>
                 <div className="input-group input-line input-black">
                   <input
                     name="dzPhoneNumber"
@@ -88,25 +88,25 @@ const ContactUs = () => {
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 m-b30 m-sm-b50">
-                <label className="form-label text-primary">Members</label>
+                <label className="form-label text-primary">Personas</label>
                 <div className="input-group input-line input-black">
                   <input
                     name="dzOther[Person]"
                     required
                     type="text"
                     className="form-control"
-                    placeholder="1 Person"
+                    placeholder="1 Persona"
                   />
                 </div>
               </div>
               <div className="col-sm-12 m-b40">
-                <label className="form-label text-primary">Message</label>
+                <label className="form-label text-primary">Mensaje</label>
                 <div className="input-group input-line input-black">
                   <textarea
                     name="dzMessage"
                     required
                     className="form-control"
-                    placeholder="Hi, do you Have a moment to talk About !"
+                    placeholder="Hola, tienes un momento para hablar?"
                   ></textarea>
                 </div>
               </div>
@@ -130,7 +130,7 @@ const ContactUs = () => {
                   type="reset"
                   className="btn btn-primary btn-hover-1"
                 >
-                  <span>Book A Table</span>
+                  <span>Reservar Mesa</span>
                 </button>
               </div>
             </div>

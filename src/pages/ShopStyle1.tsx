@@ -9,8 +9,8 @@ const ShopStyle1 = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr1}
-        title="Shop Style 1"
-        subtitle="Shop Style 1"
+        title="Tienda Estilo 1"
+        subtitle="Tienda Estilo 1"
       />
       <section className="content-inner-1">
         <div className="container">
@@ -22,7 +22,7 @@ const ShopStyle1 = () => {
                     required
                     type="text"
                     className="form-control"
-                    placeholder="Type here"
+                    placeholder="Escribe aqui"
                   />
                   <div className="input-group-addon">
                     <button
@@ -31,7 +31,7 @@ const ShopStyle1 = () => {
                       type="reset"
                       className="btn btn-primary btn-hover-2"
                     >
-                      <span>Search</span>
+                      <span>Buscar</span>
                       <i className="icon-search"></i>
                     </button>
                   </div>
@@ -44,13 +44,13 @@ const ShopStyle1 = () => {
             <div className="col-lg-9">
               <div className="d-flex justify-content-between align-items-center">
                 <h5 className="title mb-md-3 mb-lg-4 m-b20 d-none d-lg-block">
-                  Search Results
+                  Resultados de Busqueda
                 </h5>
                 <strong className="filter-item-show m-b20">
-                  Search: 51,740 items
+                  Busqueda: 51,740 articulos
                 </strong>
                 <Link to="#" className="btn btn-primary panel-btn">
-                  Filter
+                  Filtrar
                 </Link>
               </div>
               <ShopStyle1RightContent />

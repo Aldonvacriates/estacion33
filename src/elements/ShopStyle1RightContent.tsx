@@ -29,7 +29,7 @@ const ShopStyle1RightContent = () => {
                   />
                   <circle cx="8.5" cy="8.5" r="5.5" fill="#0F8A65" />
                 </svg>
-                <Link to="#">Double Patty Burger</Link>
+                <Link to="#">Hamburguesa Doble</Link>
               </h6>
               <div className="rate">
                 <i className="fa-solid fa-star"></i> 4.5
@@ -38,10 +38,10 @@ const ShopStyle1RightContent = () => {
             <div className="dz-body">
               <ul className="dz-meta">
                 <li>
-                  By{" "}
+                  Por{" "}
                   <span className="text-primary font-weight-500">
                     {" "}
-                    Burger Farm
+                    Granja de Hamburguesas
                   </span>
                 </li>
                 <li>
@@ -49,8 +49,8 @@ const ShopStyle1RightContent = () => {
                 </li>
               </ul>
               <p className="mb-0">
-                <span className="text-primary font-weight-500">$15.00</span> For
-                a one
+                <span className="text-primary font-weight-500">$15.00</span> Por
+                uno
               </p>
             </div>
           </div>

@@ -9,21 +9,21 @@ const ShopStyle1LeftContent = () => {
           <div className="widget widget_tag_cloud ">
             <div className="d-flex justify-content-between">
               <div className="widget-title">
-                <h4 className="title">Current Search</h4>
+                <h4 className="title">Busqueda Actual</h4>
               </div>
               <Link to="#" className="panel-close-btn">
                 <i className="fa-solid fa-xmark"></i>
               </Link>
             </div>
             <div className="tagcloud">
-              <Link to="/product-detail">Burger</Link>
-              <Link to="/product-detail">Restaurant</Link>
+              <Link to="/product-detail">Hamburguesa</Link>
+              <Link to="/product-detail">Restaurante</Link>
               <Link to="/product-detail">Pizza</Link>
             </div>
           </div>
           <div className="widget dz-widget_services">
             <div className="widget-title">
-              <h4 className="title">Refine By Categories</h4>
+              <h4 className="title">Refinar por Categorias</h4>
             </div>
             <div className="form-check">
               <input
@@ -44,7 +44,7 @@ const ShopStyle1LeftContent = () => {
                 id="productCheckBox-02"
               />
               <label className="form-check-label" htmlFor="productCheckBox-02">
-                Hamburger
+                Hamburguesa
               </label>
             </div>
             <div className="form-check">
@@ -55,7 +55,7 @@ const ShopStyle1LeftContent = () => {
                 id="productCheckBox-03"
               />
               <label className="form-check-label" htmlFor="productCheckBox-03">
-                Cold Drink
+                Bebidas Frias
               </label>
             </div>
             <div className="form-check">
@@ -110,13 +110,13 @@ const ShopStyle1LeftContent = () => {
                 id="productCheckBox-08"
               />
               <label className="form-check-label" htmlFor="productCheckBox-08">
-                Hot Dog
+                Perro Caliente
               </label>
             </div>
           </div>
           <div className="widget">
             <div className="widget-title">
-              <h4 className="title">Price Range</h4>
+              <h4 className="title">Rango de Precio</h4>
             </div>
             <RangeSlider
               defaultValue={[10.0, 70.0]}

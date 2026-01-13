@@ -54,15 +54,15 @@ const ShopCart = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr4}
-        title="Shop Cart"
-        subtitle="Shop Cart"
+        title="Carrito"
+        subtitle="Carrito"
       />
       <section className="content-inner-1">
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
               <div className="d-flex justify-content-between align-items-center">
-                <h5 className="title m-b15 m-lg-30">Related Products</h5>
+                <h5 className="title m-b15 m-lg-30">Productos Relacionados</h5>
                 <Link
                   to="#"
                   className="btn btn-primary panel-btn"
@@ -70,7 +70,7 @@ const ShopCart = () => {
                     setFilterSidebar(true);
                   }}
                 >
-                  Filter
+                  Filtrar
                 </Link>
               </div>
               <ShopStyle1RightContent />
@@ -85,7 +85,7 @@ const ShopCart = () => {
                   <div className="d-flex justify-content-between">
                     <div className="widget-title">
                       <h5 className="title m-b30">
-                        Cart <span className="text-primary">(03)</span>
+                        Carrito <span className="text-primary">(03)</span>
                       </h5>
                     </div>
                     <Link
@@ -156,19 +156,19 @@ const ShopCart = () => {
                     </div>
                   ))}
                   <div className="order-detail">
-                    <h6>Bill Details</h6>
+                    <h6>Detalles de la Cuenta</h6>
                     <table>
                       <tbody>
                         <tr>
-                          <td>Item Total</td>
+                          <td>Total de Articulos</td>
                           <td className="price text-primary">$55.00</td>
                         </tr>
                         <tr className="charges">
-                          <td>Delivery Charges</td>
+                          <td>Costo de Envio</td>
                           <td className="price text-primary">$5.00</td>
                         </tr>
                         <tr className="tax">
-                          <td>Govt Taxes & Other Charges</td>
+                          <td>Impuestos y Otros Cargos</td>
                           <td className="price text-primary">$3.50</td>
                         </tr>
                         <tr className="total">
@@ -184,7 +184,8 @@ const ShopCart = () => {
                       className="btn btn-primary d-block text-center btn-md w-100 btn-hover-1"
                     >
                       <span>
-                        Order Now <i className="fa-solid fa-arrow-right"></i>
+                        Ordenar Ahora{" "}
+                        <i className="fa-solid fa-arrow-right"></i>
                       </span>
                     </Link>
                   </div>

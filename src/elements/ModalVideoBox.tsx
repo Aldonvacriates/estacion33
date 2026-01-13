@@ -17,12 +17,13 @@ const ModalVideoBox = () => {
       <section className="content-inner pb-0">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title">We Invite you to Visit Our Restaurant</h2>
+            <h2 className="title">Te Invitamos a Visitar Nuestro Restaurante</h2>
             <p className="about-p">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+              Lorem Ipsum es simplemente texto de relleno de la industria de la
+              imprenta y la tipografia. Lorem Ipsum ha sido el texto de relleno
+              estandar de la industria desde los anos 1500, cuando un impresor
+              desconocido tomo una galera de tipos y la mezclo para hacer un
+              libro de muestras.
             </p>
           </div>
           <div className="row">

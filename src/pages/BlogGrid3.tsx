@@ -30,8 +30,8 @@ const BlogGrid3 = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr1}
-        title="Blog Grid 2"
-        subtitle="Blog Grid 2"
+        title="Blog Cuadricula 3"
+        subtitle="Blog Cuadricula 3"
       />
       <section className="content-inner-1">
         <div className="container">
@@ -64,14 +64,14 @@ const BlogGrid3 = () => {
                       <Link to="/blog-standard">{title}</Link>
                     </h5>
                     <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available have.
+                      Hay muchas variaciones de pasajes de Lorem Ipsum
+                      disponibles.
                     </p>
                     <Link
                       to="/blog-standard"
                       className="btn btn-primary btn-hover-2"
                     >
-                      Read More
+                      Leer Mas
                     </Link>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ const BlogGrid3 = () => {
               to={"#"}
               onClick={loadMore}
             >
-              Load More
+              Cargar Mas
             </Link>
           </div>
         </div>

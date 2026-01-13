@@ -8,13 +8,13 @@ import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 
 const Buttons = [
-  { icon: "flaticon-fast-food", title: "ALL" },
-  { icon: "flaticon-cocktail", title: "COLD DRINK" },
+  { icon: "flaticon-fast-food", title: "TODAS" },
+  { icon: "flaticon-cocktail", title: "BEBIDAS FRIAS" },
   { icon: "flaticon-pizza-slice", title: "PIZZA" },
-  { icon: "flaticon-salad", title: "SALAD" },
-  { icon: "flaticon-cupcake", title: "SWEETS" },
-  { icon: "flaticon-chili-pepper", title: "SPICY" },
-  { icon: "flaticon-hamburger-1", title: "BURGER" },
+  { icon: "flaticon-salad", title: "ENSALADA" },
+  { icon: "flaticon-cupcake", title: "DULCES" },
+  { icon: "flaticon-chili-pepper", title: "PICANTE" },
+  { icon: "flaticon-hamburger-1", title: "HAMBURGUESA" },
 ];
 
 interface MenuFile {
@@ -60,8 +60,8 @@ const MenuStyle2 = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr1}
-        title="Our Menu 2"
-        subtitle="Our Menu 2"
+        title="Nuestro Menu 2"
+        subtitle="Nuestro Menu 2"
       />
 
       <section className="content-inner">
@@ -130,7 +130,7 @@ const MenuStyle2 = () => {
                           }}
                         ></span>
                       </div>
-                      <p className="category">Fast Food</p>
+                      <p className="category">Comida Rapida</p>
                     </div>
                   </div>
                 </li>

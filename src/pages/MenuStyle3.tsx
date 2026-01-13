@@ -7,13 +7,13 @@ import OurMenuFilter from "../elements/OurMenuFilter";
 import { Context } from "../context/AppContext";
 
 const Buttons = [
-  { icon: "flaticon-fast-food", title: "ALL" },
-  { icon: "flaticon-cocktail", title: "COLD DRINK" },
+  { icon: "flaticon-fast-food", title: "TODAS" },
+  { icon: "flaticon-cocktail", title: "BEBIDAS FRIAS" },
   { icon: "flaticon-pizza-slice", title: "PIZZA" },
-  { icon: "flaticon-salad", title: "SALAD" },
-  { icon: "flaticon-cupcake", title: "SWEETS" },
-  { icon: "flaticon-chili-pepper", title: "SPICY" },
-  { icon: "flaticon-hamburger-1", title: "BURGER" },
+  { icon: "flaticon-salad", title: "ENSALADA" },
+  { icon: "flaticon-cupcake", title: "DULCES" },
+  { icon: "flaticon-chili-pepper", title: "PICANTE" },
+  { icon: "flaticon-hamburger-1", title: "HAMBURGUESA" },
 ];
 
 interface MenuFile {
@@ -57,8 +57,8 @@ const MenuStyle3 = () => {
       <div className="page-content bg-white">
         <CommonBanner
           img={IMAGES.images_bnr3}
-          title="Our Menu 3"
-          subtitle="Our Menu 3"
+          title="Nuestro Menu 3"
+          subtitle="Nuestro Menu 3"
         />
 
         <section className="content-inner">
@@ -89,7 +89,7 @@ const MenuStyle3 = () => {
               </div>
               <div className="col-xl-2 col-lg-3 col-md-12 text-lg-end mb-lg-0 m-b30 d-flex d-lg-block align-items-center justify-content-between">
                 <strong className="filter-item-show d-lg-none">
-                  51,740 items
+                  51,740 articulos
                 </strong>
                 <Link
                   to={"#"}
@@ -98,7 +98,7 @@ const MenuStyle3 = () => {
                     setShowCategeryFilter(true);
                   }}
                 >
-                  Filter{" "}
+                  Filtrar{" "}
                   <span>
                     <i className="icon-filter m-l5"></i>
                   </span>
@@ -124,7 +124,7 @@ const MenuStyle3 = () => {
                       <img src={img} alt="/" />
                       <div className="dz-meta">
                         <ul>
-                          <li className="seller">Top Seller</li>
+                          <li className="seller">Mas Vendido</li>
                           <li className="rating">
                             <i className="fa-solid fa-star"></i> 4.5
                           </li>
@@ -136,8 +136,8 @@ const MenuStyle3 = () => {
                         <Link to="/product-detail">{name}</Link>
                       </h5>
                       <p>
-                        It is a long established fact that a reader will be
-                        distracted by the readable.
+                        Es un hecho conocido que el lector se distrae por lo
+                        legible del texto.
                       </p>
                       <span className="price">$4.56</span>
                     </div>

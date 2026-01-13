@@ -70,6 +70,7 @@ import BlogGrid4Masonary from "./pages/BlogGrid4Masonary";
 import BlogWideListSidebar from "./pages/BlogWideListSidebar";
 import BlogWideGridSidebar from "./pages/BlogWideGridSidebar";
 import ContactUs from "./pages/ContactUs";
+import AssetsGallery from "./pages/AssetsGallery";
 import Header2 from "./components/Header2";
 import Header3 from "./components/Header3";
 import SignIn from "./elements/SignIn";
@@ -204,6 +205,7 @@ function App() {
                 element={<BlogWideGridSidebar />}
               />
               <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="/assets-gallery" element={<AssetsGallery />} />
             </Route>
 
             <Route element={<Layout5 />}>

@@ -2,13 +2,13 @@ import { useState } from "react";
 import { Home2AreMenuArr } from "../elements/JsonData";
 import { Link } from "react-router-dom";
 const buttons = [
-  { icon: "flaticon-fast-food", title: "All" },
-  { icon: "flaticon-cocktail", title: "COLD DRINK" },
+  { icon: "flaticon-fast-food", title: "TODAS" },
+  { icon: "flaticon-cocktail", title: "BEBIDAS FRIAS" },
   { icon: "flaticon-pizza-slice", title: "PIZZA" },
-  { icon: "flaticon-salad", title: "SALAD" },
-  { icon: "flaticon-cupcake", title: "SWEETS" },
-  { icon: "flaticon-chili-pepper", title: "SPICY" },
-  { icon: "flaticon-hamburger-1", title: "BURGER" },
+  { icon: "flaticon-salad", title: "ENSALADA" },
+  { icon: "flaticon-cupcake", title: "DULCES" },
+  { icon: "flaticon-chili-pepper", title: "PICANTE" },
+  { icon: "flaticon-hamburger-1", title: "HAMBURGUESA" },
 ];
 
 interface Menus {
@@ -85,8 +85,8 @@ const Home2AreMenu = () => {
                     <span className="header-price">{price}</span>
                   </div>
                   <p className="dz-body">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
+                    Lorem Ipsum es un texto de relleno de la industria de la
+                    impresion y la tipografia.
                   </p>
                 </div>
               </div>

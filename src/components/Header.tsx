@@ -143,7 +143,7 @@ const Header = () => {
                                   to="/product-detail"
                                   className="media-heading"
                                 >
-                                  Double Burger
+                                  Hamburguesa Doble
                                 </Link>
                               </h6>
                               <span className="dz-price">$28.00</span>
@@ -182,7 +182,7 @@ const Header = () => {
                                   to="/product-detail"
                                   className="media-heading"
                                 >
-                                  Cheese Burger
+                                  Hamburguesa con Queso
                                 </Link>
                               </h6>
                               <span className="dz-price">$20.00</span>
@@ -221,7 +221,7 @@ const Header = () => {
                                   to="/product-detail"
                                   className="media-heading"
                                 >
-                                  Burger
+                                  Hamburguesa
                                 </Link>
                               </h6>
                               <span className="dz-price">$15.00</span>
@@ -245,7 +245,7 @@ const Header = () => {
                             to="/shop-cart"
                             className="btn btn-primary me-2 w-100 d-block btn-hover-1"
                           >
-                            <span>View Cart</span>
+                            <span>Ver Carrito</span>
                           </Link>
                           <Link
                             to="/our-menu-1"

@@ -32,11 +32,11 @@ const BlogGridCard = ({ img, title }: propType) => {
             <Link to="/blog-standard">{title}</Link>
           </h5>
           <p>
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have.
+            Hay muchas variaciones de pasajes de Lorem Ipsum disponibles, pero
+            la mayoria.
           </p>
           <Link to="/blog-standard" className="btn btn-primary btn-hover-2">
-            Read More
+            Leer Mas
           </Link>
         </div>
       </div>

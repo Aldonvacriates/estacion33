@@ -21,7 +21,7 @@ const Faq = () => {
         )
         .then(
           () => {
-            toast.success("Successfully send!");
+            toast.success("Enviado con exito!");
           },
           (error) => {
             toast.error(error.text);
@@ -33,7 +33,11 @@ const Faq = () => {
     <>
       <Toaster position="bottom-right" reverseOrder={true} />
       <div className="page-content bg-white">
-        <CommonBanner img={IMAGES.banner_bnr2} title="Faq" subtitle="Faq" />
+        <CommonBanner
+          img={IMAGES.banner_bnr2}
+          title="Preguntas"
+          subtitle="Preguntas"
+        />
         <section className="content-inner">
           <div className="min-container">
             <div className="row search-wraper style-1 text-center">
@@ -54,7 +58,7 @@ const Faq = () => {
                       required
                       type="text"
                       className="form-control"
-                      placeholder="Why Should I Use Swigo ?"
+                      placeholder="Por que deberia usar Swigo?"
                     />
                   </div>
                 </form>
@@ -83,9 +87,9 @@ const Faq = () => {
 
                       <Accordion.Body className="accordion-body">
                         <p className="m-b0">
-                          Lorem Ipsum is simply dummy text of the printing and
-                          typesetting industry. Lorem Ipsum has been the
-                          industry's standard dummy text ever since the 1500s,
+                          Lorem Ipsum es texto de relleno de la industria de la
+                          impresion y la tipografia. Lorem Ipsum ha sido el
+                          texto estandar desde la decada de 1500,
                         </p>
                       </Accordion.Body>
                     </Accordion.Item>
@@ -102,11 +106,11 @@ const Faq = () => {
               </div>
               <div className="col-lg-7 m-b20">
                 <div className="faq-info">
-                  <h2 className="title">Newsletter</h2>
+                  <h2 className="title">Boletin</h2>
                   <p className="m-b30">
-                    We hope this newsletter finds you well. We are excited to
-                    announce some new additions to our menu that we think you'll
-                    love. Our culinary team has been
+                    Esperamos que este boletin te encuentre bien. Nos alegra
+                    anunciar nuevas adiciones a nuestro menu que creemos que te
+                    encantaran. Nuestro equipo culinario ha estado
                   </p>
                   <form className="dzSubscribe" ref={form} onSubmit={sendEmail}>
                     <div className="dzSubscribeMsg text-white"></div>
@@ -120,7 +124,7 @@ const Faq = () => {
                           setInput(e.target.value);
                         }}
                         className="form-control"
-                        placeholder="Enter Your Email"
+                        placeholder="Ingresa tu Correo"
                       />
                       <div className="input-group-addon">
                         <button
@@ -129,7 +133,7 @@ const Faq = () => {
                           type="submit"
                           className="btn btn-primary btn-hover-2"
                         >
-                          <span>Submit</span>{" "}
+                          <span>Enviar</span>{" "}
                           <i className="fa-solid fa-paper-plane"></i>
                         </button>
                       </div>

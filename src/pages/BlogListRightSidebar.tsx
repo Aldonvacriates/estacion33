@@ -9,8 +9,8 @@ const BlogListRightSidebar = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr3}
-        title="Blog List Right Sidebar"
-        subtitle="Blog List Right Sidebar"
+        title="Lista de Blog con Sidebar Der."
+        subtitle="Lista de Blog con Sidebar Der."
       />
       <section className="content-inner">
         <div className="container">
@@ -43,19 +43,19 @@ const BlogListRightSidebar = () => {
                         </div>
                         <h5 className="dz-title">
                           <Link to="/blog-standard">
-                            Paradise Taste of Dishes
+                            Sabor al Paraiso en Platos
                           </Link>
                         </h5>
                         <p>
-                          There are many variations of passages of Lorem Ipsum
-                          available, but the majority have.
+                          Hay muchas variaciones de pasajes de Lorem Ipsum
+                          disponibles, pero la mayoria.
                         </p>
                         <div className="read-btn">
                           <Link
                             to="/blog-standard"
                             className="btn btn-primary btn-hover-2"
                           >
-                            Read More
+                            Leer Mas
                           </Link>
                         </div>
                       </div>

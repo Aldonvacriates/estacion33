@@ -24,10 +24,10 @@ const SignIn = () => {
           ></button>
           <div className="offcanvas-form">
             <div className="login-head">
-              <h4 className="title">Welcome Back</h4>
+              <h4 className="title">Bienvenido de nuevo</h4>
               <p>
-                We’d love have you join our 100% remote network of creatord &
-                freelance.
+                Nos encantaria que te unas a nuestra red 100% remota de
+                creadores y freelance.
               </p>
               <button
                 name="submit"
@@ -66,15 +66,15 @@ const SignIn = () => {
                     </clipPath>
                   </defs>
                 </svg>{" "}
-                Sign Up with Google
+                Registrate con Google
               </button>
               <h6 className="login-title">
-                <span>OR</span>
+                <span>O</span>
               </h6>
             </div>
             <div className="form-group m-b15">
               <label className="form-label">
-                Email
+                Correo
                 <strong className="text-danger">*</strong>
               </label>
               <div className="input-group">
@@ -83,13 +83,13 @@ const SignIn = () => {
                   required
                   type="text"
                   className="form-control"
-                  placeholder="Enter Your Email"
+                  placeholder="Ingresa tu correo"
                 />
               </div>
             </div>
             <div className="form-group m-b30">
               <label className="form-label">
-                Password
+                Contrasena
                 <strong className="text-danger">*</strong>
               </label>
               <div className="input-group search-input">
@@ -97,7 +97,7 @@ const SignIn = () => {
                   name="password"
                   type={hide ? "text" : "password"}
                   className="form-control dz-password"
-                  placeholder="Enter Link Password"
+                  placeholder="Ingresa tu contrasena"
                 />
                 <div
                   className={`show-pass ${hide ? "active" : ""}`}
@@ -132,10 +132,10 @@ const SignIn = () => {
               type="reset"
               className="btn btn-primary w-100 d-block"
             >
-              Sign In
+              Iniciar sesion
             </button>
             <p className="text-center m-t30">
-              Not registered?
+              No estas registrado?{" "}
               <Link
                 className="register text-primary font-weight-500"
                 to={"#"}
@@ -144,7 +144,7 @@ const SignIn = () => {
                   setShowSignInForm(false);
                 }}
               >
-                Register here
+                Registrate aqui
               </Link>
             </p>
           </div>
@@ -175,10 +175,10 @@ const SignIn = () => {
           ></button>
           <div className="offcanvas-form">
             <div className="login-head">
-              <h4 className="title">Join Our Network</h4>
+              <h4 className="title">Unete a Nuestra Red</h4>
               <p>
-                We’d love have you join our 100% remote network of creatord
-                &amp; freelance.
+                Nos encantaria que te unas a nuestra red 100% remota de
+                creadores y freelance.
               </p>
               <button
                 name="submit"
@@ -217,15 +217,15 @@ const SignIn = () => {
                     </clipPath>
                   </defs>
                 </svg>{" "}
-                Sign Up with Google
+                Registrate con Google
               </button>
               <h6 className="login-title">
-                <span>OR</span>
+                <span>O</span>
               </h6>
             </div>
             <div className="form-group m-b15">
               <label className="form-label">
-                Name <strong className="text-danger">*</strong>
+                Nombre <strong className="text-danger">*</strong>
               </label>
               <div className="input-group">
                 <input
@@ -233,13 +233,13 @@ const SignIn = () => {
                   required
                   type="text"
                   className="form-control"
-                  placeholder="Enter Your Name"
+                  placeholder="Ingresa tu nombre"
                 />
               </div>
             </div>
             <div className="form-group m-b15">
               <label className="form-label">
-                Email<strong className="text-danger">*</strong>
+                Correo<strong className="text-danger">*</strong>
               </label>
               <div className="input-group">
                 <input
@@ -247,13 +247,13 @@ const SignIn = () => {
                   required
                   type="text"
                   className="form-control"
-                  placeholder="Enter Your Email"
+                  placeholder="Ingresa tu correo"
                 />
               </div>
             </div>
             <div className="form-group m-b30">
               <label className="form-label">
-                Password
+                Contrasena
                 <strong className="text-danger">*</strong>
               </label>
               <div className="input-group search-input">
@@ -261,7 +261,7 @@ const SignIn = () => {
                   name="password"
                   type={hide ? "text" : "password"}
                   className="form-control dz-password"
-                  placeholder="Create Link Password"
+                  placeholder="Crea tu contrasena"
                 />
                 <div
                   className="show-pass"
@@ -296,10 +296,10 @@ const SignIn = () => {
               type="reset"
               className="btn btn-primary w-100 d-block btn-hover-2"
             >
-              <span>Sign Up</span>
+              <span>Registrate</span>
             </button>
             <p className="text-center m-t30">
-              Already have an account?
+              Ya tienes una cuenta?{" "}
               <Link
                 to={"#"}
                 className="text-primary font-weight-500"
@@ -308,7 +308,7 @@ const SignIn = () => {
                   setShowSignInForm(true);
                 }}
               >
-                Login
+                Iniciar sesion
               </Link>
             </p>
           </div>

@@ -51,10 +51,10 @@ const MainBanner2 = () => {
                     <div className="col-xl-7 col-lg-7 col-md-8">
                       <div className="banner-content">
                         <span className="sub-title text-primary">
-                          High Quality Test Station
+                          Estacion de Comida de Alta Calidad
                         </span>
                         <h1 className="title text-white">
-                          We believe Good Food Offer Great Smile
+                          Creemos que la Buena Comida Ofrece una Gran Sonrisa
                         </h1>
                         <p className="bnr-text">
                           Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -67,13 +67,13 @@ const MainBanner2 = () => {
                             to="/contact-us"
                             className="btn btn-primary btn-md shadow-primary m-r30 btn-hover-1"
                           >
-                            <span>Book Link Table</span>
+                            <span>Reservar Mesa</span>
                           </Link>
                           <Link
                             to="/about-us"
                             className="btn btn-outline-primary btn-md shadow-primary btn-hover-1"
                           >
-                            <span>View More</span>
+                            <span>Ver Mas</span>
                           </Link>
                         </div>
                         <div className="food-card">
@@ -105,12 +105,10 @@ const MainBanner2 = () => {
                                 </div>
                                 <div className="dz-content">
                                   <h6 className="title text-white">{name}</h6>
-                                  <p>Master Chief</p>
+                                  <p>Chef Maestro</p>
                                 </div>
                               </div>
-                              <p className="text">
-                                Lorem ipsum dolor shit amet...
-                              </p>
+                              <p className="text">Texto de ejemplo...</p>
                             </div>
                             <div className="dz-right">
                               <h5 className="text-primary">{price}</h5>

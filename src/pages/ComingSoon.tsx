@@ -23,7 +23,7 @@ const ComingSoon = () => {
         )
         .then(
           () => {
-            toast.success("Successfully send!");
+            toast.success("Enviado correctamente!");
           },
           (error) => {
             toast.error(error.text);
@@ -50,9 +50,9 @@ const ComingSoon = () => {
                       <img src={IMAGES.logo} alt="/" />
                     </Link>
                   </div>
-                  <h3 className="coming-head">WE ARE COMING SOON!</h3>
+                  <h3 className="coming-head">PRONTO LLEGAMOS!</h3>
                   <p className="coming-para">
-                    Stay tuned for something amazing
+                    Mantente atento a algo increible
                   </p>
                   <Lottie
                     className="coming-media"
@@ -63,7 +63,8 @@ const ComingSoon = () => {
                 </div>
                 <div className="middle-content">
                   <h5 className="font-weight-400 m-b20">
-                    Subscribe to our mailing list to get latest updates
+                    Suscribete a nuestra lista para recibir las ultimas
+                    novedades
                   </h5>
                   <form
                     className="dzSubscribe m-b15"
@@ -81,7 +82,7 @@ const ComingSoon = () => {
                         }}
                         type="text"
                         className="form-control bg-grey"
-                        placeholder="Enter Your Email"
+                        placeholder="Ingresa tu correo"
                       />
                       <div className="input-group-addon">
                         <button
@@ -90,7 +91,7 @@ const ComingSoon = () => {
                           type="submit"
                           className="btn btn-primary btn-hover-2"
                         >
-                          <span>Send Request</span>
+                          <span>Enviar Solicitud</span>
                           <i className="fa-solid fa-paper-plane"></i>
                         </button>
                       </div>
@@ -148,7 +149,7 @@ const ComingSoon = () => {
                 </div>
                 <div className="coming-footer text-center">
                   <p>
-                    © Copyrights{" "}
+                    © Copyright{" "}
                     <span
                       className="heart"
                       ref={heartRef}
@@ -156,11 +157,11 @@ const ComingSoon = () => {
                         heartRef.current?.classList.toggle("heart-blast");
                       }}
                     ></span>{" "}
-                    by{" "}
+                    por{" "}
                     <Link to="https://dexignzone.com/" target="_blank">
                       DexignZone
                     </Link>{" "}
-                    | 2023 All Rights Reserved
+                    | 2023 Todos los derechos reservados
                   </p>
                 </div>
               </div>

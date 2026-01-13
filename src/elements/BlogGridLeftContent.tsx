@@ -5,7 +5,7 @@ const BlogGridLeftContent = () => {
     <aside className="side-bar sticky-top left">
       <div className="widget">
         <div className="widget-title">
-          <h4 className="title">Search</h4>
+          <h4 className="title">Buscar</h4>
         </div>
         <div className="search-bx">
           <form role="search" method="post">
@@ -14,7 +14,7 @@ const BlogGridLeftContent = () => {
                 <input
                   name="text"
                   className="form-control"
-                  placeholder="Search"
+                  placeholder="Buscar"
                   type="text"
                 />
                 <div className="input-group-btn">
@@ -50,30 +50,30 @@ const BlogGridLeftContent = () => {
       </div>
       <div className="widget widget_categories">
         <div className="widget-title">
-          <h4 className="title">Categories</h4>
+          <h4 className="title">Categorias</h4>
         </div>
         <ul>
           <li className="cat-item">
-            <Link to="/blog-standard">Pepperoni Pizza</Link>
+            <Link to="/blog-standard">Pizza Pepperoni</Link>
           </li>
           <li className="cat-item">
-            <Link to="/blog-standard">Apricot Chicken</Link>
+            <Link to="/blog-standard">Pollo con Albaricoque</Link>
           </li>
           <li className="cat-item">
             <Link to="/blog-standard">Pizza Veronese</Link>
           </li>
           <li className="cat-item">
-            <Link to="/blog-standard">Summer Pizza</Link>
+            <Link to="/blog-standard">Pizza de Verano</Link>
           </li>
           <li className="cat-item">
-            <Link to="/blog-standard">Italian Tuna</Link>
+            <Link to="/blog-standard">Atun Italiano</Link>
           </li>
         </ul>
       </div>
 
       <div className="widget recent-posts-entry">
         <div className="widget-title">
-          <h4 className="title">Latest Post</h4>
+          <h4 className="title">Ultima Publicacion</h4>
         </div>
         <div className="widget-post-bx">
           <div className="widget-post clearfix">
@@ -82,7 +82,7 @@ const BlogGridLeftContent = () => {
             </div>
             <div className="dz-info">
               <h6 className="title">
-                <Link to="/blog-standard">Explore the Food Taste</Link>
+                <Link to="/blog-standard">Explora el Sabor de la Comida</Link>
               </h6>
               <div className="dz-meta">
                 <ul>
@@ -108,7 +108,7 @@ const BlogGridLeftContent = () => {
             </div>
             <div className="dz-info">
               <h6 className="title">
-                <Link to="/blog-standard">Secrets of Delicious Food</Link>
+                <Link to="/blog-standard">Secretos de la Comida Deliciosa</Link>
               </h6>
               <div className="dz-meta">
                 <ul>
@@ -134,7 +134,7 @@ const BlogGridLeftContent = () => {
             </div>
             <div className="dz-info">
               <h6 className="title">
-                <Link to="/blog-standard"> Inspiration for Food</Link>
+                <Link to="/blog-standard">Inspiracion para la Comida</Link>
               </h6>
               <div className="dz-meta">
                 <ul>
@@ -159,13 +159,13 @@ const BlogGridLeftContent = () => {
 
       <div className="widget widget_tag_cloud mb-3">
         <div className="widget-title">
-          <h4 className="title">Popular Tags</h4>
+          <h4 className="title">Etiquetas Populares</h4>
         </div>
         <div className="tagcloud">
           <Link to="/product-detail">Pizza</Link>
-          <Link to="/product-detail">Chicken</Link>
+          <Link to="/product-detail">Pollo</Link>
           <Link to="/product-detail">Pizza Veronese</Link>
-          <Link to="/product-detail">Burger</Link>
+          <Link to="/product-detail">Hamburguesa</Link>
           <Link to="/product-detail">Sandwich</Link>
         </div>
       </div>

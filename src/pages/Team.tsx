@@ -6,7 +6,7 @@ import { teamArr } from "../elements/JsonData";
 const Team = () => {
   return (
     <div className="page-content bg-white">
-      <CommonBanner img={IMAGES.banner_bnr2} title="Team" subtitle="Team" />
+      <CommonBanner img={IMAGES.banner_bnr2} title="Equipo" subtitle="Equipo" />
       <section className="content-inner line-img">
         <div className="container">
           <div className="row">
@@ -21,7 +21,7 @@ const Team = () => {
                       <h6 className="dz-name">
                         <Link to="/team-detail">{name}</Link>
                       </h6>
-                      <span className="dz-position">Senior Chef</span>
+                      <span className="dz-position">Chef Senior</span>
                     </div>
                     <ul className="team-social">
                       <li>

@@ -28,7 +28,7 @@ const UnderMaintenance = () => {
         )
         .then(
           () => {
-            toast.success("Successfully send!");
+            toast.success("Enviado correctamente!");
           },
           (error) => {
             toast.error(error.text);
@@ -47,13 +47,13 @@ const UnderMaintenance = () => {
               <div className="col-lg-5 col-md-5">
                 <div className="inner-construction">
                   <h3 className="dz-head">
-                    We are digging
-                    <br /> deep down
+                    Estamos trabajando
+                    <br /> a fondo
                   </h3>
                   <p className="const-p">
-                    We are currently facing some issues with our system and our
-                    team is working hard to resolve it. You can subscribe to our
-                    mailing list if you want to get notified
+                    Actualmente tenemos algunos problemas con nuestro sistema y
+                    nuestro equipo esta trabajando para resolverlos. Puedes
+                    suscribirte a nuestra lista si quieres recibir avisos
                   </p>
                   <div className="space-right m-b25">
                     <form
@@ -73,7 +73,7 @@ const UnderMaintenance = () => {
                             setInput(e.target.value);
                           }}
                           className="form-control"
-                          placeholder="Enter Your Email:"
+                          placeholder="Ingresa tu correo:"
                         />
                         <button
                           name="submit"
@@ -81,14 +81,14 @@ const UnderMaintenance = () => {
                           type="submit"
                           className="btn btn-primary w-100 btn-hover-3"
                         >
-                          <span className="btn-text" data-text="Subscribe">
-                            Subscribe
+                          <span className="btn-text" data-text="Suscribete">
+                            Suscribete
                           </span>
                         </button>
                       </div>
                     </form>
                   </div>
-                  <p className="font-14">You can also follow us on</p>
+                  <p className="font-14">Tambien puedes seguirnos en</p>
                   <div className="dz-social-icon">
                     <ul>
                       <li>

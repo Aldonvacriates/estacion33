@@ -26,12 +26,12 @@ const Home2Testimonial = () => {
             <div className="testimonial-detail">
               <div className="testimonial-text wow fadeInUp">
                 <p>
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in some
-                  form, by injected humour, or randomised words which don't look
-                  even slightly believable. If you are going to use a passage of
-                  Lorem Ipsum, you need to be sure there isn't anything
-                  embarrassing hidden in the middle of text.
+                  Hay muchas variaciones de pasajes de Lorem Ipsum disponibles,
+                  pero la mayoria han sufrido alteraciones de alguna forma, por
+                  humor insertado o palabras aleatorias que no parecen ni un
+                  poco creibles. Si vas a usar un pasaje de Lorem Ipsum,
+                  necesitas asegurarte de que no haya nada vergonzoso escondido
+                  en medio del texto.
                 </p>
               </div>
               <div className="testimonial-info wow fadeInUp">

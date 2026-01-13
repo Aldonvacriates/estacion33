@@ -9,14 +9,14 @@ const AboutUs = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr1}
-        title={"About Us"}
-        subtitle={"About Us"}
+        title={"Nosotros"}
+        subtitle={"Nosotros"}
       />
       <ModalVideoBox />
       <section className="content-inner">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title">What We Do</h2>
+            <h2 className="title">Lo Que Hacemos</h2>
           </div>
           <div className="row">
             {AboutServiceArr.map(({ icon, title }, ind) => (
@@ -31,7 +31,7 @@ const AboutUs = () => {
                     <h5 className="title">
                       <Link to="/service-detail">{title}</Link>
                     </h5>
-                    <p>Lorem Ipsum is simply dummy text of the printing and </p>
+                    <p>Texto de ejemplo para la descripcion del servicio.</p>
                   </div>
                 </div>
               </div>

@@ -22,7 +22,7 @@ const CommonBanner = ({ img, title, subtitle }: propFile) => {
           <nav aria-label="breadcrumb" className="breadcrumb-row">
             <ul className="breadcrumb">
               <li className="breadcrumb-item">
-                <Link to="/">Home</Link>
+                <Link to="/">Inicio</Link>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
                 {subtitle}

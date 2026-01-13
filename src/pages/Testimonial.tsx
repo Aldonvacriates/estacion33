@@ -8,8 +8,8 @@ const Testimonial = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr5}
-        title="Testimonial"
-        subtitle="Customer's Commen"
+        title="Testimonios"
+        subtitle="Comentarios de Clientes"
       />
       <section className="content-inner-1 overflow-hidden">
         <div className="container">
@@ -25,19 +25,19 @@ const Testimonial = () => {
                       <div className="testimonial-detail">
                         <div className="testimonial-text">
                           <p>
-                            There are many variations of passages of Lorem Ipsum
-                            available, but the majority have suffered alteration
-                            in some form, by injected humour, or randomised
-                            words which don't look even slightly believable. If
-                            you are going to use a passage of Lorem Ipsum, you
-                            need to be sure there isn't anything embarrassing
-                            hidden in the middle of text.
+                            Hay muchas variaciones de pasajes de Lorem Ipsum
+                            disponibles, pero la mayoria han sufrido
+                            alteraciones de alguna forma, por humor insertado o
+                            palabras aleatorias que no parecen ni un poco
+                            creibles. Si vas a usar un pasaje de Lorem Ipsum,
+                            necesitas asegurarte de que no haya nada vergonzoso
+                            escondido en medio del texto.
                           </p>
                         </div>
                         <div className="testimonial-info">
                           <h5 className="testimonial-name">{name}</h5>
                           <span className="testimonial-position">
-                            Food Expert
+                            Experto en Comida
                           </span>
                         </div>
                         <i className="flaticon-right-quote quote"></i>
@@ -52,19 +52,19 @@ const Testimonial = () => {
                       <div className="testimonial-detail">
                         <div className="testimonial-text">
                           <p>
-                            There are many variations of passages of Lorem Ipsum
-                            available, but the majority have suffered alteration
-                            in some form, by injected humour, or randomised
-                            words which don't look even slightly believable. If
-                            you are going to use a passage of Lorem Ipsum, you
-                            need to be sure there isn't anything embarrassing
-                            hidden in the middle of text.
+                            Hay muchas variaciones de pasajes de Lorem Ipsum
+                            disponibles, pero la mayoria han sufrido
+                            alteraciones de alguna forma, por humor insertado o
+                            palabras aleatorias que no parecen ni un poco
+                            creibles. Si vas a usar un pasaje de Lorem Ipsum,
+                            necesitas asegurarte de que no haya nada vergonzoso
+                            escondido en medio del texto.
                           </p>
                         </div>
                         <div className="testimonial-info">
                           <h5 className="testimonial-name">{name}</h5>
                           <span className="testimonial-position">
-                            Food Expert
+                            Experto en Comida
                           </span>
                         </div>
                         <i className="flaticon-right-quote quote"></i>
@@ -80,7 +80,7 @@ const Testimonial = () => {
           </div>
           <div className="text-center m-t10">
             <Link className="btn btn-primary dz-load-more btn-hover-2" to={"#"}>
-              Load More
+              Cargar Mas
             </Link>
           </div>
         </div>

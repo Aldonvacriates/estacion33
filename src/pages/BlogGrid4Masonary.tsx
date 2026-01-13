@@ -12,8 +12,8 @@ const BlogGrid4Masonary = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr5}
-        title="Blog Grid 4 Masonry"
-        subtitle="Blog Grid 4 Masonry"
+        title="Blog Mosaico 4"
+        subtitle="Blog Mosaico 4"
       />
       <section className="content-inner">
         <div className="container-fluid clearfix">
@@ -23,7 +23,7 @@ const BlogGrid4Masonary = () => {
             <Masonry gutter="30px" columnsCount={4}>
               <BlogGridCard
                 img={IMAGES.blog_grid3_pic1}
-                title="Paradise Taste of Dishes"
+                title="Sabor Paraiso de Platos"
               />
               <div className="card-container">
                 <div className="dz-card style-1">
@@ -61,17 +61,17 @@ const BlogGrid4Masonary = () => {
                       </ul>
                     </div>
                     <h5 className="dz-title">
-                      <Link to="/blog-standard">The Fork & Knife</Link>
+                      <Link to="/blog-standard">El Tenedor y el Cuchillo</Link>
                     </h5>
                     <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have.
+                      Hay muchas variaciones de pasajes de Lorem Ipsum
+                      disponibles, pero la mayoria.
                     </p>
                     <Link
                       to="/blog-standard"
                       className="btn btn-primary btn-hover-2"
                     >
-                      Read More
+                      Leer Mas
                     </Link>
                   </div>
                 </div>
@@ -86,7 +86,7 @@ const BlogGrid4Masonary = () => {
                   <div className="dz-info">
                     <h4 className="dz-title">
                       <Link to="/blog-standard" className="text-white">
-                        Exploring the World of Pizza
+                        Explorando el Mundo de la Pizza
                       </Link>
                     </h4>
                     <div className="dz-meta">
@@ -95,13 +95,13 @@ const BlogGrid4Masonary = () => {
                         <li className="dz-user">
                           <Link to={"#"}>
                             <i className="fa-solid fa-user"></i>
-                            By <span>KK Sharma</span>
+                            Por <span>KK Sharma</span>
                           </Link>
                         </li>
                         <li className="dz-comment">
                           <Link to={"#"}>
                             <i className="fa-solid fa-message"></i>
-                            15 Comments
+                            15 Comentarios
                           </Link>
                         </li>
                       </ul>
@@ -112,8 +112,8 @@ const BlogGrid4Masonary = () => {
               <div className="card-container">
                 <blockquote className="wp-block-quote mt-0">
                   <p>
-                    Create An Information That’s Easy To Use Usability
-                    Considerations For Partially
+                    Crea una informacion facil de usar con consideraciones de
+                    usabilidad parciales
                   </p>
                   <cite>Ronald M. Spino</cite>
                 </blockquote>
@@ -159,17 +159,19 @@ const BlogGrid4Masonary = () => {
                       </ul>
                     </div>
                     <h5 className="dz-title">
-                      <Link to="/blog-standard">Tabletop Treats Cheese</Link>
+                      <Link to="/blog-standard">
+                        Delicias de Queso en la Mesa
+                      </Link>
                     </h5>
                     <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have.
+                      Hay muchas variaciones de pasajes de Lorem Ipsum
+                      disponibles, pero la mayoria.
                     </p>
                     <Link
                       to="/blog-standard"
                       className="btn btn-primary btn-hover-2"
                     >
-                      Read More
+                      Leer Mas
                     </Link>
                   </div>
                 </div>
@@ -220,32 +222,34 @@ const BlogGrid4Masonary = () => {
                       </ul>
                     </div>
                     <h5 className="dz-title">
-                      <Link to="/blog-standard">Tabletop Treats Cheese</Link>
+                      <Link to="/blog-standard">
+                        Delicias de Queso en la Mesa
+                      </Link>
                     </h5>
                     <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have.
+                      Hay muchas variaciones de pasajes de Lorem Ipsum
+                      disponibles, pero la mayoria.
                     </p>
                     <Link
                       to="/blog-standard"
                       className="btn btn-primary btn-hover-2"
                     >
-                      Read More
+                      Leer Mas
                     </Link>
                   </div>
                 </div>
               </div>
               <BlogGridCard
                 img={IMAGES.blog_grid3_pic6}
-                title="Flavors Of The World"
+                title="Sabores del Mundo"
               />
               <BlogGridCard
                 img={IMAGES.blog_grid3_pic4}
-                title="Taste Excitement"
+                title="Sabor Emocionante"
               />
               <BlogGridCard
                 img={IMAGES.blog_grid3_pic2}
-                title="Taste Excitement"
+                title="Sabor Emocionante"
               />
 
               <div className="card-container">
@@ -257,20 +261,20 @@ const BlogGrid4Masonary = () => {
                   </div>
                   <div className="dz-info bg-white">
                     <h5 className="dz-title">
-                      <Link to="/blog-standard">Taste Excitement</Link>
+                      <Link to="/blog-standard">Sabor Emocionante</Link>
                     </h5>
                     <div className="dz-meta">
                       <ul>
                         <li className="dz-user">
                           <Link to={"#"}>
                             <i className="fa-solid fa-user"></i>
-                            By <span>KK Sharma</span>
+                            Por <span>KK Sharma</span>
                           </Link>
                         </li>
                         <li className="dz-comment">
                           <Link to={"#"}>
                             <i className="fa-solid fa-message"></i>
-                            24 Comments
+                            24 Comentarios
                           </Link>
                         </li>
                       </ul>
@@ -284,7 +288,7 @@ const BlogGrid4Masonary = () => {
               </div>
               <BlogGridCard
                 img={IMAGES.blog_grid3_pic4}
-                title="Flavors Of The World"
+                title="Sabores del Mundo"
               />
               <div className="card-container">
                 <div
@@ -296,7 +300,7 @@ const BlogGrid4Masonary = () => {
                   <div className="dz-info">
                     <h4 className="dz-title">
                       <Link to="/blog-standard" className="text-white">
-                        Exploring the World of Pizza
+                        Explorando el Mundo de la Pizza
                       </Link>
                     </h4>
                     <div className="dz-meta">
@@ -305,13 +309,13 @@ const BlogGrid4Masonary = () => {
                         <li className="dz-user">
                           <Link to={"#"}>
                             <i className="fa-solid fa-user"></i>
-                            By <span>KK Sharma</span>
+                            Por <span>KK Sharma</span>
                           </Link>
                         </li>
                         <li className="dz-comment">
                           <Link to={"#"}>
                             <i className="fa-solid fa-message"></i>
-                            15 Comments
+                            15 Comentarios
                           </Link>
                         </li>
                       </ul>

@@ -32,7 +32,7 @@ const Home2 = () => {
                     <h5 className="dz-title">
                       <Link to="/services">{title}</Link>
                     </h5>
-                    <p>lorem ipsum dolor shit amet lorem ipsum</p>
+                    <p>texto de ejemplo para la seccion</p>
                   </div>
                 </div>
               </div>
@@ -43,7 +43,7 @@ const Home2 = () => {
       <section className="content-inner-1 overflow-hidden pt-0">
         <div className="container">
           <div className="section-head menu-align">
-            <h2 className="title mb-0 wow flipInX">Browse Our Menu</h2>
+            <h2 className="title mb-0 wow flipInX">Explora Nuestro Menu</h2>
             <div className="pagination-align wow fadeInUp">
               <div className="menu-button-prev1 btn-prev rounded-xl btn-hover-2">
                 <i className="fa-solid fa-arrow-left"></i>
@@ -65,7 +65,7 @@ const Home2 = () => {
       >
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title text-white wow flipInX">Today's Special</h2>
+            <h2 className="title text-white wow flipInX">Especial de Hoy</h2>
           </div>
           <Home2SpacialMenu />
         </div>
@@ -73,7 +73,7 @@ const Home2 = () => {
       <section className="content-inner-1">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">Are Menu</h2>
+            <h2 className="title wow flipInX">Nuestro Menu</h2>
           </div>
           <Home2AreMenu />
         </div>
@@ -84,7 +84,7 @@ const Home2 = () => {
       >
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">Meet The</h2>
+            <h2 className="title wow flipInX">Conoce al Equipo</h2>
           </div>
           <TeamCarosel />
         </div>
@@ -92,7 +92,7 @@ const Home2 = () => {
       <section className="content-inner-2 overflow-hidden">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">Customer's Comment</h2>
+            <h2 className="title wow flipInX">Comentarios de Clientes</h2>
           </div>
           <Home2Testimonial />
         </div>

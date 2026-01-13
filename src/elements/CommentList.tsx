@@ -8,7 +8,7 @@ const CommentList = () => {
     <>
       <div className="clear" id="comment-list">
         <div className="comments-area" id="comments">
-          <h4 className="comments-title">Comments (03)</h4>
+          <h4 className="comments-title">Comentarios (03)</h4>
           <div className="clearfix">
             <ul className="comment-list">
               <li className="comment">
@@ -22,15 +22,15 @@ const CommentList = () => {
                     <cite className="fn">Monsur Rahman Lito</cite>
                   </div>
                   <p className="font-14 mb-0">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took Link galley of type and scrambled it to make
-                    Link type specimen book.
+                    Lorem Ipsum es simplemente texto de relleno de la industria
+                    de la imprenta y la tipografia. Lorem Ipsum ha sido el
+                    texto de relleno estandar de la industria desde los anos
+                    1500, cuando un impresor desconocido tomo una galera de
+                    tipos y la mezclo para hacer un libro de muestras.
                   </p>
                   <div className="reply">
                     <Link to={"#"} className="comment-reply-link">
-                      Reply
+                      Responder
                     </Link>
                   </div>
                 </div>
@@ -46,15 +46,16 @@ const CommentList = () => {
                         <cite className="fn">Jake Johnson</cite>
                       </div>
                       <p className="font-14 mb-0">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took Link galley of type and
-                        scrambled it to make Link type specimen book.
+                        Lorem Ipsum es simplemente texto de relleno de la
+                        industria de la imprenta y la tipografia. Lorem Ipsum
+                        ha sido el texto de relleno estandar de la industria
+                        desde los anos 1500, cuando un impresor desconocido
+                        tomo una galera de tipos y la mezclo para hacer un
+                        libro de muestras.
                       </p>
                       <div className="reply">
                         <Link to={"#"} className="comment-reply-link">
-                          Reply
+                          Responder
                         </Link>
                       </div>
                     </div>
@@ -72,15 +73,15 @@ const CommentList = () => {
                     <cite className="fn">John Doe</cite>
                   </div>
                   <p className="font-14 mb-0">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                    Lorem Ipsum es simplemente texto de relleno de la industria
+                    de la imprenta y la tipografia. Lorem Ipsum ha sido el
+                    texto de relleno estandar de la industria desde los anos
+                    1500, cuando un impresor desconocido tomo una galera de
+                    tipos y la mezclo para hacer un libro de muestras.
                   </p>
                   <div className="reply">
                     <Link to={"#"} className="comment-reply-link">
-                      Reply
+                      Responder
                     </Link>
                   </div>
                 </div>
@@ -88,10 +89,10 @@ const CommentList = () => {
             </ul>
             <div className="comment-respond style-1" id="respond">
               <h4 className="comment-reply-title" id="reply-title">
-                Good Comments
+                Buenos Comentarios
                 <small>
                   <Link to={"#"} id="cancel-comment-reply-link" rel="nofollow">
-                    Cancel reply
+                    Cancelar respuesta
                   </Link>
                 </small>
               </h4>
@@ -106,32 +107,32 @@ const CommentList = () => {
               >
                 <p className="comment-form-author">
                   <label htmlFor="author">
-                    Name <span className="required">*</span>
+                    Nombre <span className="required">*</span>
                   </label>
                   <input
                     type="text"
                     name="dzName"
-                    placeholder="Author"
+                    placeholder="Autor"
                     id="author"
                   />
                 </p>
                 <p className="comment-form-email">
                   <label htmlFor="email">
-                    Email <span className="required">*</span>
+                    Correo <span className="required">*</span>
                   </label>
                   <input
                     type="text"
-                    placeholder="Email"
+                    placeholder="Correo"
                     name="dzEmail"
                     id="email"
                   />
                 </p>
                 <p className="comment-form-comment">
-                  <label htmlFor="comment">Comment</label>
+                  <label htmlFor="comment">Comentario</label>
                   <textarea
                     rows={8}
                     name="comment"
-                    placeholder="Type Comment Here"
+                    placeholder="Escribe tu comentario aqui"
                     id="comment"
                   ></textarea>
                 </p>
@@ -144,7 +145,7 @@ const CommentList = () => {
                       formRef.current?.reset();
                     }}
                   >
-                    <span>Submit Now</span>
+                    <span>Enviar Ahora</span>
                   </button>
                 </p>
               </form>
