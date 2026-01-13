@@ -255,6 +255,7 @@ import slider1_pic3 from "../assets/images/slider1/pic3.png";
 import slider1_thumb_pic1 from "../assets/images/slider1/thumb/pic1.jpg";
 import slider1_thumb_pic2 from "../assets/images/slider1/thumb/pic2.jpg";
 import slider1_thumb_pic3 from "../assets/images/slider1/thumb/pic3.jpg";
+import switcher_demo from "../assets/other/switcher/demo.png";
 
 export const IMAGES = {
   logo: logo,
@@ -513,4 +514,5 @@ export const IMAGES = {
   slider1_thumb_pic1: slider1_thumb_pic1,
   slider1_thumb_pic2: slider1_thumb_pic2,
   slider1_thumb_pic3: slider1_thumb_pic3,
+  switcher_demo: switcher_demo,
 };
