@@ -1,7 +1,7 @@
 import SelectPicker from "rsuite/SelectPicker";
 
 const data = [
-  "Numero de Personas",
+  "Número de Personas",
   "Persona 1",
   "Persona 2",
   "Persona 3",
@@ -37,7 +37,7 @@ const Reservation = () => {
               required
               type="text"
               className="form-control dz-number"
-              placeholder="Numero de Telefono"
+              placeholder="Número de Teléfono"
             />
           </div>
         </div>
@@ -62,7 +62,7 @@ const Reservation = () => {
             </div>
             <SelectPicker
               className="form-select default-select select-option-rsuite"
-              defaultValue={"Numero de Personas"}
+              defaultValue={"Número de Personas"}
               data={data}
               searchable={false}
             />

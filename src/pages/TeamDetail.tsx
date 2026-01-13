@@ -28,20 +28,20 @@ const TeamDetail = () => {
                   </div>
                   <p>
                     Lorem Ipsum es texto de relleno de la industria de la
-                    impresion y la tipografia.
+                    impresión y la tipografía.
                   </p>
                   <ul className="team-info">
                     <li>
-                      <strong>Responsabilidad:</strong>Chef Senior
+                      <strong>Responsabilidad:</strong> Chef sénior
                     </li>
                     <li>
-                      <strong>Experiencia:</strong>10 Anos
+                      <strong>Experiencia:</strong> 10 Años
                     </li>
                     <li>
-                      <strong>Correo:</strong>Example@gmail.com
+                      <strong>Correo:</strong> Example@gmail.com
                     </li>
                     <li>
-                      <strong>Telefono:</strong>+22 33 56 7675 8939
+                      <strong>Teléfono:</strong> +22 33 56 7675 8939
                     </li>
                   </ul>
                   <div className="dz-social-icon">
@@ -96,11 +96,11 @@ const TeamDetail = () => {
                 </div>
               </div>
               <div className="team-bio">
-                <h4 className="m-b10">Biografia</h4>
+                <h4 className="m-b10">Biografía</h4>
                 <p>
                   Lorem Ipsum es texto de relleno de la industria de la
-                  impresion y la tipografia. Lorem Ipsum ha sido el texto
-                  estandar desde la decada de 1500, cuando un impresor
+                  impresión y la tipografía. Lorem Ipsum ha sido el texto
+                  estándar desde la década de 1500, cuando un impresor
                   desconocido tomo una galera de tipos y los mezclo para hacer
                   un libro de muestras. Ha sobrevivido no solo cinco siglos,
                 </p>
@@ -126,7 +126,7 @@ const TeamDetail = () => {
                     <h4 className="m-b10">Habilidades Profesionales</h4>
                     <p className="m-b15">
                       Lorem Ipsum es texto de relleno de la industria de la
-                      impresion y la tipografia.
+                      impresión y la tipografía.
                     </p>
                     {TeamDetailArr.map(({ progress, position }, index) => (
                       <div className="progress-bx style-1" key={index}>

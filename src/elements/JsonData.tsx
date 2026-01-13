@@ -4,11 +4,11 @@ export const MainBannerArr = [
   {
     img: IMAGES.main_slide_pic1,
     imgThumb: IMAGES.main_slide_thumb_pic1,
-    subtitle: "Estacion de Comida de Alta Calidad",
+    subtitle: "Estación de Comida de Alta Calidad",
     title: "Eligiendo La",
     title2: "Mejor",
     title3: "Comida de Calidad",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    text: "Texto de ejemplo para describir nuestra propuesta gastronómica y resaltar la calidad de nuestros platos.",
   },
   {
     img: IMAGES.main_slide_pic1,
@@ -16,8 +16,8 @@ export const MainBannerArr = [
     subtitle: "Las Mejores Estaciones de Comida",
     title: "Donde la Comida",
     title2: "Se Une",
-    title3: "a la Mejor Pasion",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title3: "a la Mejor Pasión",
+    text: "Texto de ejemplo para describir nuestra propuesta gastronómica y resaltar la calidad de nuestros platos.",
   },
   {
     img: IMAGES.main_slide_pic1,
@@ -26,7 +26,7 @@ export const MainBannerArr = [
     title: "Comida Deliciosa",
     title2: "y",
     title3: "Bebidas Ricas",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    text: "Texto de ejemplo para describir nuestra propuesta gastronómica y resaltar la calidad de nuestros platos.",
   },
 ];
 
@@ -80,7 +80,7 @@ export const HomeImageBoxArr = [
     img: IMAGES.gallery_grid_pic4,
     img2: IMAGES.gallery_grid_pic3,
     icon: "flaticon-coffee-cup",
-    title: "Cafe",
+    title: "Café",
   },
   {
     price: "$35.00",
@@ -134,19 +134,19 @@ export const TestymonialArr = [
 ];
 
 export const TeamCaroselArr = [
-  { img: IMAGES.image_team_pic1, name: "John Doe", position: "Chef Senior" },
+  { img: IMAGES.image_team_pic1, name: "John Doe", position: "Chef sénior" },
   {
     img: IMAGES.image_team_pic2,
     name: "Jemy Carline",
-    position: "Chef Junior",
+    position: "Chef júnior",
   },
-  { img: IMAGES.image_team_pic3, name: "Cotlin Care", position: "Chef Senior" },
+  { img: IMAGES.image_team_pic3, name: "Cotlin Care", position: "Chef sénior" },
   {
     img: IMAGES.image_team_pic4,
     name: "Sarah Albert",
-    position: "Chef Senior",
+    position: "Chef sénior",
   },
-  { img: IMAGES.image_team_pic1, name: "John Doe", position: "Chef Senior" },
+  { img: IMAGES.image_team_pic1, name: "John Doe", position: "Chef sénior" },
 ];
 
 export const OurBlogArr = [
@@ -200,9 +200,9 @@ export const MainBanner2Arr = [
 ];
 
 export const Home2IconWrapper = [
-  { title: "Cupon de Descuento", icon: "flaticon-offer" },
+  { title: "Cupón de Descuento", icon: "flaticon-offer" },
   { title: "Comida Fresca y Saludable", icon: "flaticon-hamburger" },
-  { title: "Servicio Rapido en Mesa", icon: "flaticon-room-service" },
+  { title: "Servicio Rápido en Mesa", icon: "flaticon-room-service" },
 ];
 
 export const Home2OurMenuArr = [
@@ -231,7 +231,7 @@ export const Home2AreMenuArr = [
     img: IMAGES.menu_small_grid_pic2,
     name: "Canada Dry Ginger Ale",
     price: " $60",
-    categery: "TODAS BEBIDAS FRIAS ENSALADA DULCES",
+    categery: "TODAS BEBIDAS FRÍAS ENSALADA DULCES",
   },
   {
     img: IMAGES.menu_small_grid_pic3,
@@ -243,7 +243,7 @@ export const Home2AreMenuArr = [
     img: IMAGES.menu_small_grid_pic4,
     name: "Batido Mango Mania",
     price: " $30",
-    categery: "TODAS BEBIDAS FRIAS DULCES PICANTE",
+    categery: "TODAS BEBIDAS FRÍAS DULCES PICANTE",
   },
   {
     img: IMAGES.menu_small_grid_pic5,
@@ -261,13 +261,13 @@ export const Home2AreMenuArr = [
     img: IMAGES.menu_small_grid_pic7,
     name: "Plato de Pollo con Miel",
     price: " $80",
-    categery: "TODAS BEBIDAS FRIAS ENSALADA DULCES PICANTE",
+    categery: "TODAS BEBIDAS FRÍAS ENSALADA DULCES PICANTE",
   },
   {
     img: IMAGES.menu_small_grid_pic8,
     name: "Sandwich Jerk Jamaicano",
     price: " $80",
-    categery: "TODAS BEBIDAS FRIAS DULCES PICANTE HAMBURGUESA",
+    categery: "TODAS BEBIDAS FRÍAS DULCES PICANTE HAMBURGUESA",
   },
 ];
 
@@ -308,7 +308,7 @@ export const Home3ServicesArr = [
     content: "Nuestro Restaurante esta Abierto Todo el Dia",
   },
   { icon: "flaticon-chef", content: "Mejor Chef" },
-  { icon: "flaticon-cuisine", content: "Tenemos el Producto mas Fresco" },
+  { icon: "flaticon-cuisine", content: "Tenemos el Producto más Fresco" },
 ];
 
 export const Home3OurMenuArr = [
@@ -322,19 +322,19 @@ export const Home3OurMenuArr = [
     img: IMAGES.images_gallery_grid4_pic2,
     name: "Hamburguesa de Pollo",
     price: " $60",
-    categery: "TODAS BEBIDAS FRIAS ENSALADA DULCES",
+    categery: "TODAS BEBIDAS FRÍAS ENSALADA DULCES",
   },
   {
     img: IMAGES.images_gallery_grid4_pic3,
-    name: "Pizza de Pina",
+    name: "Pizza de Piña",
     price: " $80",
     categery: "TODAS PIZZA PICANTE HAMBURGUESA",
   },
   {
     img: IMAGES.images_gallery_grid4_pic4,
-    name: "Sopa de Pina",
+    name: "Sopa de Piña",
     price: " $30",
-    categery: "TODAS BEBIDAS FRIAS DULCES PICANTE",
+    categery: "TODAS BEBIDAS FRÍAS DULCES PICANTE",
   },
   {
     img: IMAGES.images_gallery_grid4_pic5,
@@ -363,7 +363,7 @@ export const FaqArr = [
   { title: "P3: Tienen opciones vegetarianas/veganas/sin gluten?", evantK: 3 },
   { title: "P4: Ofrecen para llevar o entrega?", evantK: 4 },
   { title: "P5: Puedo hacer una reserva? Como lo hago?", evantK: 5 },
-  { title: "P6: El restaurante es apto para ninos?", evantK: 6 },
+  { title: "P6: El restaurante es apto para niños?", evantK: 6 },
   { title: "P7: Como es su menu?", evantK: 7 },
 ];
 
@@ -405,7 +405,7 @@ export const TeamDetailArr = [
     img: IMAGES.gallery_grid5_pic4,
     title: "Hamburguesa",
     progress: "75%",
-    position: "Habilidades de Comunicacion",
+    position: "Habilidades de Comunicación",
   },
 ];
 
@@ -426,23 +426,23 @@ export const ServicesArr = [
   { icon: "flaticon-cocktail", name: "Mejor Bar" },
   { icon: "flaticon-cuisine", name: "Cocina Vegana" },
   { icon: "flaticon-support", name: "Soporte Gratis" },
-  { icon: "flaticon-room-service", name: "Servicio Rapido" },
+  { icon: "flaticon-room-service", name: "Servicio Rápido" },
   { icon: "flaticon-pot", name: "Comida Fresca y Saludable" },
-  { icon: "flaticon-fast-delivery", name: "Entrega Rapida" },
+  { icon: "flaticon-fast-delivery", name: "Entrega Rápida" },
   { icon: "flaticon-token", name: "Turno de Pedido" },
   { icon: "flaticon-furniture", name: "Servicio a la Mesa" },
-  { icon: "flaticon-team", name: "Equipo Increible" },
-  { icon: "flaticon-offer", name: "Cupon de Descuento" },
+  { icon: "flaticon-team", name: "Equipo Increíble" },
+  { icon: "flaticon-offer", name: "Cupón de Descuento" },
 ];
 
 export const MenuStyle1Arr = [
   {
     title: "Entradas",
     child: [
-      { categery: "Sopa Cremosa de Champinones", price: "$10" },
-      { categery: "Champinones Rellenos", price: "$14" },
-      { categery: "Ensalada Cesar a la Parrilla", price: "$18" },
-      { categery: "Ensalada de Otono de la Casa", price: "$25" },
+      { categery: "Sopa Cremosa de Champiñones", price: "$10" },
+      { categery: "Champiñones Rellenos", price: "$14" },
+      { categery: "Ensalada César a la Parrilla", price: "$18" },
+      { categery: "Ensalada de Otoño de la Casa", price: "$25" },
       { categery: "Bruschetta de Tomate Glaseado", price: "$35" },
     ],
   },
@@ -460,17 +460,17 @@ export const MenuStyle1Arr2 = [
   {
     title: "Bebidas",
     child: [
-      { categery: "Jugo de Arandano", price: "$10" },
+      { categery: "Jugo de Arándano", price: "$10" },
       { categery: "Chocolate Caliente", price: "$14" },
-      { categery: "Gaseosa Limon-Lima", price: "$18" },
-      { categery: "Bebidas Alcoholicas", price: "$25" },
+      { categery: "Gaseosa Limón-Lima", price: "$18" },
+      { categery: "Bebidas Alcohólicas", price: "$25" },
     ],
   },
   {
     title: "Especiales",
     child: [
       { categery: "Lomo de Res y Vino Tinto", price: "$13" },
-      { categery: "Risotto de Champinones", price: "$15" },
+      { categery: "Risotto de Champiñones", price: "$15" },
       { categery: "Langosta Thermidor", price: "$14" },
       { categery: "Res Bourguignon", price: "$20" },
     ],
@@ -498,7 +498,7 @@ export const MenuStyle2Arr = [
     name: "Salud y Bienestar",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS DULCES",
+    categery: "TODAS BEBIDAS FRÍAS DULCES",
     img: IMAGES.gallery_grid5_pic3,
     name: "Arroz Hervido",
   },
@@ -508,12 +508,12 @@ export const MenuStyle2Arr = [
     name: "Hamburguesa y Papas",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS PICANTE",
+    categery: "TODAS BEBIDAS FRÍAS PICANTE",
     img: IMAGES.gallery_grid5_pic5,
     name: "Biryani No Vegetariano",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS DULCES",
+    categery: "TODAS BEBIDAS FRÍAS DULCES",
     img: IMAGES.gallery_grid5_pic6,
     name: "Pan con Miel",
   },
@@ -523,12 +523,12 @@ export const MenuStyle2Arr = [
     name: "Batata",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS ENSALADA",
+    categery: "TODAS BEBIDAS FRÍAS ENSALADA",
     img: IMAGES.gallery_grid5_pic8,
     name: "Salsa Vegetal",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS HAMBURGUESA",
+    categery: "TODAS BEBIDAS FRÍAS HAMBURGUESA",
     img: IMAGES.gallery_grid5_pic9,
     name: "Chillaa",
   },
@@ -543,7 +543,7 @@ export const MenuStyle2Arr = [
     name: "Pizza",
   },
   {
-    categery: " TODAS BEBIDAS FRIAS DULCES PICANTE",
+    categery: " TODAS BEBIDAS FRÍAS DULCES PICANTE",
     img: IMAGES.gallery_grid5_pic12,
     name: "Donas",
   },
@@ -560,29 +560,29 @@ export const MenuStyle3Arr = [
     name: "Hamburguesa de Pollo",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS DULCES",
+    categery: "TODAS BEBIDAS FRÍAS DULCES",
     img: IMAGES.images_gallery_grid4_pic3,
-    name: "Pizza de Pina",
+    name: "Pizza de Piña",
   },
   {
     categery: "TODAS PIZZA HAMBURGUESA",
     img: IMAGES.images_gallery_grid4_pic4,
-    name: "Sopa de Pina",
+    name: "Sopa de Piña",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS PICANTE",
+    categery: "TODAS BEBIDAS FRÍAS PICANTE",
     img: IMAGES.images_gallery_grid4_pic5,
     name: "Momos",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS DULCES",
+    categery: "TODAS BEBIDAS FRÍAS DULCES",
     img: IMAGES.images_gallery_grid4_pic6,
     name: "Panqueque",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS DULCES",
+    categery: "TODAS BEBIDAS FRÍAS DULCES",
     img: IMAGES.images_gallery_grid4_pic3,
-    name: "Pizza de Pina",
+    name: "Pizza de Piña",
   },
   {
     categery: "TODAS PIZZA PICANTE",
@@ -610,33 +610,33 @@ export const MenuStyle4Arr = [
     price: "$15.00",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS DULCES",
+    categery: "TODAS BEBIDAS FRÍAS DULCES",
     img: IMAGES.menu_small_pic3,
-    name: "Pizza de Pina",
+    name: "Pizza de Piña",
     price: "$25.00",
   },
   {
     categery: "TODAS PIZZA HAMBURGUESA",
     img: IMAGES.menu_small_pic4,
-    name: "Sopa de Pina",
+    name: "Sopa de Piña",
     price: "$45.00",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS PICANTE",
+    categery: "TODAS BEBIDAS FRÍAS PICANTE",
     img: IMAGES.menu_small_pic5,
     name: "Momos",
     price: "$20.00",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS DULCES",
+    categery: "TODAS BEBIDAS FRÍAS DULCES",
     img: IMAGES.menu_small_pic6,
     name: "Panqueque",
     price: "$90.00",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS DULCES",
+    categery: "TODAS BEBIDAS FRÍAS DULCES",
     img: IMAGES.menu_small_pic7,
-    name: "Pizza de Pina",
+    name: "Pizza de Piña",
     price: "$20.00",
   },
   {
@@ -709,7 +709,7 @@ export const MenuStyle5Arr = [
     price: "$50.00",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS DULCES",
+    categery: "TODAS BEBIDAS FRÍAS DULCES",
     img: IMAGES.gallery_small_pic3,
     name: "Pizza con Ensalada Verde",
     price: "$45.00",
@@ -721,19 +721,19 @@ export const MenuStyle5Arr = [
     price: "$40.00",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS PICANTE",
+    categery: "TODAS BEBIDAS FRÍAS PICANTE",
     img: IMAGES.gallery_small_pic5,
     name: "Momos",
     price: "$35.00",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS DULCES",
+    categery: "TODAS BEBIDAS FRÍAS DULCES",
     img: IMAGES.gallery_small_pic6,
     name: "Paneer",
     price: "$25.00",
   },
   {
-    categery: "TODAS BEBIDAS FRIAS DULCES",
+    categery: "TODAS BEBIDAS FRÍAS DULCES",
     img: IMAGES.gallery_small_pic7,
     name: "Macarrones ",
     price: "$22.00",
@@ -859,7 +859,7 @@ export const ContactUsArr = [
   },
   {
     icon: "flaticon-telephone",
-    title: "Numero de Telefono",
+    title: "Número de Teléfono",
     text: (
       <p>
         +(800) 800-900-100 <br />
@@ -869,7 +869,7 @@ export const ContactUsArr = [
   },
   {
     icon: "flaticon-email-1",
-    title: "Correo Electronico",
+    title: "Correo Electrónico",
     text: (
       <p>
         Info@Webmail.com <br />

@@ -3,9 +3,9 @@ import { IMAGES } from "../constent/theme";
 import Rate from "rsuite/Rate";
 
 const navItems = [
-  { icon: "icon-globe", title: "Descripcion" },
-  { icon: "icon-image", title: "Informacion Adicional" },
-  { icon: "icon-settings", title: "Resenas del Producto" },
+  { icon: "icon-globe", title: "Descripción" },
+  { icon: "icon-image", title: "Información Adicional" },
+  { icon: "icon-settings", title: "Reseñas del Producto" },
 ];
 
 const ProductDetailTabs = () => {
@@ -58,13 +58,9 @@ export function TabOne() {
           nada escondido en medio del texto.
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
+          Texto de ejemplo para describir el producto y sus principales
+          características. Puedes reemplazar este párrafo con información real
+          del menú.
         </p>
         <ul className="list-check primary">
           <li>
@@ -73,9 +69,9 @@ export function TabOne() {
             sistema, y{" "}
           </li>
           <li>
-            Lorem Ipsum es texto de relleno de la industria de la impresion y
-            la tipografia. Lorem Ipsum ha sido el texto estandar desde la
-            decada de 1500, cuando un impresor desconocido tomo una galera de
+            Lorem Ipsum es texto de relleno de la industria de la impresión y
+            la tipografía. Lorem Ipsum ha sido el texto estándar desde la
+            década de 1500, cuando un impresor desconocido tomo una galera de
             tipos y los mezclo para hacer un libro de muestras.{" "}
           </li>
         </ul>
@@ -102,7 +98,7 @@ export function TabTwo() {
               <td>Cebolla, Tomate, Aceitunas</td>
             </tr>
             <tr>
-              <td>Calificacion</td>
+              <td>Calificación</td>
               <td>
                 <span className="rating-bx">
                   <i className="fas  fa-star m-r5 text-secondary"></i>
@@ -114,11 +110,11 @@ export function TabTwo() {
               </td>
             </tr>
             <tr>
-              <td>Costo de Envio</td>
-              <td>Envio Gratis</td>
+              <td>Costo de Envío</td>
+              <td>Envío Gratis</td>
             </tr>
             <tr>
-              <td>Agregar Mas</td>
+              <td>Agregar Más</td>
               <td>Coca Cola, Queso, Lava de Chocolate</td>
             </tr>
             <tr>
@@ -156,8 +152,8 @@ export function TabThree() {
                 </div>
                 <p>
                   Lorem Ipsum es texto de relleno de la industria de la
-                  impresion y la tipografia. Lorem Ipsum ha sido el texto
-                  estandar desde la decada de 1500, cuando un impresor
+                  impresión y la tipografía. Lorem Ipsum ha sido el texto
+                  estándar desde la década de 1500, cuando un impresor
                   desconocido tomo una galera de tipos y los mezclo para hacer
                   un libro de muestras.
                 </p>
@@ -182,8 +178,8 @@ export function TabThree() {
                 </div>
                 <p>
                   Lorem Ipsum es texto de relleno de la industria de la
-                  impresion y la tipografia. Lorem Ipsum ha sido el texto
-                  estandar desde la decada de 1500, cuando un impresor
+                  impresión y la tipografía. Lorem Ipsum ha sido el texto
+                  estándar desde la década de 1500, cuando un impresor
                   desconocido tomo una galera de tipos y los mezclo para hacer
                   un libro de muestras.
                 </p>
@@ -208,8 +204,8 @@ export function TabThree() {
                 </div>
                 <p>
                   Lorem Ipsum es texto de relleno de la industria de la
-                  impresion y la tipografia. Lorem Ipsum ha sido el texto
-                  estandar desde la decada de 1500, cuando un impresor
+                  impresión y la tipografía. Lorem Ipsum ha sido el texto
+                  estándar desde la década de 1500, cuando un impresor
                   desconocido tomo una galera de tipos y los mezclo para hacer
                   un libro de muestras.
                 </p>
@@ -219,7 +215,7 @@ export function TabThree() {
         </div>
         <div className="comment-respond style-1" id="respond">
           <h3 className="comment-reply-title mb-4" id="reply-title">
-            Agregar una resena
+            Agregar una reseña
           </h3>
           <form className="comment-form" id="commentform" method="post">
             <p className="comment-form-author">
@@ -245,7 +241,7 @@ export function TabThree() {
               />
             </p>
             <div className="comment-form-rating d-flex p-lr10">
-              <label className="pull-left m-r10 m-b20">Tu Calificacion</label>
+              <label className="pull-left m-r10 m-b20">Tu Calificación</label>
               <div className="rating-widget">
                 <div className="rating-stars">
                   <Rate
@@ -264,7 +260,7 @@ export function TabThree() {
               <textarea
                 rows={4}
                 name="comment"
-                placeholder="Escribe tu resena aqui"
+                placeholder="Escribe tu reseña aquí"
                 id="comment"
               ></textarea>
             </p>

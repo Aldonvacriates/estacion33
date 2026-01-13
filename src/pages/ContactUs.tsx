@@ -59,7 +59,7 @@ const ContactUs = () => {
                     required
                     type="text"
                     className="form-control"
-                    placeholder="John Doe"
+                    placeholder="Juan Pérez"
                   />
                 </div>
               </div>
@@ -76,7 +76,7 @@ const ContactUs = () => {
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 m-b30 m-sm-b50">
-                <label className="form-label text-primary">Tu Numero</label>
+                <label className="form-label text-primary">Tu Número</label>
                 <div className="input-group input-line input-black">
                   <input
                     name="dzPhoneNumber"
@@ -106,7 +106,7 @@ const ContactUs = () => {
                     name="dzMessage"
                     required
                     className="form-control"
-                    placeholder="Hola, tienes un momento para hablar?"
+                    placeholder="Hola, ¿tienes un momento para hablar?"
                   ></textarea>
                 </div>
               </div>

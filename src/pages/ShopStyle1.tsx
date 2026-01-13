@@ -22,7 +22,7 @@ const ShopStyle1 = () => {
                     required
                     type="text"
                     className="form-control"
-                    placeholder="Escribe aqui"
+                    placeholder="Escribe aquí"
                   />
                   <div className="input-group-addon">
                     <button
@@ -44,10 +44,10 @@ const ShopStyle1 = () => {
             <div className="col-lg-9">
               <div className="d-flex justify-content-between align-items-center">
                 <h5 className="title mb-md-3 mb-lg-4 m-b20 d-none d-lg-block">
-                  Resultados de Busqueda
+                  Resultados de Búsqueda
                 </h5>
                 <strong className="filter-item-show m-b20">
-                  Busqueda: 51,740 articulos
+                  Búsqueda: 51,740 artículos
                 </strong>
                 <Link to="#" className="btn btn-primary panel-btn">
                   Filtrar

@@ -80,7 +80,7 @@ const Testimonial = () => {
           </div>
           <div className="text-center m-t10">
             <Link className="btn btn-primary dz-load-more btn-hover-2" to={"#"}>
-              Cargar Mas
+              Cargar Más
             </Link>
           </div>
         </div>

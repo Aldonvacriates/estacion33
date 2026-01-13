@@ -57,7 +57,7 @@ const ShopCheckout = () => {
             <div className="row">
               <div className="col-lg-6">
                 <div className="widget">
-                  <h4 className="widget-title">Direccion de Facturacion y Envio</h4>
+                  <h4 className="widget-title">Dirección de Facturación y Envío</h4>
                   <FormGroup />
 
                   <Button
@@ -72,15 +72,15 @@ const ShopCheckout = () => {
                   <Collapse in={open}>
                     <div id="example-collapse-text">
                       <p>
-                        Crea una cuenta ingresando la informacion abajo. Si ya
-                        eres cliente, inicia sesion en la parte superior.
+                        Crea una cuenta ingresando la información abajo. Si ya
+                        eres cliente, inicia sesión en la parte superior.
                       </p>
                       <div className="form-group">
                         <input
                           name="Password"
                           type="password"
                           className="form-control"
-                          placeholder="Contrasena"
+                          placeholder="Contraseña"
                         />
                       </div>
                     </div>
@@ -97,7 +97,7 @@ const ShopCheckout = () => {
                     aria-expanded={colleps}
                     className="btn btn-gray btnhover mb-3"
                   >
-                    Enviar a una direccion diferente{" "}
+                    Enviar a una dirección diferente{" "}
                     <i className="fa fa-angle-down m-l10"></i>
                   </Button>
                   <Collapse in={colleps}>
@@ -105,13 +105,13 @@ const ShopCheckout = () => {
                       <p>
                         Si ya compraste con nosotros, ingresa tus datos abajo.
                         Si eres un cliente nuevo, continua con la seccion de
-                        Facturacion y Envio.
+                        Facturación y Envío.
                       </p>
 
                       <FormGroup />
                       <p>
-                        Crea una cuenta ingresando la informacion abajo. Si ya
-                        eres cliente, inicia sesion en la parte superior.
+                        Crea una cuenta ingresando la información abajo. Si ya
+                        eres cliente, inicia sesión en la parte superior.
                       </p>
                     </div>
                   </Collapse>
@@ -183,7 +183,7 @@ export function FormGroup() {
           required
           type="text"
           className="form-control"
-          placeholder="Direccion"
+          placeholder="Dirección"
         />
       </div>
       <div className="row">
@@ -242,7 +242,7 @@ export function FormGroup() {
             required
             type="text"
             className="form-control dz-number"
-            placeholder="Telefono"
+            placeholder="Teléfono"
           />
         </div>
       </div>
@@ -252,8 +252,8 @@ export function FormGroup() {
 
 const opetion2 = [
   { value: "Tipo de Tarjeta", label: "Tipo de Tarjeta" },
-  { value: "Otra opcion", label: "Otra opcion" },
-  { value: "Una opcion", label: "Una opcion" },
+  { value: "Otra opción", label: "Otra opción" },
+  { value: "Una opción", label: "Una opción" },
   { value: "Papa", label: "Papa" },
 ];
 export function MenuList() {
@@ -317,11 +317,11 @@ export function MenuList() {
                   <td className="product-price">$125.96</td>
                 </tr>
                 <tr>
-                  <td>Envio</td>
-                  <td>Envio Gratis</td>
+                  <td>Envío</td>
+                  <td>Envío Gratis</td>
                 </tr>
                 <tr>
-                  <td>Cupon</td>
+                  <td>Cupón</td>
                   <td className="product-price">$28.00</td>
                 </tr>
                 <tr>
@@ -353,7 +353,7 @@ export function MenuList() {
                 name="dzOther[CreditCardNumber]"
                 type="text"
                 className="form-control"
-                placeholder="Numero de Tarjeta"
+                placeholder="Número de Tarjeta"
               />
             </div>
             <div className="form-group m-b20">

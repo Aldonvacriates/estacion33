@@ -19,8 +19,8 @@ const AssetsGallery = () => {
       <section className="content-inner">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">Galeria de Recursos</h2>
-            <p>Cada recurso importado en theme.tsx se muestra aqui.</p>
+            <h2 className="title wow flipInX">Galería de Recursos</h2>
+            <p>Cada recurso importado en theme.tsx se muestra aquí.</p>
           </div>
           <div
             style={{

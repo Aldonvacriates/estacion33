@@ -9,7 +9,7 @@ import lgZoom from "lightgallery/plugins/zoom";
 
 const Buttons = [
   { icon: "flaticon-fast-food", title: "TODAS" },
-  { icon: "flaticon-cocktail", title: "BEBIDAS FRIAS" },
+  { icon: "flaticon-cocktail", title: "BEBIDAS FRÍAS" },
   { icon: "flaticon-pizza-slice", title: "PIZZA" },
   { icon: "flaticon-salad", title: "ENSALADA" },
   { icon: "flaticon-cupcake", title: "DULCES" },
@@ -60,8 +60,8 @@ const MenuStyle2 = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr1}
-        title="Nuestro Menu 2"
-        subtitle="Nuestro Menu 2"
+        title="Nuestro Menú 2"
+        subtitle="Nuestro Menú 2"
       />
 
       <section className="content-inner">
@@ -130,7 +130,7 @@ const MenuStyle2 = () => {
                           }}
                         ></span>
                       </div>
-                      <p className="category">Comida Rapida</p>
+                      <p className="category">Comida Rápida</p>
                     </div>
                   </div>
                 </li>

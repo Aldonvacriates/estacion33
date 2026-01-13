@@ -3,7 +3,7 @@ import { Home2AreMenuArr } from "../elements/JsonData";
 import { Link } from "react-router-dom";
 const buttons = [
   { icon: "flaticon-fast-food", title: "TODAS" },
-  { icon: "flaticon-cocktail", title: "BEBIDAS FRIAS" },
+  { icon: "flaticon-cocktail", title: "BEBIDAS FRÍAS" },
   { icon: "flaticon-pizza-slice", title: "PIZZA" },
   { icon: "flaticon-salad", title: "ENSALADA" },
   { icon: "flaticon-cupcake", title: "DULCES" },
@@ -86,7 +86,7 @@ const Home2AreMenu = () => {
                   </div>
                   <p className="dz-body">
                     Lorem Ipsum es un texto de relleno de la industria de la
-                    impresion y la tipografia.
+                    impresión y la tipografía.
                   </p>
                 </div>
               </div>

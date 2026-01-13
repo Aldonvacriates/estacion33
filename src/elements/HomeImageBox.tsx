@@ -21,12 +21,12 @@ const HomeImageBox = () => {
               <div className="dz-media">
                 <img src={img} alt="/" />
               </div>
-              <span className="dz-tag">MAS VENDIDO</span>
+              <span className="dz-tag">MÁS VENDIDO</span>
               <div className="dz-content">
                 <h5 className="dz-title">
                   <Link to="/our-menu-1">{name}</Link>
                 </h5>
-                <p>Texto de ejemplo para la descripcion</p>
+                <p>Texto de ejemplo para la descripción</p>
               </div>
               <div className="dz-hover-content">
                 <div className="dz-info">
@@ -76,7 +76,7 @@ const HomeImageBox = () => {
                   </div>
                   <div className="icon-content">
                     <h5 className="dz-title">{title}</h5>
-                    <p>Texto de ejemplo para la descripcion</p>
+                    <p>Texto de ejemplo para la descripción</p>
                   </div>
                 </div>
               </div>

@@ -8,8 +8,8 @@ const MenuStyle1 = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr1}
-        title="Nuestro Menu 1"
-        subtitle="Nuestro Menu 1"
+        title="Nuestro Menú 1"
+        subtitle="Nuestro Menú 1"
       />
       <section className="content-inner section-wrapper-7 overflow-hidden bg-white">
         <div className="container">
@@ -34,8 +34,8 @@ const MenuStyle1 = () => {
                       </div>
                       <p className="dz-body">
                         Lorem Ipsum es texto de relleno de la industria de la
-                        impresion y la tipografia. Lorem Ipsum ha sido el
-                        texto estandar
+                        impresión y la tipografía. Lorem Ipsum ha sido el
+                        texto estándar
                       </p>
                     </div>
                   </div>
@@ -64,8 +64,8 @@ const MenuStyle1 = () => {
                       </div>
                       <p className="dz-body">
                         Lorem Ipsum es texto de relleno de la industria de la
-                        impresion y la tipografia. Lorem Ipsum ha sido el
-                        texto estandar
+                        impresión y la tipografía. Lorem Ipsum ha sido el
+                        texto estándar
                       </p>
                     </div>
                   </div>

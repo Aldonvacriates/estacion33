@@ -6,7 +6,7 @@ import CommonBanner2 from "../elements/CommonBanner2";
 const BlogDetail = () => {
   return (
     <div className="page-content bg-white">
-      <CommonBanner2 pages="Blog Estandar" />
+      <CommonBanner2 pages="Blog Estándar" />
       <section className="content-inner">
         <div className="min-container">
           <div className="row">
@@ -40,7 +40,7 @@ export function OurBlog() {
               </li>
               <li className="dz-date">
                 <Link to={"#"}>
-                  <i className="flaticon-calendar-date"></i> 26 Jan 2023
+                  <i className="flaticon-calendar-date"></i> 26 Ene 2023
                 </Link>
               </li>
               <li className="dz-comment">
@@ -53,14 +53,14 @@ export function OurBlog() {
           <div className="dz-post-text">
             <p>
               Lorem Ipsum es simplemente texto de relleno de la industria de la
-              imprenta y la tipografia. Lorem Ipsum ha sido el texto de relleno
-              estandar de la industria desde los anos 1500, cuando un impresor
+              imprenta y la tipografía. Lorem Ipsum ha sido el texto de relleno
+              estándar de la industria desde los años 1500, cuando un impresor
               desconocido tomo una galera de tipos y la mezclo para hacer un
               libro de muestras.
             </p>
             <blockquote className="wp-block-quote">
               <p>
-                Crea una arquitectura de informacion facil de usar con
+                Crea una arquitectura de información facil de usar con
                 consideraciones de usabilidad precisas y parciales
               </p>
               <cite>Ronald M. Spino</cite>
@@ -68,14 +68,14 @@ export function OurBlog() {
             </blockquote>
             <p>
               Lorem Ipsum es simplemente texto de relleno de la industria de la
-              imprenta y la tipografia. Lorem Ipsum ha sido el texto de relleno
-              estandar de la industria desde los anos 1500, cuando un impresor
+              imprenta y la tipografía. Lorem Ipsum ha sido el texto de relleno
+              estándar de la industria desde los años 1500, cuando un impresor
               desconocido tomo una galera de tipos y la mezclo para hacer un
               libro de muestras. Ha sobrevivido no solo cinco siglos, sino
               tambien el salto a la composicion electronica, manteniendose
-              esencialmente sin cambios. Se popularizo en los anos 60 con la
-              publicacion de hojas Letraset que contenian pasajes de Lorem
-              Ipsum, y mas recientemente con software de autoedicion como Aldus
+              esencialmente sin cambios. Se popularizo en los años 60 con la
+              publicación de hojas Letraset que contenian pasajes de Lorem
+              Ipsum, y más recientemente con software de autoedicion como Aldus
               PageMaker, incluyendo versiones de Lorem Ipsum.
             </p>
             <ul>
@@ -83,21 +83,21 @@ export function OurBlog() {
               <li>
                 De toda mi alma, como estas dulces mananas de primavera que.
               </li>
-              <li>Disfruto con todo mi corazon.</li>
+              <li>Disfruto con todo mi corazón.</li>
               <li>
                 Este lugar, que fue creado para la dicha de almas como la mia.
               </li>
             </ul>
             <p>
               Lorem Ipsum es simplemente texto de relleno de la industria de la
-              imprenta y la tipografia. Lorem Ipsum ha sido el texto de relleno
-              estandar de la industria desde los anos 1500, cuando un impresor
+              imprenta y la tipografía. Lorem Ipsum ha sido el texto de relleno
+              estándar de la industria desde los años 1500, cuando un impresor
               desconocido tomo una galera de tipos y la mezclo para hacer un
               libro de muestras. Ha sobrevivido no solo cinco siglos, sino
               tambien el salto a la composicion electronica, manteniendose
-              esencialmente sin cambios. Se popularizo en los anos 60 con la
-              publicacion de hojas Letraset que contenian pasajes de Lorem
-              Ipsum, y mas recientemente con software de autoedicion como Aldus
+              esencialmente sin cambios. Se popularizo en los años 60 con la
+              publicación de hojas Letraset que contenian pasajes de Lorem
+              Ipsum, y más recientemente con software de autoedicion como Aldus
               PageMaker, incluyendo versiones de Lorem Ipsum.
             </p>
           </div>

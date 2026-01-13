@@ -50,7 +50,7 @@ const BlogGridLeftContent = () => {
       </div>
       <div className="widget widget_categories">
         <div className="widget-title">
-          <h4 className="title">Categorias</h4>
+          <h4 className="title">Categorías</h4>
         </div>
         <ul>
           <li className="cat-item">
@@ -73,7 +73,7 @@ const BlogGridLeftContent = () => {
 
       <div className="widget recent-posts-entry">
         <div className="widget-title">
-          <h4 className="title">Ultima Publicacion</h4>
+          <h4 className="title">Última Publicación</h4>
         </div>
         <div className="widget-post-bx">
           <div className="widget-post clearfix">
@@ -89,7 +89,7 @@ const BlogGridLeftContent = () => {
                   <li>
                     <Link to={"#"}>
                       <i className="flaticon-calendar-date"></i>
-                      10 Dec, 2023
+                      10 Dic, 2023
                     </Link>
                   </li>
                   <li>
@@ -141,7 +141,7 @@ const BlogGridLeftContent = () => {
                   <li>
                     <Link to={"#"}>
                       <i className="flaticon-calendar-date"></i>
-                      20 Jan, 2023
+                      20 Ene, 2023
                     </Link>
                   </li>
                   <li>

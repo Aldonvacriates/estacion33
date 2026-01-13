@@ -13,13 +13,13 @@ const MainBanner3 = () => {
                 <div className="col-xl-6 col-lg-7 col-md-7">
                   <div className="banner-content">
                     <h1 className="title wow fadeInUp">
-                      La Opcion <span className="text-primary">#1</span> Para tu
+                      La Opción <span className="text-primary">#1</span> Para tu
                       Hambre
                     </h1>
                     <p className="wow fadeInUp">
                       Lorem Ipsum es un texto de relleno usado en la industria
-                      de la impresion y la tipografia. Lorem Ipsum ha sido el
-                      texto estandar desde la decada de 1500,
+                      de la impresión y la tipografía. Lorem Ipsum ha sido el
+                      texto estándar desde la década de 1500,
                     </p>
 
                     <div className="banner-btn d-flex align-items-center wow fadeInUp">
@@ -35,8 +35,8 @@ const MainBanner3 = () => {
                         to="/about-us"
                         className="btn btn-outline-primary btn-md shadow-primary btn-hover-3"
                       >
-                        <span className="btn-text" data-text="Ver Mas">
-                          Ver Mas
+                        <span className="btn-text" data-text="Ver Más">
+                          Ver Más
                         </span>
                       </Link>
                     </div>

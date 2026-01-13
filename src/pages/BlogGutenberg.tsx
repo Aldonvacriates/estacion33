@@ -25,7 +25,7 @@ const BlogGutenberg = () => {
                   </li>
                   <li className="dz-date">
                     <Link to={"#"}>
-                      <i className="flaticon-calendar-date"></i> 26 Jan 2023
+                      <i className="flaticon-calendar-date"></i> 26 Ene 2023
                     </Link>
                   </li>
                   <li className="dz-comment">
@@ -43,14 +43,14 @@ const BlogGutenberg = () => {
               <div className="dz-post-text">
                 <p>
                   Lorem Ipsum es simplemente texto de relleno de la industria
-                  de la imprenta y la tipografia. Lorem Ipsum ha sido el texto
-                  de relleno estandar de la industria desde los anos 1500,
+                  de la imprenta y la tipografía. Lorem Ipsum ha sido el texto
+                  de relleno estándar de la industria desde los años 1500,
                   cuando un impresor desconocido tomo una galera de tipos y la
                   mezclo para hacer un libro de muestras.
                 </p>
                 <blockquote className="wp-block-quote">
                   <p>
-                    Crea una arquitectura de informacion facil de usar con
+                    Crea una arquitectura de información facil de usar con
                     consideraciones de usabilidad precisas y parciales
                   </p>
                   <cite>Ronald M. Spino</cite>
@@ -58,14 +58,14 @@ const BlogGutenberg = () => {
                 </blockquote>
                 <p>
                   Lorem Ipsum es simplemente texto de relleno de la industria
-                  de la imprenta y la tipografia. Lorem Ipsum ha sido el texto
-                  de relleno estandar de la industria desde los anos 1500,
+                  de la imprenta y la tipografía. Lorem Ipsum ha sido el texto
+                  de relleno estándar de la industria desde los años 1500,
                   cuando un impresor desconocido tomo una galera de tipos y la
                   mezclo para hacer un libro de muestras. Ha sobrevivido no
                   solo cinco siglos, sino tambien el salto a la composicion
                   electronica, manteniendose esencialmente sin cambios. Se
-                  popularizo en los anos 60 con la publicacion de hojas Letraset
-                  que contenian pasajes de Lorem Ipsum, y mas recientemente con
+                  popularizo en los años 60 con la publicación de hojas Letraset
+                  que contenian pasajes de Lorem Ipsum, y más recientemente con
                   software de autoedicion como Aldus PageMaker, incluyendo
                   versiones de Lorem Ipsum.{" "}
                 </p>
@@ -88,14 +88,14 @@ const BlogGutenberg = () => {
                 </figure>
                 <p>
                   Lorem Ipsum es simplemente texto de relleno de la industria
-                  de la imprenta y la tipografia. Lorem Ipsum ha sido el texto
-                  de relleno estandar de la industria desde los anos 1500,
+                  de la imprenta y la tipografía. Lorem Ipsum ha sido el texto
+                  de relleno estándar de la industria desde los años 1500,
                   cuando un impresor desconocido tomo una galera de tipos y la
                   mezclo para hacer un libro de muestras. Ha sobrevivido no
                   solo cinco siglos, sino tambien el salto a la composicion
                   electronica, manteniendose esencialmente sin cambios. Se
-                  popularizo en los anos 60 con la publicacion de hojas Letraset
-                  que contenian pasajes de Lorem Ipsum, y mas recientemente con
+                  popularizo en los años 60 con la publicación de hojas Letraset
+                  que contenian pasajes de Lorem Ipsum, y más recientemente con
                   software de autoedicion como Aldus PageMaker, incluyendo
                   versiones de Lorem Ipsum.
                 </p>
@@ -105,15 +105,15 @@ const BlogGutenberg = () => {
                 </div>
 
                 <p>
-                  Se popularizo en los anos 60 con la publicacion de hojas
-                  Letraset que contenian pasajes de Lorem Ipsum, y mas
+                  Se popularizo en los años 60 con la publicación de hojas
+                  Letraset que contenian pasajes de Lorem Ipsum, y más
                   recientemente con software de autoedicion como Aldus
                   PageMaker, incluyendo versiones de Lorem Ipsum.{" "}
                 </p>
                 <p>
                   Lorem Ipsum es simplemente texto de relleno de la industria
-                  de la imprenta y la tipografia. Lorem Ipsum ha sido el texto
-                  de relleno estandar de la industria desde los anos 1500,
+                  de la imprenta y la tipografía. Lorem Ipsum ha sido el texto
+                  de relleno estándar de la industria desde los años 1500,
                   cuando un impresor desconocido tomo una galera de tipos y la
                   mezclo para hacer un libro de muestras. Ha sobrevivido no
                   solo cinco siglos, sino tambien el salto a la composicion
@@ -168,14 +168,14 @@ const BlogGutenberg = () => {
                 </div>
                 <p>
                   Lorem Ipsum es simplemente texto de relleno de la industria
-                  de la imprenta y la tipografia. Lorem Ipsum ha sido el texto
-                  de relleno estandar de la industria desde los anos 1500,
+                  de la imprenta y la tipografía. Lorem Ipsum ha sido el texto
+                  de relleno estándar de la industria desde los años 1500,
                   cuando un impresor desconocido tomo una galera de tipos y la
                   mezclo para hacer un libro de muestras. Ha sobrevivido no
                   solo cinco siglos, sino tambien el salto a la composicion
                   electronica, manteniendose esencialmente sin cambios. Se
-                  popularizo en los anos 60 con la publicacion de hojas Letraset
-                  que contenian pasajes de Lorem Ipsum, y mas recientemente con
+                  popularizo en los años 60 con la publicación de hojas Letraset
+                  que contenian pasajes de Lorem Ipsum, y más recientemente con
                   software de autoedicion como Aldus PageMaker, incluyendo
                   versiones de Lorem Ipsum.
                 </p>
@@ -186,7 +186,7 @@ const BlogGutenberg = () => {
                     De toda mi alma, como estas dulces mananas de primavera
                     que.
                   </li>
-                  <li>Disfruto con todo mi corazon.</li>
+                  <li>Disfruto con todo mi corazón.</li>
                   <li>
                     Este lugar, que fue creado para la dicha de almas como la
                     mia.
@@ -195,8 +195,8 @@ const BlogGutenberg = () => {
 
                 <p>
                   Lorem Ipsum es simplemente texto de relleno de la industria
-                  de la imprenta y la tipografia. Lorem Ipsum ha sido el texto
-                  de relleno estandar de la industria desde los anos 1500,
+                  de la imprenta y la tipografía. Lorem Ipsum ha sido el texto
+                  de relleno estándar de la industria desde los años 1500,
                   cuando un impresor desconocido tomo una galera de tipos y la
                   mezclo para hacer un libro de muestras. Ha sobrevivido no
                   solo cinco siglos, sino tambien el salto a la composicion

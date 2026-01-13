@@ -48,14 +48,14 @@ const ProductDetail = () => {
                   <div className="rating">
                     <i className="fa-solid fa-star"></i>{" "}
                     <span>
-                      <strong className="text-dark">4.5</strong> - 20 Resenas
+                      <strong className="text-dark">4.5</strong> - 20 Reseñas
                     </span>
                   </div>
                 </div>
                 <p className="text">
                   Lorem Ipsum es simplemente texto de relleno de la industria
-                  de la imprenta y la tipografia. Lorem Ipsum ha sido el texto
-                  de relleno estandar de la industria desde los anos 1500,
+                  de la imprenta y la tipografía. Lorem Ipsum ha sido el texto
+                  de relleno estándar de la industria desde los años 1500,
                   cuando un impresor desconocido tomo una galera de tipos y la
                   mezclo para hacer un libro de muestras.
                 </p>
@@ -141,7 +141,7 @@ const ProductDetail = () => {
       <section className="content-inner-1 pt-0">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title">Menu Especial</h2>
+            <h2 className="title">Menú Especial</h2>
           </div>
           <HomeSpacialMenu />
         </div>

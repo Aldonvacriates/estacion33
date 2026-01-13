@@ -25,8 +25,8 @@ const Error404 = () => {
           <div className="container">
             <div className="inner-content text-center">
               <h1 className="error-head">404</h1>
-              <h3 className="error-para">Ups! Pagina no encontrada</h3>
-              <p>Lo sentimos. La pagina que buscas no fue encontrada</p>
+              <h3 className="error-para">Ups! Página no encontrada</h3>
+              <p>Lo sentimos. La página que buscas no fue encontrada</p>
               <Link to="/" className="btn btn-md btn-primary btn-hover-1">
                 <span>Volver al Inicio</span>
               </Link>

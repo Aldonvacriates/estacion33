@@ -8,7 +8,7 @@ import OurMenuFilter from "../elements/OurMenuFilter";
 
 const Buttons = [
   { icon: "flaticon-fast-food", title: "TODAS" },
-  { icon: "flaticon-cocktail", title: "BEBIDAS FRIAS" },
+  { icon: "flaticon-cocktail", title: "BEBIDAS FRÍAS" },
   { icon: "flaticon-pizza-slice", title: "PIZZA" },
   { icon: "flaticon-salad", title: "ENSALADA" },
   { icon: "flaticon-cupcake", title: "DULCES" },
@@ -59,8 +59,8 @@ const MenuStyle5 = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr5}
-        title="Nuestro Menu 5"
-        subtitle="Nuestro Menu 5"
+        title="Nuestro Menú 5"
+        subtitle="Nuestro Menú 5"
       />
 
       <section className="content-inner">
@@ -91,7 +91,7 @@ const MenuStyle5 = () => {
             </div>
             <div className="col-xl-2 col-lg-3 col-md-12 text-lg-end mb-lg-0 m-b30 d-flex d-lg-block align-items-center justify-content-between">
               <strong className="filter-item-show d-lg-none">
-                51,740 articulos
+                51,740 artículos
               </strong>
               <Link
                 to={"#"}
@@ -136,7 +136,7 @@ const MenuStyle5 = () => {
                     <h4 className="dz-title">
                       <Link to="/product-detail">{name}</Link>
                     </h4>
-                    <p>Texto de ejemplo para la descripcion.</p>
+                    <p>Texto de ejemplo para la descripción.</p>
                     <h5 className="dz-price text-primary">{price}</h5>
                     <Link
                       to="/shop-cart"

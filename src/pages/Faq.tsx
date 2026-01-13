@@ -21,7 +21,7 @@ const Faq = () => {
         )
         .then(
           () => {
-            toast.success("Enviado con exito!");
+            toast.success("Enviado con éxito!");
           },
           (error) => {
             toast.error(error.text);
@@ -58,7 +58,7 @@ const Faq = () => {
                       required
                       type="text"
                       className="form-control"
-                      placeholder="Por que deberia usar Swigo?"
+                      placeholder="¿Por qué debería usar Swigo?"
                     />
                   </div>
                 </form>
@@ -88,8 +88,8 @@ const Faq = () => {
                       <Accordion.Body className="accordion-body">
                         <p className="m-b0">
                           Lorem Ipsum es texto de relleno de la industria de la
-                          impresion y la tipografia. Lorem Ipsum ha sido el
-                          texto estandar desde la decada de 1500,
+                          impresión y la tipografía. Lorem Ipsum ha sido el
+                          texto estándar desde la década de 1500,
                         </p>
                       </Accordion.Body>
                     </Accordion.Item>
@@ -106,9 +106,9 @@ const Faq = () => {
               </div>
               <div className="col-lg-7 m-b20">
                 <div className="faq-info">
-                  <h2 className="title">Boletin</h2>
+                  <h2 className="title">Boletín</h2>
                   <p className="m-b30">
-                    Esperamos que este boletin te encuentre bien. Nos alegra
+                    Esperamos que este boletín te encuentre bien. Nos alegra
                     anunciar nuevas adiciones a nuestro menu que creemos que te
                     encantaran. Nuestro equipo culinario ha estado
                   </p>

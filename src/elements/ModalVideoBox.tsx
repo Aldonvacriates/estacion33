@@ -20,8 +20,8 @@ const ModalVideoBox = () => {
             <h2 className="title">Te Invitamos a Visitar Nuestro Restaurante</h2>
             <p className="about-p">
               Lorem Ipsum es simplemente texto de relleno de la industria de la
-              imprenta y la tipografia. Lorem Ipsum ha sido el texto de relleno
-              estandar de la industria desde los anos 1500, cuando un impresor
+              imprenta y la tipografía. Lorem Ipsum ha sido el texto de relleno
+              estándar de la industria desde los años 1500, cuando un impresor
               desconocido tomo una galera de tipos y la mezclo para hacer un
               libro de muestras.
             </p>

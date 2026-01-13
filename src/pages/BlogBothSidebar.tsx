@@ -36,7 +36,7 @@ const BlogBothSidebar = () => {
                             <li>
                               <Link to={"#"}>
                                 <i className="flaticon-calendar-date"></i> 26
-                                Jan 2023
+                                Ene 2023
                               </Link>
                             </li>
                             <li className="dz-comment">
@@ -60,7 +60,7 @@ const BlogBothSidebar = () => {
                             to="/blog-standard"
                             className="btn btn-primary btn-hover-2"
                           >
-                            Leer Mas
+                            Leer Más
                           </Link>
                         </div>
                       </div>

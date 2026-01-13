@@ -47,12 +47,12 @@ const Footer2 = () => {
                       </div>
                       <p className="text-white mb-0 font-14">
                         Lorem Ipsum es simplemente texto de relleno de la
-                        industria de la imprenta y la tipografia.
+                        industria de la imprenta y la tipografía.
                       </p>
                     </div>
                     <div className="col-xl-6 col-lg-6 wow fadeInUp">
                       <h4 className="text-white title m-b15">
-                        Suscribete a Nuestro Boletin
+                        Suscríbete a Nuestro Boletín
                       </h4>
                       <form
                         className="dzSubscribe"
@@ -79,7 +79,7 @@ const Footer2 = () => {
                               type="submit"
                               className="btn btn-primary btn-hover-2"
                             >
-                              <span>Suscribete</span>
+                              <span>Suscríbete</span>
                               <i className="fa-solid fa-paper-plane"></i>
                             </button>
                           </div>
@@ -158,12 +158,12 @@ const Footer2 = () => {
                     <ul>
                       <li>
                         <Link to="/blog-open-gutenberg">
-                          <span>Estrategia y Investigacion</span>
+                          <span>Estrategia y Investigación</span>
                         </Link>
                       </li>
                       <li>
                         <Link to="/services">
-                          <span>Entrega Rapida</span>
+                          <span>Entrega Rápida</span>
                         </Link>
                       </li>
                       <li>
@@ -178,7 +178,7 @@ const Footer2 = () => {
                       </li>
                       <li>
                         <Link to="/our-menu-1">
-                          <span>Nuestro Menu</span>
+                          <span>Nuestro Menú</span>
                         </Link>
                       </li>
                     </ul>
@@ -190,7 +190,7 @@ const Footer2 = () => {
                     <ul>
                       <li>
                         <Link to="/faq">
-                          <span>FAQ</span>
+                          <span>Preguntas frecuentes</span>
                         </Link>
                       </li>
                       <li>
@@ -200,7 +200,7 @@ const Footer2 = () => {
                       </li>
                       <li>
                         <Link to="/shop-style-2">
-                          <span>Filtro de Categorias</span>
+                          <span>Filtro de Categorías</span>
                         </Link>
                       </li>
                       <li>

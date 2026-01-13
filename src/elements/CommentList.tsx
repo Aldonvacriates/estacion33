@@ -23,8 +23,8 @@ const CommentList = () => {
                   </div>
                   <p className="font-14 mb-0">
                     Lorem Ipsum es simplemente texto de relleno de la industria
-                    de la imprenta y la tipografia. Lorem Ipsum ha sido el
-                    texto de relleno estandar de la industria desde los anos
+                    de la imprenta y la tipografía. Lorem Ipsum ha sido el
+                    texto de relleno estándar de la industria desde los años
                     1500, cuando un impresor desconocido tomo una galera de
                     tipos y la mezclo para hacer un libro de muestras.
                   </p>
@@ -47,9 +47,9 @@ const CommentList = () => {
                       </div>
                       <p className="font-14 mb-0">
                         Lorem Ipsum es simplemente texto de relleno de la
-                        industria de la imprenta y la tipografia. Lorem Ipsum
-                        ha sido el texto de relleno estandar de la industria
-                        desde los anos 1500, cuando un impresor desconocido
+                        industria de la imprenta y la tipografía. Lorem Ipsum
+                        ha sido el texto de relleno estándar de la industria
+                        desde los años 1500, cuando un impresor desconocido
                         tomo una galera de tipos y la mezclo para hacer un
                         libro de muestras.
                       </p>
@@ -74,8 +74,8 @@ const CommentList = () => {
                   </div>
                   <p className="font-14 mb-0">
                     Lorem Ipsum es simplemente texto de relleno de la industria
-                    de la imprenta y la tipografia. Lorem Ipsum ha sido el
-                    texto de relleno estandar de la industria desde los anos
+                    de la imprenta y la tipografía. Lorem Ipsum ha sido el
+                    texto de relleno estándar de la industria desde los años
                     1500, cuando un impresor desconocido tomo una galera de
                     tipos y la mezclo para hacer un libro de muestras.
                   </p>
@@ -132,7 +132,7 @@ const CommentList = () => {
                   <textarea
                     rows={8}
                     name="comment"
-                    placeholder="Escribe tu comentario aqui"
+                    placeholder="Escribe tu comentario aquí"
                     id="comment"
                   ></textarea>
                 </p>

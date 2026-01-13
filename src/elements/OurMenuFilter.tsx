@@ -25,7 +25,7 @@ const OurMenuFilter = () => {
         <div className="offcanvas-body">
           <div className="widget">
             <div className="widget-title">
-              <h4 className="title">Refinar por Categorias</h4>
+              <h4 className="title">Refinar por Categorías</h4>
             </div>
             <div className="category-check-list">
               <div className="form-check">
@@ -67,7 +67,7 @@ const OurMenuFilter = () => {
                   className="form-check-label"
                   htmlFor="productCheckBox-03"
                 >
-                  Bebidas Frias
+                  Bebidas Frías
                 </label>
               </div>
               <div className="form-check">
@@ -207,7 +207,7 @@ const OurMenuFilter = () => {
                   className="form-check-label"
                   htmlFor="productCheckBox-13"
                 >
-                  Cafe Frio
+                  Café Frio
                 </label>
               </div>
               <div className="form-check">
@@ -305,7 +305,7 @@ const OurMenuFilter = () => {
                   className="form-check-label"
                   htmlFor="productCheckBox-20"
                 >
-                  Gaseosa Limon Lima
+                  Gaseosa Limón Lima
                 </label>
               </div>
             </div>
@@ -350,7 +350,7 @@ const OurMenuFilter = () => {
           </div>
           <div className="widget rating-filter">
             <div className="widget-title">
-              <h4 className="title">Calificacion</h4>
+              <h4 className="title">Calificación</h4>
             </div>
             <ul>
               <li>

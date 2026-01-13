@@ -66,7 +66,7 @@ const SignIn = () => {
                     </clipPath>
                   </defs>
                 </svg>{" "}
-                Registrate con Google
+                Regístrate con Google
               </button>
               <h6 className="login-title">
                 <span>O</span>
@@ -89,7 +89,7 @@ const SignIn = () => {
             </div>
             <div className="form-group m-b30">
               <label className="form-label">
-                Contrasena
+                Contraseña
                 <strong className="text-danger">*</strong>
               </label>
               <div className="input-group search-input">
@@ -97,7 +97,7 @@ const SignIn = () => {
                   name="password"
                   type={hide ? "text" : "password"}
                   className="form-control dz-password"
-                  placeholder="Ingresa tu contrasena"
+                  placeholder="Ingresa tu contraseña"
                 />
                 <div
                   className={`show-pass ${hide ? "active" : ""}`}
@@ -132,7 +132,7 @@ const SignIn = () => {
               type="reset"
               className="btn btn-primary w-100 d-block"
             >
-              Iniciar sesion
+              Iniciar sesión
             </button>
             <p className="text-center m-t30">
               No estas registrado?{" "}
@@ -144,7 +144,7 @@ const SignIn = () => {
                   setShowSignInForm(false);
                 }}
               >
-                Registrate aqui
+                Regístrate aquí
               </Link>
             </p>
           </div>
@@ -175,7 +175,7 @@ const SignIn = () => {
           ></button>
           <div className="offcanvas-form">
             <div className="login-head">
-              <h4 className="title">Unete a Nuestra Red</h4>
+              <h4 className="title">Únete a Nuestra Red</h4>
               <p>
                 Nos encantaria que te unas a nuestra red 100% remota de
                 creadores y freelance.
@@ -217,7 +217,7 @@ const SignIn = () => {
                     </clipPath>
                   </defs>
                 </svg>{" "}
-                Registrate con Google
+                Regístrate con Google
               </button>
               <h6 className="login-title">
                 <span>O</span>
@@ -253,7 +253,7 @@ const SignIn = () => {
             </div>
             <div className="form-group m-b30">
               <label className="form-label">
-                Contrasena
+                Contraseña
                 <strong className="text-danger">*</strong>
               </label>
               <div className="input-group search-input">
@@ -261,7 +261,7 @@ const SignIn = () => {
                   name="password"
                   type={hide ? "text" : "password"}
                   className="form-control dz-password"
-                  placeholder="Crea tu contrasena"
+                  placeholder="Crea tu contraseña"
                 />
                 <div
                   className="show-pass"
@@ -296,7 +296,7 @@ const SignIn = () => {
               type="reset"
               className="btn btn-primary w-100 d-block btn-hover-2"
             >
-              <span>Registrate</span>
+              <span>Regístrate</span>
             </button>
             <p className="text-center m-t30">
               Ya tienes una cuenta?{" "}
@@ -308,7 +308,7 @@ const SignIn = () => {
                   setShowSignInForm(true);
                 }}
               >
-                Iniciar sesion
+                Iniciar sesión
               </Link>
             </p>
           </div>

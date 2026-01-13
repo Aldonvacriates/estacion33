@@ -50,9 +50,9 @@ const ComingSoon = () => {
                       <img src={IMAGES.logo} alt="/" />
                     </Link>
                   </div>
-                  <h3 className="coming-head">PRONTO LLEGAMOS!</h3>
+                  <h3 className="coming-head">¡PRONTO LLEGAMOS!</h3>
                   <p className="coming-para">
-                    Mantente atento a algo increible
+                    Mantente atento a algo increíble
                   </p>
                   <Lottie
                     className="coming-media"
@@ -63,7 +63,7 @@ const ComingSoon = () => {
                 </div>
                 <div className="middle-content">
                   <h5 className="font-weight-400 m-b20">
-                    Suscribete a nuestra lista para recibir las ultimas
+                    Suscríbete a nuestra lista para recibir las últimas
                     novedades
                   </h5>
                   <form
@@ -149,7 +149,7 @@ const ComingSoon = () => {
                 </div>
                 <div className="coming-footer text-center">
                   <p>
-                    © Copyright{" "}
+                    © 2023{" "}
                     <span
                       className="heart"
                       ref={heartRef}

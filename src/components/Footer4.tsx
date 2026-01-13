@@ -76,12 +76,12 @@ const Footer4 = () => {
                 <ul>
                   <li>
                     <Link to="/blog-open-gutenberg">
-                      <span>Estrategia y Investigacion</span>
+                      <span>Estrategia y Investigación</span>
                     </Link>
                   </li>
                   <li>
                     <Link to="/services">
-                      <span>Entrega Rapida</span>
+                      <span>Entrega Rápida</span>
                     </Link>
                   </li>
                   <li>
@@ -96,7 +96,7 @@ const Footer4 = () => {
                   </li>
                   <li>
                     <Link to="/our-menu-1">
-                      <span>Nuestro Menu</span>
+                      <span>Nuestro Menú</span>
                     </Link>
                   </li>
                 </ul>
@@ -108,7 +108,7 @@ const Footer4 = () => {
                 <ul>
                   <li>
                     <Link to="/faq">
-                      <span>FAQ</span>
+                      <span>Preguntas frecuentes</span>
                     </Link>
                   </li>
                   <li>
@@ -118,7 +118,7 @@ const Footer4 = () => {
                   </li>
                   <li>
                     <Link to="/shop-style-2">
-                      <span>Filtro de Categorias</span>
+                      <span>Filtro de Categorías</span>
                     </Link>
                   </li>
                   <li>
@@ -141,7 +141,7 @@ const Footer4 = () => {
         <div className="footer-bottom">
           <div className="row">
             <div className="col-xl-6 col-md-6 text-md-start">
-              <p>Copyright 2023 Todos los derechos reservados.</p>
+              <p>© 2023 Todos los derechos reservados.</p>
             </div>
             <div className="col-xl-6 col-md-6 text-md-end">
               <span className="copyright-text">

@@ -27,7 +27,7 @@ const HomeSpacialMenu = () => {
                 <h4 className="dz-title">
                   <Link to="/product-detail">{name}</Link>
                 </h4>
-                <p>Texto de ejemplo para la descripcion.</p>
+                <p>Texto de ejemplo para la descripción.</p>
                 <h5 className="dz-price text-primary">{price}</h5>
                 <Link to="/shop-cart" className="btn btn-primary btn-hover-2">
                   Agregar al Carrito

@@ -20,14 +20,14 @@ const Sidebar = () => {
             </div>
             <p>
               Lorem Ipsum es simplemente texto de relleno de la industria de la
-              imprenta y la tipografia.
+              imprenta y la tipografía.
             </p>
             <Link to="/about-us" className="btn btn-primary btn-hover-2">
               <span>LEER MAS</span>
             </Link>
           </div>
           <div className="dz-title">
-            <h4 className="m-b20">Informacion de Contacto</h4>
+            <h4 className="m-b20">Información de Contacto</h4>
           </div>
           <div className="icon-bx-wraper left">
             <div className="icon-md m-r20">

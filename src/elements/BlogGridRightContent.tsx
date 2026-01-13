@@ -17,7 +17,7 @@ const BlogGridRightContent = () => {
                 <ul>
                   <li>
                     <Link to="#">
-                      <i className="flaticon-calendar-date"></i> 26 Jan 2023
+                      <i className="flaticon-calendar-date"></i> 26 Ene 2023
                     </Link>
                   </li>
                   <li className="dz-comment">
@@ -34,7 +34,7 @@ const BlogGridRightContent = () => {
                 Hay muchas variaciones de pasajes de Lorem Ipsum disponibles.
               </p>
               <Link to="/blog-standard" className="btn btn-primary btn-hover-2">
-                Leer Mas
+                Leer Más
               </Link>
             </div>
           </div>

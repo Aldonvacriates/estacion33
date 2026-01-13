@@ -81,8 +81,8 @@ const UnderMaintenance = () => {
                           type="submit"
                           className="btn btn-primary w-100 btn-hover-3"
                         >
-                          <span className="btn-text" data-text="Suscribete">
-                            Suscribete
+                          <span className="btn-text" data-text="Suscríbete">
+                            Suscríbete
                           </span>
                         </button>
                       </div>

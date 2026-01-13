@@ -22,7 +22,7 @@ const ShopStyle2 = () => {
                     required
                     type="text"
                     className="form-control"
-                    placeholder="Escribe aqui"
+                    placeholder="Escribe aquí"
                   />
                   <div className="input-group-addon">
                     <button
@@ -44,10 +44,10 @@ const ShopStyle2 = () => {
             <div className="col-lg-9">
               <div className="d-flex justify-content-between align-items-center">
                 <h5 className="title mb-md-3 mb-lg-4 m-b20 d-none d-lg-block">
-                  Resultados de Busqueda
+                  Resultados de Búsqueda
                 </h5>
                 <strong className="filter-item-show m-b20">
-                  Busqueda: 51,740 articulos
+                  Búsqueda: 51,740 artículos
                 </strong>
                 <Link to={"#"} className="btn btn-primary panel-btn">
                   Filtrar
@@ -64,7 +64,7 @@ const ShopStyle2 = () => {
                         <img src={img} alt="/" />
                         <div className="dz-meta">
                           <ul>
-                            <li className="seller">Mas Vendido</li>
+                            <li className="seller">Más Vendido</li>
                             <li className="rating">
                               <i className="fa-solid fa-star"></i> 4.5
                             </li>

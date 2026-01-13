@@ -31,7 +31,7 @@ const AboutUs = () => {
                     <h5 className="title">
                       <Link to="/service-detail">{title}</Link>
                     </h5>
-                    <p>Texto de ejemplo para la descripcion del servicio.</p>
+                    <p>Texto de ejemplo para la descripción del servicio.</p>
                   </div>
                 </div>
               </div>

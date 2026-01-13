@@ -9,7 +9,7 @@ const ShopStyle1LeftContent = () => {
           <div className="widget widget_tag_cloud ">
             <div className="d-flex justify-content-between">
               <div className="widget-title">
-                <h4 className="title">Busqueda Actual</h4>
+                <h4 className="title">Búsqueda Actual</h4>
               </div>
               <Link to="#" className="panel-close-btn">
                 <i className="fa-solid fa-xmark"></i>
@@ -23,7 +23,7 @@ const ShopStyle1LeftContent = () => {
           </div>
           <div className="widget dz-widget_services">
             <div className="widget-title">
-              <h4 className="title">Refinar por Categorias</h4>
+              <h4 className="title">Refinar por Categorías</h4>
             </div>
             <div className="form-check">
               <input
@@ -55,7 +55,7 @@ const ShopStyle1LeftContent = () => {
                 id="productCheckBox-03"
               />
               <label className="form-check-label" htmlFor="productCheckBox-03">
-                Bebidas Frias
+                Bebidas Frías
               </label>
             </div>
             <div className="form-check">

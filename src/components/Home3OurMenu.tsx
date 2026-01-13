@@ -4,7 +4,7 @@ import { Home3OurMenuArr } from "../elements/JsonData";
 
 const buttons = [
   { icon: "flaticon-fast-food", title: "TODAS" },
-  { icon: "flaticon-cocktail", title: "BEBIDAS FRIAS" },
+  { icon: "flaticon-cocktail", title: "BEBIDAS FRÍAS" },
   { icon: "flaticon-pizza-slice", title: "PIZZA" },
   { icon: "flaticon-salad", title: "ENSALADA" },
   { icon: "flaticon-cupcake", title: "DULCES" },
@@ -83,7 +83,7 @@ const Home3OurMenu = () => {
                   <img src={img} alt="/" />
                   <div className="dz-meta">
                     <ul>
-                      <li className="seller">Mas Vendido</li>
+                      <li className="seller">Más Vendido</li>
                       <li className="rating">
                         <i className="fa-solid fa-star"></i> 4.5
                       </li>

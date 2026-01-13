@@ -43,7 +43,7 @@ const Home2 = () => {
       <section className="content-inner-1 overflow-hidden pt-0">
         <div className="container">
           <div className="section-head menu-align">
-            <h2 className="title mb-0 wow flipInX">Explora Nuestro Menu</h2>
+            <h2 className="title mb-0 wow flipInX">Explora Nuestro Menú</h2>
             <div className="pagination-align wow fadeInUp">
               <div className="menu-button-prev1 btn-prev rounded-xl btn-hover-2">
                 <i className="fa-solid fa-arrow-left"></i>
@@ -73,7 +73,7 @@ const Home2 = () => {
       <section className="content-inner-1">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">Nuestro Menu</h2>
+            <h2 className="title wow flipInX">Nuestro Menú</h2>
           </div>
           <Home2AreMenu />
         </div>

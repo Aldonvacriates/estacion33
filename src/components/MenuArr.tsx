@@ -10,12 +10,12 @@ export const MenuArr = [
     ],
   },
   {
-    menu: "Paginas",
+    menu: "Páginas",
     className: "has-mega-menu",
     ulClassName: "mega-menu",
     submenu: [
       {
-        child: "Paginas",
+        child: "Páginas",
         subchild: [
           { children: "Nosotros", to: "/about-us" },
           { children: "Preguntas", to: "/faq" },
@@ -25,24 +25,24 @@ export const MenuArr = [
         ],
       },
       {
-        child: "Paginas",
+        child: "Páginas",
         subchild: [
           { children: "Servicios", to: "/services" },
           { children: "Detalle del Servicio", to: "/service-detail" },
           { children: "Error 404", to: "/error-404" },
-          { children: "Proximamente", to: "/coming-soon" },
+          { children: "Próximamente", to: "/coming-soon" },
           { children: "En Mantenimiento", to: "/under-maintenance" },
-          { children: "Galeria de Recursos", to: "/assets-gallery" },
+          { children: "Galería de Recursos", to: "/assets-gallery" },
         ],
       },
       {
-        child: "Nuestros Menus",
+        child: "Nuestros Menús",
         subchild: [
-          { children: "Menu Estilo 1", to: "/our-menu-1" },
-          { children: "Menu Estilo 2", to: "/our-menu-2" },
-          { children: "Menu Estilo 3", to: "/our-menu-3" },
-          { children: "Menu Estilo 4", to: "/our-menu-4" },
-          { children: "Menu Estilo 5", to: "/our-menu-5" },
+          { children: "Menú Estilo 1", to: "/our-menu-1" },
+          { children: "Menú Estilo 2", to: "/our-menu-2" },
+          { children: "Menú Estilo 3", to: "/our-menu-3" },
+          { children: "Menú Estilo 4", to: "/our-menu-4" },
+          { children: "Menú Estilo 5", to: "/our-menu-5" },
         ],
       },
     ],
@@ -66,13 +66,13 @@ export const MenuArr = [
     ulClassName: "mega-menu",
     submenu: [
       {
-        child: "Blog en Cuadricula",
+        child: "Blog en Cuadrícula",
         subchild: [
-          { children: "Blog Cuadricula 2", to: "/blog-grid-2" },
-          { children: "Blog Cuadricula 3", to: "/blog-grid-3" },
-          { children: "Cuadricula con Sidebar Izq.", to: "/blog-grid-left-sidebar" },
+          { children: "Blog Cuadrícula 2", to: "/blog-grid-2" },
+          { children: "Blog Cuadrícula 3", to: "/blog-grid-3" },
+          { children: "Cuadrícula con Sidebar Izq.", to: "/blog-grid-left-sidebar" },
           {
-            children: "Cuadricula con Sidebar Der.",
+            children: "Cuadrícula con Sidebar Der.",
             to: "/blog-grid-right-sidebar",
           },
         ],
@@ -113,7 +113,7 @@ export const MenuArr = [
           { children: "Mosaico 3 Columnas", to: "/blog-grid-3-masonary" },
           { children: "Mosaico 4 Columnas", to: "/blog-grid-4-masonary" },
           { children: "Lista Ancha con Sidebar", to: "/blog-wide-list-sidebar" },
-          { children: "Cuadricula Ancha con Sidebar", to: "/blog-wide-grid-sidebar" },
+          { children: "Cuadrícula Ancha con Sidebar", to: "/blog-wide-grid-sidebar" },
         ],
       },
     ],

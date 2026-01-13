@@ -21,7 +21,7 @@ const Team = () => {
                       <h6 className="dz-name">
                         <Link to="/team-detail">{name}</Link>
                       </h6>
-                      <span className="dz-position">Chef Senior</span>
+                      <span className="dz-position">Chef sénior</span>
                     </div>
                     <ul className="team-social">
                       <li>

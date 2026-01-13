@@ -23,7 +23,7 @@ const Home = () => {
       <section className="content-inner bg-white section-wrapper-2 overflow-hidden">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">Menu Especial</h2>
+            <h2 className="title wow flipInX">Menú Especial</h2>
           </div>
           <HomeSpacialMenu />
         </div>
@@ -37,7 +37,7 @@ const Home = () => {
       <section className="content-inner-1 section-wrapper-3 overflow-hidden">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">Menu de Hoy</h2>
+            <h2 className="title wow flipInX">Menú de Hoy</h2>
           </div>
 
           <HomeImageBox />
@@ -48,7 +48,7 @@ const Home = () => {
       <section className="content-inner-1 bg-white overflow-hidden pt-sm-0">
         <div className="container">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">De Nuestro Menu</h2>
+            <h2 className="title wow flipInX">De Nuestro Menú</h2>
           </div>
           <MenuSlider />
         </div>

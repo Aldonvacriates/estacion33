@@ -13,10 +13,10 @@ const Footer = () => {
               <div className="col-xl-5 col-lg-5 col-md-12">
                 <div className="dz-form-card bg-primary">
                   <div className="section-head">
-                    <h4 className="title m-0">Contactanos</h4>
+                    <h4 className="title m-0">Contáctanos</h4>
                     <p className="m-t10">
                       Lorem Ipsum es simplemente texto de relleno de la
-                      industria de la imprenta y la tipografia.
+                      industria de la imprenta y la tipografía.
                     </p>
                   </div>
                   <form className="dzForm dezPlaceAni">
@@ -52,7 +52,7 @@ const Footer = () => {
                             required
                             type="text"
                             className="form-control"
-                            placeholder="Correo Electronico"
+                            placeholder="Correo Electrónico"
                           />
                         </div>
                       </div>
@@ -169,7 +169,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link to="/shop-style-2">
-                        <span>Filtro de Categorias</span>
+                        <span>Filtro de Categorías</span>
                       </Link>
                     </li>
                     <li>
@@ -192,7 +192,7 @@ const Footer = () => {
           <div className="footer-bottom">
             <div className="row">
               <div className="col-xl-6 col-md-6 text-md-start">
-                <p>Copyright 2023 Todos los derechos reservados.</p>
+                <p>© 2023 Todos los derechos reservados.</p>
               </div>
               <div className="col-xl-6 col-md-6 text-md-end">
                 <span className="copyright-text">

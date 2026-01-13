@@ -8,7 +8,7 @@ import { Context } from "../context/AppContext";
 
 const Buttons = [
   { icon: "flaticon-fast-food", title: "TODAS" },
-  { icon: "flaticon-cocktail", title: "BEBIDAS FRIAS" },
+  { icon: "flaticon-cocktail", title: "BEBIDAS FRÍAS" },
   { icon: "flaticon-pizza-slice", title: "PIZZA" },
   { icon: "flaticon-salad", title: "ENSALADA" },
   { icon: "flaticon-cupcake", title: "DULCES" },
@@ -57,8 +57,8 @@ const MenuStyle3 = () => {
       <div className="page-content bg-white">
         <CommonBanner
           img={IMAGES.images_bnr3}
-          title="Nuestro Menu 3"
-          subtitle="Nuestro Menu 3"
+          title="Nuestro Menú 3"
+          subtitle="Nuestro Menú 3"
         />
 
         <section className="content-inner">
@@ -89,7 +89,7 @@ const MenuStyle3 = () => {
               </div>
               <div className="col-xl-2 col-lg-3 col-md-12 text-lg-end mb-lg-0 m-b30 d-flex d-lg-block align-items-center justify-content-between">
                 <strong className="filter-item-show d-lg-none">
-                  51,740 articulos
+                  51,740 artículos
                 </strong>
                 <Link
                   to={"#"}
@@ -124,7 +124,7 @@ const MenuStyle3 = () => {
                       <img src={img} alt="/" />
                       <div className="dz-meta">
                         <ul>
-                          <li className="seller">Mas Vendido</li>
+                          <li className="seller">Más Vendido</li>
                           <li className="rating">
                             <i className="fa-solid fa-star"></i> 4.5
                           </li>

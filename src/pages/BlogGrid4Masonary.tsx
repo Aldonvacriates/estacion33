@@ -71,7 +71,7 @@ const BlogGrid4Masonary = () => {
                       to="/blog-standard"
                       className="btn btn-primary btn-hover-2"
                     >
-                      Leer Mas
+                      Leer Más
                     </Link>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ const BlogGrid4Masonary = () => {
               <div className="card-container">
                 <blockquote className="wp-block-quote mt-0">
                   <p>
-                    Crea una informacion facil de usar con consideraciones de
+                    Crea una información facil de usar con consideraciones de
                     usabilidad parciales
                   </p>
                   <cite>Ronald M. Spino</cite>
@@ -171,7 +171,7 @@ const BlogGrid4Masonary = () => {
                       to="/blog-standard"
                       className="btn btn-primary btn-hover-2"
                     >
-                      Leer Mas
+                      Leer Más
                     </Link>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ const BlogGrid4Masonary = () => {
                       to="/blog-standard"
                       className="btn btn-primary btn-hover-2"
                     >
-                      Leer Mas
+                      Leer Más
                     </Link>
                   </div>
                 </div>

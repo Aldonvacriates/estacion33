@@ -2,7 +2,7 @@ import { IMAGES } from "../constent/theme";
 import  SelectPicker  from "rsuite/SelectPicker";
 
 const data = [
-  "Numero de Personas",
+  "Número de Personas",
   "1",
   "2",
   "3",
@@ -29,7 +29,7 @@ const Home3BookTable = () => {
           <div className="contact-head">
             <h4 className="title text-white wow fadeInUp">Reservar Mesa</h4>
             <p className="text-white opacity-75 wow fadeInUp">
-              Lorem Ipsum tiene una distribucion mas o menos normal
+              Lorem Ipsum tiene una distribucion más o menos normal
               <br /> de letras, haciendo que parezca texto legible.
             </p>
           </div>
@@ -59,7 +59,7 @@ const Home3BookTable = () => {
                     required
                     type="text"
                     className="form-control dz-number"
-                    placeholder="Numero de Telefono"
+                    placeholder="Número de Teléfono"
                   />
                 </div>
               </div>
@@ -70,7 +70,7 @@ const Home3BookTable = () => {
                   </div>
                   <SelectPicker
                     className="form-select default-select select-option-rsuite"
-                    defaultValue={"Numero de Personas"}
+                    defaultValue={"Número de Personas"}
                     data={data}
                     searchable={false}
                   />
@@ -134,9 +134,9 @@ const Home3BookTable = () => {
         <div className="col-lg-4 col-md-12">
           <div className="widget widget_working bg-primary wow fadeInUp">
             <div className="head">
-              <h5 className="title text-white">Informacion de Contacto</h5>
+              <h5 className="title text-white">Información de Contacto</h5>
               <p className="text-white opacity-75">
-                Lorem Ipsum es texto de relleno de la industria de impresion.
+                Lorem Ipsum es texto de relleno de la industria de impresión.
               </p>
             </div>
             <ul>

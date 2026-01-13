@@ -10,8 +10,8 @@ const BlogWideGridSidebar = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.images_bnr5}
-        title="Blog Cuadricula Ancha con Sidebar"
-        subtitle="Blog Cuadricula Ancha con Sidebar"
+        title="Blog Cuadrícula Ancha con Sidebar"
+        subtitle="Blog Cuadrícula Ancha con Sidebar"
       />
       <section className="content-inner">
         <div className="container-fluid">
@@ -32,7 +32,7 @@ const BlogWideGridSidebar = () => {
                             <li>
                               <Link to={"#"}>
                                 <i className="flaticon-calendar-date"></i> 26
-                                Jan 2023
+                                Ene 2023
                               </Link>
                             </li>
                             <li className="dz-comment">
@@ -55,7 +55,7 @@ const BlogWideGridSidebar = () => {
                           to="/blog-standard"
                           className="btn btn-primary btn-hover-2"
                         >
-                          Leer Mas
+                          Leer Más
                         </Link>
                       </div>
                     </div>

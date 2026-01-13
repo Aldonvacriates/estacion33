@@ -237,7 +237,7 @@ const Header3 = () => {
                             to="/our-menu-1"
                             className="btn btn-outline-primary w-100 d-block btn-hover-1"
                           >
-                            <span>Menu</span>
+                            <span>Menú</span>
                           </Link>
                         </li>
                       </ul>

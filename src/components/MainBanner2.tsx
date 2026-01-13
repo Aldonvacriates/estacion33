@@ -51,15 +51,14 @@ const MainBanner2 = () => {
                     <div className="col-xl-7 col-lg-7 col-md-8">
                       <div className="banner-content">
                         <span className="sub-title text-primary">
-                          Estacion de Comida de Alta Calidad
+                          Estación de Comida de Alta Calidad
                         </span>
                         <h1 className="title text-white">
                           Creemos que la Buena Comida Ofrece una Gran Sonrisa
                         </h1>
                         <p className="bnr-text">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit, sed do eiusmod tempor incididunt ut labore et
-                          dolore magna aliqua.
+                          Texto de ejemplo para describir nuestra propuesta
+                          gastronómica y resaltar sabores auténticos.
                         </p>
 
                         <div className="banner-btn d-flex align-items-center">
@@ -73,7 +72,7 @@ const MainBanner2 = () => {
                             to="/about-us"
                             className="btn btn-outline-primary btn-md shadow-primary btn-hover-1"
                           >
-                            <span>Ver Mas</span>
+                            <span>Ver Más</span>
                           </Link>
                         </div>
                         <div className="food-card">

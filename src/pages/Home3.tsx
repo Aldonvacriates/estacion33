@@ -65,7 +65,7 @@ const Home3 = () => {
       <section className="content-inner section-wrapper-6 p-b40">
         <div className="container inner-section-wrapper">
           <div className="section-head text-center">
-            <h2 className="title wow flipInX">De Nuestro Menu</h2>
+            <h2 className="title wow flipInX">De Nuestro Menú</h2>
           </div>
           <Home3OurMenu />
         </div>

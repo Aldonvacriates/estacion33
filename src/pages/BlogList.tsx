@@ -72,7 +72,7 @@ const BlogList = () => {
                         to="/blog-standard"
                         className="btn btn-primary btn-hover-2"
                       >
-                        Leer Mas
+                        Leer Más
                       </Link>
                     </div>
                   </div>
@@ -86,7 +86,7 @@ const BlogList = () => {
               to={"#"}
               onClick={loadMore}
             >
-              Cargar Mas
+              Cargar Más
             </Link>
           </div>
         </div>

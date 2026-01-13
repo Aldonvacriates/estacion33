@@ -60,7 +60,7 @@ const ServiceDetail = () => {
                 </div>
                 <div className="widget recent-posts-entry">
                   <div className="widget-title">
-                    <h5 className="title m-b30">Publicacion Reciente</h5>
+                    <h5 className="title m-b30">Publicación Reciente</h5>
                   </div>
                   <div className="widget-post-bx style-1">
                     <div className="widget-post clearfix">
@@ -71,10 +71,10 @@ const ServiceDetail = () => {
                         <div className="dz-meta">
                           <ul>
                             <li>
-                              <Link to={"#"}>ESTANDAR</Link>
+                              <Link to={"#"}>ESTÁNDAR</Link>
                             </li>
                             <li className="date">
-                              <Link to={"#"}>Dec 10, 2023</Link>
+                              <Link to={"#"}>10 Dic 2023</Link>
                             </li>
                           </ul>
                         </div>
@@ -95,10 +95,10 @@ const ServiceDetail = () => {
                         <div className="dz-meta">
                           <ul>
                             <li>
-                              <Link to={"#"}>ESTANDAR</Link>
+                              <Link to={"#"}>ESTÁNDAR</Link>
                             </li>
                             <li className="date">
-                              <Link to={"#"}>May 12, 2023</Link>
+                              <Link to={"#"}>12 May 2023</Link>
                             </li>
                           </ul>
                         </div>
@@ -113,7 +113,7 @@ const ServiceDetail = () => {
                 </div>
                 <div className="widget widget_categories">
                   <div className="widget-title">
-                    <h4 className="title">Categorias</h4>
+                    <h4 className="title">Categorías</h4>
                   </div>
                   <ul>
                     <li className="cat-item">
@@ -161,15 +161,15 @@ const ServiceDetail = () => {
                   <div className="dz-post-text style-1">
                     <p className="m-b10">
                       Lorem Ipsum es texto de relleno de la industria de la
-                      impresion y la tipografia. Lorem Ipsum ha sido el texto
-                      estandar desde la decada de 1500, cuando un impresor
+                      impresión y la tipografía. Lorem Ipsum ha sido el texto
+                      estándar desde la década de 1500, cuando un impresor
                       desconocido tomo una galera de tipos y los mezclo para
                       hacer un libro de muestras.
                     </p>
                     <p>
                       Lorem Ipsum es texto de relleno de la industria de la
-                      impresion y la tipografia. Lorem Ipsum ha sido el texto
-                      estandar desde la decada de 1500,
+                      impresión y la tipografía. Lorem Ipsum ha sido el texto
+                      estándar desde la década de 1500,
                     </p>
                   </div>
                   <blockquote className="wp-block-quote style-1">

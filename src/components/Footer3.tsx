@@ -47,12 +47,12 @@ const Footer3 = () => {
                       </div>
                       <p className="mb-0 font-14">
                         Lorem Ipsum es simplemente texto de relleno de la
-                        industria de la imprenta y la tipografia.
+                        industria de la imprenta y la tipografía.
                       </p>
                     </div>
                     <div className="col-xl-6 col-lg-6 wow fadeInUp">
                       <h5 className="title m-b15">
-                        Suscribete a Nuestro Boletin
+                        Suscríbete a Nuestro Boletín
                       </h5>
                       <form
                         className="dzSubscribe"
@@ -79,7 +79,7 @@ const Footer3 = () => {
                               type="submit"
                               className="btn btn-primary btn-hover-2"
                             >
-                              <span>Suscribete</span>
+                              <span>Suscríbete</span>
                               <i className="fa-solid fa-paper-plane"></i>
                             </button>
                           </div>
@@ -121,13 +121,13 @@ const Footer3 = () => {
                   <div className="footer-menu wow fadeInUp">
                     <ul>
                       <li>
-                        <Link to="/faq">FAQ</Link>
+                        <Link to="/faq">Preguntas frecuentes</Link>
                       </li>
                       <li>
                         <Link to="/shop-style-1">Tienda</Link>
                       </li>
                       <li>
-                        <Link to="/shop-style-2">Filtro de Categorias</Link>
+                        <Link to="/shop-style-2">Filtro de Categorías</Link>
                       </li>
                       <li>
                         <Link to="/testimonial">Testimonios</Link>
@@ -145,7 +145,7 @@ const Footer3 = () => {
             <div className="footer-bottom">
               <div className="row">
                 <div className="col-xl-6 col-md-6 text-md-start">
-                  <p>Copyright 2023 Todos los derechos reservados.</p>
+                  <p>© 2023 Todos los derechos reservados.</p>
                 </div>
                 <div className="col-xl-6 col-md-6 text-md-end">
                   <span className="copyright-text">

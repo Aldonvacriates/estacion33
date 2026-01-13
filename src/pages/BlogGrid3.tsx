@@ -30,8 +30,8 @@ const BlogGrid3 = () => {
     <div className="page-content bg-white">
       <CommonBanner
         img={IMAGES.banner_bnr1}
-        title="Blog Cuadricula 3"
-        subtitle="Blog Cuadricula 3"
+        title="Blog Cuadrícula 3"
+        subtitle="Blog Cuadrícula 3"
       />
       <section className="content-inner-1">
         <div className="container">
@@ -49,7 +49,7 @@ const BlogGrid3 = () => {
                       <ul>
                         <li>
                           <Link to="#">
-                            <i className="flaticon-calendar-date"></i> 26 Jan
+                            <i className="flaticon-calendar-date"></i> 26 Ene
                             2023
                           </Link>
                         </li>
@@ -71,7 +71,7 @@ const BlogGrid3 = () => {
                       to="/blog-standard"
                       className="btn btn-primary btn-hover-2"
                     >
-                      Leer Mas
+                      Leer Más
                     </Link>
                   </div>
                 </div>
@@ -84,7 +84,7 @@ const BlogGrid3 = () => {
               to={"#"}
               onClick={loadMore}
             >
-              Cargar Mas
+              Cargar Más
             </Link>
           </div>
         </div>

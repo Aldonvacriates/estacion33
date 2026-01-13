@@ -160,11 +160,11 @@ const ShopCart = () => {
                     <table>
                       <tbody>
                         <tr>
-                          <td>Total de Articulos</td>
+                          <td>Total de Artículos</td>
                           <td className="price text-primary">$55.00</td>
                         </tr>
                         <tr className="charges">
-                          <td>Costo de Envio</td>
+                          <td>Costo de Envío</td>
                           <td className="price text-primary">$5.00</td>
                         </tr>
                         <tr className="tax">

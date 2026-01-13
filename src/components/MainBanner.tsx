@@ -69,7 +69,7 @@ const MainBanner = () => {
                             to="/about-us"
                             className="btn btn-outline-primary btn-md shadow-primary btn-hover-1"
                           >
-                            <span>Ver Mas</span>
+                            <span>Ver Más</span>
                           </Link>
                         </div>
                       </div>
@@ -114,9 +114,7 @@ const MainBanner = () => {
                   </div>
                   <div className="dz-content">
                     <h5 className="title">Desayuno</h5>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                    </p>
+                    <p>Texto de ejemplo para la descripción del plato.</p>
                   </div>
                 </div>
               </SwiperSlide>
