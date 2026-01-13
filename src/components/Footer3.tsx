@@ -115,9 +115,7 @@ const Footer3 = () => {
                   </div>
                 </div>
                 <div className="col-lg-7 col-md-6 col-6 text-md-end">
-                  <h5 className="footer-title wow fadeInUp">
-                    Centro de Ayuda
-                  </h5>
+                  <h5 className="footer-title wow fadeInUp">Centro de Ayuda</h5>
                   <div className="footer-menu wow fadeInUp">
                     <ul>
                       <li>
@@ -145,7 +143,18 @@ const Footer3 = () => {
             <div className="footer-bottom">
               <div className="row">
                 <div className="col-xl-6 col-md-6 text-md-start">
-                  <p>© 2023 Todos los derechos reservados.</p>
+                  <p>
+                    {" "}
+                    © {new Date().getFullYear()} —{" "}
+                    {new Date().toLocaleDateString()}{" "}
+                    {new Date().toLocaleTimeString()}
+                  </p>
+                  {/* <br />
+                  <small>
+                    © {new Date().getFullYear()} —{" "}
+                    {new Date().toLocaleDateString()}{" "}
+                    {new Date().toLocaleTimeString()}
+                  </small> */}
                 </div>
                 <div className="col-xl-6 col-md-6 text-md-end">
                   <span className="copyright-text">
@@ -158,8 +167,8 @@ const Footer3 = () => {
                       }}
                     ></span>{" "}
                     por{" "}
-                    <Link to="https://dexignzone.com/" target="_blank">
-                      DexignZone
+                    <Link to="https://aldowebsite.com/" target="_blank">
+                      Aldo Website LLC
                     </Link>
                   </span>
                 </div>
