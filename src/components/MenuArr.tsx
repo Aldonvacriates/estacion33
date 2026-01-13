@@ -4,9 +4,9 @@ export const MenuArr = [
     className: "sub-menu-down",
     ulClassName: "sub-menu",
     submenu: [
-      { child: "Home 01", to: "/" },
+      { child: "Home 01", to: "/home-3" },
       { child: "Home 02", to: "/home-2" },
-      { child: "Home 03", to: "/home-3" },
+      { child: "Home 03", to: "/" },
     ],
   },
   {

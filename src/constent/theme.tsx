@@ -218,6 +218,43 @@ import switcher_large_pt4 from "../assets/images/switcher/large/pattern/pt4.jpg"
 import switcher_large_pt5 from "../assets/images/switcher/large/pattern/pt5.jpg";
 import switcher_large_pt6 from "../assets/images/switcher/large/pattern/pt6.jpg";
 import switcher_large_pt7 from "../assets/images/switcher/large/pattern/pt7.jpg";
+import background_pic7 from "../assets/images/background/pic7.png";
+import background_pic8 from "../assets/images/background/pic8.png";
+import background_pic9 from "../assets/images/background/pic9.png";
+import background_pic19 from "../assets/images/background/pic19.png";
+import blog_grid2_pic3 from "../assets/images/blog/grid2/pic3.jpg";
+import blog_grid2_pic4 from "../assets/images/blog/grid2/pic4.jpg";
+import blog_grid3_pic9 from "../assets/images/blog/grid3/pic9.jpg";
+import blog_grid3_pic10 from "../assets/images/blog/grid3/pic10.jpg";
+import gallery_grid1_pic2 from "../assets/images/gallery/grid/pic2.jpg";
+import gallery_grid1_pic3 from "../assets/images/gallery/grid/pic3.jpg";
+import gallery_grid1_pic4 from "../assets/images/gallery/grid/pic4.jpg";
+import gallery_grid2_pic7 from "../assets/images/gallery/grid2/pic7.jpg";
+import images_adv_pic5 from "../assets/images/adv/pic5.png";
+import images_favicon from "../assets/images/favicon.png";
+import images_like from "../assets/images/like.png";
+import images_loading from "../assets/images/loading.gif";
+import logo_old from "../assets/images/logo-old.png";
+import logo2_old from "../assets/images/logo2-old.png";
+import main_slider_bg_mask from "../assets/images/main-slider/bg-mask.png";
+import main_slide_pic2 from "../assets/images/main-slider/slider1/pic2.png";
+import main_slide_pic3 from "../assets/images/main-slider/slider1/pic3.png";
+import main_slider3_burger1 from "../assets/images/main-slider/slider3/burger1.png";
+import main_slider3_burger2 from "../assets/images/main-slider/slider3/burger2.png";
+import images_pan1 from "../assets/images/pan1.png";
+import images_pan2 from "../assets/images/pan2.png";
+import images_root_pic1 from "../assets/images/pic1.png";
+import images_ribbon from "../assets/images/ribbon.png";
+import images_rounded from "../assets/images/rounded.png";
+import slider1_img1 from "../assets/images/slider1/img1.png";
+import slider1_img2 from "../assets/images/slider1/img2.png";
+import slider1_img3 from "../assets/images/slider1/img3.png";
+import slider1_pic1 from "../assets/images/slider1/pic1.png";
+import slider1_pic2 from "../assets/images/slider1/pic2.png";
+import slider1_pic3 from "../assets/images/slider1/pic3.png";
+import slider1_thumb_pic1 from "../assets/images/slider1/thumb/pic1.jpg";
+import slider1_thumb_pic2 from "../assets/images/slider1/thumb/pic2.jpg";
+import slider1_thumb_pic3 from "../assets/images/slider1/thumb/pic3.jpg";
 
 export const IMAGES = {
   logo: logo,
@@ -439,4 +476,41 @@ export const IMAGES = {
   switcher_large_pt5: switcher_large_pt5,
   switcher_large_pt6: switcher_large_pt6,
   switcher_large_pt7: switcher_large_pt7,
+  background_pic7: background_pic7,
+  background_pic8: background_pic8,
+  background_pic9: background_pic9,
+  background_pic19: background_pic19,
+  blog_grid2_pic3: blog_grid2_pic3,
+  blog_grid2_pic4: blog_grid2_pic4,
+  blog_grid3_pic9: blog_grid3_pic9,
+  blog_grid3_pic10: blog_grid3_pic10,
+  gallery_grid1_pic2: gallery_grid1_pic2,
+  gallery_grid1_pic3: gallery_grid1_pic3,
+  gallery_grid1_pic4: gallery_grid1_pic4,
+  gallery_grid2_pic7: gallery_grid2_pic7,
+  images_adv_pic5: images_adv_pic5,
+  images_favicon: images_favicon,
+  images_like: images_like,
+  images_loading: images_loading,
+  logo_old: logo_old,
+  logo2_old: logo2_old,
+  main_slider_bg_mask: main_slider_bg_mask,
+  main_slide_pic2: main_slide_pic2,
+  main_slide_pic3: main_slide_pic3,
+  main_slider3_burger1: main_slider3_burger1,
+  main_slider3_burger2: main_slider3_burger2,
+  images_pan1: images_pan1,
+  images_pan2: images_pan2,
+  images_root_pic1: images_root_pic1,
+  images_ribbon: images_ribbon,
+  images_rounded: images_rounded,
+  slider1_img1: slider1_img1,
+  slider1_img2: slider1_img2,
+  slider1_img3: slider1_img3,
+  slider1_pic1: slider1_pic1,
+  slider1_pic2: slider1_pic2,
+  slider1_pic3: slider1_pic3,
+  slider1_thumb_pic1: slider1_thumb_pic1,
+  slider1_thumb_pic2: slider1_thumb_pic2,
+  slider1_thumb_pic3: slider1_thumb_pic3,
 };
