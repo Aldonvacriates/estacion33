@@ -2,18 +2,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { formatMxn, i18n } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
+import { OrderLive } from './OrderLive';
 
 export const dynamic = 'force-dynamic'; // never cache an order page
-
-const ORDER_STATUS_LABEL: Record<string, string> = {
-  pending: 'Recibido',
-  paid: 'Confirmado',
-  preparing: 'En preparación',
-  ready: 'Listo',
-  out_for_delivery: 'En camino',
-  delivered: 'Entregado',
-  cancelled: 'Cancelado',
-};
 
 const PAYMENT_STATUS_LABEL: Record<string, string> = {
   pending: 'Pendiente de pago',
@@ -23,6 +14,14 @@ const PAYMENT_STATUS_LABEL: Record<string, string> = {
 };
 
 type SearchParams = { status?: string };
+
+type OrderItemRow = {
+  id: string;
+  qty: number;
+  unit_price_cents: number;
+  selected_options: { optionId: string; valueIds: string[] }[];
+  product: { name: string; slug: string } | null;
+};
 
 export default async function OrderPage({
   params,
@@ -36,13 +35,22 @@ export default async function OrderPage({
   const t = i18n.es;
   const supabase = await getServerSupabase();
 
-  const { data: order, error } = await supabase
-    .from('orders')
-    .select(
-      'id, status, fulfillment, scheduled_for, subtotal_cents, delivery_fee_cents, total_cents, payment_status, notes, created_at',
-    )
-    .eq('id', id)
-    .single();
+  const [{ data: order, error }, { data: items }] = await Promise.all([
+    supabase
+      .from('orders')
+      .select(
+        'id, status, fulfillment, scheduled_for, subtotal_cents, delivery_fee_cents, total_cents, payment_status, notes, created_at',
+      )
+      .eq('id', id)
+      .single(),
+    supabase
+      .from('order_items')
+      .select(
+        'id, qty, unit_price_cents, selected_options, product:products(name, slug)',
+      )
+      .eq('order_id', id)
+      .returns<OrderItemRow[]>(),
+  ]);
 
   if (error || !order) notFound();
 
@@ -100,11 +108,21 @@ export default async function OrderPage({
         </Banner>
       ) : null}
 
-      <section style={detailCard}>
-        <Row
-          label="Estado"
-          value={ORDER_STATUS_LABEL[order.status] ?? order.status}
+      <section>
+        <h2 style={sectionHeading}>Estado del pedido</h2>
+        <OrderLive
+          orderId={order.id}
+          initial={{
+            id: order.id,
+            status: order.status,
+            fulfillment: order.fulfillment,
+            payment_status: order.payment_status,
+          }}
+          paymentStatusFromUrl={mpStatus}
         />
+      </section>
+
+      <section style={detailCard}>
         <Row
           label="Pago"
           value={PAYMENT_STATUS_LABEL[order.payment_status] ?? order.payment_status}
@@ -124,15 +142,70 @@ export default async function OrderPage({
             hour12: false,
           })}
         />
-        {order.notes ? (
-          <Row label="Notas" value={order.notes} />
-        ) : null}
+        {order.notes ? <Row label="Notas" value={order.notes} /> : null}
       </section>
+
+      {items && items.length > 0 ? (
+        <section>
+          <h2 style={sectionHeading}>Tu pedido</h2>
+          <ul
+            style={{
+              listStyle: 'none',
+              margin: 0,
+              padding: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 'var(--space-2)',
+            }}
+          >
+            {items.map((item) => (
+              <li
+                key={item.id}
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  gap: 'var(--space-3)',
+                  padding: 'var(--space-3)',
+                  background: 'var(--color-neutral-0)',
+                  border: '1px solid var(--color-neutral-200)',
+                  borderRadius: 'var(--radius-md)',
+                }}
+              >
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ fontWeight: 600 }}>
+                    {item.qty}× {item.product?.name ?? 'Producto'}
+                  </div>
+                  {item.selected_options.length > 0 ? (
+                    <div
+                      style={{
+                        fontSize: 13,
+                        color: 'var(--color-neutral-500)',
+                        marginTop: 2,
+                      }}
+                    >
+                      {item.selected_options.length} opción{item.selected_options.length === 1 ? '' : 'es'} seleccionada{item.selected_options.length === 1 ? '' : 's'}
+                    </div>
+                  ) : null}
+                </div>
+                <span style={{ fontWeight: 600, whiteSpace: 'nowrap' }}>
+                  {formatMxn(item.unit_price_cents * item.qty)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <section style={detailCard}>
         <Row label={t.cart.subtotal} value={formatMxn(order.subtotal_cents)} />
         <Row label={t.cart.deliveryFee} value={formatMxn(order.delivery_fee_cents)} />
-        <hr style={{ border: 'none', borderTop: '1px solid var(--color-neutral-200)', margin: '4px 0' }} />
+        <hr
+          style={{
+            border: 'none',
+            borderTop: '1px solid var(--color-neutral-200)',
+            margin: '4px 0',
+          }}
+        />
         <Row label={t.cart.total} value={formatMxn(order.total_cents)} bold />
       </section>
 
@@ -158,6 +231,13 @@ const detailCard: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   gap: 'var(--space-2)',
+};
+
+const sectionHeading: React.CSSProperties = {
+  margin: '0 0 var(--space-3) 0',
+  fontSize: 16,
+  fontWeight: 600,
+  color: 'var(--color-neutral-900)',
 };
 
 function Row({
