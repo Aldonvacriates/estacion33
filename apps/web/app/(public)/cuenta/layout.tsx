@@ -3,9 +3,10 @@ import { redirect } from 'next/navigation';
 import { getServerSupabase } from '@/lib/supabase/server';
 
 const SUB_NAV = [
-  { href: '/cuenta', label: 'Perfil' },
+  { href: '/cuenta', label: 'Inicio' },
   { href: '/cuenta/ordenes', label: 'Mis pedidos' },
   { href: '/cuenta/direcciones', label: 'Direcciones' },
+  { href: '/cuenta/perfil', label: 'Perfil' },
 ];
 
 export default async function AccountLayout({
