@@ -187,6 +187,7 @@ function CategoryChips({ categories }: { categories: MenuCategory[] }) {
       }}
     >
       <div
+        className="no-scrollbar"
         style={{
           maxWidth: 'var(--size-containerLg, 1100px)',
           margin: '0 auto',
@@ -195,7 +196,6 @@ function CategoryChips({ categories }: { categories: MenuCategory[] }) {
           gap: 8,
           overflowX: 'auto',
           WebkitOverflowScrolling: 'touch',
-          scrollbarWidth: 'none',
         }}
       >
         {categories.map((c) => (

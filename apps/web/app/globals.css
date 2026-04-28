@@ -8,13 +8,59 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', system-ui, sans-serif;
+  font-family: var(--font-body, Inter), system-ui, sans-serif;
   color: var(--color-neutral-900);
   background: var(--color-neutral-0);
   -webkit-font-smoothing: antialiased;
+  /* Prevent horizontal scroll from a single overflowing element on mobile. */
+  overflow-x: hidden;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Hide scrollbars on horizontal scrollers (e.g. menu category chips). */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* ---------- Responsive home hero ---------- */
+/* Inline `style` props beat unprefixed CSS, so we need !important here.
+   Below 900px we collapse the two-column hero to a single column with the
+   photo on top. */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    min-height: 0 !important;
+  }
+  .hero-photo {
+    min-height: 0 !important;
+    aspect-ratio: 4 / 5;
+  }
+  .hero-text {
+    padding: var(--space-5) !important;
+  }
+}
+
+/* ---------- Mobile site header (burger toggle) ---------- */
+/* Hide desktop nav, show burger button on small screens. */
+.site-nav-desktop {
+  display: flex;
+}
+.site-nav-burger {
+  display: none;
+}
+@media (max-width: 768px) {
+  .site-nav-desktop {
+    display: none !important;
+  }
+  .site-nav-burger {
+    display: inline-flex !important;
+  }
 }

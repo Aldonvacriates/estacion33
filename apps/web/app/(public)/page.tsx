@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getServiceWindow, i18n } from '@estacion33/core';
+import { HeroVideo } from './HeroVideo';
 
 export default function HomePage() {
   const window = getServiceWindow();
@@ -14,19 +15,7 @@ export default function HomePage() {
 
   return (
     <main style={{ display: 'flex', flexDirection: 'column' }}>
-      {/* Mobile: stack hero (photo on top, content below). Desktop: two columns. */}
-      <style>{`
-        @media (max-width: 768px) {
-          .hero-grid {
-            grid-template-columns: 1fr !important;
-            min-height: 0 !important;
-          }
-          .hero-photo {
-            min-height: 0 !important;
-            aspect-ratio: 4 / 5;
-          }
-        }
-      `}</style>
+      {/* Responsive hero rules live in globals.css (.hero-grid / .hero-photo). */}
       {/* Hero — portrait burger photo right, yellow band + tagline left.
           On mobile: photo on top, content below. */}
       <section
@@ -117,7 +106,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right: looping video (autoplay muted) with burger photo as poster */}
+          {/* Right: video loops the 3s–10s window of estacion33.mp4 */}
           <div
             style={{
               position: 'relative',
@@ -127,23 +116,12 @@ export default function HomePage() {
             }}
             className="hero-photo"
           >
-            <video
+            <HeroVideo
               src="/figma-make/estacion33.mp4"
               poster="/figma-make/food-4efbb2f9.png"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="Hamburguesa Estación 33 a la parrilla"
-              style={{
-                position: 'absolute',
-                inset: 0,
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                objectPosition: 'center',
-              }}
+              start={3}
+              end={10}
+              ariaLabel="Hamburguesa Estación 33 a la parrilla"
             />
           </div>
         </div>

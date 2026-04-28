@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button } from '@estacion33/ui/web';
 import { formatMxn } from '@estacion33/core';
 import { useCart } from '@/lib/cart';
 import type { ProductOptionShape } from './page';
@@ -124,21 +123,43 @@ export function ProductOrderForm({
               <legend
                 style={{
                   padding: 0,
-                  fontWeight: 600,
+                  fontFamily: 'var(--font-heading)',
+                  fontWeight: 400,
                   fontSize: 16,
-                  color: 'var(--color-neutral-900)',
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-brand-ink)',
                   display: 'flex',
                   gap: 'var(--space-2)',
                   alignItems: 'baseline',
+                  flexWrap: 'wrap',
                 }}
               >
                 {opt.name}
                 {opt.required ? (
-                  <span style={{ color: 'var(--color-semantic-danger)', fontSize: 12 }}>
+                  <span
+                    style={{
+                      background: 'var(--color-brand-chili)',
+                      color: 'var(--color-neutral-0)',
+                      fontSize: 10,
+                      fontFamily: 'var(--font-heading)',
+                      letterSpacing: '0.08em',
+                      padding: '2px 8px',
+                      borderRadius: 999,
+                    }}
+                  >
                     Requerido
                   </span>
                 ) : (
-                  <span style={{ color: 'var(--color-neutral-400)', fontSize: 12 }}>
+                  <span
+                    style={{
+                      color: 'var(--color-neutral-500)',
+                      fontSize: 11,
+                      fontFamily: 'var(--font-body, Inter)',
+                      letterSpacing: 0,
+                      textTransform: 'none',
+                    }}
+                  >
                     Opcional · {opt.multi ? 'puedes elegir varios' : 'elige uno'}
                   </span>
                 )}
@@ -153,13 +174,18 @@ export function ProductOrderForm({
                         display: 'flex',
                         alignItems: 'center',
                         gap: 'var(--space-3)',
-                        padding: 'var(--space-3)',
-                        border: `1px solid ${
-                          picked ? 'var(--color-brand-primary)' : 'var(--color-neutral-200)'
+                        padding: 'var(--space-3) var(--space-4)',
+                        border: `2px solid ${
+                          picked ? 'var(--color-brand-ink)' : 'var(--color-neutral-300)'
                         }`,
-                        borderRadius: 'var(--radius-md)',
-                        background: picked ? 'var(--color-brand-primary50)' : 'transparent',
+                        borderRadius: 12,
+                        background: picked
+                          ? 'var(--color-brand-primary)'
+                          : 'var(--color-neutral-0)',
                         cursor: 'pointer',
+                        fontWeight: picked ? 600 : 400,
+                        color: 'var(--color-brand-ink)',
+                        transition: 'background 120ms ease, border-color 120ms ease',
                       }}
                     >
                       <input
@@ -167,11 +193,20 @@ export function ProductOrderForm({
                         name={opt.id}
                         checked={picked}
                         onChange={() => togglePick(opt.id, v.id, opt.multi)}
-                        style={{ accentColor: 'var(--color-brand-primary)' }}
+                        style={{ accentColor: 'var(--color-brand-ink)' }}
                       />
                       <span style={{ flex: 1 }}>{v.name}</span>
                       {v.price_delta_cents > 0 ? (
-                        <span style={{ color: 'var(--color-neutral-500)', fontSize: 14 }}>
+                        <span
+                          style={{
+                            fontFamily: 'var(--font-heading)',
+                            fontSize: 14,
+                            letterSpacing: '0.04em',
+                            color: picked
+                              ? 'var(--color-brand-ink)'
+                              : 'var(--color-neutral-700)',
+                          }}
+                        >
                           +{formatMxn(v.price_delta_cents)}
                         </span>
                       ) : null}
@@ -184,7 +219,7 @@ export function ProductOrderForm({
         </section>
       ) : null}
 
-      {/* Sticky bottom CTA */}
+      {/* Sticky bottom CTA — black bar, yellow pill */}
       <div
         style={{
           position: 'fixed',
@@ -192,9 +227,9 @@ export function ProductOrderForm({
           right: 0,
           bottom: 0,
           padding: 'var(--space-3) var(--space-5)',
-          background: 'var(--color-neutral-0)',
-          borderTop: '1px solid var(--color-neutral-200)',
-          boxShadow: 'var(--shadow-md)',
+          background: 'var(--color-brand-ink)',
+          borderTop: '2px solid var(--color-brand-primary)',
+          boxShadow: '0 -4px 12px rgba(0,0,0,0.3)',
           display: 'flex',
           gap: 'var(--space-3)',
           alignItems: 'center',
@@ -202,10 +237,8 @@ export function ProductOrderForm({
         }}
       >
         <QtyStepper qty={qty} onChange={setQty} />
-        <Button
-          variant="primary"
-          size="lg"
-          fullWidth
+        <button
+          type="button"
           disabled={!canSubmit}
           onClick={handleAddToCart}
           title={
@@ -215,9 +248,32 @@ export function ProductOrderForm({
                 ? `Falta elegir: ${missingRequired.join(', ')}`
                 : undefined
           }
+          style={{
+            flex: 1,
+            background: canSubmit
+              ? 'var(--color-brand-primary)'
+              : 'var(--color-neutral-700)',
+            color: canSubmit
+              ? 'var(--color-brand-ink)'
+              : 'var(--color-neutral-400)',
+            border: 'none',
+            padding: '14px 20px',
+            borderRadius: 999,
+            fontFamily: 'var(--font-heading)',
+            fontSize: 15,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            fontWeight: 400,
+            cursor: canSubmit ? 'pointer' : 'not-allowed',
+            display: 'inline-flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 8,
+            whiteSpace: 'nowrap',
+          }}
         >
-          Agregar — {formatMxn(totalCents)}
-        </Button>
+          Agregar · {formatMxn(totalCents)}
+        </button>
       </div>
     </>
   );
@@ -227,15 +283,16 @@ function QtyStepper({ qty, onChange }: { qty: number; onChange: (n: number) => v
   const btnStyle: React.CSSProperties = {
     width: 36,
     height: 36,
-    borderRadius: 'var(--radius-pill)',
-    border: '1px solid var(--color-neutral-300)',
-    background: 'var(--color-neutral-0)',
-    color: 'var(--color-neutral-900)',
+    borderRadius: 999,
+    border: '2px solid var(--color-brand-primary)',
+    background: 'transparent',
+    color: 'var(--color-brand-primary)',
     fontSize: 18,
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    fontFamily: 'var(--font-heading)',
   };
   return (
     <div
@@ -258,8 +315,11 @@ function QtyStepper({ qty, onChange }: { qty: number; onChange: (n: number) => v
         style={{
           minWidth: 24,
           textAlign: 'center',
-          fontWeight: 600,
-          fontSize: 16,
+          fontFamily: 'var(--font-heading)',
+          fontWeight: 400,
+          fontSize: 18,
+          color: 'var(--color-brand-primary)',
+          letterSpacing: '0.04em',
         }}
       >
         {qty}

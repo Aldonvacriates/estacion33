@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { i18n } from '@estacion33/core';
 import { CartLink } from './CartLink';
+import { BurgerNav } from './BurgerNav';
 import { getServerSupabase } from '@/lib/supabase/server';
 
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -38,9 +39,10 @@ export default async function PublicLayout({ children }: { children: React.React
         >
           ESTACIÓN 33
         </Link>
+        {/* Desktop nav (hidden <768px via globals.css) */}
         <nav
+          className="site-nav-desktop"
           style={{
-            display: 'flex',
             gap: 'var(--space-5)',
             marginLeft: 'auto',
             alignItems: 'center',
@@ -71,6 +73,9 @@ export default async function PublicLayout({ children }: { children: React.React
             Pedir ahora
           </Link>
         </nav>
+
+        {/* Mobile burger toggle (hidden >=768px via globals.css) */}
+        <BurgerNav loggedIn={Boolean(user)} />
       </header>
       <div style={{ flex: 1 }}>{children}</div>
       <footer
