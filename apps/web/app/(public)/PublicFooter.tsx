@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 const HIDE_ON: RegExp[] = [
   /^\/menu\/[^/]+$/, // product detail (/menu/<slug>) has the Agregar bar
   /^\/carrito$/, // cart has the Continuar al pago bar
+  /^\/checkout$/, // checkout has the Confirmar pedido bar
 ];
 
 type Props = {

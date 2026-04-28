@@ -8,6 +8,7 @@ import { formatMxn, getUpcomingSlots, i18n } from '@estacion33/core';
 import { selectCartSubtotalCents, useCart } from '@/lib/cart';
 import { createOrderAction } from './actions';
 import { BurgerLoader } from './BurgerLoader';
+import { PaymentsRow } from '../PaymentsRow';
 
 // No artificial minimum — the burger overlay stays up via isRedirecting
 // until the next page (MercadoPago / order confirmation) actually renders.
@@ -346,6 +347,8 @@ export default function CheckoutPage() {
           deliveryFeeCents={deliveryFeeCents}
           totalCents={totalCents}
         />
+
+        <PaymentsRow />
 
         {submitError ? (
           <div
