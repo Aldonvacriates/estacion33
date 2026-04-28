@@ -57,6 +57,11 @@ export function HeroVideo({
     };
   }, [start, end]);
 
+  // If no `end` was provided we let the browser loop the whole file
+  // natively (cheaper, frame-perfect, no JS in the hot path). Manual
+  // rewind only applies when looping a sub-range.
+  const useNativeLoop = end === undefined;
+
   return (
     <video
       ref={ref}
@@ -64,7 +69,7 @@ export function HeroVideo({
       poster={poster}
       autoPlay
       muted
-      // Don't set the `loop` attribute — we manually loop a sub-range.
+      loop={useNativeLoop}
       playsInline
       preload="metadata"
       aria-label={ariaLabel}

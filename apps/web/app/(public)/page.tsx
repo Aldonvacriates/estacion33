@@ -124,8 +124,6 @@ export default function HomePage() {
             <HeroVideo
               src="/figma-make/estacion33.mp4"
               poster="/figma-make/food-4efbb2f9.png"
-              start={3}
-              end={10}
               ariaLabel="Hamburguesa Estación 33 a la parrilla"
             />
           </div>
