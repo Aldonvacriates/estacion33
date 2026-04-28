@@ -199,6 +199,22 @@ create index on estacion33.orders (status, scheduled_for)
 - Audio alert chime on new ready order (per-device localStorage opt-in) — **shipped**
 - Driver name on customer /orden/[id] ("Juan viene en camino") — **shipped**
 
+### Phase 5b — PWA install groundwork ✅
+- `app/manifest.ts` — Next.js manifest convention with proper icons,
+  theme color, scope, shortcuts. **shipped**
+- `app/apple-icon.tsx` — 180×180 generated burger icon for iOS Add to
+  Home Screen. **shipped**
+- `app/icon-192/route.tsx` + `app/icon-512/route.tsx` — Android/Chrome
+  install criteria (192 + 512 maskable). **shipped**
+- `public/sw.js` — minimal pass-through service worker registered
+  driver-side only. Phase 6 swaps this for real push handlers. **shipped**
+- `app/repartidor/InstallPrompt.tsx` — captures
+  `beforeinstallprompt` on Chrome/Android, falls back to a textual
+  Share-sheet hint on iOS, dismissible for 7 days. **shipped**
+- Migration `repartidor_push_subs` (driver_id, endpoint, p256dh, auth,
+  user_agent, created_at, last_used_at) — empty for now, populated
+  in phase 6. **shipped**
+
 ### Phase 6 — push notifications (Option C) — deferred
 Real auto-offer dispatch needs the browser to wake the driver even when
 the tab is closed. That requires:
