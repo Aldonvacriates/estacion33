@@ -1,6 +1,10 @@
+// Font families resolve through CSS variables that `next/font` injects in
+// apps/web/app/layout.tsx. Fallbacks keep things sensible if a variable isn't
+// available (e.g. a Storybook env without the font registration).
 export const fontFamilies = {
-  sans: 'Poppins, system-ui, sans-serif',
-  display: 'Poppins, system-ui, sans-serif',
+  sans: 'var(--font-body, Inter), system-ui, sans-serif',
+  display: 'var(--font-heading, "Bebas Neue"), Impact, system-ui, sans-serif',
+  script: 'var(--font-script, Yellowtail), "Brush Script MT", cursive',
 } as const;
 
 export const fontWeights = {
@@ -124,6 +128,16 @@ export const typography = {
     fontSize: fontSizes.xl,
     lineHeight: lineHeights.snug,
     letterSpacing: letterSpacing.tight,
+  },
+  // Brush-script preset for decorative section headers ("Snacks",
+  // "Nuestras Burgers", confirmation pages). Letterforms already have a
+  // generous slope, so keep tracking neutral and use a comfortable line
+  // height because descenders run long.
+  script: {
+    fontFamily: fontFamilies.script,
+    fontWeight: fontWeights.regular,
+    fontSize: fontSizes['3xl'],
+    lineHeight: lineHeights.snug,
   },
 } as const satisfies Record<string, TypographyToken>;
 

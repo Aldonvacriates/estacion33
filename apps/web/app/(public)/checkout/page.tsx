@@ -174,7 +174,7 @@ export default function CheckoutPage() {
       <Link
         href="/carrito"
         style={{
-          color: 'var(--color-brand-primary)',
+          color: 'var(--color-brand-primaryDark)',
           fontSize: 14,
           fontWeight: 500,
           textDecoration: 'none',

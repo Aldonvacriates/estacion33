@@ -2,6 +2,11 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { formatMxn, i18n } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
+import {
+  buildWaLink,
+  customerToRestaurantOrderMessage,
+  restaurantWhatsApp,
+} from '@/lib/whatsapp';
 import { OrderLive } from './OrderLive';
 
 export const dynamic = 'force-dynamic'; // never cache an order page
@@ -209,10 +214,19 @@ export default async function OrderPage({
         <Row label={t.cart.total} value={formatMxn(order.total_cents)} bold />
       </section>
 
+      <WhatsAppConfirmButton
+        order={{
+          id: order.id,
+          total_cents: order.total_cents,
+          fulfillment: order.fulfillment,
+          scheduled_for: order.scheduled_for,
+        }}
+      />
+
       <Link href="/menu" style={{ alignSelf: 'center' }}>
         <span
           style={{
-            color: 'var(--color-brand-primary)',
+            color: 'var(--color-brand-primaryDark)',
             fontWeight: 600,
             textDecoration: 'underline',
           }}
@@ -221,6 +235,45 @@ export default async function OrderPage({
         </span>
       </Link>
     </main>
+  );
+}
+
+function WhatsAppConfirmButton({
+  order,
+}: {
+  order: {
+    id: string;
+    total_cents: number;
+    fulfillment: 'delivery' | 'pickup';
+    scheduled_for: string;
+  };
+}) {
+  const number = restaurantWhatsApp();
+  if (!number) return null; // env var missing — silently hide
+  const href = buildWaLink(number, customerToRestaurantOrderMessage(order));
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        alignSelf: 'center',
+        background: 'var(--color-brand-whatsapp)',
+        color: '#FFFFFF',
+        padding: '12px 24px',
+        borderRadius: '999px',
+        fontWeight: 700,
+        fontSize: 15,
+        textDecoration: 'none',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 8,
+        boxShadow: 'var(--shadow-sm, 0 1px 2px rgba(0,0,0,0.08))',
+      }}
+    >
+      <span aria-hidden style={{ fontSize: 18, lineHeight: 1 }}>💬</span>
+      Confirmar por WhatsApp
+    </a>
   );
 }
 

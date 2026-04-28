@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getServerSupabase } from '@/lib/supabase/server';
+import {
+  buildWaLink,
+  customerToRestaurantReservationMessage,
+  restaurantWhatsApp,
+} from '@/lib/whatsapp';
 
 export const dynamic = 'force-dynamic';
 
@@ -99,10 +104,19 @@ export default async function ReservationConfirmationPage({
         Plan de Iguala s/n, Col. Burócrata
       </p>
 
+      <WhatsAppConfirmReservationButton
+        reservation={{
+          id: reservation.id,
+          guest_name: reservation.guest_name,
+          party_size: reservation.party_size,
+          slot_at: reservation.slot_at,
+        }}
+      />
+
       <Link href="/menu" style={{ alignSelf: 'center' }}>
         <span
           style={{
-            color: 'var(--color-brand-primary)',
+            color: 'var(--color-brand-primaryDark)',
             fontWeight: 600,
             textDecoration: 'underline',
           }}
@@ -111,6 +125,47 @@ export default async function ReservationConfirmationPage({
         </span>
       </Link>
     </main>
+  );
+}
+
+function WhatsAppConfirmReservationButton({
+  reservation,
+}: {
+  reservation: {
+    id: string;
+    guest_name: string;
+    party_size: number;
+    slot_at: string;
+  };
+}) {
+  const number = restaurantWhatsApp();
+  if (!number) return null;
+  const href = buildWaLink(
+    number,
+    customerToRestaurantReservationMessage(reservation),
+  );
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        alignSelf: 'center',
+        background: 'var(--color-brand-whatsapp)',
+        color: '#FFFFFF',
+        padding: '12px 24px',
+        borderRadius: '999px',
+        fontWeight: 700,
+        fontSize: 15,
+        textDecoration: 'none',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 8,
+      }}
+    >
+      <span aria-hidden style={{ fontSize: 18, lineHeight: 1 }}>💬</span>
+      Confirmar por WhatsApp
+    </a>
   );
 }
 

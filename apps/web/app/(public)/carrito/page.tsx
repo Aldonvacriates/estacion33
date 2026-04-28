@@ -69,7 +69,7 @@ export default function CartPage() {
       <Link
         href="/menu"
         style={{
-          color: 'var(--color-brand-primary)',
+          color: 'var(--color-brand-primaryDark)',
           fontSize: 14,
           fontWeight: 500,
           textDecoration: 'none',

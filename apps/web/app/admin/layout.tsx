@@ -51,7 +51,7 @@ export default async function AdminLayout({
           Esta sección es para empleados de Estación 33. Si necesitas acceso, pide al
           dueño que active tu cuenta.
         </p>
-        <Link href="/" style={{ color: 'var(--color-brand-primary)', fontWeight: 600 }}>
+        <Link href="/" style={{ color: 'var(--color-brand-primaryDark)', fontWeight: 600 }}>
           ← Volver al sitio
         </Link>
       </div>

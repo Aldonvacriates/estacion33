@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Inter, Bebas_Neue, Yellowtail } from 'next/font/google';
 import { cssVariablesString } from '@estacion33/tokens/css';
 import './globals.css';
 
@@ -8,19 +9,40 @@ export const metadata: Metadata = {
   icons: { icon: '/favicon.png' },
 };
 
+const body = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+});
+
+const heading = Bebas_Neue({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-heading',
+  display: 'swap',
+});
+
+const script = Yellowtail({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-script',
+  display: 'swap',
+});
+
 const tokenVarsCss = cssVariablesString(':root');
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
+    <html
+      lang="es"
+      className={`${body.variable} ${heading.variable} ${script.variable}`}
+    >
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap"
-          rel="stylesheet"
-        />
         <style dangerouslySetInnerHTML={{ __html: tokenVarsCss }} />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning style={{ fontFamily: 'var(--font-body)' }}>
+        {children}
+      </body>
     </html>
   );
 }

@@ -51,3 +51,7 @@ supabase/.temp/
 
 # claude code
 .claude/
+
+# figma make exports — keep .make file out of git (huge, regenerable)
+*.make
+.figma-make/

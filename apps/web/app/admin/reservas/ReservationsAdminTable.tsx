@@ -89,7 +89,7 @@ export function ReservationsAdminTable({ rows }: { rows: Row[] }) {
                   hour12: false,
                 })}
                 {' · '}
-                <a href={`tel:${r.phone}`} style={{ color: 'var(--color-brand-primary)' }}>
+                <a href={`tel:${r.phone}`} style={{ color: 'var(--color-brand-primaryDark)', fontWeight: 600 }}>
                   {r.phone}
                 </a>
               </div>
