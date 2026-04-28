@@ -15,6 +15,8 @@
 import { corsHeaders } from '../_shared/cors.ts';
 import { getServiceClient } from '../_shared/supabase.ts';
 
+console.log('mercadopago-create-preference: function loaded');
+
 type RequestBody = { orderId?: string };
 
 type OrderItemRow = {
@@ -80,7 +82,12 @@ Deno.serve(async (req: Request): Promise<Response> => {
     currency_id: 'MXN',
   }));
 
-  const preferenceBody = {
+  // MercadoPago rejects auto_return when back_urls point to localhost
+  // (it needs a real domain to safely redirect users). In dev we drop it
+  // and the customer clicks "Volver al sitio" manually after paying.
+  const isLocalhost = /^https?:\/\/(localhost|127\.0\.0\.1)/i.test(publicWebUrl);
+
+  const preferenceBody: Record<string, unknown> = {
     items: mpItems,
     external_reference: orderId,
     back_urls: {
@@ -88,11 +95,13 @@ Deno.serve(async (req: Request): Promise<Response> => {
       failure: `${publicWebUrl}/orden/${orderId}?status=failure`,
       pending: `${publicWebUrl}/orden/${orderId}?status=pending`,
     },
-    auto_return: 'approved',
     statement_descriptor: 'ESTACION33',
     notification_url:
       `${Deno.env.get('SUPABASE_URL')}/functions/v1/mercadopago-webhook`,
   };
+  if (!isLocalhost) {
+    preferenceBody.auto_return = 'approved';
+  }
 
   const mpRes = await fetch('https://api.mercadopago.com/checkout/preferences', {
     method: 'POST',

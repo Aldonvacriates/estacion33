@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { i18n } from '@estacion33/core';
+import { CartLink } from './CartLink';
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   const t = i18n.es;
@@ -39,6 +40,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
         >
           <Link href="/menu" style={{ color: 'inherit' }}>Menú</Link>
           <Link href="/reservar" style={{ color: 'inherit' }}>Reservar</Link>
+          <CartLink />
           <Link href="/cuenta" style={{ color: 'inherit' }}>Cuenta</Link>
         </nav>
       </header>

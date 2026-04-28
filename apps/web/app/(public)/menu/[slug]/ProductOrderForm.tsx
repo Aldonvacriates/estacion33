@@ -1,20 +1,33 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Button } from '@estacion33/ui/web';
 import { formatMxn } from '@estacion33/core';
+import { useCart } from '@/lib/cart';
 import type { ProductOptionShape } from './page';
 
 type Selection = Record<string, string[]>; // optionId -> array of valueIds
 
 type Props = {
   productId: string;
+  productName: string;
+  productSlug: string;
   basePriceCents: number;
   options: ProductOptionShape[];
   available: boolean;
 };
 
-export function ProductOrderForm({ productId, basePriceCents, options, available }: Props) {
+export function ProductOrderForm({
+  productId,
+  productName,
+  productSlug,
+  basePriceCents,
+  options,
+  available,
+}: Props) {
+  const router = useRouter();
+  const addItem = useCart((s) => s.addItem);
   const [qty, setQty] = useState(1);
   const [selection, setSelection] = useState<Selection>(() => {
     // For required single-select options, pre-pick the first value so a valid
@@ -61,19 +74,35 @@ export function ProductOrderForm({ productId, basePriceCents, options, available
   };
 
   const handleAddToCart = () => {
-    // Cart wiring lands in slice 4.3. For now, log so we can see selections work.
-    const payload = {
+    const selectedOptions = Object.entries(selection).map(([optionId, valueIds]) => ({
+      optionId,
+      valueIds,
+    }));
+
+    // Build a human-readable summary like "Tipo de queso: Manchego · Extras: Tocino, Mezcalada"
+    const summaryParts: string[] = [];
+    for (const opt of options) {
+      const picked = selection[opt.id] ?? [];
+      if (picked.length === 0) continue;
+      const valueNames = picked
+        .map((id) => opt.option_values.find((v) => v.id === id)?.name)
+        .filter((n): n is string => Boolean(n));
+      if (valueNames.length > 0) {
+        summaryParts.push(`${opt.name}: ${valueNames.join(', ')}`);
+      }
+    }
+
+    addItem({
       productId,
+      productName,
+      productSlug,
       qty,
       unitPriceCents,
-      totalCents,
-      selectedOptions: Object.entries(selection).map(([optionId, valueIds]) => ({
-        optionId,
-        valueIds,
-      })),
-    };
-    console.log('add_to_cart_pending', payload);
-    alert(`Agregado al carrito (placeholder):\n${JSON.stringify(payload, null, 2)}`);
+      selectedOptions,
+      optionsSummary: summaryParts.join(' · '),
+    });
+
+    router.push('/carrito');
   };
 
   return (

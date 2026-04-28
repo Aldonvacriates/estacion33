@@ -93,6 +93,57 @@ export function getServiceWindow(
   };
 }
 
+/**
+ * Generate selectable order slots: every `stepMinutes` slot inside upcoming
+ * service windows, starting from the next slot >= `now + leadTimeMinutes`.
+ * Returns up to `maxSlots` slots, looking up to 14 days ahead.
+ */
+export function getUpcomingSlots(
+  now: Date = new Date(),
+  windows: readonly ServiceWindow[] = ESTACION33_WINDOWS,
+  options: {
+    stepMinutes?: number;
+    leadTimeMinutes?: number;
+    maxSlots?: number;
+  } = {},
+): Date[] {
+  const stepMinutes = options.stepMinutes ?? 30;
+  const leadTimeMinutes = options.leadTimeMinutes ?? 30;
+  const maxSlots = options.maxSlots ?? 24;
+
+  if (windows.length === 0) return [];
+
+  const earliest = new Date(now.getTime() + leadTimeMinutes * 60_000);
+  const slots: Date[] = [];
+
+  for (let dayOffset = 0; dayOffset < 14 && slots.length < maxSlots; dayOffset++) {
+    const day = new Date(now);
+    day.setDate(day.getDate() + dayOffset);
+    const w = windows.find((x) => x.dow === isoDow(day));
+    if (!w) continue;
+
+    const opens = setHm(day, w.opens);
+    const closes = setHm(day, w.closes);
+
+    let cursor = new Date(opens);
+    // Snap cursor to first slot >= max(opens, earliest).
+    if (cursor < earliest) {
+      const minutesPastOpen = Math.ceil(
+        (earliest.getTime() - opens.getTime()) / 60_000,
+      );
+      const stepsToSkip = Math.ceil(minutesPastOpen / stepMinutes);
+      cursor = new Date(opens.getTime() + stepsToSkip * stepMinutes * 60_000);
+    }
+
+    while (cursor < closes && slots.length < maxSlots) {
+      slots.push(new Date(cursor));
+      cursor = new Date(cursor.getTime() + stepMinutes * 60_000);
+    }
+  }
+
+  return slots;
+}
+
 function nextOpenAfter(now: Date, windows: readonly ServiceWindow[]): Date | null {
   if (windows.length === 0) return null;
   for (let offset = 0; offset < 14; offset++) {

@@ -18,6 +18,8 @@
 import { corsHeaders } from '../_shared/cors.ts';
 import { getServiceClient } from '../_shared/supabase.ts';
 
+console.log('mercadopago-webhook: function loaded');
+
 type MpEvent = {
   action?: string;
   type?: string;
