@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Button } from '@estacion33/ui/web';
 import { formatMxn, i18n } from '@estacion33/core';
 import { selectCartSubtotalCents, useCart } from '@/lib/cart';
@@ -12,6 +13,8 @@ export default function CartPage() {
   const setQty = useCart((s) => s.setQty);
   const remove = useCart((s) => s.remove);
   const subtotalCents = useCart(selectCartSubtotalCents);
+  const searchParams = useSearchParams();
+  const skipped = searchParams.get('skipped');
 
   // Avoid hydration mismatch — Zustand persisted state only exists in the browser.
   const [hydrated, setHydrated] = useState(false);
@@ -86,6 +89,20 @@ export default function CartPage() {
         gap: 'var(--space-5)',
       }}
     >
+      {skipped ? (
+        <div
+          style={{
+            background: 'var(--color-semantic-warningBg)',
+            color: 'var(--color-semantic-warningFg)',
+            padding: 'var(--space-3)',
+            borderRadius: 'var(--radius-md)',
+            fontSize: 13,
+          }}
+        >
+          Algunos productos del pedido anterior ya no están disponibles y no se
+          agregaron: {skipped}
+        </div>
+      ) : null}
       <Link
         href="/menu"
         style={{

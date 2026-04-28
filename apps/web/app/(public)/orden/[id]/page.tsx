@@ -9,6 +9,7 @@ import {
 } from '@/lib/whatsapp';
 import { OrderLive } from './OrderLive';
 import { DeliveryMap } from './DeliveryMap';
+import { ReorderButton, type ReorderItem } from '../../cuenta/ordenes/ReorderButton';
 
 export const dynamic = 'force-dynamic'; // never cache an order page
 
@@ -23,10 +24,11 @@ type SearchParams = { status?: string };
 
 type OrderItemRow = {
   id: string;
+  product_id: string;
   qty: number;
   unit_price_cents: number;
   selected_options: { optionId: string; valueIds: string[] }[];
-  product: { name: string; slug: string } | null;
+  product: { name: string; slug: string; available: boolean } | null;
 };
 
 export default async function OrderPage({
@@ -52,7 +54,7 @@ export default async function OrderPage({
     supabase
       .from('order_items')
       .select(
-        'id, qty, unit_price_cents, selected_options, product:products(name, slug)',
+        'id, product_id, qty, unit_price_cents, selected_options, product:products(name, slug, available)',
       )
       .eq('order_id', id)
       .returns<OrderItemRow[]>(),
@@ -353,6 +355,23 @@ export default async function OrderPage({
           scheduled_for: order.scheduled_for,
         }}
       />
+
+      {items && items.length > 0 ? (
+        <ReorderButton
+          variant="full"
+          items={items
+            .filter((it) => it.product != null)
+            .map<ReorderItem>((it) => ({
+              productId: it.product_id,
+              productName: it.product!.name,
+              productSlug: it.product!.slug,
+              qty: it.qty,
+              unitPriceCents: it.unit_price_cents,
+              selectedOptions: it.selected_options ?? [],
+              available: it.product!.available,
+            }))}
+        />
+      ) : null}
 
       <Link href="/menu" style={{ alignSelf: 'center' }}>
         <span
