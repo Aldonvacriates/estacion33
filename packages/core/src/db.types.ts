@@ -344,6 +344,7 @@ export type Database = {
           created_at: string
           full_name: string | null
           id: string
+          is_admin: boolean
           locale: string
           phone: string | null
           updated_at: string
@@ -352,6 +353,7 @@ export type Database = {
           created_at?: string
           full_name?: string | null
           id: string
+          is_admin?: boolean
           locale?: string
           phone?: string | null
           updated_at?: string
@@ -360,6 +362,7 @@ export type Database = {
           created_at?: string
           full_name?: string | null
           id?: string
+          is_admin?: boolean
           locale?: string
           phone?: string | null
           updated_at?: string
@@ -437,7 +440,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_admin: { Args: never; Returns: boolean }
     }
     Enums: {
       fulfillment_type: "delivery" | "pickup"
