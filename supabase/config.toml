@@ -1,0 +1,8 @@
+# Supabase project config. Only fields the CLI / functions runtime read.
+project_id = "estacion33"
+
+[functions.mercadopago-create-preference]
+verify_jwt = false  # public endpoint called from the client to start checkout
+
+[functions.mercadopago-webhook]
+verify_jwt = false  # MercadoPago calls this with no JWT; we verify HMAC instead

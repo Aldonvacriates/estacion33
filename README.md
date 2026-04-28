@@ -1,30 +1,46 @@
-# React + TypeScript + Vite
+# Estación 33
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mexican hamburger restaurant — web + mobile platform built by **Aldo Website LLC**.
 
-Currently, two official plugins are available:
+- **Web** — Next.js 15 App Router (`apps/web`)
+- **Mobile** — Expo / React Native (`apps/mobile`)
+- **Shared** — design tokens, UI primitives, types, schemas, i18n (`packages/*`)
+- **Backend** — Supabase (Postgres + Auth + Storage + Edge Functions)
+- **Payments** — MercadoPago (MXN, Mexico account)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Layout
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```
+apps/
+  web/              Next.js customer site + admin
+  mobile/           Expo customer app
+packages/
+  tokens/           design tokens (colors, type, spacing, radii)
+  ui/               shared UI primitives (Button, etc. — web + native)
+  core/             types, zod schemas, i18n, service-window helper
+supabase/           migrations + edge functions (Phase 3)
+docs/               product, brand, menu seed, asset audit, Figma spec
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Develop
+
+```sh
+pnpm install
+pnpm dev              # turbo runs web (:3000) + expo dev server
+```
+
+Per-app:
+
+```sh
+pnpm --filter estacion33-web dev
+pnpm --filter estacion33-mobile dev
+```
+
+## Phase status
+
+- Phase 1 — product + brand + tokens + Figma reference (done)
+- Phase 2 — monorepo + tokens + skeleton apps (this PR)
+- Phase 3 — Supabase schema + MercadoPago edge functions
+- Phase 4 — web app feature parity
+- Phase 5 — mobile app feature parity
+- Phase 6 — launch readiness
