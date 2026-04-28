@@ -160,6 +160,8 @@ export default async function ProductDetailPage({
 
         <ProductOrderForm
           productId={data.id}
+          productName={data.name}
+          productSlug={data.slug}
           basePriceCents={data.base_price_cents}
           options={sortedOptions}
           available={data.available}

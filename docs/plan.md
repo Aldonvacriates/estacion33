@@ -242,7 +242,8 @@ Mirrors the web product, no admin screens.
 
 ## Phase 6 — Launch readiness
 
-- Hosting: web on Vercel under Aldo Website LLC's account (env vars for Supabase + MercadoPago); custom domain for the Estación 33 product (TBD by owner — likely `estacion33.com.mx` or similar, separate from `aldowebsitellc.xyz`). Mobile on EAS Build for store submission, App Store / Play Store listings under "Aldo Website LLC".
+- Hosting: web on Vercel under Aldo Website LLC's account (env vars for Supabase + MercadoPago); custom domain **`https://www.estacion33.com`** (confirmed by owner Apr 2026). Mobile on EAS Build for store submission, App Store / Play Store listings under "Aldo Website LLC".
+- Production env: set Supabase secret `PUBLIC_WEB_URL=https://www.estacion33.com` so MercadoPago `back_urls` resolve and `auto_return: 'approved'` is enabled (in dev we keep it localhost / unset, no auto_return).
 - Analytics: PostHog (events: `view_menu`, `add_to_cart`, `begin_checkout`, `purchase`, `reserve_table`).
 - Sentry on web + mobile.
 - E2E: Playwright on web for the order flow; Detox or Maestro on mobile for the same.
