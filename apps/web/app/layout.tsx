@@ -6,7 +6,14 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Estación 33',
   description: 'Hamburguesas, snacks y más. Plan de Iguala s/n, Col. Burócrata.',
-  icons: { icon: '/favicon.png' },
+  icons: {
+    // SVG first for modern browsers, PNG fallback for Safari + iOS bookmarks.
+    icon: [
+      { url: '/burger-favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    apple: '/favicon.png',
+  },
 };
 
 const body = Inter({
