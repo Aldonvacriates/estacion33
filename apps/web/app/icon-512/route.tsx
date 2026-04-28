@@ -4,7 +4,6 @@ import { ImageResponse } from 'next/og';
 // Same artwork as the 192, scaled up.
 
 export const runtime = 'edge';
-export const contentType = 'image/png';
 
 export async function GET() {
   return new ImageResponse(

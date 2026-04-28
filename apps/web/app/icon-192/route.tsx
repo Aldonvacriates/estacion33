@@ -6,7 +6,6 @@ import { ImageResponse } from 'next/og';
 // device icons.
 
 export const runtime = 'edge';
-export const contentType = 'image/png';
 
 export async function GET() {
   return new ImageResponse(
