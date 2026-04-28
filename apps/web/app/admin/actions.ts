@@ -4,6 +4,10 @@ import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
 import type { Database } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
+import {
+  notifyAllRepartidoresAboutOffer,
+  notifyDriverAboutAssignment,
+} from '@/lib/push-notify';
 
 type OrderStatus = Database['estacion33']['Enums']['order_status'];
 type ReservationStatus = Database['estacion33']['Enums']['reservation_status'];
@@ -58,6 +62,42 @@ export async function setOrderStatusAction(input: {
   if (error) return { ok: false, error: error.message };
 
   revalidatePath('/admin/ordenes');
+
+  // If we just moved a delivery order into "ready" and it's still in the
+  // shared queue (no specific driver assigned), broadcast a push offer to
+  // every subscribed repartidor. Best-effort — failures are logged inside
+  // the helper and don't roll back the status change.
+  if (input.status === 'ready') {
+    const { data: order } = await supabase
+      .from('orders')
+      .select(
+        'id, fulfillment, total_cents, delivery_driver_id, address:addresses(line1, line2)',
+      )
+      .eq('id', input.orderId)
+      .single<{
+        id: string;
+        fulfillment: string;
+        total_cents: number;
+        delivery_driver_id: string | null;
+        address: { line1: string; line2: string | null } | null;
+      }>();
+    if (
+      order &&
+      order.fulfillment === 'delivery' &&
+      !order.delivery_driver_id
+    ) {
+      const addressLine =
+        [order.address?.line1, order.address?.line2]
+          .filter(Boolean)
+          .join(', ') || null;
+      await notifyAllRepartidoresAboutOffer({
+        orderId: order.id,
+        totalCents: order.total_cents,
+        addressLine,
+      });
+    }
+  }
+
   return { ok: true };
 }
 
@@ -268,6 +308,35 @@ export async function assignDriverAction(input: {
   revalidatePath('/repartidor');
   revalidatePath('/repartidor/activo');
   revalidatePath(`/repartidor/orden/${parsed.data.orderId}`);
+
+  // Notify the freshly-assigned driver. If we're un-assigning (driverId
+  // null) we don't send anything — they just lose the row from their
+  // Activo tab on the next refresh.
+  if (parsed.data.driverId) {
+    const { data: order } = await supabase
+      .from('orders')
+      .select(
+        'id, total_cents, address:addresses(line1, line2)',
+      )
+      .eq('id', parsed.data.orderId)
+      .single<{
+        id: string;
+        total_cents: number;
+        address: { line1: string; line2: string | null } | null;
+      }>();
+    if (order) {
+      const addressLine =
+        [order.address?.line1, order.address?.line2]
+          .filter(Boolean)
+          .join(', ') || null;
+      await notifyDriverAboutAssignment(parsed.data.driverId, {
+        orderId: order.id,
+        totalCents: order.total_cents,
+        addressLine,
+      });
+    }
+  }
+
   return { ok: true };
 }
 

@@ -1,8 +1,22 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { formatMxn, i18n } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
 
 export const revalidate = 60; // re-fetch menu every 60s
+
+export const metadata: Metadata = {
+  title: 'Menú',
+  description:
+    'Hamburguesas, hot dogs, pasta italiana, ensaladas y bebidas. Más de 40 platillos hechos al momento en Estación 33, Iguala, Gro.',
+  alternates: { canonical: '/menu' },
+  openGraph: {
+    title: 'Menú · Estación 33',
+    description:
+      'Hamburguesas, hot dogs y pasta italiana en Iguala, Gro. Servicio jueves, viernes y sábado.',
+    url: '/menu',
+  },
+};
 
 type MenuCategory = {
   id: string;

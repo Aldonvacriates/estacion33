@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getServiceWindow, i18n } from '@estacion33/core';
 import { HeroVideo } from './HeroVideo';
+import { RestaurantJsonLd } from './StructuredData';
 
 export default function HomePage() {
   const window = getServiceWindow();
@@ -15,6 +16,7 @@ export default function HomePage() {
 
   return (
     <main style={{ display: 'flex', flexDirection: 'column' }}>
+      <RestaurantJsonLd />
       {/* Responsive hero rules live in globals.css (.hero-grid / .hero-photo). */}
       {/* Hero — portrait burger photo right, yellow band + tagline left.
           On mobile: photo on top, content below. */}

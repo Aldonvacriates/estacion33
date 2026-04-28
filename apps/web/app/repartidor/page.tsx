@@ -3,6 +3,7 @@ import { formatMxn } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
 import { QueueLive } from './QueueLive';
 import { InstallPrompt } from './InstallPrompt';
+import { NotificationsToggle } from './NotificationsToggle';
 
 // Cola — orders ready to deliver, none of them claimed yet. The repartidor
 // taps a card → /repartidor/orden/[id] to see full details and claim it.
@@ -41,6 +42,7 @@ export default async function RepartidorQueuePage() {
     <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
       <QueueLive />
       <InstallPrompt />
+      <NotificationsToggle />
       <header style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         <span
           style={{

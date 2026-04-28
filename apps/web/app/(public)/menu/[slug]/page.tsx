@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { formatMxn } from '@estacion33/core';
@@ -5,6 +6,42 @@ import { getServerSupabase } from '@/lib/supabase/server';
 import { ProductOrderForm } from './ProductOrderForm';
 
 export const revalidate = 60;
+
+// Per-product metadata so each /menu/<slug> URL gets its own title +
+// description in Google. Fetches the product server-side; returns a
+// neutral fallback for slugs that don't exist (notFound() handles the
+// 404 in the page itself).
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const supabase = await getServerSupabase();
+  const { data } = await supabase
+    .from('products')
+    .select('name, description, image_url')
+    .eq('slug', slug)
+    .single<{ name: string; description: string | null; image_url: string | null }>();
+
+  if (!data) {
+    return { title: 'Producto', alternates: { canonical: `/menu/${slug}` } };
+  }
+
+  const description =
+    data.description ?? `Pide ${data.name} en Estación 33, Iguala, Gro.`;
+  return {
+    title: data.name,
+    description,
+    alternates: { canonical: `/menu/${slug}` },
+    openGraph: {
+      title: `${data.name} · Estación 33`,
+      description,
+      url: `/menu/${slug}`,
+      images: data.image_url ? [{ url: data.image_url }] : undefined,
+    },
+  };
+}
 
 type ProductDetail = {
   id: string;

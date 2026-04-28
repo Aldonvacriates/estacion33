@@ -233,6 +233,69 @@ export async function pingLocationAction(input: {
 }
 
 // ---------------------------------------------------------------------------
+// Web Push subscription management. Driver hits "Activar notificaciones" on
+// /repartidor → browser prompts → on grant, the client calls
+// pushManager.subscribe() and posts the resulting endpoint + keys here.
+// We upsert by endpoint (the unique URL the push service hands the
+// browser) so a re-grant doesn't pile up duplicate rows.
+// ---------------------------------------------------------------------------
+const pushSubSchema = z.object({
+  endpoint: z.string().url(),
+  p256dh: z.string().min(1),
+  auth: z.string().min(1),
+  userAgent: z.string().max(500).nullable().optional(),
+});
+
+export async function subscribePushAction(input: {
+  endpoint: string;
+  p256dh: string;
+  auth: string;
+  userAgent?: string | null;
+}): Promise<RepartidorResult> {
+  const parsed = pushSubSchema.safeParse(input);
+  if (!parsed.success) return { ok: false, error: 'invalid_input' };
+
+  const { supabase, user, isRepartidor } = await requireRepartidor();
+  if (!user || !isRepartidor) return { ok: false, error: 'not_repartidor' };
+
+  const { error } = await supabase
+    .from('repartidor_push_subs')
+    .upsert(
+      {
+        driver_id: user.id,
+        endpoint: parsed.data.endpoint,
+        p256dh: parsed.data.p256dh,
+        auth: parsed.data.auth,
+        user_agent: parsed.data.userAgent ?? null,
+      },
+      { onConflict: 'endpoint' },
+    );
+  if (error) return { ok: false, error: error.message };
+
+  return { ok: true };
+}
+
+export async function unsubscribePushAction(input: {
+  endpoint: string;
+}): Promise<RepartidorResult> {
+  if (typeof input.endpoint !== 'string' || !input.endpoint) {
+    return { ok: false, error: 'invalid_input' };
+  }
+
+  const { supabase, user, isRepartidor } = await requireRepartidor();
+  if (!user || !isRepartidor) return { ok: false, error: 'not_repartidor' };
+
+  const { error } = await supabase
+    .from('repartidor_push_subs')
+    .delete()
+    .eq('endpoint', input.endpoint)
+    .eq('driver_id', user.id);
+  if (error) return { ok: false, error: error.message };
+
+  return { ok: true };
+}
+
+// ---------------------------------------------------------------------------
 // Toggle the driver's "always-on GPS" preference on their profile.
 // Used in phase 3 when the location pinger picks a polling cadence; for
 // now it just persists the flag.
