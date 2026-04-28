@@ -4,6 +4,7 @@ import { formatMxn } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
 import { buildWaLink } from '@/lib/whatsapp';
 import { DeliveryActions } from './DeliveryActions';
+import { GpsPinger } from './GpsPinger';
 
 export const dynamic = 'force-dynamic';
 
@@ -368,13 +369,16 @@ export default async function RepartidorOrderDetailPage({
       ) : queueable ? (
         <DeliveryActions mode="claim" orderId={order.id} />
       ) : inTransit ? (
-        <DeliveryActions
-          mode="complete"
-          orderId={order.id}
-          paymentPending={order.payment_status === 'pending'}
-          existingProofPath={order.delivery_proof_path}
-          existingProofUrl={proofUrl}
-        />
+        <>
+          <GpsPinger orderId={order.id} />
+          <DeliveryActions
+            mode="complete"
+            orderId={order.id}
+            paymentPending={order.payment_status === 'pending'}
+            existingProofPath={order.delivery_proof_path}
+            existingProofUrl={proofUrl}
+          />
+        </>
       ) : (
         <article
           style={{

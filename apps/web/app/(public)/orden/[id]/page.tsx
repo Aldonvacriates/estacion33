@@ -8,6 +8,7 @@ import {
   restaurantWhatsApp,
 } from '@/lib/whatsapp';
 import { OrderLive } from './OrderLive';
+import { DeliveryMap } from './DeliveryMap';
 
 export const dynamic = 'force-dynamic'; // never cache an order page
 
@@ -44,7 +45,7 @@ export default async function OrderPage({
     supabase
       .from('orders')
       .select(
-        'id, status, fulfillment, scheduled_for, subtotal_cents, delivery_fee_cents, total_cents, payment_status, notes, created_at, delivery_proof_path, delivery_completed_at',
+        'id, status, fulfillment, scheduled_for, subtotal_cents, delivery_fee_cents, total_cents, payment_status, notes, created_at, delivery_proof_path, delivery_completed_at, address_id',
       )
       .eq('id', id)
       .single(),
@@ -66,6 +67,34 @@ export default async function OrderPage({
       .from('delivery-proofs')
       .createSignedUrl(order.delivery_proof_path, 3600);
     proofUrl = signed?.signedUrl ?? null;
+  }
+
+  // For the live map: pull the latest GPS ping + the destination coords if
+  // the address has them. Both are server-rendered as initial state; the
+  // map subscribes to realtime for updates.
+  type PingRow = { lat: number; lng: number; recorded_at: string };
+  let initialPing: PingRow | null = null;
+  let destination: { lat: number; lng: number; label: string } | null = null;
+  if (order.status === 'out_for_delivery') {
+    const { data: pingRow } = await supabase
+      .from('delivery_locations')
+      .select('lat, lng, recorded_at')
+      .eq('order_id', order.id)
+      .order('recorded_at', { ascending: false })
+      .limit(1)
+      .maybeSingle<PingRow>();
+    initialPing = pingRow;
+
+    if (order.address_id) {
+      const { data: addr } = await supabase
+        .from('addresses')
+        .select('line1, lat, lng')
+        .eq('id', order.address_id)
+        .single<{ line1: string; lat: number | null; lng: number | null }>();
+      if (addr?.lat != null && addr?.lng != null) {
+        destination = { lat: addr.lat, lng: addr.lng, label: addr.line1 };
+      }
+    }
   }
 
   return (
@@ -137,6 +166,28 @@ export default async function OrderPage({
           paymentStatusFromUrl={mpStatus}
         />
       </section>
+
+      {order.status === 'out_for_delivery' ? (
+        <section style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <h2 style={sectionHeading}>Tu repartidor en camino</h2>
+          <DeliveryMap
+            orderId={order.id}
+            initialPing={initialPing}
+            destination={destination}
+          />
+          <p
+            style={{
+              margin: 0,
+              fontSize: 12,
+              color: 'var(--color-neutral-500)',
+              textAlign: 'center',
+            }}
+          >
+            La ubicación se actualiza cada ~20 segundos mientras el
+            repartidor lleva tu pedido.
+          </p>
+        </section>
+      ) : null}
 
       <section style={detailCard}>
         <Row

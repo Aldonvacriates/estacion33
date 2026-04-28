@@ -80,6 +80,44 @@ export type Database = {
         }
         Relationships: []
       }
+      delivery_locations: {
+        Row: {
+          accuracy_m: number | null
+          driver_id: string
+          id: string
+          lat: number
+          lng: number
+          order_id: string
+          recorded_at: string
+        }
+        Insert: {
+          accuracy_m?: number | null
+          driver_id: string
+          id?: string
+          lat: number
+          lng: number
+          order_id: string
+          recorded_at?: string
+        }
+        Update: {
+          accuracy_m?: number | null
+          driver_id?: string
+          id?: string
+          lat?: number
+          lng?: number
+          order_id?: string
+          recorded_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "delivery_locations_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       loyalty_points: {
         Row: {
           created_at: string

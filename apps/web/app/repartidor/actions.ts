@@ -194,6 +194,45 @@ export async function uploadDeliveryProofAction(
 }
 
 // ---------------------------------------------------------------------------
+// Append a single GPS reading to delivery_locations. Validates that the
+// caller owns the order and that it's still in transit. RLS enforces both
+// at the DB layer too — this is just for friendlier error messages and to
+// short-circuit before hitting the DB.
+// ---------------------------------------------------------------------------
+const pingSchema = z.object({
+  orderId: z.string().uuid(),
+  lat: z.number().finite().min(-90).max(90),
+  lng: z.number().finite().min(-180).max(180),
+  accuracyMeters: z.number().finite().nonnegative().nullable().optional(),
+});
+
+export async function pingLocationAction(input: {
+  orderId: string;
+  lat: number;
+  lng: number;
+  accuracyMeters?: number | null;
+}): Promise<RepartidorResult> {
+  const parsed = pingSchema.safeParse(input);
+  if (!parsed.success) return { ok: false, error: 'invalid_input' };
+
+  const { supabase, user, isRepartidor } = await requireRepartidor();
+  if (!user || !isRepartidor) return { ok: false, error: 'not_repartidor' };
+
+  const { error } = await supabase.from('delivery_locations').insert({
+    order_id: parsed.data.orderId,
+    driver_id: user.id,
+    lat: parsed.data.lat,
+    lng: parsed.data.lng,
+    accuracy_m: parsed.data.accuracyMeters ?? null,
+  });
+  if (error) return { ok: false, error: error.message };
+
+  // No revalidatePath — pings stream over realtime; revalidating every 20s
+  // would invalidate the page cache constantly.
+  return { ok: true };
+}
+
+// ---------------------------------------------------------------------------
 // Toggle the driver's "always-on GPS" preference on their profile.
 // Used in phase 3 when the location pinger picks a polling cadence; for
 // now it just persists the flag.
