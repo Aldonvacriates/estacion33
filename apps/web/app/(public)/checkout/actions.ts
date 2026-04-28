@@ -55,6 +55,14 @@ export async function createOrderAction(input: CheckoutInput): Promise<CheckoutR
 
   const supabase = await getServerSupabase();
 
+  // If the customer is signed in, attach their auth.users.id so the order
+  // shows up under "Mis pedidos" (/cuenta/ordenes). Guests still flow through
+  // with user_id = null — the unguessable order UUID acts as their access
+  // token (same pattern UberEats / DoorDash use).
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   // 1. Re-resolve all product + option prices server-side.
   const productIds = Array.from(new Set(data.items.map((i) => i.productId)));
   const { data: products, error: prodErr } = await supabase
@@ -127,7 +135,7 @@ export async function createOrderAction(input: CheckoutInput): Promise<CheckoutR
   const { data: orderRow, error: orderErr } = await supabase
     .from('orders')
     .insert({
-      user_id: null,
+      user_id: user?.id ?? null,
       status: 'pending',
       fulfillment: data.fulfillment,
       address_id: null,
