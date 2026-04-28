@@ -1,9 +1,14 @@
 import Link from 'next/link';
 import { i18n } from '@estacion33/core';
 import { CartLink } from './CartLink';
+import { getServerSupabase } from '@/lib/supabase/server';
 
-export default function PublicLayout({ children }: { children: React.ReactNode }) {
+export default async function PublicLayout({ children }: { children: React.ReactNode }) {
   const t = i18n.es;
+  const supabase = await getServerSupabase();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   return (
     <div style={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column' }}>
@@ -41,7 +46,9 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
           <Link href="/menu" style={{ color: 'inherit' }}>Menú</Link>
           <Link href="/reservar" style={{ color: 'inherit' }}>Reservar</Link>
           <CartLink />
-          <Link href="/cuenta" style={{ color: 'inherit' }}>Cuenta</Link>
+          <Link href={user ? '/cuenta' : '/iniciar-sesion'} style={{ color: 'inherit' }}>
+            {user ? 'Cuenta' : 'Entrar'}
+          </Link>
         </nav>
       </header>
       <div style={{ flex: 1 }}>{children}</div>
