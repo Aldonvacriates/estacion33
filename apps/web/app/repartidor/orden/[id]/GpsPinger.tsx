@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { pingLocationAction } from '../../actions';
+import { useWakeLock } from '../../useWakeLock';
 
 type Props = {
   orderId: string;
@@ -30,6 +31,10 @@ export function GpsPinger({ orderId, intervalMs = 20_000 }: Props) {
   const [state, setState] = useState<PingState>({ kind: 'idle' });
   // Skip pings until enough time has passed since the last successful one.
   const lastSentRef = useRef<number>(0);
+
+  // Keep the phone screen awake while we're tracking. Released
+  // automatically when this component unmounts (= delivery completes).
+  useWakeLock(true);
 
   useEffect(() => {
     if (typeof navigator === 'undefined' || !('geolocation' in navigator)) {

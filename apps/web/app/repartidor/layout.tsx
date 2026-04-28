@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation';
 import { cssVariablesString } from '@estacion33/tokens/css';
 import { getServerSupabase } from '@/lib/supabase/server';
 import { RepartidorTabs, RepartidorBurgerMark } from './RepartidorTabs';
+import { AlwaysOnToggle } from './AlwaysOnToggle';
 import '../globals.css';
 
 const TABS = [
@@ -111,10 +112,19 @@ export default async function RepartidorLayout({
               REPARTIDOR
             </span>
           </Link>
+          <div
+            style={{
+              marginLeft: 'auto',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 12,
+            }}
+          >
+            <AlwaysOnToggle initial={!!profile.always_on_gps} />
+          </div>
           <Link
             href="/cuenta"
             style={{
-              marginLeft: 'auto',
               display: 'inline-flex',
               alignItems: 'center',
               gap: 6,

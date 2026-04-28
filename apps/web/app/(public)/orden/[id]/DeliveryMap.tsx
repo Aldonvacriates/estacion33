@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { getBrowserSupabase } from '@/lib/supabase/client';
+import { etaMinutes, formatEtaEs, haversineMeters } from '@/lib/eta';
 
 // React-Leaflet pieces are SSR-incompatible (they touch `window` on import),
 // so we load them client-only via `next/dynamic`. The map itself only
@@ -155,6 +156,20 @@ export function DeliveryMap({ orderId, initialPing, destination }: Props) {
       ? [destination.lat, destination.lng]
       : [18.347, -99.541]; // Iguala de la Independencia, GRO (rough)
 
+  // ETA: derived from latest ping + destination. null when we can't compute.
+  const eta = useMemo(() => {
+    if (!ping || !destination) return null;
+    const meters = haversineMeters(
+      { lat: ping.lat, lng: ping.lng },
+      { lat: destination.lat, lng: destination.lng },
+    );
+    const mins = etaMinutes(
+      { lat: ping.lat, lng: ping.lng },
+      { lat: destination.lat, lng: destination.lng },
+    );
+    return { meters, mins };
+  }, [ping, destination]);
+
   if (!leafletReady || !icons) {
     return (
       <div
@@ -189,6 +204,48 @@ export function DeliveryMap({ orderId, initialPing, destination }: Props) {
         position: 'relative',
       }}
     >
+      {eta ? (
+        <div
+          style={{
+            position: 'absolute',
+            top: 12,
+            left: 12,
+            zIndex: 500,
+            background: 'var(--color-brand-primary)',
+            color: 'var(--color-brand-ink)',
+            border: '2px solid var(--color-brand-ink)',
+            padding: '8px 14px',
+            borderRadius: 999,
+            boxShadow: '3px 3px 0 var(--color-brand-ink)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 0,
+            lineHeight: 1.1,
+          }}
+        >
+          <span
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 14,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+            }}
+          >
+            {formatEtaEs(eta.mins)}
+          </span>
+          <span
+            style={{
+              fontSize: 11,
+              color: 'var(--color-neutral-700)',
+            }}
+          >
+            {eta.meters < 1000
+              ? `${Math.round(eta.meters)} m`
+              : `${(eta.meters / 1000).toFixed(1)} km`}{' '}
+            de tu casa
+          </span>
+        </div>
+      ) : null}
       <MapContainer
         center={center}
         zoom={15}
