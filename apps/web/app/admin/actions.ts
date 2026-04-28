@@ -243,6 +243,37 @@ export async function setRepartidorRoleAction(input: {
   if (error) return { ok: false, error: error.message };
 
   revalidatePath('/admin/repartidores');
+  revalidatePath('/admin/usuarios');
+  return { ok: true };
+}
+
+/**
+ * Toggle the is_admin flag on another profile. Self-demotion is allowed —
+ * the only safety we enforce is that the caller must currently be admin
+ * (requireAdmin), and that the input is a valid UUID/bool. The server
+ * doesn't try to prevent demoting the last admin; if the org wants that
+ * guarantee it should add a check at the DB level.
+ */
+export async function setAdminRoleAction(input: {
+  profileId: string;
+  enabled: boolean;
+}): Promise<AdminResult> {
+  const parsed = z
+    .object({ profileId: z.string().uuid(), enabled: z.boolean() })
+    .safeParse(input);
+  if (!parsed.success) return { ok: false, error: 'invalid_input' };
+
+  const { supabase, isAdmin } = await requireAdmin();
+  if (!isAdmin) return { ok: false, error: 'not_admin' };
+
+  const { error } = await supabase
+    .from('profiles')
+    .update({ is_admin: parsed.data.enabled })
+    .eq('id', parsed.data.profileId);
+  if (error) return { ok: false, error: error.message };
+
+  revalidatePath('/admin/usuarios');
+  revalidatePath('/admin/repartidores');
   return { ok: true };
 }
 
