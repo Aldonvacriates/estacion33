@@ -200,6 +200,7 @@ export type Database = {
           delivery_completed_at: string | null
           delivery_driver_id: string | null
           delivery_fee_cents: number
+          delivery_proof_path: string | null
           delivery_started_at: string | null
           fulfillment: Database["estacion33"]["Enums"]["fulfillment_type"]
           id: string
@@ -221,6 +222,7 @@ export type Database = {
           delivery_completed_at?: string | null
           delivery_driver_id?: string | null
           delivery_fee_cents?: number
+          delivery_proof_path?: string | null
           delivery_started_at?: string | null
           fulfillment: Database["estacion33"]["Enums"]["fulfillment_type"]
           id?: string
@@ -242,6 +244,7 @@ export type Database = {
           delivery_completed_at?: string | null
           delivery_driver_id?: string | null
           delivery_fee_cents?: number
+          delivery_proof_path?: string | null
           delivery_started_at?: string | null
           fulfillment?: Database["estacion33"]["Enums"]["fulfillment_type"]
           id?: string

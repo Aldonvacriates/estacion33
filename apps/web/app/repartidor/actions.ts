@@ -126,6 +126,74 @@ export async function completeDeliveryAction(input: {
 }
 
 // ---------------------------------------------------------------------------
+// Upload a proof-of-delivery photo to the private `delivery-proofs` bucket
+// and stamp the path on the order. Driver can re-upload (overwrite) until
+// the order is marked delivered.
+// ---------------------------------------------------------------------------
+export type UploadProofResult =
+  | { ok: true; path: string }
+  | { ok: false; error: string };
+
+export async function uploadDeliveryProofAction(
+  formData: FormData,
+): Promise<UploadProofResult> {
+  const orderId = formData.get('orderId');
+  const file = formData.get('file');
+  if (typeof orderId !== 'string' || !orderId) {
+    return { ok: false, error: 'orderId_required' };
+  }
+  if (!(file instanceof File) || file.size === 0) {
+    return { ok: false, error: 'file_required' };
+  }
+  if (file.size > 10 * 1024 * 1024) {
+    return { ok: false, error: 'file_too_large' };
+  }
+  if (!/^image\/(jpeg|png|webp|heic|heif)$/.test(file.type)) {
+    return { ok: false, error: 'invalid_image_type' };
+  }
+
+  const { supabase, user, isRepartidor } = await requireRepartidor();
+  if (!user || !isRepartidor) return { ok: false, error: 'not_repartidor' };
+
+  // Make sure the order is assigned to me + still in transit.
+  const { data: order } = await supabase
+    .from('orders')
+    .select('id, delivery_driver_id, status')
+    .eq('id', orderId)
+    .single();
+  if (!order) return { ok: false, error: 'order_not_found' };
+  if (order.delivery_driver_id !== user.id) {
+    return { ok: false, error: 'no es tu pedido' };
+  }
+  if (order.status !== 'out_for_delivery') {
+    return { ok: false, error: 'el pedido no está en camino' };
+  }
+
+  // Path: <orderId>/<timestamp>.<ext> — keeps history if driver re-uploads.
+  const ext = (file.name.split('.').pop() ?? 'jpg').toLowerCase();
+  const path = `${orderId}/${Date.now()}.${ext}`;
+
+  const { error: upErr } = await supabase.storage
+    .from('delivery-proofs')
+    .upload(path, file, {
+      cacheControl: '3600',
+      upsert: false,
+      contentType: file.type,
+    });
+  if (upErr) return { ok: false, error: `upload: ${upErr.message}` };
+
+  const { error: updErr } = await supabase
+    .from('orders')
+    .update({ delivery_proof_path: path })
+    .eq('id', orderId);
+  if (updErr) return { ok: false, error: `update: ${updErr.message}` };
+
+  revalidatePath(`/repartidor/orden/${orderId}`);
+  revalidatePath(`/orden/${orderId}`);
+  return { ok: true, path };
+}
+
+// ---------------------------------------------------------------------------
 // Toggle the driver's "always-on GPS" preference on their profile.
 // Used in phase 3 when the location pinger picks a polling cadence; for
 // now it just persists the flag.

@@ -19,6 +19,7 @@ type OrderDetail = {
   delivery_driver_id: string | null;
   cash_collected: boolean;
   delivery_started_at: string | null;
+  delivery_proof_path: string | null;
   fulfillment: string;
   user_id: string | null;
   address: { line1: string; line2: string | null; city: string; notes: string | null } | null;
@@ -52,7 +53,7 @@ export default async function RepartidorOrderDetailPage({
     supabase
       .from('orders')
       .select(
-        'id, status, payment_status, total_cents, subtotal_cents, delivery_fee_cents, scheduled_for, notes, delivery_driver_id, cash_collected, delivery_started_at, fulfillment, user_id, address:addresses(line1, line2, city, notes)',
+        'id, status, payment_status, total_cents, subtotal_cents, delivery_fee_cents, scheduled_for, notes, delivery_driver_id, cash_collected, delivery_started_at, delivery_proof_path, fulfillment, user_id, address:addresses(line1, line2, city, notes)',
       )
       .eq('id', id)
       .single<OrderDetail>(),
@@ -64,6 +65,16 @@ export default async function RepartidorOrderDetailPage({
   ]);
 
   if (!order) notFound();
+
+  // Sign the existing proof URL (private bucket) so the driver can preview
+  // the photo they already uploaded. 1 hour TTL is plenty for this flow.
+  let proofUrl: string | null = null;
+  if (order.delivery_proof_path) {
+    const { data: signed } = await supabase.storage
+      .from('delivery-proofs')
+      .createSignedUrl(order.delivery_proof_path, 3600);
+    proofUrl = signed?.signedUrl ?? null;
+  }
 
   // Fetch the customer's name + phone, if any. Guests won't have a profile.
   let customer: ProfileRow | null = null;
@@ -325,14 +336,34 @@ export default async function RepartidorOrderDetailPage({
             borderRadius: 12,
             padding: 'var(--space-4)',
             color: 'var(--color-brand-ink)',
-            textAlign: 'center',
-            fontFamily: 'var(--font-heading)',
-            fontSize: 14,
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 12,
           }}
         >
-          ✓ Entregado
+          <div
+            style={{
+              textAlign: 'center',
+              fontFamily: 'var(--font-heading)',
+              fontSize: 14,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+            }}
+          >
+            ✓ Entregado
+          </div>
+          {proofUrl ? (
+            <div
+              style={{
+                width: '100%',
+                aspectRatio: '4 / 3',
+                borderRadius: 10,
+                border: '2px solid var(--color-brand-ink)',
+                background: `center/cover no-repeat url(${proofUrl}), var(--color-neutral-200)`,
+              }}
+              aria-label="Foto de entrega"
+            />
+          ) : null}
         </article>
       ) : queueable ? (
         <DeliveryActions mode="claim" orderId={order.id} />
@@ -341,6 +372,8 @@ export default async function RepartidorOrderDetailPage({
           mode="complete"
           orderId={order.id}
           paymentPending={order.payment_status === 'pending'}
+          existingProofPath={order.delivery_proof_path}
+          existingProofUrl={proofUrl}
         />
       ) : (
         <article

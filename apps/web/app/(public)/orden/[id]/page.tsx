@@ -44,7 +44,7 @@ export default async function OrderPage({
     supabase
       .from('orders')
       .select(
-        'id, status, fulfillment, scheduled_for, subtotal_cents, delivery_fee_cents, total_cents, payment_status, notes, created_at',
+        'id, status, fulfillment, scheduled_for, subtotal_cents, delivery_fee_cents, total_cents, payment_status, notes, created_at, delivery_proof_path, delivery_completed_at',
       )
       .eq('id', id)
       .single(),
@@ -58,6 +58,15 @@ export default async function OrderPage({
   ]);
 
   if (error || !order) notFound();
+
+  // Sign the proof photo URL if the order has been delivered with a photo.
+  let proofUrl: string | null = null;
+  if (order.delivery_proof_path && order.status === 'delivered') {
+    const { data: signed } = await supabase.storage
+      .from('delivery-proofs')
+      .createSignedUrl(order.delivery_proof_path, 3600);
+    proofUrl = signed?.signedUrl ?? null;
+  }
 
   return (
     <main
@@ -215,6 +224,64 @@ export default async function OrderPage({
         />
         <Row label={t.cart.total} value={formatMxn(order.total_cents)} bold />
       </section>
+
+      {proofUrl ? (
+        <section
+          style={{
+            background: 'var(--color-neutral-0)',
+            border: '2px solid var(--color-brand-ink)',
+            borderRadius: 'var(--radius-lg)',
+            padding: 'var(--space-4)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 8,
+          }}
+        >
+          <div
+            style={{
+              fontFamily: 'var(--font-script)',
+              fontSize: 24,
+              color: 'var(--color-brand-chili)',
+              lineHeight: 1,
+            }}
+          >
+            Tu pedido en la puerta
+          </div>
+          {order.delivery_completed_at ? (
+            <div
+              style={{
+                fontSize: 12,
+                color: 'var(--color-neutral-700)',
+                fontFamily: 'var(--font-heading)',
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+              }}
+            >
+              Entregado{' '}
+              {new Date(order.delivery_completed_at).toLocaleString('es-MX', {
+                weekday: 'short',
+                day: 'numeric',
+                month: 'short',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false,
+              })}
+            </div>
+          ) : null}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={proofUrl}
+            alt="Foto de tu pedido al ser entregado"
+            style={{
+              width: '100%',
+              borderRadius: 8,
+              border: '1px solid var(--color-neutral-300)',
+              maxHeight: 480,
+              objectFit: 'cover',
+            }}
+          />
+        </section>
+      ) : null}
 
       <WhatsAppConfirmButton
         order={{
