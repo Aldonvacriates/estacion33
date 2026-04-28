@@ -4,7 +4,11 @@ import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import type { Database } from '@estacion33/core';
-import { assignDriverAction, setOrderStatusAction } from '../actions';
+import {
+  assignDriverAction,
+  setOrderArchivedAction,
+  setOrderStatusAction,
+} from '../actions';
 
 type OrderStatus = Database['estacion33']['Enums']['order_status'];
 
@@ -36,6 +40,7 @@ type Row = {
   created_at: string;
   delivery_driver_id: string | null;
   delivery_driver_name: string | null;
+  archived: boolean;
 };
 
 type Driver = { id: string; name: string };
@@ -55,6 +60,15 @@ export function OrdersAdminTable({
     setError(null);
     startTransition(async () => {
       const result = await setOrderStatusAction({ orderId, status });
+      if (!result.ok) setError(result.error);
+      router.refresh();
+    });
+  };
+
+  const handleArchive = (orderId: string, archived: boolean) => {
+    setError(null);
+    startTransition(async () => {
+      const result = await setOrderArchivedAction({ orderId, archived });
       if (!result.ok) setError(result.error);
       router.refresh();
     });
@@ -228,29 +242,65 @@ export function OrdersAdminTable({
                 </div>
               ) : null}
             </div>
-            <select
-              value={r.status}
-              onChange={(e) => handleChange(r.id, e.target.value as OrderStatus)}
-              disabled={isPending}
-              style={{
-                height: 36,
-                padding: '0 8px',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--color-neutral-300)',
-                fontSize: 14,
-                background: 'var(--color-neutral-0)',
-                cursor: isPending ? 'not-allowed' : 'pointer',
-              }}
-            >
-              {STATUS_OPTIONS.map((s) => (
-                <option key={s.value} value={s.value}>
-                  {s.label}
-                </option>
-              ))}
-            </select>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'flex-end' }}>
+              <select
+                value={r.status}
+                onChange={(e) => handleChange(r.id, e.target.value as OrderStatus)}
+                disabled={isPending}
+                style={{
+                  height: 36,
+                  padding: '0 8px',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--color-neutral-300)',
+                  fontSize: 14,
+                  background: 'var(--color-neutral-0)',
+                  cursor: isPending ? 'not-allowed' : 'pointer',
+                }}
+              >
+                {STATUS_OPTIONS.map((s) => (
+                  <option key={s.value} value={s.value}>
+                    {s.label}
+                  </option>
+                ))}
+              </select>
+              {r.archived ? (
+                <button
+                  type="button"
+                  onClick={() => handleArchive(r.id, false)}
+                  disabled={isPending}
+                  style={archiveBtnStyle}
+                  title="Quitar de archivados"
+                >
+                  Desarchivar
+                </button>
+              ) : r.status === 'delivered' || r.status === 'cancelled' ? (
+                <button
+                  type="button"
+                  onClick={() => handleArchive(r.id, true)}
+                  disabled={isPending}
+                  style={archiveBtnStyle}
+                  title="Ocultar de la lista (sin borrar)"
+                >
+                  Archivar
+                </button>
+              ) : null}
+            </div>
           </li>
         ))}
       </ul>
     </>
   );
 }
+
+const archiveBtnStyle: React.CSSProperties = {
+  background: 'transparent',
+  color: 'var(--color-neutral-700)',
+  border: '1px solid var(--color-neutral-300)',
+  padding: '4px 10px',
+  borderRadius: 999,
+  fontSize: 11,
+  fontWeight: 600,
+  letterSpacing: '0.04em',
+  textTransform: 'uppercase',
+  cursor: 'pointer',
+};

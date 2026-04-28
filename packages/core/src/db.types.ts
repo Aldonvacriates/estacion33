@@ -274,6 +274,7 @@ export type Database = {
       orders: {
         Row: {
           address_id: string | null
+          archived_at: string | null
           cash_collected: boolean
           created_at: string
           delivery_completed_at: string | null
@@ -296,6 +297,7 @@ export type Database = {
         }
         Insert: {
           address_id?: string | null
+          archived_at?: string | null
           cash_collected?: boolean
           created_at?: string
           delivery_completed_at?: string | null
@@ -318,6 +320,7 @@ export type Database = {
         }
         Update: {
           address_id?: string | null
+          archived_at?: string | null
           cash_collected?: boolean
           created_at?: string
           delivery_completed_at?: string | null

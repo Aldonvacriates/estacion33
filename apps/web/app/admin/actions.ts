@@ -101,6 +101,23 @@ export async function setOrderStatusAction(input: {
   return { ok: true };
 }
 
+export async function setOrderArchivedAction(input: {
+  orderId: string;
+  archived: boolean;
+}): Promise<AdminResult> {
+  const { supabase, isAdmin } = await requireAdmin();
+  if (!isAdmin) return { ok: false, error: 'not_admin' };
+
+  const { error } = await supabase
+    .from('orders')
+    .update({ archived_at: input.archived ? new Date().toISOString() : null })
+    .eq('id', input.orderId);
+  if (error) return { ok: false, error: error.message };
+
+  revalidatePath('/admin/ordenes');
+  return { ok: true };
+}
+
 export async function setReservationStatusAction(input: {
   reservationId: string;
   status: string;

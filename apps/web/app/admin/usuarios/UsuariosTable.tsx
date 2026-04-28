@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { setAdminRoleAction, setRepartidorRoleAction } from '../actions';
 import type { AdminUserRow } from './page';
 
@@ -285,6 +286,24 @@ export function UsuariosTable({ users }: { users: AdminUserRow[] }) {
                     Cliente
                   </span>
                 ) : null}
+                <Link
+                  href={`/admin/usuarios/${u.id}/ordenes`}
+                  style={{
+                    padding: '6px 12px',
+                    borderRadius: 999,
+                    background: 'var(--color-neutral-0)',
+                    color: 'var(--color-brand-primaryDark)',
+                    border: '1px solid var(--color-brand-primary)',
+                    fontFamily: 'var(--font-heading)',
+                    fontSize: 11,
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                    fontWeight: 600,
+                    textDecoration: 'none',
+                  }}
+                >
+                  Ver pedidos
+                </Link>
               </div>
             </li>
           ))
