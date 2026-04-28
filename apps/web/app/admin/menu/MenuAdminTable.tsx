@@ -27,7 +27,13 @@ type Category = {
   products: Product[];
 };
 
-export function MenuAdminTable({ categories }: { categories: Category[] }) {
+export function MenuAdminTable({
+  categories,
+  gallery,
+}: {
+  categories: Category[];
+  gallery: string[];
+}) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
@@ -35,6 +41,30 @@ export function MenuAdminTable({ categories }: { categories: Category[] }) {
   // Categories whose product list is currently hidden. Defaulting to "all
   // expanded" so existing users don't lose access to anything in one click.
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
+
+  const archiveProduct = (productId: string) => {
+    setError(null);
+    startTransition(async () => {
+      const result = await updateProductAction({ productId, available: false });
+      if (!result.ok) setError(result.error);
+      router.refresh();
+    });
+  };
+
+  const removeProduct = (productId: string, name: string) => {
+    if (
+      typeof window !== 'undefined' &&
+      !window.confirm(`¿Eliminar "${name}"? Esta acción no se puede deshacer.`)
+    ) {
+      return;
+    }
+    setError(null);
+    startTransition(async () => {
+      const result = await deleteProductAction({ productId });
+      if (!result.ok) setError(result.error);
+      router.refresh();
+    });
+  };
 
   const toggleAvailable = (productId: string, available: boolean) => {
     setError(null);
@@ -195,10 +225,13 @@ export function MenuAdminTable({ categories }: { categories: Category[] }) {
                     <ProductRow
                       key={p.id}
                       product={p}
+                      gallery={gallery}
                       isOpen={openId === p.id}
                       isPending={isPending}
                       onToggleOpen={() => setOpenId(openId === p.id ? null : p.id)}
                       onAvailableChange={(v) => toggleAvailable(p.id, v)}
+                      onArchive={() => archiveProduct(p.id)}
+                      onDelete={() => removeProduct(p.id, p.name)}
                       onChanged={() => {
                         setError(null);
                         router.refresh();
@@ -218,21 +251,84 @@ export function MenuAdminTable({ categories }: { categories: Category[] }) {
 
 function ProductRow({
   product,
+  gallery,
   isOpen,
   isPending,
   onToggleOpen,
   onAvailableChange,
+  onArchive,
+  onDelete,
   onChanged,
   onError,
 }: {
   product: Product;
+  gallery: string[];
   isOpen: boolean;
   isPending: boolean;
   onToggleOpen: () => void;
   onAvailableChange: (v: boolean) => void;
+  onArchive: () => void;
+  onDelete: () => void;
   onChanged: () => void;
   onError: (msg: string) => void;
 }) {
+  // Swipe state. dx is the current foreground x-translation. While the user
+  // is actively dragging we skip the CSS transition so the row tracks their
+  // finger 1:1; on release we snap to a discrete state with a transition.
+  const ACTION_W = 96;
+  const REVEAL_THRESHOLD = 56;
+  const [dx, setDx] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const startX = useRef(0);
+  const startY = useRef(0);
+  const lockedHorizontal = useRef<boolean | null>(null);
+
+  const closeReveal = () => {
+    setDx(0);
+  };
+
+  // Snap dx to {-ACTION_W, 0, ACTION_W} on release.
+  const settle = (current: number) => {
+    if (current > REVEAL_THRESHOLD) setDx(ACTION_W);
+    else if (current < -REVEAL_THRESHOLD) setDx(-ACTION_W);
+    else setDx(0);
+  };
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    if (isOpen) return; // editing — disable swipe so it doesn't fight scroll
+    const t = e.touches[0];
+    if (!t) return;
+    startX.current = t.clientX - dx;
+    startY.current = t.clientY;
+    lockedHorizontal.current = null;
+    setDragging(true);
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (isOpen || !dragging) return;
+    const t = e.touches[0];
+    if (!t) return;
+    const moveX = t.clientX - startX.current;
+    const moveY = t.clientY - startY.current;
+    if (lockedHorizontal.current === null) {
+      const ax = Math.abs(moveX - dx);
+      const ay = Math.abs(moveY);
+      if (ax > 10 || ay > 10) {
+        lockedHorizontal.current = ax > ay;
+      }
+    }
+    if (lockedHorizontal.current) {
+      // Cap to slightly past ACTION_W so it feels rubbery, not stuck.
+      const capped = Math.max(-ACTION_W * 1.4, Math.min(ACTION_W * 1.4, moveX));
+      setDx(capped);
+    }
+  };
+  const onTouchEnd = () => {
+    if (!dragging) return;
+    setDragging(false);
+    if (lockedHorizontal.current) settle(dx);
+    lockedHorizontal.current = null;
+  };
+
   return (
     <li
       style={{
@@ -240,9 +336,87 @@ function ProductRow({
         border: `1px solid ${isOpen ? 'var(--color-brand-primary)' : 'var(--color-neutral-200)'}`,
         borderRadius: 'var(--radius-md)',
         overflow: 'hidden',
+        position: 'relative',
         transition: 'border-color 120ms ease',
       }}
     >
+      {/* Archive action — revealed when swiped right (dx > 0) */}
+      <button
+        type="button"
+        aria-label={`Archivar ${product.name}`}
+        onClick={() => {
+          onArchive();
+          closeReveal();
+        }}
+        style={{
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          bottom: 0,
+          width: ACTION_W,
+          background: 'var(--color-brand-primary)',
+          color: 'var(--color-brand-ink)',
+          border: 'none',
+          fontFamily: 'var(--font-heading)',
+          fontSize: 12,
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
+          cursor: 'pointer',
+          display: dx > 0 ? 'flex' : 'none',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 4,
+        }}
+      >
+        <span aria-hidden style={{ fontSize: 16 }}>📦</span>
+        Archivar
+      </button>
+
+      {/* Delete action — revealed when swiped left (dx < 0) */}
+      <button
+        type="button"
+        aria-label={`Eliminar ${product.name}`}
+        onClick={() => {
+          onDelete();
+          closeReveal();
+        }}
+        style={{
+          position: 'absolute',
+          right: 0,
+          top: 0,
+          bottom: 0,
+          width: ACTION_W,
+          background: 'var(--color-brand-chili)',
+          color: 'var(--color-neutral-0)',
+          border: 'none',
+          fontFamily: 'var(--font-heading)',
+          fontSize: 12,
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
+          cursor: 'pointer',
+          display: dx < 0 ? 'flex' : 'none',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 4,
+        }}
+      >
+        <span aria-hidden style={{ fontSize: 16 }}>🗑</span>
+        Eliminar
+      </button>
+
+      {/* Foreground that slides */}
+      <div
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        style={{
+          background: 'var(--color-neutral-0)',
+          transform: `translateX(${dx}px)`,
+          transition: dragging ? 'none' : 'transform 200ms ease',
+          touchAction: 'pan-y',
+          position: 'relative',
+        }}
+      >
       <button
         type="button"
         onClick={onToggleOpen}
@@ -304,18 +478,26 @@ function ProductRow({
       </button>
 
       {isOpen ? (
-        <ProductEditPanel product={product} onChanged={onChanged} onError={onError} />
+        <ProductEditPanel
+          product={product}
+          gallery={gallery}
+          onChanged={onChanged}
+          onError={onError}
+        />
       ) : null}
+      </div>
     </li>
   );
 }
 
 function ProductEditPanel({
   product,
+  gallery,
   onChanged,
   onError,
 }: {
   product: Product;
+  gallery: string[];
   onChanged: () => void;
   onError: (msg: string) => void;
 }) {
@@ -326,7 +508,25 @@ function ProductEditPanel({
   const [imageUrl, setImageUrl] = useState(product.image_url ?? '');
   const [isSaving, startSave] = useTransition();
   const [isUploading, startUpload] = useTransition();
+  const [isPickingFromGallery, setPickingFromGallery] = useState(false);
+  const [isApplyingFromGallery, startApplyGallery] = useTransition();
   const fileRef = useRef<HTMLInputElement>(null);
+
+  const applyGalleryImage = (url: string) => {
+    startApplyGallery(async () => {
+      const result = await updateProductAction({
+        productId: product.id,
+        imageUrl: url,
+      });
+      if (!result.ok) {
+        onError(result.error);
+        return;
+      }
+      setImageUrl(url);
+      setPickingFromGallery(false);
+      onChanged();
+    });
+  };
 
   const dirty =
     name !== product.name ||
@@ -406,27 +606,49 @@ function ProductEditPanel({
           }}
           style={{ display: 'none' }}
         />
-        <button
-          type="button"
-          onClick={() => fileRef.current?.click()}
-          disabled={isUploading}
-          style={{
-            width: '100%',
-            height: 42,
-            background: 'var(--color-brand-ink)',
-            color: 'var(--color-brand-primary)',
-            border: 'none',
-            borderRadius: 999,
-            fontFamily: 'var(--font-heading)',
-            fontSize: 13,
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            fontWeight: 400,
-            cursor: isUploading ? 'wait' : 'pointer',
-          }}
-        >
-          {isUploading ? 'Subiendo…' : imageUrl ? 'Cambiar foto' : 'Subir foto'}
-        </button>
+        <div style={{ display: 'grid', gap: 8, gridTemplateColumns: '1fr 1fr' }}>
+          <button
+            type="button"
+            onClick={() => fileRef.current?.click()}
+            disabled={isUploading}
+            style={{
+              height: 42,
+              background: 'var(--color-brand-ink)',
+              color: 'var(--color-brand-primary)',
+              border: 'none',
+              borderRadius: 999,
+              fontFamily: 'var(--font-heading)',
+              fontSize: 12,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              fontWeight: 400,
+              cursor: isUploading ? 'wait' : 'pointer',
+            }}
+          >
+            {isUploading ? 'Subiendo…' : 'Subir foto'}
+          </button>
+          <button
+            type="button"
+            onClick={() => setPickingFromGallery(true)}
+            disabled={gallery.length === 0 || isApplyingFromGallery}
+            style={{
+              height: 42,
+              background: 'transparent',
+              color: 'var(--color-brand-ink)',
+              border: '2px solid var(--color-brand-ink)',
+              borderRadius: 999,
+              fontFamily: 'var(--font-heading)',
+              fontSize: 12,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              fontWeight: 400,
+              cursor: gallery.length === 0 ? 'not-allowed' : 'pointer',
+              opacity: gallery.length === 0 ? 0.5 : 1,
+            }}
+          >
+            {isApplyingFromGallery ? 'Aplicando…' : 'De la galería'}
+          </button>
+        </div>
         {imageUrl ? (
           <a
             href={imageUrl}
@@ -548,7 +770,149 @@ function ProductEditPanel({
           />
         </div>
       </div>
+
+      {isPickingFromGallery ? (
+        <GalleryPicker
+          gallery={gallery}
+          currentUrl={imageUrl || null}
+          onPick={applyGalleryImage}
+          onClose={() => setPickingFromGallery(false)}
+          isApplying={isApplyingFromGallery}
+        />
+      ) : null}
     </form>
+  );
+}
+
+function GalleryPicker({
+  gallery,
+  currentUrl,
+  onPick,
+  onClose,
+  isApplying,
+}: {
+  gallery: string[];
+  currentUrl: string | null;
+  onPick: (url: string) => void;
+  onClose: () => void;
+  isApplying: boolean;
+}) {
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Galería de fotos"
+      onClick={onClose}
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 100,
+        background: 'rgba(10,10,10,0.7)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 'var(--space-4)',
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          background: 'var(--color-brand-cream)',
+          border: '2px solid var(--color-brand-ink)',
+          borderRadius: 16,
+          maxWidth: 720,
+          width: '100%',
+          maxHeight: '85vh',
+          overflow: 'auto',
+          padding: 'var(--space-4)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--space-3)',
+        }}
+      >
+        <header
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: 8,
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-script)',
+                fontSize: 24,
+                color: 'var(--color-brand-chili)',
+                lineHeight: 1,
+              }}
+            >
+              Galería
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 12,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                color: 'var(--color-brand-ink)',
+              }}
+            >
+              Elige una foto
+            </span>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Cerrar"
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: 'var(--color-brand-ink)',
+              fontSize: 26,
+              lineHeight: 1,
+              cursor: 'pointer',
+              padding: 4,
+            }}
+          >
+            ×
+          </button>
+        </header>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(96px, 1fr))',
+            gap: 8,
+          }}
+        >
+          {gallery.map((url) => {
+            const selected = url === currentUrl;
+            return (
+              <button
+                key={url}
+                type="button"
+                disabled={isApplying}
+                onClick={() => onPick(url)}
+                aria-pressed={selected}
+                title={url}
+                style={{
+                  aspectRatio: '1 / 1',
+                  background: `center/cover no-repeat url(${url}), var(--color-neutral-100)`,
+                  border: `3px solid ${
+                    selected ? 'var(--color-brand-primary)' : 'transparent'
+                  }`,
+                  borderRadius: 8,
+                  padding: 0,
+                  cursor: isApplying ? 'wait' : 'pointer',
+                  opacity: isApplying ? 0.6 : 1,
+                  transition: 'border-color 120ms ease',
+                }}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 }
 

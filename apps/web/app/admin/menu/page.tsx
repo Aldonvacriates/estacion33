@@ -1,12 +1,30 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import { getServerSupabase } from '@/lib/supabase/server';
 import { MenuAdminTable } from './MenuAdminTable';
 
 export const dynamic = 'force-dynamic';
 
+// List the food images shipped under public/figma-make/ at request time so
+// the product editor's "De la galería" picker stays in sync without a
+// hard-coded array.
+async function listGalleryImages(): Promise<string[]> {
+  try {
+    const dir = path.join(process.cwd(), 'public', 'figma-make');
+    const entries = await fs.readdir(dir);
+    return entries
+      .filter((f) => f.startsWith('food-') && /\.(png|jpe?g|webp)$/i.test(f))
+      .sort()
+      .map((f) => `/figma-make/${f}`);
+  } catch {
+    return [];
+  }
+}
+
 export default async function AdminMenuPage() {
   const supabase = await getServerSupabase();
 
-  const [{ data: products }, { data: categories }] = await Promise.all([
+  const [{ data: products }, { data: categories }, gallery] = await Promise.all([
     supabase
       .from('products')
       .select(
@@ -17,6 +35,7 @@ export default async function AdminMenuPage() {
       .from('categories')
       .select('id, name, sort_order')
       .order('sort_order', { ascending: true }),
+    listGalleryImages(),
   ]);
 
   const grouped = (categories ?? []).map((c) => ({
@@ -61,7 +80,7 @@ export default async function AdminMenuPage() {
           Activa o desactiva productos y ajusta precios. Los cambios se guardan al instante.
         </p>
       </header>
-      <MenuAdminTable categories={grouped} />
+      <MenuAdminTable categories={grouped} gallery={gallery} />
     </div>
   );
 }

@@ -195,8 +195,12 @@ export type Database = {
       orders: {
         Row: {
           address_id: string | null
+          cash_collected: boolean
           created_at: string
+          delivery_completed_at: string | null
+          delivery_driver_id: string | null
           delivery_fee_cents: number
+          delivery_started_at: string | null
           fulfillment: Database["estacion33"]["Enums"]["fulfillment_type"]
           id: string
           mp_payment_id: string | null
@@ -212,8 +216,12 @@ export type Database = {
         }
         Insert: {
           address_id?: string | null
+          cash_collected?: boolean
           created_at?: string
+          delivery_completed_at?: string | null
+          delivery_driver_id?: string | null
           delivery_fee_cents?: number
+          delivery_started_at?: string | null
           fulfillment: Database["estacion33"]["Enums"]["fulfillment_type"]
           id?: string
           mp_payment_id?: string | null
@@ -229,8 +237,12 @@ export type Database = {
         }
         Update: {
           address_id?: string | null
+          cash_collected?: boolean
           created_at?: string
+          delivery_completed_at?: string | null
+          delivery_driver_id?: string | null
           delivery_fee_cents?: number
+          delivery_started_at?: string | null
           fulfillment?: Database["estacion33"]["Enums"]["fulfillment_type"]
           id?: string
           mp_payment_id?: string | null
@@ -341,28 +353,34 @@ export type Database = {
       }
       profiles: {
         Row: {
+          always_on_gps: boolean
           created_at: string
           full_name: string | null
           id: string
           is_admin: boolean
+          is_repartidor: boolean
           locale: string
           phone: string | null
           updated_at: string
         }
         Insert: {
+          always_on_gps?: boolean
           created_at?: string
           full_name?: string | null
           id: string
           is_admin?: boolean
+          is_repartidor?: boolean
           locale?: string
           phone?: string | null
           updated_at?: string
         }
         Update: {
+          always_on_gps?: boolean
           created_at?: string
           full_name?: string | null
           id?: string
           is_admin?: boolean
+          is_repartidor?: boolean
           locale?: string
           phone?: string | null
           updated_at?: string
