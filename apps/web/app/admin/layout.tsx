@@ -9,6 +9,7 @@ const ADMIN_NAV = [
   { href: '/admin/ordenes', label: 'Pedidos' },
   { href: '/admin/menu', label: 'Menú' },
   { href: '/admin/reservas', label: 'Reservas' },
+  { href: '/admin/photos', label: 'Galería' },
 ];
 
 const tokenVarsCss = cssVariablesString(':root');

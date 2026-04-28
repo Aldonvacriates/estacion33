@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { i18n } from '@estacion33/core';
 import { CartLink } from './CartLink';
 import { BurgerNav } from './BurgerNav';
+import { PublicFooter } from './PublicFooter';
 import { getServerSupabase } from '@/lib/supabase/server';
 
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -78,27 +79,37 @@ export default async function PublicLayout({ children }: { children: React.React
         <BurgerNav loggedIn={Boolean(user)} />
       </header>
       <div style={{ flex: 1 }}>{children}</div>
-      <footer
-        style={{
-          padding: 'var(--space-5)',
-          background: 'var(--color-brand-ink)',
-          color: 'var(--color-brand-primary)',
-          borderTop: '4px solid var(--color-brand-primary)',
-          fontSize: 13,
-          textAlign: 'center',
-          letterSpacing: '0.02em',
-        }}
-      >
-        <div style={{ fontFamily: 'var(--font-heading)', fontSize: 18, letterSpacing: '0.06em' }}>
-          ESTACIÓN 33
-        </div>
-        <div style={{ marginTop: 6, color: 'var(--color-neutral-0)' }}>
-          Plan de Iguala s/n, Col. Burócrata · Jue/Vie/Sáb 18:30–22:30 · {t.service.open}
-        </div>
-        <div style={{ marginTop: 6, color: 'var(--color-neutral-400)', fontSize: 11 }}>
-          © {new Date().getFullYear()} Aldo Website LLC
-        </div>
-      </footer>
+      <PublicFooter>
+        <footer
+          style={{
+            padding: 'var(--space-5)',
+            background: 'var(--color-brand-ink)',
+            color: 'var(--color-brand-primary)',
+            borderTop: '4px solid var(--color-brand-primary)',
+            fontSize: 13,
+            textAlign: 'center',
+            letterSpacing: '0.02em',
+          }}
+        >
+          <div
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 18,
+              letterSpacing: '0.06em',
+            }}
+          >
+            ESTACIÓN 33
+          </div>
+          <div style={{ marginTop: 6, color: 'var(--color-neutral-0)' }}>
+            Plan de Iguala s/n, Col. Burócrata · Jue/Vie/Sáb 18:30–22:30 · {t.service.open}
+          </div>
+          <div
+            style={{ marginTop: 6, color: 'var(--color-neutral-400)', fontSize: 11 }}
+          >
+            © {new Date().getFullYear()} Aldo Website LLC
+          </div>
+        </footer>
+      </PublicFooter>
     </div>
   );
 }
