@@ -9,8 +9,9 @@ Live plan. Update statuses as you go.
     `Aldonvacriates/estacion33`).
   - **Add New → Project** → pick `Aldonvacriates/estacion33`.
   - **Framework preset:** Next.js (auto-detected).
-  - **Root directory:** leave at repo root `./` — `vercel.json` (in this PR)
-    handles the monorepo build (`pnpm --filter estacion33-web build`).
+  - **Root directory:** click **Edit** and pick **`apps/web`** from the
+    tree. The `apps/web/vercel.json` in this PR runs install + build from
+    the repo root via `cd ../..` so pnpm workspaces resolve correctly.
   - Click **Deploy**. First deploy will take ~3 min.
 
 - [ ] **2. Environment variables (Vercel → Settings → Environment Variables)**
