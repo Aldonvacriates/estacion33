@@ -4,6 +4,7 @@ import { cssVariablesString } from '@estacion33/tokens/css';
 import { getServerSupabase } from '@/lib/supabase/server';
 import { RepartidorTabs, RepartidorBurgerMark } from './RepartidorTabs';
 import { AlwaysOnToggle } from './AlwaysOnToggle';
+import { AudioAlertToggle } from './AudioAlertToggle';
 import '../globals.css';
 
 const TABS = [
@@ -120,6 +121,7 @@ export default async function RepartidorLayout({
               gap: 12,
             }}
           >
+            <AudioAlertToggle />
             <AlwaysOnToggle initial={!!profile.always_on_gps} />
           </div>
           <Link

@@ -224,6 +224,53 @@ export async function deleteProductAction(input: {
   return { ok: true };
 }
 
+// ---------------------------------------------------------------------------
+// Manually assign (or unassign) a delivery driver. Doesn't change order
+// status — the driver still has to tap "Iniciar entrega" to flip to
+// out_for_delivery. This is the "hybrid" piece on top of the self-serve
+// queue: dad can dispatch a specific order to a specific driver, but
+// every other order still flows through the shared queue.
+// ---------------------------------------------------------------------------
+export async function assignDriverAction(input: {
+  orderId: string;
+  driverId: string | null;
+}): Promise<AdminResult> {
+  const parsed = z
+    .object({
+      orderId: z.string().uuid(),
+      driverId: z.string().uuid().nullable(),
+    })
+    .safeParse(input);
+  if (!parsed.success) return { ok: false, error: 'invalid_input' };
+
+  const { supabase, isAdmin } = await requireAdmin();
+  if (!isAdmin) return { ok: false, error: 'not_admin' };
+
+  // If a driver was provided, sanity-check they actually have the role.
+  if (parsed.data.driverId) {
+    const { data: prof } = await supabase
+      .from('profiles')
+      .select('is_repartidor')
+      .eq('id', parsed.data.driverId)
+      .single();
+    if (!prof?.is_repartidor) {
+      return { ok: false, error: 'el perfil seleccionado no es repartidor' };
+    }
+  }
+
+  const { error } = await supabase
+    .from('orders')
+    .update({ delivery_driver_id: parsed.data.driverId })
+    .eq('id', parsed.data.orderId);
+  if (error) return { ok: false, error: error.message };
+
+  revalidatePath('/admin/ordenes');
+  revalidatePath('/repartidor');
+  revalidatePath('/repartidor/activo');
+  revalidatePath(`/repartidor/orden/${parsed.data.orderId}`);
+  return { ok: true };
+}
+
 export async function setRepartidorRoleAction(input: {
   profileId: string;
   enabled: boolean;

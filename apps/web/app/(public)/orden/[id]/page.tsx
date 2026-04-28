@@ -45,7 +45,7 @@ export default async function OrderPage({
     supabase
       .from('orders')
       .select(
-        'id, status, fulfillment, scheduled_for, subtotal_cents, delivery_fee_cents, total_cents, payment_status, notes, created_at, delivery_proof_path, delivery_completed_at, address_id',
+        'id, status, fulfillment, scheduled_for, subtotal_cents, delivery_fee_cents, total_cents, payment_status, notes, created_at, delivery_proof_path, delivery_completed_at, address_id, delivery_driver_id',
       )
       .eq('id', id)
       .single(),
@@ -75,7 +75,16 @@ export default async function OrderPage({
   type PingRow = { lat: number; lng: number; recorded_at: string };
   let initialPing: PingRow | null = null;
   let destination: { lat: number; lng: number; label: string } | null = null;
+  let driverName: string | null = null;
   if (order.status === 'out_for_delivery') {
+    if (order.delivery_driver_id) {
+      const { data: driver } = await supabase
+        .from('profiles')
+        .select('full_name')
+        .eq('id', order.delivery_driver_id)
+        .single<{ full_name: string | null }>();
+      driverName = driver?.full_name?.split(' ')[0] ?? null;
+    }
     const { data: pingRow } = await supabase
       .from('delivery_locations')
       .select('lat, lng, recorded_at')
@@ -169,7 +178,9 @@ export default async function OrderPage({
 
       {order.status === 'out_for_delivery' ? (
         <section style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <h2 style={sectionHeading}>Tu repartidor en camino</h2>
+          <h2 style={sectionHeading}>
+            {driverName ? `${driverName} viene en camino` : 'Tu repartidor en camino'}
+          </h2>
           <DeliveryMap
             orderId={order.id}
             initialPing={initialPing}

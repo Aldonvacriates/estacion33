@@ -4,7 +4,7 @@ import { useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import type { Database } from '@estacion33/core';
-import { setOrderStatusAction } from '../actions';
+import { assignDriverAction, setOrderStatusAction } from '../actions';
 
 type OrderStatus = Database['estacion33']['Enums']['order_status'];
 
@@ -34,9 +34,19 @@ type Row = {
   payment_status: string;
   notes: string | null;
   created_at: string;
+  delivery_driver_id: string | null;
+  delivery_driver_name: string | null;
 };
 
-export function OrdersAdminTable({ rows }: { rows: Row[] }) {
+type Driver = { id: string; name: string };
+
+export function OrdersAdminTable({
+  rows,
+  drivers,
+}: {
+  rows: Row[];
+  drivers: Driver[];
+}) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
@@ -45,6 +55,18 @@ export function OrdersAdminTable({ rows }: { rows: Row[] }) {
     setError(null);
     startTransition(async () => {
       const result = await setOrderStatusAction({ orderId, status });
+      if (!result.ok) setError(result.error);
+      router.refresh();
+    });
+  };
+
+  const handleAssign = (orderId: string, driverId: string) => {
+    setError(null);
+    startTransition(async () => {
+      const result = await assignDriverAction({
+        orderId,
+        driverId: driverId === '' ? null : driverId,
+      });
       if (!result.ok) setError(result.error);
       router.refresh();
     });
@@ -139,6 +161,70 @@ export function OrdersAdminTable({ rows }: { rows: Row[] }) {
               {r.notes ? (
                 <div style={{ fontSize: 12, color: 'var(--color-neutral-500)', marginTop: 4 }}>
                   {r.notes}
+                </div>
+              ) : null}
+              {/* Driver assignment row — only meaningful for delivery orders */}
+              {r.fulfillment === 'delivery' &&
+              r.status !== 'delivered' &&
+              r.status !== 'cancelled' ? (
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 8,
+                    marginTop: 8,
+                    flexWrap: 'wrap',
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: 10,
+                      letterSpacing: '0.1em',
+                      textTransform: 'uppercase',
+                      color: 'var(--color-neutral-700)',
+                    }}
+                  >
+                    Repartidor
+                  </span>
+                  <select
+                    value={r.delivery_driver_id ?? ''}
+                    onChange={(e) => handleAssign(r.id, e.target.value)}
+                    disabled={isPending}
+                    style={{
+                      height: 30,
+                      padding: '0 8px',
+                      borderRadius: 8,
+                      border: '1px solid var(--color-neutral-300)',
+                      fontSize: 13,
+                      background: 'var(--color-neutral-0)',
+                      cursor: isPending ? 'not-allowed' : 'pointer',
+                      maxWidth: 220,
+                    }}
+                  >
+                    <option value="">Sin asignar (cola)</option>
+                    {drivers.map((d) => (
+                      <option key={d.id} value={d.id}>
+                        {d.name}
+                      </option>
+                    ))}
+                  </select>
+                  {r.delivery_driver_name ? (
+                    <span
+                      style={{
+                        fontSize: 11,
+                        fontFamily: 'var(--font-heading)',
+                        letterSpacing: '0.06em',
+                        textTransform: 'uppercase',
+                        color: 'var(--color-brand-ink)',
+                        background: 'var(--color-brand-primary)',
+                        padding: '2px 8px',
+                        borderRadius: 999,
+                      }}
+                    >
+                      🛵 {r.delivery_driver_name}
+                    </span>
+                  ) : null}
                 </div>
               ) : null}
             </div>

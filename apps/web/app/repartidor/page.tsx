@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { formatMxn } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
+import { QueueLive } from './QueueLive';
 
 // Cola — orders ready to deliver, none of them claimed yet. The repartidor
 // taps a card → /repartidor/orden/[id] to see full details and claim it.
@@ -37,6 +38,7 @@ export default async function RepartidorQueuePage() {
 
   return (
     <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
+      <QueueLive />
       <header style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
         <span
           style={{

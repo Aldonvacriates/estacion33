@@ -186,11 +186,35 @@ create index on estacion33.orders (status, scheduled_for)
 - Customer page mounts react-leaflet with live driver marker
 - `/admin/repartidores` page shows active deliveries
 
-### Phase 4 — polish (optional)
-- ETA estimate using haversine distance + average speed
-- Push notifications when driver is < 200m from customer (needs
-  PWA install)
-- Driver "earnings" tab listing completed deliveries
+### Phase 4 — polish (optional) ✅
+- ETA estimate using haversine distance + average speed — **shipped**
+- Screen wake lock so the driver phone stays awake — **shipped**
+- Always-on GPS preference toggle on profile — **shipped (preference only)**
+- Driver "earnings" tab — **shipped (Historial totals row)**
+
+### Phase 5 — assignment hybrid ✅
+- Admin `assignDriverAction(orderId, driverId)` — **shipped**
+- "Asignar repartidor" dropdown on /admin/ordenes — **shipped**
+- Live queue subscription on /repartidor (realtime → router.refresh) — **shipped**
+- Audio alert chime on new ready order (per-device localStorage opt-in) — **shipped**
+- Driver name on customer /orden/[id] ("Juan viene en camino") — **shipped**
+
+### Phase 6 — push notifications (Option C) — deferred
+Real auto-offer dispatch needs the browser to wake the driver even when
+the tab is closed. That requires:
+- PWA install prompt + manifest
+- Service worker registration
+- Web Push subscription per device, stored in `repartidor_push_subs`
+- Edge function that sends a notification to all online drivers when a
+  delivery order hits `ready`
+- "Online" presence tracking — likely Supabase Realtime presence channel
+- State machine: offered → accepted (first-come) / declined / timeout
+- Fallback: if everyone declines or times out, alert admin
+
+Worth it once the dad sees enough volume that manual dispatch hurts
+(say >50 delivery orders per night) AND the kitchen has more than 1
+driver actively waiting. For now the hybrid (self-serve queue + admin
+manual assign + live updates + audio chime) covers small-team needs.
 
 ## Files to add (rough)
 
