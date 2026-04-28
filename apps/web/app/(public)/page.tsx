@@ -37,15 +37,17 @@ export default function HomePage() {
           }}
           className="hero-grid"
         >
-          {/* Left: tagline */}
+          {/* Left: tagline (centered axis on every breakpoint) */}
           <div
             style={{
               padding: 'var(--space-7) var(--space-6)',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
+              alignItems: 'center',
               gap: 'var(--space-4)',
               order: 2,
+              textAlign: 'center',
             }}
             className="hero-text"
           >
@@ -54,9 +56,9 @@ export default function HomePage() {
                 background: 'var(--color-brand-primary)',
                 color: 'var(--color-brand-ink)',
                 padding: '20px 28px',
-                alignSelf: 'flex-start',
                 maxWidth: 460,
                 boxShadow: '0 8px 24px rgba(0,0,0,0.4)',
+                textAlign: 'center',
               }}
             >
               <div
@@ -98,6 +100,7 @@ export default function HomePage() {
                 display: 'flex',
                 gap: 'var(--space-3)',
                 flexWrap: 'wrap',
+                justifyContent: 'center',
                 marginTop: 4,
               }}
             >
@@ -325,12 +328,19 @@ const primaryCta: React.CSSProperties = {
   textTransform: 'uppercase',
   textDecoration: 'none',
   fontWeight: 400,
+  // Equal-size pair: both buttons share the same min width + center their
+  // label so "Ver menú" and "Reservar mesa" line up regardless of text length.
+  minWidth: 180,
+  textAlign: 'center',
+  boxSizing: 'border-box',
 };
 
 const secondaryCta: React.CSSProperties = {
   background: 'transparent',
   color: 'var(--color-brand-ink)',
-  padding: '14px 28px',
+  // -2px on each side so the border doesn't make outline pills taller than
+  // the filled primary one. Resulting box height matches `primaryCta`.
+  padding: '12px 26px',
   borderRadius: 'var(--radius-pill)',
   fontFamily: 'var(--font-heading)',
   fontSize: 16,
@@ -338,13 +348,16 @@ const secondaryCta: React.CSSProperties = {
   textTransform: 'uppercase',
   textDecoration: 'none',
   fontWeight: 400,
+  minWidth: 180,
+  textAlign: 'center',
+  boxSizing: 'border-box',
   border: '2px solid var(--color-brand-ink)',
 };
 
 const secondaryCtaOnDark: React.CSSProperties = {
   background: 'transparent',
   color: 'var(--color-neutral-0)',
-  padding: '14px 28px',
+  padding: '12px 26px',
   borderRadius: 'var(--radius-pill)',
   fontFamily: 'var(--font-heading)',
   fontSize: 16,
@@ -352,6 +365,9 @@ const secondaryCtaOnDark: React.CSSProperties = {
   textTransform: 'uppercase',
   textDecoration: 'none',
   fontWeight: 400,
+  minWidth: 180,
+  textAlign: 'center',
+  boxSizing: 'border-box',
   border: '2px solid var(--color-neutral-0)',
 };
 
