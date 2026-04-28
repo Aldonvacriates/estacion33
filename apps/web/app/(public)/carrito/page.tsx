@@ -39,7 +39,27 @@ export default function CartPage() {
           alignItems: 'center',
         }}
       >
-        <h1 style={{ margin: 0, fontSize: 28, fontWeight: 700, color: 'var(--color-brand-primaryDark)' }}>
+        <span
+          style={{
+            fontFamily: 'var(--font-script)',
+            fontSize: 'clamp(32px, 6vw, 48px)',
+            color: 'var(--color-brand-chili)',
+            lineHeight: 1,
+          }}
+        >
+          Tu carrito
+        </span>
+        <h1
+          style={{
+            margin: 0,
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(20px, 3vw, 26px)',
+            fontWeight: 400,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            color: 'var(--color-brand-ink)',
+          }}
+        >
           {t.cart.empty}
         </h1>
         <p style={{ color: 'var(--color-neutral-500)', margin: 0 }}>
@@ -69,17 +89,41 @@ export default function CartPage() {
       <Link
         href="/menu"
         style={{
-          color: 'var(--color-brand-primaryDark)',
-          fontSize: 14,
-          fontWeight: 500,
+          color: 'var(--color-brand-ink)',
+          fontFamily: 'var(--font-heading)',
+          fontSize: 13,
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
           textDecoration: 'none',
         }}
       >
         ← Seguir agregando
       </Link>
-      <h1 style={{ margin: 0, fontSize: 32, fontWeight: 700, color: 'var(--color-brand-primaryDark)' }}>
-        Tu carrito
-      </h1>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <span
+          style={{
+            fontFamily: 'var(--font-script)',
+            fontSize: 'clamp(28px, 5vw, 40px)',
+            color: 'var(--color-brand-chili)',
+            lineHeight: 1,
+          }}
+        >
+          Tu carrito
+        </span>
+        <h1
+          style={{
+            margin: 0,
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(22px, 3vw, 28px)',
+            fontWeight: 400,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            color: 'var(--color-brand-ink)',
+          }}
+        >
+          {lines.length} {lines.length === 1 ? 'artículo' : 'artículos'}
+        </h1>
+      </div>
 
       <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
         {lines.map((line) => (
@@ -158,7 +202,7 @@ export default function CartPage() {
         />
       </div>
 
-      {/* Sticky checkout CTA */}
+      {/* Sticky checkout CTA — black bar with yellow pill */}
       <div
         style={{
           position: 'fixed',
@@ -166,9 +210,9 @@ export default function CartPage() {
           right: 0,
           bottom: 0,
           padding: 'var(--space-3) var(--space-5)',
-          background: 'var(--color-neutral-0)',
-          borderTop: '1px solid var(--color-neutral-200)',
-          boxShadow: 'var(--shadow-md)',
+          background: 'var(--color-brand-ink)',
+          borderTop: '2px solid var(--color-brand-primary)',
+          boxShadow: '0 -4px 12px rgba(0,0,0,0.3)',
           zIndex: 10,
         }}
       >
@@ -181,11 +225,48 @@ export default function CartPage() {
             alignItems: 'center',
           }}
         >
-          <span style={{ fontWeight: 700, fontSize: 18 }}>{formatMxn(subtotalCents)}</span>
-          <Link href="/checkout" style={{ marginLeft: 'auto', flex: 1 }}>
-            <Button variant="primary" size="lg" fullWidth>
-              Continuar al pago
-            </Button>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span
+              style={{
+                fontSize: 11,
+                color: 'var(--color-neutral-400)',
+                fontFamily: 'var(--font-heading)',
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+              }}
+            >
+              Subtotal
+            </span>
+            <span
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontWeight: 400,
+                fontSize: 22,
+                letterSpacing: '0.02em',
+                color: 'var(--color-brand-primary)',
+                lineHeight: 1.1,
+              }}
+            >
+              {formatMxn(subtotalCents)}
+            </span>
+          </div>
+          <Link
+            href="/checkout"
+            style={{
+              marginLeft: 'auto',
+              background: 'var(--color-brand-primary)',
+              color: 'var(--color-brand-ink)',
+              padding: '14px 24px',
+              borderRadius: 'var(--radius-pill)',
+              fontFamily: 'var(--font-heading)',
+              fontSize: 15,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              fontWeight: 400,
+            }}
+          >
+            Continuar al pago
           </Link>
         </div>
       </div>

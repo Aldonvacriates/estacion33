@@ -33,7 +33,9 @@ export default async function MenuPage() {
         .order('sort_order', { ascending: true }),
       supabase
         .from('products')
-        .select('id, slug, category_id, name, description, base_price_cents, image_url, sort_order')
+        .select(
+          'id, slug, category_id, name, description, base_price_cents, image_url, sort_order',
+        )
         .eq('available', true)
         .order('sort_order', { ascending: true }),
     ]);
@@ -63,138 +65,293 @@ export default async function MenuPage() {
       })),
   }));
 
-  const totalAvailable = grouped.reduce((sum, c) => sum + c.products.length, 0);
+  const visible = grouped.filter((c) => c.products.length > 0);
+  const totalAvailable = visible.reduce((sum, c) => sum + c.products.length, 0);
 
   return (
-    <main
-      style={{
-        padding: 'var(--space-5)',
-        maxWidth: 'var(--size-containerLg)',
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 'var(--space-7)',
-      }}
-    >
-      <header>
-        <h1
+    <main style={{ background: 'var(--color-brand-cream)', minHeight: '100vh' }}>
+      {/* Page heading on cream */}
+      <header
+        style={{
+          padding: 'var(--space-6) var(--space-5) var(--space-4)',
+          textAlign: 'center',
+          maxWidth: 'var(--size-containerMd, 800px)',
+          margin: '0 auto',
+        }}
+      >
+        <div
           style={{
-            fontSize: 40,
-            fontWeight: 700,
-            margin: 0,
-            color: 'var(--color-brand-primaryDark)',
-            letterSpacing: '-0.02em',
+            fontFamily: 'var(--font-script)',
+            fontSize: 'clamp(36px, 6vw, 56px)',
+            color: 'var(--color-brand-ink)',
+            lineHeight: 1,
           }}
         >
-          Menú
+          Nuestro menú
+        </div>
+        <h1
+          style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(22px, 3vw, 32px)',
+            fontWeight: 400,
+            letterSpacing: '0.06em',
+            margin: '8px 0 6px',
+            color: 'var(--color-brand-ink)',
+            textTransform: 'uppercase',
+          }}
+        >
+          Hamburguesas, hot dogs, pasta y más
         </h1>
-        <p style={{ color: 'var(--color-neutral-500)', marginTop: 'var(--space-2)' }}>
-          Hamburguesas, snacks, ensaladas y más. Precios en MXN.
+        <p
+          style={{
+            margin: 0,
+            color: 'var(--color-neutral-700)',
+            fontSize: 14,
+          }}
+        >
+          Servicio jueves, viernes y sábado · 18:30 — 22:30 · Precios en MXN
         </p>
       </header>
 
       {totalAvailable === 0 ? (
-        <EmptyMenuNotice />
+        <div
+          style={{
+            maxWidth: 'var(--size-containerMd, 800px)',
+            margin: '0 auto',
+            padding: 'var(--space-5)',
+          }}
+        >
+          <EmptyMenuNotice />
+        </div>
       ) : (
-        grouped
-          .filter((c) => c.products.length > 0)
-          .map((category) => (
-            <section key={category.id} id={category.slug}>
-              <h2
-                style={{
-                  fontSize: 24,
-                  fontWeight: 600,
-                  marginBottom: 'var(--space-4)',
-                  color: 'var(--color-brand-primaryDark)',
-                }}
-              >
-                {category.name}
-              </h2>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-                  gap: 'var(--space-4)',
-                }}
-              >
-                {category.products.map((p) => (
-                  <ProductCard key={p.id} product={p} />
-                ))}
-              </div>
-            </section>
-          ))
+        <>
+          <CategoryChips categories={visible} />
+
+          <div
+            style={{
+              maxWidth: 'var(--size-containerMd, 800px)',
+              margin: '0 auto',
+              padding: '0 var(--space-5) var(--space-7)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 'var(--space-7)',
+            }}
+          >
+            {visible.map((category) => (
+              <section key={category.id} id={category.slug} style={{ scrollMarginTop: 96 }}>
+                <SectionHeader name={category.name} />
+                <ul
+                  style={{
+                    listStyle: 'none',
+                    margin: 0,
+                    padding: 0,
+                    display: 'flex',
+                    flexDirection: 'column',
+                  }}
+                >
+                  {category.products.map((p) => (
+                    <ProductRow key={p.id} product={p} />
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </>
       )}
 
-      <p style={{ color: 'var(--color-neutral-400)', fontSize: 12 }}>
+      <p
+        style={{
+          textAlign: 'center',
+          color: 'var(--color-neutral-500)',
+          fontSize: 12,
+          padding: 'var(--space-5) var(--space-5) var(--space-7)',
+        }}
+      >
         Estado del servicio: {t.service.closed} · Jue/Vie/Sáb 18:30–22:30
       </p>
     </main>
   );
 }
 
-function ProductCard({ product }: { product: MenuProduct }) {
+function CategoryChips({ categories }: { categories: MenuCategory[] }) {
   return (
-    <Link
-      href={`/menu/${product.slug}`}
+    <nav
+      aria-label="Categorías del menú"
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        background: 'var(--color-neutral-0)',
-        border: '1px solid var(--color-neutral-200)',
-        borderRadius: 'var(--radius-xl)',
-        overflow: 'hidden',
-        boxShadow: 'var(--shadow-sm)',
-        textDecoration: 'none',
-        color: 'inherit',
+        position: 'sticky',
+        top: 'var(--size-appBar)',
+        zIndex: 10,
+        background: 'var(--color-brand-ink)',
+        borderTop: '2px solid var(--color-brand-primary)',
+        borderBottom: '2px solid var(--color-brand-primary)',
       }}
     >
       <div
         style={{
-          aspectRatio: '4 / 3',
-          background: product.image_url
-            ? `center/cover url(${product.image_url})`
-            : 'var(--color-neutral-100)',
-        }}
-      />
-      <div
-        style={{
-          padding: 'var(--space-4)',
+          maxWidth: 'var(--size-containerLg, 1100px)',
+          margin: '0 auto',
+          padding: '12px var(--space-5)',
           display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--space-2)',
-          flex: 1,
+          gap: 8,
+          overflowX: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'none',
         }}
       >
-        <h3 style={{ margin: 0, fontSize: 18, fontWeight: 600 }}>{product.name}</h3>
-        {product.description ? (
-          <p
+        {categories.map((c) => (
+          <a
+            key={c.id}
+            href={`#${c.slug}`}
             style={{
-              margin: 0,
-              color: 'var(--color-neutral-500)',
-              fontSize: 14,
-              lineHeight: 1.5,
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
+              flex: '0 0 auto',
+              padding: '6px 14px',
+              borderRadius: 999,
+              fontFamily: 'var(--font-heading)',
+              fontSize: 13,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brand-primary)',
+              border: '1.5px solid var(--color-brand-primary)',
+              background: 'transparent',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
             }}
           >
-            {product.description}
-          </p>
-        ) : null}
-        <span
-          style={{
-            marginTop: 'auto',
-            fontSize: 18,
-            fontWeight: 700,
-            color: 'var(--color-brand-primaryDark)',
-            letterSpacing: '-0.01em',
-          }}
-        >
-          {formatMxn(product.base_price_cents)}
-        </span>
+            {c.name}
+          </a>
+        ))}
       </div>
-    </Link>
+    </nav>
+  );
+}
+
+function SectionHeader({ name }: { name: string }) {
+  return (
+    <div style={{ textAlign: 'center', marginBottom: 'var(--space-4)' }}>
+      <h2
+        style={{
+          fontFamily: 'var(--font-script)',
+          fontSize: 'clamp(32px, 5vw, 44px)',
+          color: 'var(--color-brand-primary)',
+          margin: 0,
+          lineHeight: 1,
+          textShadow: '1px 1px 0 var(--color-brand-ink)',
+        }}
+      >
+        {name}
+      </h2>
+      <svg
+        width="120"
+        height="10"
+        viewBox="0 0 120 10"
+        aria-hidden
+        style={{ marginTop: 4 }}
+      >
+        <path
+          d="M2 6 Q30 1, 60 5 T118 5"
+          stroke="var(--color-brand-ink)"
+          strokeWidth="2"
+          strokeLinecap="round"
+          fill="none"
+        />
+      </svg>
+    </div>
+  );
+}
+
+function ProductRow({ product }: { product: MenuProduct }) {
+  return (
+    <li
+      style={{
+        borderBottom: '1px dashed var(--color-neutral-300)',
+        padding: '14px 0',
+      }}
+    >
+      <Link
+        href={`/menu/${product.slug}`}
+        style={{
+          display: 'flex',
+          gap: 14,
+          color: 'inherit',
+          textDecoration: 'none',
+          alignItems: 'center',
+        }}
+      >
+        <div
+          style={{
+            flex: '0 0 auto',
+            width: 84,
+            height: 84,
+            borderRadius: 12,
+            background: product.image_url
+              ? `center/cover url(${product.image_url})`
+              : 'var(--color-brand-ink)',
+            border: '2px solid var(--color-brand-ink)',
+          }}
+          aria-hidden
+        />
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'baseline',
+              gap: 8,
+              marginBottom: 4,
+            }}
+          >
+            <span
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 18,
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+                fontWeight: 400,
+                color: 'var(--color-brand-ink)',
+                lineHeight: 1.1,
+              }}
+            >
+              {product.name}
+            </span>
+            <span
+              aria-hidden
+              style={{
+                flex: 1,
+                borderBottom: '2px dotted var(--color-neutral-400)',
+                transform: 'translateY(-4px)',
+              }}
+            />
+            <span
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 18,
+                fontWeight: 400,
+                letterSpacing: '0.02em',
+                color: 'var(--color-brand-ink)',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {formatMxn(product.base_price_cents)}
+            </span>
+          </div>
+          {product.description ? (
+            <p
+              style={{
+                margin: 0,
+                color: 'var(--color-neutral-700)',
+                fontSize: 13,
+                lineHeight: 1.4,
+                display: '-webkit-box',
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden',
+              }}
+            >
+              {product.description}
+            </p>
+          ) : null}
+        </div>
+      </Link>
+    </li>
   );
 }
 
@@ -203,10 +360,10 @@ function EmptyMenuNotice() {
     <div
       style={{
         background: 'var(--color-brand-primary50)',
-        border: '1px solid var(--color-brand-primary200)',
+        border: '2px solid var(--color-brand-primary)',
         borderRadius: 'var(--radius-lg)',
         padding: 'var(--space-5)',
-        color: 'var(--color-brand-primary900)',
+        color: 'var(--color-brand-ink)',
       }}
     >
       <strong style={{ display: 'block', marginBottom: 'var(--space-2)' }}>

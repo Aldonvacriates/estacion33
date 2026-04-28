@@ -182,9 +182,31 @@ export default function CheckoutPage() {
       >
         ← Volver al carrito
       </Link>
-      <h1 style={{ margin: 0, fontSize: 28, fontWeight: 700, color: 'var(--color-brand-primaryDark)' }}>
-        Finalizar pedido
-      </h1>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <span
+          style={{
+            fontFamily: 'var(--font-script)',
+            fontSize: 'clamp(28px, 5vw, 40px)',
+            color: 'var(--color-brand-chili)',
+            lineHeight: 1,
+          }}
+        >
+          Casi listo
+        </span>
+        <h1
+          style={{
+            margin: 0,
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(22px, 3vw, 28px)',
+            fontWeight: 400,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            color: 'var(--color-brand-ink)',
+          }}
+        >
+          Finalizar pedido
+        </h1>
+      </div>
 
       <form
         onSubmit={handleSubmit}

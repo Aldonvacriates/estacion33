@@ -77,21 +77,32 @@ export default function ReservarPage() {
         gap: 'var(--space-5)',
       }}
     >
-      <header style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+      <header style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <span
+          style={{
+            fontFamily: 'var(--font-script)',
+            fontSize: 'clamp(28px, 5vw, 40px)',
+            color: 'var(--color-brand-chili)',
+            lineHeight: 1,
+          }}
+        >
+          Reserva tu mesa
+        </span>
         <h1
           style={{
             margin: 0,
-            fontSize: 32,
-            fontWeight: 700,
-            color: 'var(--color-brand-primaryDark)',
-            letterSpacing: '-0.02em',
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(24px, 3vw, 32px)',
+            fontWeight: 400,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            color: 'var(--color-brand-ink)',
           }}
         >
-          Reservar mesa
+          Para una noche especial
         </h1>
-        <p style={{ margin: 0, color: 'var(--color-neutral-500)' }}>
-          Servicio: jueves, viernes y sábado · 18:30 a 22:30. Confirmamos tu reserva por
-          WhatsApp.
+        <p style={{ margin: '8px 0 0', color: 'var(--color-neutral-700)', fontSize: 14 }}>
+          Servicio jueves, viernes y sábado · 18:30 a 22:30. Confirmamos tu reserva por WhatsApp.
         </p>
       </header>
 

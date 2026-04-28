@@ -71,6 +71,8 @@ export default async function ProductDetailPage({
         maxWidth: 'var(--size-containerMd)',
         margin: '0 auto',
         paddingBottom: 96,
+        background: 'var(--color-brand-cream)',
+        minHeight: '100vh',
       }}
     >
       <div
@@ -78,7 +80,7 @@ export default async function ProductDetailPage({
           aspectRatio: '4 / 3',
           background: data.image_url
             ? `center/cover url(${data.image_url})`
-            : 'var(--color-neutral-100)',
+            : 'var(--color-brand-ink)',
           position: 'relative',
         }}
       >
@@ -88,13 +90,17 @@ export default async function ProductDetailPage({
             position: 'absolute',
             top: 'var(--space-4)',
             left: 'var(--space-4)',
-            background: 'rgba(15,15,15,0.55)',
-            color: 'var(--color-neutral-0)',
-            padding: '8px 12px',
+            background: 'var(--color-brand-primary)',
+            color: 'var(--color-brand-ink)',
+            padding: '8px 16px',
             borderRadius: 'var(--radius-pill)',
-            fontSize: 14,
-            fontWeight: 500,
+            fontFamily: 'var(--font-heading)',
+            fontSize: 13,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            fontWeight: 400,
             textDecoration: 'none',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.25)',
           }}
         >
           ← {data.category?.name ?? 'Menú'}
@@ -110,22 +116,42 @@ export default async function ProductDetailPage({
         }}
       >
         <header style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+          {data.category ? (
+            <span
+              style={{
+                fontFamily: 'var(--font-script)',
+                fontSize: 24,
+                color: 'var(--color-brand-chili)',
+                lineHeight: 1,
+              }}
+            >
+              {data.category.name}
+            </span>
+          ) : null}
           <h1
             style={{
               margin: 0,
-              fontSize: 32,
-              fontWeight: 700,
-              color: 'var(--color-brand-primaryDark)',
-              letterSpacing: '-0.02em',
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(28px, 5vw, 40px)',
+              fontWeight: 400,
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brand-ink)',
+              lineHeight: 1.05,
             }}
           >
             {data.name}
           </h1>
           <span
             style={{
-              fontSize: 24,
-              fontWeight: 700,
-              color: 'var(--color-brand-primary)',
+              fontFamily: 'var(--font-heading)',
+              fontSize: 28,
+              fontWeight: 400,
+              letterSpacing: '0.02em',
+              color: 'var(--color-brand-ink)',
+              background: 'var(--color-brand-primary)',
+              alignSelf: 'flex-start',
+              padding: '4px 14px',
             }}
           >
             {formatMxn(data.base_price_cents)}
@@ -134,7 +160,7 @@ export default async function ProductDetailPage({
             <p
               style={{
                 margin: 0,
-                color: 'var(--color-neutral-500)',
+                color: 'var(--color-neutral-700)',
                 fontSize: 16,
                 lineHeight: 1.5,
               }}

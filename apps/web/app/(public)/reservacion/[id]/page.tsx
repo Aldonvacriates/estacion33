@@ -57,9 +57,11 @@ export default async function ReservationConfirmationPage({
         <h1
           style={{
             margin: 0,
-            fontSize: 28,
-            fontWeight: 700,
-            color: 'var(--color-brand-primaryDark)',
+            fontFamily: 'var(--font-script)',
+            fontSize: 'clamp(36px, 6vw, 52px)',
+            fontWeight: 400,
+            color: 'var(--color-brand-ink)',
+            lineHeight: 1,
           }}
         >
           ¡Reserva recibida!
