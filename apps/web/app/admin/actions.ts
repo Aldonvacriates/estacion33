@@ -129,6 +129,101 @@ export async function updateProductAction(input: {
   return { ok: true };
 }
 
+const createProductSchema = z.object({
+  categoryId: z.string().uuid(),
+  name: z.string().min(2).max(120).default('Nuevo producto'),
+});
+
+export type CreateProductResult =
+  | { ok: true; productId: string; slug: string }
+  | { ok: false; error: string };
+
+/**
+ * Insert a placeholder product into a category. Default values are intentionally
+ * conservative — `available: false` so it doesn't appear on the public menu
+ * until the admin fills it in. Slug derives from the name + a random suffix
+ * so two "Nuevo producto" inserts don't collide.
+ */
+export async function createProductAction(input: {
+  categoryId: string;
+  name?: string;
+}): Promise<CreateProductResult> {
+  const parsed = createProductSchema.safeParse(input);
+  if (!parsed.success) {
+    return { ok: false, error: parsed.error.issues[0]?.message ?? 'invalid_input' };
+  }
+
+  const { supabase, isAdmin } = await requireAdmin();
+  if (!isAdmin) return { ok: false, error: 'not_admin' };
+
+  const slugBase = parsed.data.name
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 60) || 'nuevo';
+  const slug = `${slugBase}-${Math.random().toString(36).slice(2, 6)}`;
+
+  // Place new products at the end of the category by default.
+  const { data: maxRow } = await supabase
+    .from('products')
+    .select('sort_order')
+    .eq('category_id', parsed.data.categoryId)
+    .order('sort_order', { ascending: false })
+    .limit(1)
+    .single();
+  const sortOrder = (maxRow?.sort_order ?? 0) + 1;
+
+  const { data, error } = await supabase
+    .from('products')
+    .insert({
+      category_id: parsed.data.categoryId,
+      slug,
+      name: parsed.data.name,
+      base_price_cents: 0,
+      available: false,
+      sort_order: sortOrder,
+    })
+    .select('id, slug')
+    .single();
+  if (error || !data) {
+    return { ok: false, error: error?.message ?? 'insert_failed' };
+  }
+
+  revalidatePath('/admin/menu');
+  revalidatePath('/menu');
+  return { ok: true, productId: data.id, slug: data.slug };
+}
+
+export async function deleteProductAction(input: {
+  productId: string;
+}): Promise<AdminResult> {
+  const { supabase, isAdmin } = await requireAdmin();
+  if (!isAdmin) return { ok: false, error: 'not_admin' };
+
+  const { error } = await supabase
+    .from('products')
+    .delete()
+    .eq('id', input.productId);
+  if (error) {
+    // Most common failure: foreign-key violation from order_items referencing
+    // this product. Tell the admin to archive instead.
+    if (/foreign key|reference/i.test(error.message)) {
+      return {
+        ok: false,
+        error:
+          'No se puede eliminar — tiene pedidos asociados. Archívalo en su lugar.',
+      };
+    }
+    return { ok: false, error: error.message };
+  }
+
+  revalidatePath('/admin/menu');
+  revalidatePath('/menu');
+  return { ok: true };
+}
+
 export type UploadResult =
   | { ok: true; publicUrl: string }
   | { ok: false; error: string };

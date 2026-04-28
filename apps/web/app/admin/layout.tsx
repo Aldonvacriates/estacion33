@@ -110,12 +110,32 @@ export default async function AdminLayout({
               ADMIN
             </span>
           </Link>
-          <span
+          <Link
+            href="/cuenta"
             style={{
               marginLeft: 'auto',
-              fontSize: 12,
-              color: 'var(--color-neutral-400)',
-              maxWidth: 180,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              fontFamily: 'var(--font-heading)',
+              fontSize: 11,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              color: 'var(--color-neutral-300)',
+              textDecoration: 'none',
+              padding: '6px 12px',
+              border: '1px solid var(--color-neutral-700)',
+              borderRadius: 999,
+            }}
+            title="Volver a tu cuenta de cliente"
+          >
+            <span aria-hidden>←</span> Mi cuenta
+          </Link>
+          <span
+            style={{
+              fontSize: 11,
+              color: 'var(--color-neutral-500)',
+              maxWidth: 120,
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               whiteSpace: 'nowrap',
