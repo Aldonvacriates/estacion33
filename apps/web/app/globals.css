@@ -64,3 +64,11 @@ a {
     display: inline-flex !important;
   }
 }
+
+/* ---------- Admin product editor ---------- */
+/* Stack image above fields on mobile for readability. */
+@media (max-width: 720px) {
+  .product-edit-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

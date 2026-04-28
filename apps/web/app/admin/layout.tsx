@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { cssVariablesString } from '@estacion33/tokens/css';
 import { getServerSupabase } from '@/lib/supabase/server';
+import { AdminNav, BurgerMark } from './AdminNav';
 import '../globals.css';
 
 const ADMIN_NAV = [
@@ -70,45 +71,63 @@ export default async function AdminLayout({
     >
       <header
         style={{
-          height: 'var(--size-appBar)',
-          paddingInline: 'var(--space-5)',
-          background: 'var(--color-brand-primaryDark)',
+          background: 'var(--color-brand-ink)',
           color: 'var(--color-neutral-0)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 'var(--space-5)',
+          position: 'sticky',
+          top: 0,
+          zIndex: 50,
         }}
       >
-        <Link
-          href="/admin"
+        {/* Top bar: burger logo + ADMIN, user name on the right */}
+        <div
           style={{
-            fontSize: 18,
-            fontWeight: 700,
-            color: 'inherit',
-            letterSpacing: '-0.02em',
-            textDecoration: 'none',
-          }}
-        >
-          Estación 33 · Admin
-        </Link>
-        <nav
-          style={{
+            height: 'var(--size-appBar)',
+            paddingInline: 'var(--space-5)',
             display: 'flex',
-            gap: 'var(--space-4)',
-            marginLeft: 'auto',
-            fontSize: 14,
-            fontWeight: 500,
+            alignItems: 'center',
+            gap: 'var(--space-3)',
           }}
         >
-          {ADMIN_NAV.map((item) => (
-            <Link key={item.href} href={item.href} style={{ color: 'inherit', textDecoration: 'none' }}>
-              {item.label}
-            </Link>
-          ))}
-          <span style={{ color: 'var(--color-brand-primary200)', marginLeft: 'var(--space-3)' }}>
+          <Link
+            href="/admin"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            <BurgerMark />
+            <span
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 22,
+                letterSpacing: '0.1em',
+                color: 'var(--color-brand-primary)',
+              }}
+            >
+              ADMIN
+            </span>
+          </Link>
+          <span
+            style={{
+              marginLeft: 'auto',
+              fontSize: 12,
+              color: 'var(--color-neutral-400)',
+              maxWidth: 180,
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+            title={profile.full_name ?? user.email ?? undefined}
+          >
             {profile.full_name ?? user.email}
           </span>
-        </nav>
+        </div>
+
+        {/* Scrollable nav strip */}
+        <AdminNav items={ADMIN_NAV} />
       </header>
       <main
         style={{

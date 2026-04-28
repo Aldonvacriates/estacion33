@@ -58,13 +58,28 @@ export function MenuAdminTable({ categories }: { categories: Category[] }) {
             <h2
               style={{
                 margin: '0 0 var(--space-3) 0',
+                fontFamily: 'var(--font-heading)',
                 fontSize: 18,
-                fontWeight: 700,
-                color: 'var(--color-brand-primaryDark)',
+                fontWeight: 400,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                color: 'var(--color-brand-ink)',
+                display: 'inline-flex',
+                alignItems: 'baseline',
+                gap: 8,
+                borderBottom: '2px solid var(--color-brand-primary)',
+                paddingBottom: 4,
               }}
             >
-              {cat.name}{' '}
-              <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--color-neutral-500)' }}>
+              {cat.name}
+              <span
+                style={{
+                  fontSize: 12,
+                  fontWeight: 400,
+                  letterSpacing: '0.04em',
+                  color: 'var(--color-brand-chili)',
+                }}
+              >
                 ({cat.products.length})
               </span>
             </h2>
@@ -260,26 +275,28 @@ function ProductEditPanel({
   return (
     <form
       onSubmit={handleSave}
+      className="product-edit-grid"
       style={{
-        padding: 'var(--space-4)',
-        borderTop: '1px solid var(--color-neutral-200)',
-        background: 'var(--color-neutral-50)',
+        padding: 'var(--space-5)',
+        borderTop: '2px solid var(--color-brand-primary)',
+        background: 'var(--color-brand-cream)',
         display: 'grid',
-        gridTemplateColumns: '180px 1fr',
-        gap: 'var(--space-4)',
-        alignItems: 'flex-start',
+        gridTemplateColumns: '240px minmax(0, 1fr)',
+        gap: 'var(--space-5)',
+        alignItems: 'start',
       }}
     >
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+      {/* Image side */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
         <div
           style={{
             width: '100%',
-            aspectRatio: '4 / 3',
+            aspectRatio: '1 / 1',
             background: imageUrl
               ? `center/cover url(${imageUrl})`
               : 'var(--color-neutral-200)',
-            borderRadius: 'var(--radius-md)',
-            border: '1px solid var(--color-neutral-200)',
+            borderRadius: 12,
+            border: '2px solid var(--color-brand-ink)',
           }}
         />
         <input
@@ -298,12 +315,17 @@ function ProductEditPanel({
           onClick={() => fileRef.current?.click()}
           disabled={isUploading}
           style={{
-            height: 36,
-            border: '1px solid var(--color-neutral-300)',
-            background: 'var(--color-neutral-0)',
-            borderRadius: 'var(--radius-md)',
+            width: '100%',
+            height: 42,
+            background: 'var(--color-brand-ink)',
+            color: 'var(--color-brand-primary)',
+            border: 'none',
+            borderRadius: 999,
+            fontFamily: 'var(--font-heading)',
             fontSize: 13,
-            fontWeight: 600,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            fontWeight: 400,
             cursor: isUploading ? 'wait' : 'pointer',
           }}
         >
@@ -316,9 +338,10 @@ function ProductEditPanel({
             rel="noreferrer"
             style={{
               fontSize: 11,
-              color: 'var(--color-neutral-500)',
+              color: 'var(--color-neutral-700)',
               textAlign: 'center',
               wordBreak: 'break-all',
+              textDecoration: 'underline',
             }}
           >
             Ver tamaño completo →
@@ -326,6 +349,7 @@ function ProductEditPanel({
         ) : null}
       </div>
 
+      {/* Fields side */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
         <Field label="Nombre">
           <input
@@ -335,6 +359,8 @@ function ProductEditPanel({
             minLength={2}
             maxLength={120}
             style={inputStyle}
+            onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--color-brand-ink)')}
+            onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--color-neutral-300)')}
           />
         </Field>
         <Field label="Descripción">
@@ -350,6 +376,8 @@ function ProductEditPanel({
               fontFamily: 'inherit',
               resize: 'vertical',
             }}
+            onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--color-brand-ink)')}
+            onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--color-neutral-300)')}
           />
         </Field>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-3)' }}>
@@ -361,6 +389,8 @@ function ProductEditPanel({
               min={0}
               step={1}
               style={inputStyle}
+              onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--color-brand-ink)')}
+              onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--color-neutral-300)')}
             />
           </Field>
           <Field label="Orden">
@@ -371,28 +401,34 @@ function ProductEditPanel({
               min={0}
               step={1}
               style={inputStyle}
+              onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--color-brand-ink)')}
+              onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--color-neutral-300)')}
             />
           </Field>
         </div>
-        <div style={{ display: 'flex', gap: 'var(--space-2)', justifyContent: 'flex-end' }}>
-          <button
-            type="submit"
-            disabled={!dirty || isSaving}
-            style={{
-              height: 40,
-              padding: '0 16px',
-              border: 'none',
-              background: dirty ? 'var(--color-brand-primary)' : 'var(--color-neutral-200)',
-              color: dirty ? 'var(--color-neutral-0)' : 'var(--color-neutral-500)',
-              borderRadius: 'var(--radius-md)',
-              fontSize: 14,
-              fontWeight: 600,
-              cursor: dirty && !isSaving ? 'pointer' : 'default',
-            }}
-          >
-            {isSaving ? 'Guardando…' : 'Guardar cambios'}
-          </button>
-        </div>
+        <button
+          type="submit"
+          disabled={!dirty || isSaving}
+          style={{
+            width: '100%',
+            height: 46,
+            border: 'none',
+            background: dirty && !isSaving
+              ? 'var(--color-brand-primary)'
+              : 'var(--color-neutral-300)',
+            color: 'var(--color-brand-ink)',
+            borderRadius: 999,
+            fontFamily: 'var(--font-heading)',
+            fontSize: 14,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            fontWeight: 400,
+            cursor: dirty && !isSaving ? 'pointer' : 'default',
+            marginTop: 4,
+          }}
+        >
+          {isSaving ? 'Guardando…' : 'Guardar cambios'}
+        </button>
       </div>
     </form>
   );
@@ -417,8 +453,16 @@ function Thumb({ url, alt }: { url: string | null; alt: string }) {
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <label style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-      <span style={{ fontSize: 12, fontWeight: 600, color: 'var(--color-neutral-700)' }}>
+    <label style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      <span
+        style={{
+          fontFamily: 'var(--font-heading)',
+          fontSize: 11,
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          color: 'var(--color-brand-ink)',
+        }}
+      >
         {label}
       </span>
       {children}
@@ -428,13 +472,15 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
-  height: 40,
-  padding: '0 12px',
-  borderRadius: 'var(--radius-md)',
-  border: '1px solid var(--color-neutral-300)',
-  fontSize: 14,
+  height: 44,
+  padding: '0 14px',
+  borderRadius: 8,
+  border: '2px solid var(--color-neutral-300)',
+  fontSize: 15,
   fontFamily: 'inherit',
   background: 'var(--color-neutral-0)',
-  color: 'var(--color-neutral-900)',
+  color: 'var(--color-brand-ink)',
   boxSizing: 'border-box',
+  outline: 'none',
+  transition: 'border-color 120ms ease',
 };

@@ -27,7 +27,7 @@ export default async function CuentaDashboardPage() {
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('full_name')
+    .select('full_name, is_admin')
     .eq('id', user.id)
     .single();
 
@@ -54,30 +54,64 @@ export default async function CuentaDashboardPage() {
   return (
     <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-5)' }}>
       {/* Greeting */}
-      <header style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <span
-          style={{
-            fontFamily: 'var(--font-script)',
-            fontSize: 'clamp(32px, 6vw, 48px)',
-            color: 'var(--color-brand-chili)',
-            lineHeight: 1,
-          }}
-        >
-          Hola de nuevo
-        </span>
-        <h1
-          style={{
-            margin: 0,
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(24px, 4vw, 36px)',
-            fontWeight: 400,
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            color: 'var(--color-brand-ink)',
-          }}
-        >
-          {firstName}
-        </h1>
+      <header
+        style={{
+          display: 'flex',
+          alignItems: 'flex-end',
+          justifyContent: 'space-between',
+          gap: 'var(--space-3)',
+          flexWrap: 'wrap',
+        }}
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-script)',
+              fontSize: 'clamp(32px, 6vw, 48px)',
+              color: 'var(--color-brand-chili)',
+              lineHeight: 1,
+            }}
+          >
+            Hola de nuevo
+          </span>
+          <h1
+            style={{
+              margin: 0,
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(24px, 4vw, 36px)',
+              fontWeight: 400,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brand-ink)',
+            }}
+          >
+            {firstName}
+          </h1>
+        </div>
+        {profile?.is_admin ? (
+          <Link
+            href="/admin"
+            style={{
+              background: 'var(--color-brand-ink)',
+              color: 'var(--color-brand-primary)',
+              padding: '10px 18px',
+              borderRadius: 999,
+              fontFamily: 'var(--font-heading)',
+              fontSize: 13,
+              letterSpacing: '0.08em',
+              textTransform: 'uppercase',
+              fontWeight: 400,
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              boxShadow: '3px 3px 0 var(--color-brand-primary)',
+            }}
+          >
+            <span aria-hidden style={{ fontSize: 14 }}>⚙</span>
+            Modo administrador
+          </Link>
+        ) : null}
       </header>
 
       {/* Daily quote — yellow band, brush-script attribution */}

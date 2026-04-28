@@ -27,9 +27,37 @@ export default async function AdminMenuPage() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-      <header style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
-        <h1 style={{ margin: 0, color: 'var(--color-brand-primaryDark)' }}>Menú</h1>
-        <p style={{ color: 'var(--color-neutral-500)', fontSize: 14, margin: 0 }}>
+      <header style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <span
+          style={{
+            fontFamily: 'var(--font-script)',
+            fontSize: 'clamp(28px, 5vw, 40px)',
+            color: 'var(--color-brand-chili)',
+            lineHeight: 1,
+          }}
+        >
+          El menú
+        </span>
+        <h1
+          style={{
+            margin: 0,
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(24px, 3.5vw, 32px)',
+            fontWeight: 400,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            color: 'var(--color-brand-ink)',
+          }}
+        >
+          Productos
+        </h1>
+        <p
+          style={{
+            color: 'var(--color-neutral-700)',
+            fontSize: 14,
+            margin: '4px 0 0',
+          }}
+        >
           Activa o desactiva productos y ajusta precios. Los cambios se guardan al instante.
         </p>
       </header>
