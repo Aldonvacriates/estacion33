@@ -224,6 +224,28 @@ export async function deleteProductAction(input: {
   return { ok: true };
 }
 
+export async function setRepartidorRoleAction(input: {
+  profileId: string;
+  enabled: boolean;
+}): Promise<AdminResult> {
+  const parsed = z
+    .object({ profileId: z.string().uuid(), enabled: z.boolean() })
+    .safeParse(input);
+  if (!parsed.success) return { ok: false, error: 'invalid_input' };
+
+  const { supabase, isAdmin } = await requireAdmin();
+  if (!isAdmin) return { ok: false, error: 'not_admin' };
+
+  const { error } = await supabase
+    .from('profiles')
+    .update({ is_repartidor: parsed.data.enabled })
+    .eq('id', parsed.data.profileId);
+  if (error) return { ok: false, error: error.message };
+
+  revalidatePath('/admin/repartidores');
+  return { ok: true };
+}
+
 export type UploadResult =
   | { ok: true; publicUrl: string }
   | { ok: false; error: string };

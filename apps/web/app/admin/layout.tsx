@@ -10,6 +10,7 @@ const ADMIN_NAV = [
   { href: '/admin/ordenes', label: 'Pedidos' },
   { href: '/admin/menu', label: 'Menú' },
   { href: '/admin/reservas', label: 'Reservas' },
+  { href: '/admin/repartidores', label: 'Repartidores' },
   { href: '/admin/photos', label: 'Galería' },
 ];
 

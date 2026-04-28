@@ -27,7 +27,7 @@ export default async function CuentaDashboardPage() {
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('full_name, is_admin')
+    .select('full_name, is_admin, is_repartidor')
     .eq('id', user.id)
     .single();
 
@@ -88,30 +88,62 @@ export default async function CuentaDashboardPage() {
             {firstName}
           </h1>
         </div>
-        {profile?.is_admin ? (
-          <Link
-            href="/admin"
-            style={{
-              background: 'var(--color-brand-ink)',
-              color: 'var(--color-brand-primary)',
-              padding: '10px 18px',
-              borderRadius: 999,
-              fontFamily: 'var(--font-heading)',
-              fontSize: 13,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              fontWeight: 400,
-              textDecoration: 'none',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              boxShadow: '3px 3px 0 var(--color-brand-primary)',
-            }}
-          >
-            <span aria-hidden style={{ fontSize: 14 }}>⚙</span>
-            Modo administrador
-          </Link>
-        ) : null}
+        <div
+          style={{
+            display: 'flex',
+            gap: 8,
+            flexWrap: 'wrap',
+          }}
+        >
+          {profile?.is_admin ? (
+            <Link
+              href="/admin"
+              style={{
+                background: 'var(--color-brand-ink)',
+                color: 'var(--color-brand-primary)',
+                padding: '10px 18px',
+                borderRadius: 999,
+                fontFamily: 'var(--font-heading)',
+                fontSize: 13,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                fontWeight: 400,
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                boxShadow: '3px 3px 0 var(--color-brand-primary)',
+              }}
+            >
+              <span aria-hidden style={{ fontSize: 14 }}>⚙</span>
+              Modo administrador
+            </Link>
+          ) : null}
+          {profile?.is_repartidor ? (
+            <Link
+              href="/repartidor"
+              style={{
+                background: 'var(--color-brand-primary)',
+                color: 'var(--color-brand-ink)',
+                padding: '10px 18px',
+                borderRadius: 999,
+                fontFamily: 'var(--font-heading)',
+                fontSize: 13,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                fontWeight: 400,
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                boxShadow: '3px 3px 0 var(--color-brand-ink)',
+              }}
+            >
+              <span aria-hidden style={{ fontSize: 14 }}>🛵</span>
+              Modo repartidor
+            </Link>
+          ) : null}
+        </div>
       </header>
 
       {/* Daily quote — yellow band, brush-script attribution */}
