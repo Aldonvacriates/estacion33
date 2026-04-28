@@ -66,6 +66,17 @@ export default function CartPage() {
         gap: 'var(--space-5)',
       }}
     >
+      <Link
+        href="/menu"
+        style={{
+          color: 'var(--color-brand-primary)',
+          fontSize: 14,
+          fontWeight: 500,
+          textDecoration: 'none',
+        }}
+      >
+        ← Seguir agregando
+      </Link>
       <h1 style={{ margin: 0, fontSize: 32, fontWeight: 700, color: 'var(--color-brand-primaryDark)' }}>
         Tu carrito
       </h1>

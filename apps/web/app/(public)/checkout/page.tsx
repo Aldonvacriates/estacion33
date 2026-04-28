@@ -2,10 +2,16 @@
 
 import { useEffect, useMemo, useState, useTransition } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Button } from '@estacion33/ui/web';
 import { formatMxn, getUpcomingSlots, i18n } from '@estacion33/core';
 import { selectCartSubtotalCents, useCart } from '@/lib/cart';
-import { submitCheckout } from './actions';
+import { createOrderAction } from './actions';
+import { BurgerLoader } from './BurgerLoader';
+
+// No artificial minimum — the burger overlay stays up via isRedirecting
+// until the next page (MercadoPago / order confirmation) actually renders.
+// User only sees as much burger as the network needs.
 
 const DELIVERY_FEE_CENTS = 3000;
 
@@ -38,7 +44,12 @@ export default function CheckoutPage() {
   const [scheduledFor, setScheduledFor] = useState<string>('');
   const [submitError, setSubmitError] = useState<string | null>(null);
 
+  const router = useRouter();
   const [isPending, startTransition] = useTransition();
+  // Stays true forever once MP/order navigation kicks off — the browser
+  // is still loading the next page, but our React tree shouldn't flip
+  // back to the form/empty-cart UI in the meantime.
+  const [isRedirecting, setIsRedirecting] = useState(false);
 
   const slots = useMemo(() => getUpcomingSlots(new Date(), undefined, { maxSlots: 16 }), []);
 
@@ -52,6 +63,23 @@ export default function CheckoutPage() {
 
   if (!hydrated) {
     return <main style={{ padding: 'var(--space-7)', textAlign: 'center' }}>Cargando…</main>;
+  }
+
+  const loaderActive = isPending || isRedirecting;
+
+  // While we're waiting for MP / the order page to load, ALWAYS show the
+  // full-screen burger overlay — never the empty-cart fallback or the
+  // form. This holds visual continuity through the cross-origin redirect.
+  if (loaderActive) {
+    return (
+      <BurgerLoader
+        message={
+          paymentMethod === 'mercadopago'
+            ? 'Preparando tu pago con MercadoPago…'
+            : 'Confirmando tu pedido…'
+        }
+      />
+    );
   }
 
   if (lines.length === 0) {
@@ -91,39 +119,47 @@ export default function CheckoutPage() {
     setSubmitError(null);
 
     startTransition(async () => {
-      try {
-        await submitCheckout({
-          fulfillment,
-          paymentMethod,
-          scheduledFor,
-          notes: notes.trim() || undefined,
-          guestName: guestName.trim(),
-          phone: phone.trim(),
-          addressLine1: fulfillment === 'delivery' ? addressLine1.trim() : undefined,
-          addressLine2: addressLine2.trim() || undefined,
-          addressNotes: addressNotes.trim() || undefined,
-          items: lines.map((l) => ({
-            productId: l.productId,
-            qty: l.qty,
-            selectedOptions: l.selectedOptions,
-          })),
-        });
-        // submitCheckout calls redirect() — this line only runs if redirect threw.
-        clearCart();
-      } catch (err) {
-        // Next.js redirect throws a special error; ignore those, surface real ones.
-        const message = err instanceof Error ? err.message : 'unknown_error';
-        if (message.includes('NEXT_REDIRECT')) {
-          // Successful redirect — clear cart on the way out.
-          clearCart();
-          return;
-        }
-        setSubmitError(message);
+      const result = await createOrderAction({
+        fulfillment,
+        paymentMethod,
+        scheduledFor,
+        notes: notes.trim() || undefined,
+        guestName: guestName.trim(),
+        phone: phone.trim(),
+        addressLine1: fulfillment === 'delivery' ? addressLine1.trim() : undefined,
+        addressLine2: addressLine2.trim() || undefined,
+        addressNotes: addressNotes.trim() || undefined,
+        items: lines.map((l) => ({
+          productId: l.productId,
+          qty: l.qty,
+          selectedOptions: l.selectedOptions,
+        })),
+      });
+
+      if (!result.ok) {
+        setSubmitError(result.error);
+        return;
       }
+
+      if (result.redirectUrl) {
+        // External (MercadoPago). Set isRedirecting so the burger stays
+        // up while the browser loads MP. We don't clear the cart here —
+        // if the user comes back without paying, their cart is intact.
+        // /orden/[id]?status=success will clear on confirmed payment
+        // (handled in slice 4.5).
+        setIsRedirecting(true);
+        window.location.href = result.redirectUrl;
+        return;
+      }
+      // Cash path — internal navigation, safe to clear cart now.
+      setIsRedirecting(true);
+      router.push(`/orden/${result.orderId}`);
+      clearCart();
     });
   };
 
   return (
+    <>
     <main
       style={{
         maxWidth: 'var(--size-containerSm)',
@@ -135,6 +171,17 @@ export default function CheckoutPage() {
         gap: 'var(--space-5)',
       }}
     >
+      <Link
+        href="/carrito"
+        style={{
+          color: 'var(--color-brand-primary)',
+          fontSize: 14,
+          fontWeight: 500,
+          textDecoration: 'none',
+        }}
+      >
+        ← Volver al carrito
+      </Link>
       <h1 style={{ margin: 0, fontSize: 28, fontWeight: 700, color: 'var(--color-brand-primaryDark)' }}>
         Finalizar pedido
       </h1>
@@ -333,6 +380,7 @@ export default function CheckoutPage() {
         </div>
       </form>
     </main>
+    </>
   );
 }
 
