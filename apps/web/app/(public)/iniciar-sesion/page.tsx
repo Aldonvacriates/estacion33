@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useTransition } from 'react';
-import { Button } from '@estacion33/ui/web';
 import { sendMagicLinkAction } from './actions';
 
 export default function SignInPage() {
@@ -30,90 +29,187 @@ export default function SignInPage() {
   return (
     <main
       style={{
-        maxWidth: 420,
-        margin: '0 auto',
-        padding: 'var(--space-7) var(--space-5)',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 'var(--space-5)',
+        background: 'var(--color-brand-cream)',
+        minHeight: 'calc(100vh - var(--size-appBar))',
+        padding: 'var(--space-6) var(--space-5)',
       }}
     >
-      <header style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-2)', textAlign: 'center' }}>
-        <h1
+      <div
+        style={{
+          maxWidth: 460,
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--space-5)',
+        }}
+      >
+        <header
           style={{
-            margin: 0,
-            fontSize: 28,
-            fontWeight: 700,
-            color: 'var(--color-brand-primaryDark)',
-          }}
-        >
-          Iniciar sesión
-        </h1>
-        <p style={{ margin: 0, color: 'var(--color-neutral-500)', fontSize: 14 }}>
-          Te mandamos un enlace mágico al correo. Sin contraseñas.
-        </p>
-      </header>
-
-      {sent ? (
-        <div
-          style={{
-            background: 'var(--color-semantic-successBg)',
-            color: 'var(--color-semantic-successFg)',
-            padding: 'var(--space-4)',
-            borderRadius: 'var(--radius-lg)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 4,
             textAlign: 'center',
-            fontSize: 14,
           }}
         >
-          ✓ Listo. Revisa <strong>{email}</strong> y haz clic en el enlace para entrar.
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
-          <label style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-            <span style={{ fontSize: 14, color: 'var(--color-neutral-700)' }}>
-              Correo electrónico
-            </span>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              autoComplete="email"
-              placeholder="tu@correo.com"
-              style={{
-                width: '100%',
-                height: 44,
-                padding: '0 12px',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--color-neutral-300)',
-                fontSize: 16,
-                fontFamily: 'inherit',
-                background: 'var(--color-neutral-0)',
-                color: 'var(--color-neutral-900)',
-                boxSizing: 'border-box',
-              }}
-            />
-          </label>
+          <span
+            style={{
+              fontFamily: 'var(--font-script)',
+              fontSize: 'clamp(36px, 6vw, 52px)',
+              color: 'var(--color-brand-chili)',
+              lineHeight: 1,
+            }}
+          >
+            Hola de nuevo
+          </span>
+          <h1
+            style={{
+              margin: 0,
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'clamp(22px, 3vw, 30px)',
+              fontWeight: 400,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brand-ink)',
+            }}
+          >
+            Iniciar sesión
+          </h1>
+          <p
+            style={{
+              margin: '8px 0 0',
+              color: 'var(--color-neutral-700)',
+              fontSize: 14,
+            }}
+          >
+            Te mandamos un enlace mágico al correo. Sin contraseñas.
+          </p>
+        </header>
 
-          {error ? (
+        {sent ? (
+          <div
+            style={{
+              background: 'var(--color-brand-primary)',
+              color: 'var(--color-brand-ink)',
+              padding: 'var(--space-5)',
+              borderRadius: 12,
+              textAlign: 'center',
+              fontSize: 15,
+              border: '2px solid var(--color-brand-ink)',
+            }}
+          >
             <div
               style={{
-                background: 'var(--color-semantic-dangerBg)',
-                color: 'var(--color-semantic-dangerFg)',
-                padding: 'var(--space-3)',
-                borderRadius: 'var(--radius-md)',
-                fontSize: 14,
+                fontFamily: 'var(--font-heading)',
+                fontSize: 18,
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                marginBottom: 6,
               }}
             >
-              {error}
+              ✓ Enlace enviado
             </div>
-          ) : null}
+            <div>
+              Revisa <strong>{email}</strong> y haz clic en el enlace para entrar.
+              <div style={{ marginTop: 8, fontSize: 13, opacity: 0.8 }}>
+                Si no llega en 1–2 minutos, revisa tu carpeta de spam.
+              </div>
+            </div>
+          </div>
+        ) : (
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 'var(--space-3)',
+              background: 'var(--color-neutral-0)',
+              border: '2px solid var(--color-brand-ink)',
+              borderRadius: 12,
+              padding: 'var(--space-5)',
+            }}
+          >
+            <label style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              <span
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: 13,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: 'var(--color-brand-ink)',
+                }}
+              >
+                Correo electrónico
+              </span>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                autoComplete="email"
+                placeholder="tu@correo.com"
+                style={{
+                  width: '100%',
+                  height: 48,
+                  padding: '0 14px',
+                  borderRadius: 8,
+                  border: '2px solid var(--color-neutral-300)',
+                  fontSize: 16,
+                  fontFamily: 'inherit',
+                  background: 'var(--color-neutral-0)',
+                  color: 'var(--color-brand-ink)',
+                  boxSizing: 'border-box',
+                  outline: 'none',
+                  transition: 'border-color 120ms ease',
+                }}
+                onFocus={(e) =>
+                  (e.currentTarget.style.borderColor = 'var(--color-brand-ink)')
+                }
+                onBlur={(e) =>
+                  (e.currentTarget.style.borderColor = 'var(--color-neutral-300)')
+                }
+              />
+            </label>
 
-          <Button type="submit" variant="primary" size="lg" fullWidth disabled={!canSubmit}>
-            {isPending ? 'Enviando…' : 'Enviar enlace mágico'}
-          </Button>
-        </form>
-      )}
+            {error ? (
+              <div
+                style={{
+                  background: 'var(--color-semantic-dangerBg)',
+                  color: 'var(--color-semantic-dangerFg)',
+                  padding: 'var(--space-3)',
+                  borderRadius: 8,
+                  fontSize: 14,
+                  border: '1px solid var(--color-brand-chili)',
+                }}
+              >
+                {error}
+              </div>
+            ) : null}
+
+            <button
+              type="submit"
+              disabled={!canSubmit}
+              style={{
+                background: canSubmit
+                  ? 'var(--color-brand-primary)'
+                  : 'var(--color-neutral-300)',
+                color: 'var(--color-brand-ink)',
+                border: 'none',
+                padding: '14px 20px',
+                borderRadius: 999,
+                fontFamily: 'var(--font-heading)',
+                fontSize: 15,
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                fontWeight: 400,
+                cursor: canSubmit ? 'pointer' : 'not-allowed',
+                marginTop: 4,
+              }}
+            >
+              {isPending ? 'Enviando…' : 'Enviar enlace mágico'}
+            </button>
+          </form>
+        )}
+      </div>
     </main>
   );
 }

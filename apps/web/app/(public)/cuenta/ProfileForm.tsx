@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useTransition } from 'react';
-import { Button } from '@estacion33/ui/web';
 import { signOutAction, updateProfileAction } from './actions';
 
 export function ProfileForm({
@@ -43,16 +42,51 @@ export function ProfileForm({
 
   return (
     <section style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-      <h1 style={{ margin: 0, fontSize: 24, fontWeight: 700, color: 'var(--color-brand-primaryDark)' }}>
-        Tu perfil
-      </h1>
+      <header style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <span
+          style={{
+            fontFamily: 'var(--font-script)',
+            fontSize: 'clamp(28px, 5vw, 40px)',
+            color: 'var(--color-brand-chili)',
+            lineHeight: 1,
+          }}
+        >
+          Tu perfil
+        </span>
+        <h1
+          style={{
+            margin: 0,
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(20px, 3vw, 26px)',
+            fontWeight: 400,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            color: 'var(--color-brand-ink)',
+          }}
+        >
+          {initialFullName || 'Hola'}
+        </h1>
+      </header>
 
       <form
         onSubmit={handleSave}
-        style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--space-3)',
+          background: 'var(--color-neutral-0)',
+          border: '2px solid var(--color-brand-ink)',
+          borderRadius: 12,
+          padding: 'var(--space-5)',
+        }}
       >
         <Field label="Correo">
-          <input type="email" value={email} readOnly style={{ ...inputStyle, color: 'var(--color-neutral-500)' }} />
+          <input
+            type="email"
+            value={email}
+            readOnly
+            style={{ ...inputStyle, color: 'var(--color-neutral-500)', background: 'var(--color-neutral-50)' }}
+          />
         </Field>
         <Field label="Nombre completo">
           <input
@@ -63,6 +97,8 @@ export function ProfileForm({
             maxLength={80}
             autoComplete="name"
             style={inputStyle}
+            onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--color-brand-ink)')}
+            onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--color-neutral-300)')}
           />
         </Field>
         <Field label="Teléfono / WhatsApp">
@@ -73,6 +109,8 @@ export function ProfileForm({
             maxLength={20}
             autoComplete="tel"
             style={inputStyle}
+            onFocus={(e) => (e.currentTarget.style.borderColor = 'var(--color-brand-ink)')}
+            onBlur={(e) => (e.currentTarget.style.borderColor = 'var(--color-neutral-300)')}
           />
         </Field>
 
@@ -82,8 +120,9 @@ export function ProfileForm({
               background: 'var(--color-semantic-dangerBg)',
               color: 'var(--color-semantic-dangerFg)',
               padding: 'var(--space-3)',
-              borderRadius: 'var(--radius-md)',
+              borderRadius: 8,
               fontSize: 14,
+              border: '1px solid var(--color-brand-chili)',
             }}
           >
             {error}
@@ -92,54 +131,98 @@ export function ProfileForm({
         {savedAt && !dirty ? (
           <div
             style={{
-              background: 'var(--color-semantic-successBg)',
-              color: 'var(--color-semantic-successFg)',
+              background: 'var(--color-brand-primary)',
+              color: 'var(--color-brand-ink)',
               padding: 'var(--space-3)',
-              borderRadius: 'var(--radius-md)',
+              borderRadius: 8,
               fontSize: 14,
+              fontFamily: 'var(--font-heading)',
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
             }}
           >
             ✓ Guardado
           </div>
         ) : null}
 
-        <Button type="submit" variant="primary" size="md" disabled={!dirty || isSaving}>
+        <button
+          type="submit"
+          disabled={!dirty || isSaving}
+          style={{
+            background: dirty && !isSaving
+              ? 'var(--color-brand-primary)'
+              : 'var(--color-neutral-300)',
+            color: 'var(--color-brand-ink)',
+            border: 'none',
+            padding: '12px 20px',
+            borderRadius: 999,
+            fontFamily: 'var(--font-heading)',
+            fontSize: 14,
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            fontWeight: 400,
+            cursor: dirty && !isSaving ? 'pointer' : 'not-allowed',
+            alignSelf: 'flex-start',
+          }}
+        >
           {isSaving ? 'Guardando…' : 'Guardar cambios'}
-        </Button>
+        </button>
       </form>
 
-      <hr style={{ border: 'none', borderTop: '1px solid var(--color-neutral-200)' }} />
-
-      <Button
+      <button
         type="button"
-        variant="ghost"
-        size="md"
         onClick={() => startSignOut(async () => signOutAction())}
         disabled={isSigningOut}
+        style={{
+          background: 'transparent',
+          color: 'var(--color-brand-chili)',
+          border: '2px solid var(--color-brand-chili)',
+          padding: '10px 18px',
+          borderRadius: 999,
+          fontFamily: 'var(--font-heading)',
+          fontSize: 13,
+          letterSpacing: '0.06em',
+          textTransform: 'uppercase',
+          fontWeight: 400,
+          cursor: 'pointer',
+          alignSelf: 'flex-start',
+        }}
       >
         {isSigningOut ? 'Cerrando sesión…' : 'Cerrar sesión'}
-      </Button>
+      </button>
     </section>
   );
 }
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
-  height: 44,
-  padding: '0 12px',
-  borderRadius: 'var(--radius-md)',
-  border: '1px solid var(--color-neutral-300)',
+  height: 48,
+  padding: '0 14px',
+  borderRadius: 8,
+  border: '2px solid var(--color-neutral-300)',
   fontSize: 16,
   fontFamily: 'inherit',
   background: 'var(--color-neutral-0)',
-  color: 'var(--color-neutral-900)',
+  color: 'var(--color-brand-ink)',
   boxSizing: 'border-box',
+  outline: 'none',
+  transition: 'border-color 120ms ease',
 };
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <label style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-      <span style={{ fontSize: 14, color: 'var(--color-neutral-700)' }}>{label}</span>
+      <span
+        style={{
+          fontFamily: 'var(--font-heading)',
+          fontSize: 12,
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          color: 'var(--color-brand-ink)',
+        }}
+      >
+        {label}
+      </span>
       {children}
     </label>
   );

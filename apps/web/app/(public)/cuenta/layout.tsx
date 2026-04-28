@@ -25,40 +25,54 @@ export default async function AccountLayout({
   return (
     <div
       style={{
-        maxWidth: 'var(--size-containerMd)',
-        margin: '0 auto',
-        padding: 'var(--space-5)',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 'var(--space-5)',
+        background: 'var(--color-brand-cream)',
+        minHeight: 'calc(100vh - var(--size-appBar))',
       }}
     >
-      <nav
+      <div
         style={{
+          maxWidth: 'var(--size-containerMd)',
+          margin: '0 auto',
+          padding: 'var(--space-5)',
           display: 'flex',
-          gap: 'var(--space-2)',
-          borderBottom: '1px solid var(--color-neutral-200)',
-          overflowX: 'auto',
+          flexDirection: 'column',
+          gap: 'var(--space-5)',
         }}
       >
-        {SUB_NAV.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            style={{
-              padding: '12px 16px',
-              fontWeight: 500,
-              fontSize: 14,
-              color: 'var(--color-neutral-700)',
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
-      {children}
+        <nav
+          className="no-scrollbar"
+          style={{
+            display: 'flex',
+            gap: 6,
+            borderBottom: '2px solid var(--color-brand-ink)',
+            overflowX: 'auto',
+            paddingBottom: 0,
+          }}
+        >
+          {SUB_NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              style={{
+                padding: '10px 16px',
+                fontFamily: 'var(--font-heading)',
+                fontWeight: 400,
+                fontSize: 13,
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                color: 'var(--color-brand-ink)',
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+                background: 'transparent',
+                borderRadius: '8px 8px 0 0',
+              }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        {children}
+      </div>
     </div>
   );
 }
