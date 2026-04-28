@@ -3,6 +3,7 @@ import { i18n } from '@estacion33/core';
 import { CartLink } from './CartLink';
 import { BurgerNav } from './BurgerNav';
 import { PublicFooter } from './PublicFooter';
+import { PaymentsRow } from './PaymentsRow';
 import { getServerSupabase } from '@/lib/supabase/server';
 
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -103,8 +104,9 @@ export default async function PublicLayout({ children }: { children: React.React
           <div style={{ marginTop: 6, color: 'var(--color-neutral-0)' }}>
             Plan de Iguala s/n, Col. Burócrata · Jue/Vie/Sáb 18:30–22:30 · {t.service.open}
           </div>
+          <PaymentsRow />
           <div
-            style={{ marginTop: 6, color: 'var(--color-neutral-400)', fontSize: 11 }}
+            style={{ marginTop: 12, color: 'var(--color-neutral-400)', fontSize: 11 }}
           >
             © {new Date().getFullYear()} Aldo Website LLC
           </div>
