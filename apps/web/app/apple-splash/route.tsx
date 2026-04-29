@@ -12,7 +12,6 @@ import { ImageResponse } from 'next/og';
 // `?w=1290&h=2796` and we draw the burger mark centered on brand black.
 
 export const runtime = 'edge';
-export const contentType = 'image/png';
 
 const MAX_W = 2000;
 const MAX_H = 3000;
