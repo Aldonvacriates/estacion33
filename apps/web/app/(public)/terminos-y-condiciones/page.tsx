@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = '29 de abril de 2026';
-const RAZON_SOCIAL = 'Aldo Website LLC';
+const RAZON_SOCIAL = 'Estación 33 S.A. de C.V.';
 const NOMBRE_COMERCIAL = 'Estación 33';
 const DOMICILIO = 'Plan de Iguala s/n, Col. Burócrata, Iguala de la Independencia, Guerrero, México';
-const CONTACTO_EMAIL = 'hello@aldowebsitellc.xyz';
+const CONTACTO_EMAIL = 'contacto@estacion33.com';
 const HORARIO = 'jueves, viernes y sábado de 18:30 a 22:30 horas (tiempo del centro de México)';
 
 export default function TerminosPage() {
@@ -57,13 +57,19 @@ export default function TerminosPage() {
           Servicio.
         </p>
         <p>
-          El Servicio es operado por <strong>{RAZON_SOCIAL}</strong> bajo el
-          nombre comercial <strong>{NOMBRE_COMERCIAL}</strong>, con domicilio
-          en {DOMICILIO}. Para contacto:{' '}
+          El Servicio es operado por <strong>{RAZON_SOCIAL}</strong>{' '}
+          (en adelante, &ldquo;{NOMBRE_COMERCIAL}&rdquo;), persona moral
+          mexicana con domicilio en {DOMICILIO}. Para contacto:{' '}
           <a href={`mailto:${CONTACTO_EMAIL}`} style={linkStyle}>
             {CONTACTO_EMAIL}
           </a>
           .
+        </p>
+        <p>
+          La plataforma tecnológica fue desarrollada por{' '}
+          <strong>Aldo Website LLC</strong>, que provee soporte técnico a
+          {NOMBRE_COMERCIAL} pero no es parte de la relación contractual entre
+          el cliente y el restaurante.
         </p>
       </Section>
 

@@ -148,7 +148,12 @@ export default async function PublicLayout({ children }: { children: React.React
           <div
             style={{ marginTop: 8, color: 'var(--color-neutral-400)', fontSize: 11 }}
           >
-            © {new Date().getFullYear()} Aldo Website LLC
+            © {new Date().getFullYear()} Estación 33 S.A. de C.V.
+          </div>
+          <div
+            style={{ marginTop: 2, color: 'var(--color-neutral-500)', fontSize: 10 }}
+          >
+            Plataforma desarrollada por Aldo Website LLC
           </div>
         </footer>
       </PublicFooter>

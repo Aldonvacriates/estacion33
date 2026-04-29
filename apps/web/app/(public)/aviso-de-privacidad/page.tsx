@@ -10,9 +10,11 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = '29 de abril de 2026';
-const RESPONSABLE = 'Aldo Website LLC, operadora del restaurante Estación 33';
+// Note: keep this in sync with the date the document was last revised by
+// the responsable. Bump it whenever the substance changes.
+const RESPONSABLE = 'Estación 33 S.A. de C.V.';
 const DOMICILIO = 'Plan de Iguala s/n, Col. Burócrata, Iguala de la Independencia, Guerrero, México';
-const CONTACTO_EMAIL = 'hello@aldowebsitellc.xyz';
+const CONTACTO_EMAIL = 'contacto@estacion33.com';
 
 export default function AvisoPrivacidadPage() {
   return (
@@ -50,12 +52,19 @@ export default function AvisoPrivacidadPage() {
       <Section title="1. Responsable del tratamiento">
         <p>
           El responsable del tratamiento de tus datos personales es{' '}
-          <strong>{RESPONSABLE}</strong>, con domicilio en {DOMICILIO}, a quien
-          puedes contactar en{' '}
+          <strong>{RESPONSABLE}</strong>, persona moral mexicana con domicilio
+          en {DOMICILIO}, a quien puedes contactar en{' '}
           <a href={`mailto:${CONTACTO_EMAIL}`} style={linkStyle}>
             {CONTACTO_EMAIL}
           </a>{' '}
           (en adelante, &ldquo;Estación 33&rdquo;).
+        </p>
+        <p>
+          El sitio y la aplicación que usas para hacer tus pedidos fueron
+          desarrollados por <strong>Aldo Website LLC</strong>, que actúa como
+          encargado del tratamiento por cuenta y orden de Estación 33,
+          conforme al artículo 50 del Reglamento de la LFPDPPP. Aldo Website
+          LLC no usa los datos para finalidades propias.
         </p>
       </Section>
 
@@ -146,13 +155,19 @@ export default function AvisoPrivacidadPage() {
         </p>
       </Section>
 
-      <Section title="4. Transferencias de datos">
+      <Section title="4. Encargados y transferencias de datos">
         <p>
-          Para operar el servicio compartimos algunos de tus datos con terceros
-          que actúan como encargados o que son necesarios para completar la
-          transacción:
+          Para operar el servicio compartimos algunos de tus datos con los
+          siguientes encargados (que tratan los datos por cuenta y orden de
+          Estación 33) y proveedores necesarios para completar la transacción:
         </p>
         <ul>
+          <li>
+            <strong>Aldo Website LLC</strong> — desarrollador y operador
+            técnico del sitio y la aplicación móvil. Procesa los datos
+            estrictamente para que el servicio funcione, sin finalidades
+            propias.
+          </li>
           <li>
             <strong>MercadoPago México</strong> — para procesar pagos en línea.
           </li>
