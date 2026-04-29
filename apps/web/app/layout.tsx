@@ -39,12 +39,15 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   icons: {
-    // SVG first for modern browsers, PNG fallback for Safari + iOS bookmarks.
+    // SVG first for modern browsers; the 192/512 PNGs (rendered by
+    // app/icon-192/route.tsx and app/icon-512/route.tsx) cover Safari +
+    // older browsers. Apple touch icon is auto-generated from
+    // app/apple-icon.tsx — don't override here or iOS will use the wrong art.
     icon: [
       { url: '/burger-favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.png', type: 'image/png' },
+      { url: '/icon-192', type: 'image/png', sizes: '192x192' },
+      { url: '/icon-512', type: 'image/png', sizes: '512x512' },
     ],
-    apple: '/favicon.png',
   },
   openGraph: {
     type: 'website',
