@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const LAST_UPDATED = '29 de abril de 2026';
 const RESPONSABLE = 'Aldo Website LLC, operadora del restaurante Estación 33';
 const DOMICILIO = 'Plan de Iguala s/n, Col. Burócrata, Iguala de la Independencia, Guerrero, México';
-const CONTACTO_EMAIL = 'hello@aldo.website';
+const CONTACTO_EMAIL = 'hello@aldowebsitellc.xyz';
 
 export default function AvisoPrivacidadPage() {
   return (

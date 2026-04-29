@@ -13,7 +13,7 @@ const LAST_UPDATED = '29 de abril de 2026';
 const RAZON_SOCIAL = 'Aldo Website LLC';
 const NOMBRE_COMERCIAL = 'Estación 33';
 const DOMICILIO = 'Plan de Iguala s/n, Col. Burócrata, Iguala de la Independencia, Guerrero, México';
-const CONTACTO_EMAIL = 'hello@aldo.website';
+const CONTACTO_EMAIL = 'hello@aldowebsitellc.xyz';
 const HORARIO = 'jueves, viernes y sábado de 18:30 a 22:30 horas (tiempo del centro de México)';
 
 export default function TerminosPage() {
