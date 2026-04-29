@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Bebas_Neue, Yellowtail } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { cssVariablesString } from '@estacion33/tokens/css';
+import { CloudflareAnalytics } from './CloudflareAnalytics';
+import { ClarityScript } from './ClarityScript';
 import './globals.css';
 
 export const viewport: Viewport = {
@@ -168,10 +168,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body suppressHydrationWarning style={{ fontFamily: 'var(--font-body)' }}>
         {children}
-        {/* Vercel Analytics: pageviews + Web Vitals. Free up to 100k events
-            per month. Only fires in production builds running on Vercel. */}
-        <Analytics />
-        <SpeedInsights />
+        {/* Cloudflare Web Analytics: cookieless pageviews + Core Web Vitals.
+            Free, no event cap. Only renders if the beacon token env var is
+            set, so dev builds and unconfigured environments are silent. */}
+        <CloudflareAnalytics />
+        {/* Microsoft Clarity: heatmaps + session recordings. Also free with
+            no usage cap. Only renders if the project ID env var is set. */}
+        <ClarityScript />
       </body>
     </html>
   );

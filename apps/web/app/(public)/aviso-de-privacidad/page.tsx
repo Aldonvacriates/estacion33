@@ -179,6 +179,18 @@ export default function AvisoPrivacidadPage() {
             <strong>Vercel</strong> — proveedor de hospedaje del sitio web.
           </li>
           <li>
+            <strong>Cloudflare Web Analytics</strong> — métricas de tráfico
+            anónimas y agregadas (visitas por página, países, dispositivo).
+            No usa cookies y no identifica a usuarios individuales.
+          </li>
+          <li>
+            <strong>Microsoft Clarity</strong> — análisis de uso del sitio
+            mediante mapas de calor y grabaciones de sesión anónimas. Los
+            campos de formulario (nombre, teléfono, dirección, contraseña,
+            datos de pago) se enmascaran automáticamente y no quedan
+            registrados.
+          </li>
+          <li>
             <strong>WhatsApp / Meta</strong> — únicamente cuando elijas confirmar
             tu pedido por esta vía.
           </li>
