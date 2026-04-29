@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { formatMxn, i18n } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
+import { MenuSwipeNav } from './MenuSwipeNav';
 
 export const revalidate = 60; // re-fetch menu every 60s
 
@@ -140,6 +141,7 @@ export default async function MenuPage() {
       ) : (
         <>
           <CategoryChips categories={visible} />
+          <MenuSwipeNav slugs={visible.map((c) => c.slug)} />
 
           <div
             style={{

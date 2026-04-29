@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { Button } from '@estacion33/ui/web';
 import { formatMxn, i18n } from '@estacion33/core';
 import { selectCartSubtotalCents, useCart } from '@/lib/cart';
+import { SwipeToDelete } from './SwipeToDelete';
 
 export default function CartPage() {
   const t = i18n.es;
@@ -144,18 +145,18 @@ export default function CartPage() {
 
       <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
         {lines.map((line) => (
-          <li
-            key={line.key}
-            style={{
-              background: 'var(--color-neutral-0)',
-              border: '1px solid var(--color-neutral-200)',
-              borderRadius: 'var(--radius-lg)',
-              padding: 'var(--space-4)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 'var(--space-3)',
-            }}
-          >
+          <li key={line.key}>
+            <SwipeToDelete onDelete={() => remove(line.key)}>
+              <div
+                style={{
+                  border: '1px solid var(--color-neutral-200)',
+                  borderRadius: 'var(--radius-lg)',
+                  padding: 'var(--space-4)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 'var(--space-3)',
+                }}
+              >
             <div style={{ display: 'flex', justifyContent: 'space-between', gap: 'var(--space-3)' }}>
               <Link
                 href={`/menu/${line.productSlug}`}
@@ -198,6 +199,8 @@ export default function CartPage() {
                 Eliminar
               </button>
             </div>
+              </div>
+            </SwipeToDelete>
           </li>
         ))}
       </ul>

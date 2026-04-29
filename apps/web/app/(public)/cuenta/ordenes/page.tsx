@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { formatMxn } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
 import { ReorderButton, type ReorderItem } from './ReorderButton';
+import { OrderSwipeNav } from './OrderSwipeNav';
 
 export const dynamic = 'force-dynamic';
 
@@ -78,6 +79,7 @@ export default async function OrdenesPage() {
       <h1 style={{ margin: 0, fontSize: 24, fontWeight: 700, color: 'var(--color-brand-primaryDark)' }}>
         Mis pedidos
       </h1>
+      <OrderSwipeNav ids={orders.map((o) => o.id)} />
       <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
         {orders.map((o) => {
           const reorderItems: ReorderItem[] = (o.order_items ?? [])
@@ -94,8 +96,10 @@ export default async function OrdenesPage() {
           return (
             <li
               key={o.id}
+              id={`order-card-${o.id}`}
               style={{
                 background: 'var(--color-neutral-0)',
+                scrollMarginTop: 80,
                 border: '1px solid var(--color-neutral-200)',
                 borderRadius: 'var(--radius-md)',
                 padding: 'var(--space-4)',

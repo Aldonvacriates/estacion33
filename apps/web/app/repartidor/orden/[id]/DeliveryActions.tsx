@@ -7,6 +7,7 @@ import {
   completeDeliveryAction,
   uploadDeliveryProofAction,
 } from '../../actions';
+import { SlideToConfirm } from '../../SlideToConfirm';
 
 type Props =
   | { mode: 'claim'; orderId: string }
@@ -115,14 +116,12 @@ export function DeliveryActions(props: Props) {
       ) : null}
 
       {props.mode === 'claim' ? (
-        <button
-          type="button"
-          onClick={claim}
-          disabled={isPending}
-          style={ctaPrimary}
-        >
-          {isPending ? 'Tomando…' : 'Iniciar entrega'}
-        </button>
+        <SlideToConfirm
+          label="Desliza para tomar"
+          pendingLabel="Tomando…"
+          onConfirm={claim}
+          pending={isPending}
+        />
       ) : (
         <>
           {/* Photo capture */}
@@ -243,20 +242,13 @@ export function DeliveryActions(props: Props) {
             </label>
           ) : null}
 
-          <button
-            type="button"
-            onClick={complete}
-            disabled={
-              isPending || (props.paymentPending && !cashCollected)
-            }
-            style={
-              isPending || (props.paymentPending && !cashCollected)
-                ? { ...ctaPrimary, background: 'var(--color-neutral-300)' }
-                : ctaPrimary
-            }
-          >
-            {isPending ? 'Marcando…' : 'Marcar entregado'}
-          </button>
+          <SlideToConfirm
+            label="Desliza para entregar"
+            pendingLabel="Marcando…"
+            onConfirm={complete}
+            pending={isPending}
+            disabled={props.paymentPending && !cashCollected}
+          />
           {!hasProof ? (
             <p
               style={{
