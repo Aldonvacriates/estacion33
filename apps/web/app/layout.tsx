@@ -56,13 +56,25 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME} — ¡A puro sabor!`,
     description: DESCRIPTION,
-    // Static fallback. The dynamic 1200×630 image rendered by
-    // app/opengraph-image.tsx automatically takes precedence at runtime.
+    // Explicit images entry so platforms that don't follow Next.js's
+    // dynamic opengraph-image.tsx convention (some WhatsApp regions, older
+    // iMessage previews, link unfurlers in Slack/Discord) still get a
+    // proper preview image with declared dimensions.
+    images: [
+      {
+        url: `${SITE_URL}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: 'Estación 33 — ¡A puro sabor! Hamburguesas, hot dogs y pasta italiana en Iguala.',
+        type: 'image/png',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${SITE_NAME} — ¡A puro sabor!`,
     description: DESCRIPTION,
+    images: [`${SITE_URL}/opengraph-image`],
   },
   robots: {
     index: true,

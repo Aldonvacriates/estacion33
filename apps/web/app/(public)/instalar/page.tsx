@@ -89,7 +89,7 @@ export default function InstalarPage() {
             title="Abre el sitio en Chrome"
             illustration={<AndroidStep1 />}
           >
-            Visita <strong>estacion33.com.mx</strong> con Google Chrome.
+            Visita <strong>estacion33.com</strong> con Google Chrome.
           </Step>
           <Step
             n={2}
@@ -124,7 +124,7 @@ export default function InstalarPage() {
             title="Abre el sitio en Safari"
             illustration={<IosStep1 />}
           >
-            Visita <strong>estacion33.com.mx</strong> con Safari.
+            Visita <strong>estacion33.com</strong> con Safari.
           </Step>
           <Step
             n={2}
@@ -308,7 +308,7 @@ function AndroidStep1() {
     <PhoneFrame>
       {/* URL bar */}
       <rect x="22" y="22" width="76" height="10" rx="3" fill="#EEE" />
-      <text x="26" y="29" fontSize="5.5" fill="#333" fontFamily="system-ui">estacion33.com.mx</text>
+      <text x="26" y="29" fontSize="5.5" fill="#333" fontFamily="system-ui">estacion33.com</text>
       {/* burger logo */}
       <circle cx="60" cy="70" r="18" fill="#FFC72C" />
       <text x="60" y="74" fontSize="14" fill="#0A0A0A" textAnchor="middle">🍔</text>
@@ -362,7 +362,7 @@ function IosStep1() {
   return (
     <PhoneFrame>
       <rect x="22" y="22" width="76" height="10" rx="3" fill="#EEE" />
-      <text x="26" y="29" fontSize="5.5" fill="#333" fontFamily="system-ui">estacion33.com.mx</text>
+      <text x="26" y="29" fontSize="5.5" fill="#333" fontFamily="system-ui">estacion33.com</text>
       <circle cx="60" cy="70" r="18" fill="#FFC72C" />
       <text x="60" y="74" fontSize="14" fill="#0A0A0A" textAnchor="middle">🍔</text>
       <rect x="30" y="100" width="60" height="6" rx="2" fill="#FFC72C" />
