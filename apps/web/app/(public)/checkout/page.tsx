@@ -350,6 +350,32 @@ export default function CheckoutPage() {
 
         <PaymentsRow />
 
+        <p
+          style={{
+            margin: 0,
+            textAlign: 'center',
+            fontSize: 11,
+            color: 'var(--color-neutral-500)',
+            lineHeight: 1.5,
+          }}
+        >
+          Al confirmar tu pedido aceptas los{' '}
+          <Link
+            href="/terminos-y-condiciones"
+            style={{ color: 'var(--color-brand-primaryDark, #B8860B)', textDecoration: 'underline' }}
+          >
+            Términos y Condiciones
+          </Link>{' '}
+          y el{' '}
+          <Link
+            href="/aviso-de-privacidad"
+            style={{ color: 'var(--color-brand-primaryDark, #B8860B)', textDecoration: 'underline' }}
+          >
+            Aviso de Privacidad
+          </Link>
+          .
+        </p>
+
         {submitError ? (
           <div
             style={{

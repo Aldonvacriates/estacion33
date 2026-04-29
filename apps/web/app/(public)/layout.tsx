@@ -123,7 +123,30 @@ export default async function PublicLayout({ children }: { children: React.React
           </div>
           <PaymentsRow />
           <div
-            style={{ marginTop: 12, color: 'var(--color-neutral-400)', fontSize: 11 }}
+            style={{
+              marginTop: 12,
+              display: 'flex',
+              gap: 12,
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              fontSize: 11,
+            }}
+          >
+            <Link
+              href="/aviso-de-privacidad"
+              style={{ color: 'var(--color-neutral-200, #E4E4E7)', textDecoration: 'underline' }}
+            >
+              Aviso de Privacidad
+            </Link>
+            <Link
+              href="/terminos-y-condiciones"
+              style={{ color: 'var(--color-neutral-200, #E4E4E7)', textDecoration: 'underline' }}
+            >
+              Términos y Condiciones
+            </Link>
+          </div>
+          <div
+            style={{ marginTop: 8, color: 'var(--color-neutral-400)', fontSize: 11 }}
           >
             © {new Date().getFullYear()} Aldo Website LLC
           </div>
