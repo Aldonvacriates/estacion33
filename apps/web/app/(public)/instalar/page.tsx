@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { InstallBanner } from './InstallBanner';
+import { PlatformGate } from './PlatformGate';
 
 export const metadata: Metadata = {
   title: 'Instalar la app — Estación 33',
@@ -78,38 +79,41 @@ export default function InstalarPage() {
         </ul>
       </section>
 
-      <section style={cardSection}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <span aria-hidden style={{ fontSize: 28 }}>🤖</span>
-          <h2 style={{ ...sectionH2, margin: 0 }}>En Android (Chrome)</h2>
-        </div>
-        <ol style={stepsList}>
-          <Step
-            n={1}
-            title="Abre el sitio en Chrome"
-            illustration={<AndroidStep1 />}
-          >
-            Visita <strong>estacion33.com</strong> con Google Chrome.
-          </Step>
-          <Step
-            n={2}
-            title="Toca el menú ⋮"
-            illustration={<AndroidStep2 />}
-          >
-            Arriba a la derecha, toca los tres puntos verticales.
-          </Step>
-          <Step
-            n={3}
-            title="Elige “Instalar app” o “Agregar a la pantalla de inicio”"
-            illustration={<AndroidStep3 />}
-          >
-            Confirma tocando <strong>Instalar</strong>. Listo: aparece el ícono
-            de Estación 33 en tu pantalla de inicio.
-          </Step>
-        </ol>
-      </section>
+      <PlatformGate show="android">
+        <section style={cardSection}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <span aria-hidden style={{ fontSize: 28 }}>🤖</span>
+            <h2 style={{ ...sectionH2, margin: 0 }}>En Android (Chrome)</h2>
+          </div>
+          <ol style={stepsList}>
+            <Step
+              n={1}
+              title="Abre el sitio en Chrome"
+              illustration={<AndroidStep1 />}
+            >
+              Visita <strong>estacion33.com</strong> con Google Chrome.
+            </Step>
+            <Step
+              n={2}
+              title="Toca el menú ⋮"
+              illustration={<AndroidStep2 />}
+            >
+              Arriba a la derecha, toca los tres puntos verticales.
+            </Step>
+            <Step
+              n={3}
+              title="Elige “Instalar app” o “Agregar a la pantalla de inicio”"
+              illustration={<AndroidStep3 />}
+            >
+              Confirma tocando <strong>Instalar</strong>. Listo: aparece el
+              ícono de Estación 33 en tu pantalla de inicio.
+            </Step>
+          </ol>
+        </section>
+      </PlatformGate>
 
-      <section style={cardSection}>
+      <PlatformGate show="ios">
+        <section style={cardSection}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span aria-hidden style={{ fontSize: 28 }}>🍎</span>
           <h2 style={{ ...sectionH2, margin: 0 }}>En iPhone (Safari)</h2>
@@ -142,7 +146,8 @@ export default function InstalarPage() {
             arriba a la derecha.
           </Step>
         </ol>
-      </section>
+        </section>
+      </PlatformGate>
 
       <section style={cardSection}>
         <h2 style={sectionH2}>Preguntas comunes</h2>

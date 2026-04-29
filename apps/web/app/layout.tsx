@@ -54,8 +54,8 @@ export const metadata: Metadata = {
     locale: 'es_MX',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — ¡A puro sabor!`,
-    description: DESCRIPTION,
+    title: `🍔 ${SITE_NAME} — ¡A puro sabor!`,
+    description: `Hamburguesas, hot dogs y pasta italiana en Iguala, Gro. 🌮 Pide en línea o reserva mesa · Jue/Vie/Sáb 18:30–22:30.`,
     // Explicit images entry so platforms that don't follow Next.js's
     // dynamic opengraph-image.tsx convention (some WhatsApp regions, older
     // iMessage previews, link unfurlers in Slack/Discord) still get a
@@ -72,8 +72,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_NAME} — ¡A puro sabor!`,
-    description: DESCRIPTION,
+    title: `🍔 ${SITE_NAME} — ¡A puro sabor!`,
+    description: `Hamburguesas, hot dogs y pasta italiana en Iguala, Gro. 🌮 Pide en línea o reserva mesa · Jue/Vie/Sáb 18:30–22:30.`,
     images: [`${SITE_URL}/opengraph-image`],
   },
   robots: {
