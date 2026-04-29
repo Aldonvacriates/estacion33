@@ -4,6 +4,7 @@ import { CartLink } from './CartLink';
 import { BurgerNav } from './BurgerNav';
 import { PublicFooter } from './PublicFooter';
 import { PaymentsRow } from './PaymentsRow';
+import { SiteInstallBanner } from './SiteInstallBanner';
 import { getServerSupabase } from '@/lib/supabase/server';
 
 export default async function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -79,6 +80,7 @@ export default async function PublicLayout({ children }: { children: React.React
         {/* Mobile burger toggle (hidden >=768px via globals.css) */}
         <BurgerNav loggedIn={Boolean(user)} />
       </header>
+      <SiteInstallBanner />
       <div style={{ flex: 1 }}>{children}</div>
       <PublicFooter>
         <footer
