@@ -104,6 +104,21 @@ export default async function PublicLayout({ children }: { children: React.React
           <div style={{ marginTop: 6, color: 'var(--color-neutral-0)' }}>
             Plan de Iguala s/n, Col. Burócrata · Jue/Vie/Sáb 18:30–22:30 · {t.service.open}
           </div>
+          <div style={{ marginTop: 10 }}>
+            <Link
+              href="/instalar"
+              style={{
+                color: 'var(--color-brand-primary)',
+                fontFamily: 'var(--font-heading)',
+                fontSize: 12,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                textDecoration: 'underline',
+              }}
+            >
+              📲 Instalar la app
+            </Link>
+          </div>
           <PaymentsRow />
           <div
             style={{ marginTop: 12, color: 'var(--color-neutral-400)', fontSize: 11 }}
