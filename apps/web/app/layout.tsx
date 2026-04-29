@@ -48,76 +48,9 @@ export const metadata: Metadata = {
       { url: '/icon-192', type: 'image/png', sizes: '192x192' },
       { url: '/icon-512', type: 'image/png', sizes: '512x512' },
     ],
-    // iOS launch screens. Each iPhone needs an exact-size splash PNG, and
-    // iOS picks the right one via the `media` query. Without these the
-    // PWA opens to a blank white screen for several seconds. The dynamic
-    // /apple-splash route renders the burger + ESTACIÓN 33 mark at any
-    // requested size on a brand-black background so they all stay on
-    // brand without us shipping a dozen static PNGs.
-    other: [
-      // iPhone 15 Pro Max / 14 Pro Max / 15 Plus
-      {
-        rel: 'apple-touch-startup-image',
-        url: '/apple-splash?w=1290&h=2796',
-        media:
-          '(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)',
-      },
-      // iPhone 14 Pro / 15 / 15 Pro
-      {
-        rel: 'apple-touch-startup-image',
-        url: '/apple-splash?w=1179&h=2556',
-        media:
-          '(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)',
-      },
-      // iPhone 14 Plus / 13 Pro Max / 12 Pro Max
-      {
-        rel: 'apple-touch-startup-image',
-        url: '/apple-splash?w=1284&h=2778',
-        media:
-          '(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)',
-      },
-      // iPhone 13/14, 13 Pro, 12, 12 Pro
-      {
-        rel: 'apple-touch-startup-image',
-        url: '/apple-splash?w=1170&h=2532',
-        media:
-          '(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)',
-      },
-      // iPhone 11 Pro Max / XS Max
-      {
-        rel: 'apple-touch-startup-image',
-        url: '/apple-splash?w=1242&h=2688',
-        media:
-          '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)',
-      },
-      // iPhone 11 / XR
-      {
-        rel: 'apple-touch-startup-image',
-        url: '/apple-splash?w=828&h=1792',
-        media:
-          '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)',
-      },
-      // iPhone X / XS / 11 Pro / 12 mini / 13 mini
-      {
-        rel: 'apple-touch-startup-image',
-        url: '/apple-splash?w=1125&h=2436',
-        media:
-          '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)',
-      },
-      // iPhone 8 / 7 / SE 2nd & 3rd gen
-      {
-        rel: 'apple-touch-startup-image',
-        url: '/apple-splash?w=750&h=1334',
-        media:
-          '(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)',
-      },
-      // Generic fallback (no media query) — iOS uses this if nothing else
-      // matched, e.g. on devices we didn't enumerate explicitly.
-      {
-        rel: 'apple-touch-startup-image',
-        url: '/apple-splash?w=1170&h=2532',
-      },
-    ],
+    // iOS launch-screen <link> tags are rendered manually in the layout's
+    // <head> below — Next's metadata.icons.other strips the `media`
+    // attribute, and without it iOS can't pick the right splash.
   },
   // Tells iOS the PWA wants a full-screen, dark-translucent status bar on
   // launch (instead of the default white bar) so the splash blends with
@@ -188,6 +121,39 @@ const script = Yellowtail({
 
 const tokenVarsCss = cssVariablesString(':root');
 
+// iOS PWA launch screens. Each iPhone needs an exact-pixel splash sized
+// for its screen, picked via the `media` attribute. Next.js's
+// metadata.icons.other API drops `media`, so we render these as raw
+// <link> tags inside <head>. The /apple-splash route generates each PNG
+// on demand from the burger SVG so we don't ship dozens of static files.
+const APPLE_SPLASHES: { w: number; h: number; media: string; note: string }[] = [
+  { w: 1290, h: 2796, media: '(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)', note: 'iPhone 15 Pro Max / 14 Pro Max / 15 Plus' },
+  { w: 1179, h: 2556, media: '(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)', note: 'iPhone 15 Pro / 15 / 14 Pro' },
+  { w: 1284, h: 2778, media: '(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)', note: 'iPhone 14 Plus / 13 Pro Max / 12 Pro Max' },
+  { w: 1170, h: 2532, media: '(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)', note: 'iPhone 13 / 14 / 13 Pro / 12 / 12 Pro' },
+  { w: 1242, h: 2688, media: '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)', note: 'iPhone 11 Pro Max / XS Max' },
+  { w: 828, h: 1792, media: '(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)', note: 'iPhone 11 / XR' },
+  { w: 1125, h: 2436, media: '(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)', note: 'iPhone X / XS / 11 Pro / 12 mini / 13 mini' },
+  { w: 750, h: 1334, media: '(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)', note: 'iPhone 8 / 7 / SE 2nd & 3rd gen' },
+];
+
+function AppleSplashLinks() {
+  return (
+    <>
+      {APPLE_SPLASHES.map((s) => (
+        <link
+          key={`${s.w}x${s.h}`}
+          rel="apple-touch-startup-image"
+          href={`/apple-splash?w=${s.w}&h=${s.h}`}
+          media={s.media}
+        />
+      ))}
+      {/* Fallback with no media — iOS uses this if no other entry matched. */}
+      <link rel="apple-touch-startup-image" href="/apple-splash?w=1179&h=2556" />
+    </>
+  );
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -196,6 +162,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <style dangerouslySetInnerHTML={{ __html: tokenVarsCss }} />
+        <AppleSplashLinks />
       </head>
       <body suppressHydrationWarning style={{ fontFamily: 'var(--font-body)' }}>
         {children}
