@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
 import type { Database } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
+import { notifyCustomerAboutStatusChange } from '@/lib/push-notify';
 
 export type RepartidorResult = { ok: true } | { ok: false; error: string };
 
@@ -68,6 +69,13 @@ export async function claimOrderForDeliveryAction(input: {
   revalidatePath(`/repartidor/orden/${parsed.data.orderId}`);
   revalidatePath('/admin/ordenes');
   revalidatePath(`/orden/${parsed.data.orderId}`);
+
+  // Best-effort customer push so they know it's on the way.
+  await notifyCustomerAboutStatusChange({
+    orderId: parsed.data.orderId,
+    newStatus: 'out_for_delivery',
+  }).catch(() => {});
+
   return { ok: true };
 }
 
@@ -122,6 +130,13 @@ export async function completeDeliveryAction(input: {
   revalidatePath(`/repartidor/orden/${parsed.data.orderId}`);
   revalidatePath('/admin/ordenes');
   revalidatePath(`/orden/${parsed.data.orderId}`);
+
+  // Best-effort customer push: pedido entregado.
+  await notifyCustomerAboutStatusChange({
+    orderId: parsed.data.orderId,
+    newStatus: 'delivered',
+  }).catch(() => {});
+
   return { ok: true };
 }
 

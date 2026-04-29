@@ -6,6 +6,7 @@ import type { Database } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
 import {
   notifyAllRepartidoresAboutOffer,
+  notifyCustomerAboutStatusChange,
   notifyDriverAboutAssignment,
 } from '@/lib/push-notify';
 
@@ -62,6 +63,14 @@ export async function setOrderStatusAction(input: {
   if (error) return { ok: false, error: error.message };
 
   revalidatePath('/admin/ordenes');
+
+  // Notify the customer about the new status. Best-effort — the helper
+  // looks up the order's user_id internally, skips guests and statuses we
+  // don't notify on, and never throws back into the action.
+  await notifyCustomerAboutStatusChange({
+    orderId: input.orderId,
+    newStatus: input.status,
+  }).catch(() => {});
 
   // If we just moved a delivery order into "ready" and it's still in the
   // shared queue (no specific driver assigned), broadcast a push offer to

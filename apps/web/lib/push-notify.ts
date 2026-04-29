@@ -89,6 +89,7 @@ async function fanOut(
     auth: string;
   }[],
   payload: NotificationPayload,
+  table: 'repartidor_push_subs' | 'customer_push_subs' = 'repartidor_push_subs',
 ): Promise<void> {
   const results = await Promise.all(
     subs.map((s) =>
@@ -105,11 +106,93 @@ async function fanOut(
     .filter((r) => !r.result.ok && (r.result.status === 404 || r.result.status === 410))
     .map((r) => r.id);
   if (deadIds.length > 0) {
-    await supabase
-      .from('repartidor_push_subs')
-      .delete()
-      .in('id', deadIds);
+    await supabase.from(table).delete().in('id', deadIds);
   }
+}
+
+// ---------------------------------------------------------------------------
+// Customer-side: notify the customer when their order moves through statuses.
+// ---------------------------------------------------------------------------
+
+export type CustomerStatusChange = {
+  orderId: string;
+  // The status the order JUST transitioned to. We only ship a notification
+  // for a curated subset — the ones the customer actually cares about.
+  newStatus: string;
+};
+
+const CUSTOMER_STATUS_COPY: Record<string, { title: string; body: string } | undefined> = {
+  paid: {
+    title: '✅ Pago confirmado',
+    body: 'Recibimos tu pago. Empezamos a preparar tu pedido.',
+  },
+  preparing: {
+    title: '👨‍🍳 En preparación',
+    body: 'Tu pedido está en la cocina.',
+  },
+  ready: {
+    title: '🍔 Listo para recoger',
+    body: 'Pasa por tu pedido cuando puedas.',
+  },
+  out_for_delivery: {
+    title: '🛵 En camino',
+    body: 'Tu pedido salió. Sigue al repartidor en vivo en la app.',
+  },
+  delivered: {
+    title: '✅ Entregado',
+    body: '¡Buen provecho! Gracias por pedir en Estación 33.',
+  },
+  cancelled: {
+    title: '❌ Pedido cancelado',
+    body: 'Tu pedido fue cancelado. Si tienes dudas, contáctanos.',
+  },
+};
+
+/**
+ * Notify a single customer that their order changed status. Looks up the
+ * order's user_id internally so callers (server actions on the admin side)
+ * don't have to pass it.
+ *
+ * Best-effort: failures are logged and swallowed — a missed push must never
+ * roll back the underlying status change.
+ */
+export async function notifyCustomerAboutStatusChange(
+  ctx: CustomerStatusChange,
+): Promise<void> {
+  const copy = CUSTOMER_STATUS_COPY[ctx.newStatus];
+  if (!copy) return; // status change we don't notify on
+
+  const supabase = await getServerSupabase();
+
+  // Resolve the customer's user_id from the order. Skip guest orders —
+  // they have no account to push to.
+  const { data: order } = await supabase
+    .from('orders')
+    .select('user_id, fulfillment')
+    .eq('id', ctx.orderId)
+    .single<{ user_id: string | null; fulfillment: string }>();
+  if (!order || !order.user_id) return;
+
+  // For pickup orders, "ready" means come pick up; for delivery, "ready"
+  // means it's about to be assigned to a driver — less actionable for the
+  // customer, so skip it on delivery to avoid noise.
+  if (ctx.newStatus === 'ready' && order.fulfillment === 'delivery') return;
+
+  const { data: subs } = await supabase
+    .from('customer_push_subs')
+    .select('id, endpoint, p256dh, auth')
+    .eq('user_id', order.user_id)
+    .returns<{ id: string; endpoint: string; p256dh: string; auth: string }[]>();
+  if (!subs || subs.length === 0) return;
+
+  const payload: NotificationPayload = {
+    title: copy.title,
+    body: copy.body,
+    url: `/orden/${ctx.orderId}`,
+    tag: `order-${ctx.orderId}-${ctx.newStatus}`,
+  };
+
+  await fanOut(supabase, subs, payload, 'customer_push_subs');
 }
 
 function formatMxnCents(cents: number): string {

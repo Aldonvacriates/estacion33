@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { formatMxn } from '@estacion33/core';
 import { getServerSupabase } from '@/lib/supabase/server';
 import { quoteOfTheDay } from '@/lib/quotes';
+import { NotificationsToggle } from './NotificationsToggle';
 
 // Dashboard. Shown when the user lands on /cuenta. The actual profile
 // editor lives at /cuenta/perfil now.
@@ -361,6 +362,9 @@ export default async function CuentaDashboardPage() {
           </Link>
         </article>
       )}
+
+      {/* Push notifications opt-in */}
+      <NotificationsToggle />
 
       {/* Quick links */}
       <div

@@ -77,6 +77,67 @@ export async function addAddressAction(input: {
   return { ok: true };
 }
 
+// ---------------------------------------------------------------------------
+// Customer Web Push subscription. Lives on the user's logged-in account so
+// notifications survive across devices and browsers. The actual server-side
+// push delivery happens in lib/push-notify.ts whenever an order changes
+// status (admin-side server action).
+// ---------------------------------------------------------------------------
+
+const pushSubscribeSchema = z.object({
+  endpoint: z.string().url(),
+  p256dh: z.string().min(1).max(2000),
+  auth: z.string().min(1).max(2000),
+  userAgent: z.string().max(500).nullable().optional(),
+});
+
+export type PushResult = { ok: true } | { ok: false; error: string };
+
+export async function subscribeCustomerPushAction(input: {
+  endpoint: string;
+  p256dh: string;
+  auth: string;
+  userAgent?: string | null;
+}): Promise<PushResult> {
+  const parsed = pushSubscribeSchema.safeParse(input);
+  if (!parsed.success) return { ok: false, error: 'invalid_input' };
+
+  const supabase = await getServerSupabase();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return { ok: false, error: 'not_signed_in' };
+
+  const { error } = await supabase
+    .from('customer_push_subs')
+    .upsert(
+      {
+        user_id: user.id,
+        endpoint: parsed.data.endpoint,
+        p256dh: parsed.data.p256dh,
+        auth: parsed.data.auth,
+        user_agent: parsed.data.userAgent ?? null,
+      },
+      { onConflict: 'endpoint' },
+    );
+  if (error) return { ok: false, error: error.message };
+  return { ok: true };
+}
+
+export async function unsubscribeCustomerPushAction(input: {
+  endpoint: string;
+}): Promise<PushResult> {
+  const supabase = await getServerSupabase();
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return { ok: false, error: 'not_signed_in' };
+
+  const { error } = await supabase
+    .from('customer_push_subs')
+    .delete()
+    .eq('endpoint', input.endpoint)
+    .eq('user_id', user.id);
+  if (error) return { ok: false, error: error.message };
+  return { ok: true };
+}
+
 export async function deleteAddressAction(input: {
   id: string;
 }): Promise<AddressResult> {
