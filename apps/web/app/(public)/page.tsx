@@ -111,19 +111,22 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right: video loops the 3s–10s window of estacion33.mp4 */}
+          {/* Right: video loops the 3s–10s window of estacion33.mp4. The
+              brand-black background paints first while the video fetches,
+              so we don't flash a bright frame before the dark video kicks
+              in. */}
           <div
             style={{
               position: 'relative',
               minHeight: 360,
               order: 1,
               overflow: 'hidden',
+              background: '#0A0A0A',
             }}
             className="hero-photo"
           >
             <HeroVideo
               src="/figma-make/estacion33.mp4"
-              poster="/figma-make/food-4efbb2f9.png"
               ariaLabel="Hamburguesa Estación 33 a la parrilla"
             />
           </div>
